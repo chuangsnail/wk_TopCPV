@@ -1,0 +1,5 @@
+exe name Cal_Acp_SRtt_mva
+starting time is : 200216_2238
+Finish time is : 200216_2258
+Total events # / pass sel events # : 576468 / 395164
+==============================================================

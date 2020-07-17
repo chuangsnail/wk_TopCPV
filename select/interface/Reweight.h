@@ -11,17 +11,30 @@ class SF_2D
 public:
 	TH2F* h;
 	TH2D* hd;
+	TH2* h_;
+
 
 	SF_2D(TH2F* h_input)
-	{	h = h_input;		}
+	{	
+		h = h_input;
+		h_ = h_input;
+	}
 	
 	SF_2D(TH2D* h_input_d)
-	{	hd = h_input_d;		}
+	{	
+		hd = h_input_d;
+		h_ = h_input_d;
+	}
+
+	//SF_2D( TH2* h_input )
+	//{	h_ = h_input;	}
 
 	~SF_2D() {}
 
-	double GetTH2FBinContent(double _x,double _y);
-	double GetTH2DBinContent(double _x,double _y);
+	double GetTH2FBinContent(double _x,double _y);		//use h
+	double GetTH2DBinContent(double _x,double _y);		//use h_d
+
+	double GetTH2BinContent( const double& _x, const double& _y, const string& option = "central" );		//use h_
 	
 };
 
@@ -59,7 +72,7 @@ public:
 		h_ElTrgSF = f;
 	}
 
-	double GetLepSF( const string&, const double&, const double& );
+	double GetLepSF( const string&, const double&, const double&, const string& option = "central" );
 };
 
 
@@ -92,12 +105,12 @@ public:
 	void Reset_idx_capacity();
 	void Reset_b_tagged_jets_idx();
 	void Reset_b_ntagged_jets_idx();
-	void Set_b_tagged_jets_idx( vector<int>& sel_b_jets );
-	void Set_b_ntagged_jets_idx( vector<int>& sel_jets );
+	void Set_b_tagged_jets_idx( const vector<int>& sel_b_jets );
+	void Set_b_ntagged_jets_idx( const vector<int>& sel_jets );
 
-	double Get_Btag_Scale_Factor( const int );
+	double Get_Btag_Scale_Factor( const int, const string& option = "central" );
 	double Get_Btag_Efficiency( const int );		//just for op = Medium
-	double Get_Btag_Weight();
+	double Get_Btag_Weight( const string& option = "central" );
 	
 	~BtagMgr() 
 	{
@@ -110,15 +123,17 @@ class PileUpMgr
 {
 private:
 	EvtInfo* evt;
-	double PU_weight;
+	int _nPU;
 	vector<double> pileupweights;
+	vector<double> pileupweights_up;
+	vector<double> pileupweights_down;
 public:
-	PileUpMgr( EvtInfo* e ) { RegIn(e); PU_weight = 1.; }
+	PileUpMgr( EvtInfo* e ) { RegIn(e);  _nPU = -1; }
 	void RegIn( EvtInfo* e ) { evt = e; }
 
-	void RegInPUvec(const string&);
+	void RegInPUvec( const string& filename, const string& option = "central" );
 	bool PassPileUpWeight();
-	double GetPUWeight() { return PU_weight; }
+	double GetPUWeight( const string& option = "central" ); 
 
 };
 

@@ -1,0 +1,158 @@
+Algorithm chi2
+starting time is : 200531_1501
+Finish time is : 200531_1519
+Dilution Factor ( N condition )
+DF O3:                   0.230499 Cor Ratio:               0.38475
+DF O6:                   0.211172 Cor Ratio:               0.394414
+DF O12:                  0.636443 Cor Ratio:               0.181779
+DF O13:                  0.427449 Cor Ratio:               0.286276
+Dilution Factor ( bb condition )
+DF O3:                   0.720641 Cor Ratio:               0.13968
+DF O6:                   0.631483 Cor Ratio:               0.184259
+DF O12:                  0.830515 Cor Ratio:               0.0847427
+DF O13:                  0.622158 Cor Ratio:               0.188921
+Dilution Factor ( bb + j1 condition )
+DF O3:                   0.970275 Cor Ratio:               0.0148626
+DF O6:                   0.910446 Cor Ratio:               0.0447768
+DF O12:                  0.909939 Cor Ratio:               0.0450305
+DF O13:                  0.904412 Cor Ratio:               0.0477939
+==============================================================
+Algorithm chi2
+starting time is : 200531_2233
+Finish time is : 200531_2250
+Dilution Factor ( N condition )
+DF O3:                   0.230499 || Cor Ratio:               0.61525
+DF O6:                   0.211172 || Cor Ratio:               0.605586
+DF O12:                  0.636443 || Cor Ratio:               0.818221
+DF O13:                  0.427449 || Cor Ratio:               0.713724
+Dilution Factor ( bb condition )
+DF O3:                   0.720641 || Cor Ratio:               0.86032
+DF O6:                   0.631483 || Cor Ratio:               0.815741
+DF O12:                  0.830515 || Cor Ratio:               0.915257
+DF O13:                  0.622158 || Cor Ratio:               0.811079
+Dilution Factor ( bb + j1 condition )
+DF O3:                   0.970275 || Cor Ratio:               0.985137
+DF O6:                   0.910446 || Cor Ratio:               0.955223
+DF O12:                  0.909939 || Cor Ratio:               0.95497
+DF O13:                  0.904412 || Cor Ratio:               0.952206
+==============================================================
+Algorithm chi2
+starting time is : 200601_0415
+Finish time is : 200601_0432
+Dilution Factor ( N condition )
+DF O3:                   0.230499 || Cor Ratio:               0.61525
+DF O6:                   0.211172 || Cor Ratio:               0.605586
+DF O12:                  0.636443 || Cor Ratio:               0.818221
+DF O13:                  -0.0742074 || Cor Ratio:               0.462896
+Dilution Factor ( bb condition )
+DF O3:                   0.720641 || Cor Ratio:               0.86032
+DF O6:                   0.631483 || Cor Ratio:               0.815741
+DF O12:                  0.830515 || Cor Ratio:               0.915257
+DF O13:                  -0.0419284 || Cor Ratio:               0.479036
+Dilution Factor ( bb + j1 condition )
+DF O3:                   0.970275 || Cor Ratio:               0.985137
+DF O6:                   0.910446 || Cor Ratio:               0.955223
+DF O12:                  0.909939 || Cor Ratio:               0.95497
+DF O13:                  -0.00230977 || Cor Ratio:               0.498845
+==============================================================
+Algorithm chi2
+starting time is : 200601_1545
+Finish time is : 200601_1560
+Dilution Factor ( N condition )
+DF O3:                   0.230499 || Cor Ratio:               0.61525
+DF O6:                   0.211172 || Cor Ratio:               0.605586
+DF O12:                  0.636443 || Cor Ratio:               0.818221
+DF O13:                  0.427506 || Cor Ratio:               0.713753
+Dilution Factor ( bb condition )
+DF O3:                   0.720641 || Cor Ratio:               0.86032
+DF O6:                   0.631483 || Cor Ratio:               0.815741
+DF O12:                  0.830515 || Cor Ratio:               0.915257
+DF O13:                  0.622166 || Cor Ratio:               0.811083
+Dilution Factor ( bb + j1 condition )
+DF O3:                   0.966952 || Cor Ratio:               0.983476
+DF O6:                   0.907224 || Cor Ratio:               0.953612
+DF O12:                  0.906718 || Cor Ratio:               0.953359
+DF O13:                  0.901221 || Cor Ratio:               0.950611
+==============================================================
+Algorithm chi2
+starting time is : 200601_1731
+Finish time is : 200601_1747
+Dilution Factor ( N condition )
+DF O3:                   0.230499+-0.000446301 || Cor Ratio:               0.61525+-0.00022315
+DF O6:                   0.211172+-0.000448180 || Cor Ratio:               0.605586+-0.00022409
+DF O12:                  0.636443+-0.000357511 || Cor Ratio:               0.818221+-0.000178756
+DF O13:                  0.427506+-0.000415657 || Cor Ratio:               0.713753+-0.000207829
+Dilution Factor ( bb condition )
+DF O3:                   0.720641+-0.000419963 || Cor Ratio:               0.86032+-0.000209982
+DF O6:                   0.631483+-0.000469288 || Cor Ratio:               0.815741+-0.000234644
+DF O12:                  0.830515+-0.000337183 || Cor Ratio:               0.915257+-0.000168591
+DF O13:                  0.622166+-0.000473803 || Cor Ratio:               0.811083+-0.000236901
+Dilution Factor ( bb + j1 condition )
+DF O3:                   0.966952+-0.000184558 || Cor Ratio:               0.983476+-9.2279e-05
+DF O6:                   0.907224+-0.000304176 || Cor Ratio:               0.953612+-0.000152088
+DF O12:                  0.906718+-0.000304785 || Cor Ratio:               0.953359+-0.000152392
+DF O13:                  0.901221+-0.000313654 || Cor Ratio:               0.950611+-0.000156827
+==============================================================
+Algorithm mva
+starting time is : 200714_1401
+Finish time is : 200714_1423
+Dilution Factor ( N condition )
+DF O3:                   0.34391+-0.000431184 || Cor Ratio:               0.671955+-0.000215592
+DF O6:                   0.315881+-0.000435365 || Cor Ratio:               0.657941+-0.000217682
+DF O12:                  0.636443+-0.000357511 || Cor Ratio:               0.818221+-0.000178756
+DF O13:                  0.444079+-0.000412052 || Cor Ratio:               0.722039+-0.000206026
+Dilution Factor ( bb condition )
+DF O3:                   0.704731+-0.000398342 || Cor Ratio:               0.852366+-0.000199171
+DF O6:                   0.620741+-0.000439808 || Cor Ratio:               0.81037+-0.000219904
+DF O12:                  0.830031+-0.000312926 || Cor Ratio:               0.915016+-0.000156463
+DF O13:                  0.610896+-0.000444149 || Cor Ratio:               0.805448+-0.000222074
+Dilution Factor ( bb + j1 condition )
+DF O3:                   0.965922+-0.000174127 || Cor Ratio:               0.982961+-8.70636e-05
+DF O6:                   0.907193+-0.000282676 || Cor Ratio:               0.953596+-0.000141338
+DF O12:                  0.905882+-0.000284462 || Cor Ratio:               0.952941+-0.000142231
+DF O13:                  0.901613+-0.000290911 || Cor Ratio:               0.950807+-0.000145456
+==============================================================
+
+
+Algorithm mva
+algo cut 0.22
+Mlb cut ? 1
+starting time is : 200714_2204
+Finish time is : 200714_2228
+Dilution Factor ( N condition )
+DF O3:                   0.474805+-0.000487556 || Cor Ratio:               0.737402+-0.000243778
+DF O6:                   0.440449+-0.000496738 || Cor Ratio:               0.720225+-0.000248369
+DF O12:                  0.686236+-0.000406163 || Cor Ratio:               0.843118+-0.000203082
+DF O13:                  0.549673+-0.000463278 || Cor Ratio:               0.774836+-0.000231639
+Dilution Factor ( bb condition )
+DF O3:                   0.75891+-0.000412984 || Cor Ratio:               0.879455+-0.000206492
+DF O6:                   0.68266+-0.000463006 || Cor Ratio:               0.84133+-0.000231503
+DF O12:                  0.834758+-0.000349045 || Cor Ratio:               0.917379+-0.000174522
+DF O13:                  0.672019+-0.000469292 || Cor Ratio:               0.83601+-0.000234646
+Dilution Factor ( bb + j1 condition )
+DF O3:                   0.966396+-0.000188562 || Cor Ratio:               0.983198+-9.42812e-05
+DF O6:                   0.908404+-0.000306318 || Cor Ratio:               0.954202+-0.000153159
+DF O12:                  0.907889+-0.00030701 || Cor Ratio:               0.953945+-0.000153505
+DF O13:                  0.903465+-0.00031442 || Cor Ratio:               0.951733+-0.00015721
+==============================================================
+Algorithm chi2
+algo cut 20
+Mlb cut ? 1
+starting time is : 200715_1528
+Finish time is : 200715_1545
+Dilution Factor ( N condition )
+DF O3:                   0.403374+-0.000515296 || Cor Ratio:               0.701687+-0.000257648
+DF O6:                   0.374541+-0.000521714 || Cor Ratio:               0.687271+-0.000260857
+DF O12:                  0.680728+-0.000416357 || Cor Ratio:               0.840364+-0.000208178
+DF O13:                  0.533128+-0.000477402 || Cor Ratio:               0.766564+-0.000238701
+Dilution Factor ( bb condition )
+DF O3:                   0.754949+-0.000437467 || Cor Ratio:               0.877474+-0.000218733
+DF O6:                   0.675068+-0.000491721 || Cor Ratio:               0.837534+-0.00024586
+DF O12:                  0.83574+-0.000366145 || Cor Ratio:               0.91787+-0.000183073
+DF O13:                  0.66439+-0.0004982 || Cor Ratio:               0.832195+-0.0002491
+Dilution Factor ( bb + j1 condition )
+DF O3:                   0.967071+-0.000198375 || Cor Ratio:               0.983536+-9.91876e-05
+DF O6:                   0.90874+-0.000324946 || Cor Ratio:               0.95437+-0.000162473
+DF O12:                  0.908685+-0.000324719 || Cor Ratio:               0.954343+-0.00016236
+DF O13:                  0.903+-0.000334807 || Cor Ratio:               0.9515+-0.000167404
+==============================================================

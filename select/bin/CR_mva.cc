@@ -1,6 +1,6 @@
 /**********************************
  *
- *	File Name : SR_mva.cc
+ *	File Name : CR_mva.cc
  *	Date : 200121
  *	Description : for mva method	
  *
@@ -17,7 +17,7 @@ using namespace std;
 
 int main(int argc,char* argv[])
 {
-	string training_name = "a05_all_MLP";
+	string training_name = "";
 	double mva_cut = stod( string(argv[1]) );
 
 	cout << "mva-cut is " << mva_cut << endl;
@@ -172,6 +172,7 @@ int main(int argc,char* argv[])
 			//*** Initialize the selection manager ***//
 			
 			SelMgr sel( &jetInfo, &leptonInfo, &evtInfo, &vertexInfo, &genInfo );
+			sel.SetTrain( training_name );
 			if( is_data ) {	sel.SetIsData(is_data);	}
 
 			//AcpMgr acpMgr( &leptonInfo, &jetInfo );
@@ -227,6 +228,7 @@ int main(int argc,char* argv[])
 			
 			}	//end of entry for-loop	
 			cout << endl << "The end of the file-sets " << Set_name << " " << r+1 << " " << endl;
+			training_name = sel.GetTrain();
 			
 		}		//end of r for-loop
 	}			//end of k for-loop
@@ -237,7 +239,7 @@ int main(int argc,char* argv[])
 	
 	string time_str = "";
 	time_str = get_time_str( minute );
-	string new_file_name = training_name + string("_SRmass_") + time_str + ".root";
+	string new_file_name = training_name + string("_CRmass_") + time_str + ".root";
 
 	TFile* f_out = new TFile( new_file_name.c_str() , "recreate" );
 

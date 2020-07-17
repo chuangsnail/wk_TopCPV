@@ -56,6 +56,12 @@ bool Jet::LooseJet( const int& idx ) const
 	return false;
 }
 
+bool Jet::UncPreSelJet( const int& idx ) const
+{
+	return fabs( Eta(idx) ) < 2.4 \
+	&& LooseJet( idx );
+}
+
 bool Jet::SelJet( const int& idx ) const
 {
 	return Pt(idx) > 30. \
@@ -63,7 +69,7 @@ bool Jet::SelJet( const int& idx ) const
 	&& LooseJet( idx );
 }
 
-//// JER ////
+////--- JER ---////
 bool Jet::Is_Well_Match( const int& idx, const double& res )
 {
 	double deta = Eta(idx) - GenJetEta(idx);
@@ -104,11 +110,18 @@ double Jet::Smeared_Case( const double& res, const double& ressf )
 	}
 }
 
-double Jet::Get_JERScale( const int& i )
+double Jet::Get_JERScale( const int& i, const string& option )
 {
 	double scale = 1.;
+	double ressf = 0.;
+	
+	if( option == "central" )
+		ressf = jets->JERScale[i];
+	else if( option == "up" )
+		ressf = jets->JERScaleUp[i];
+	else if( option == "down" )
+		ressf = jets->JERScaleDown[i];
 
-	double ressf = jets->JERScale[i];
 	double res   = jets->JERPt[i];
 
 	if( Is_Well_Match( i, res ) ){
@@ -121,13 +134,89 @@ double Jet::Get_JERScale( const int& i )
 }
 
 //it can change the jets' Pt/P4...(kinematic) //but Eta/Phi can't be change (just change energy not aspection)
-void Jet::JERCor()
+void Jet::JERCor( const string& option )
 {
+	if( option == "central" ) {
+		for(int i=0;i<(int)Size();++i)
+		{
+			TLorentzVector tmp_jet;
+			tmp_jet.SetPxPyPzE( jets->Px[i], jets->Py[i], jets->Pz[i], jets->Energy[i] );
+			tmp_jet *= Get_JERScale( i );
+			jets->Px[i] = tmp_jet.Px();
+			jets->Py[i] = tmp_jet.Py();
+			jets->Pz[i] = tmp_jet.Pz();
+			jets->Pt[i] = tmp_jet.Pt();
+			jets->Energy[i] = tmp_jet.Energy();
+		}
+	}
+	else if( option.find("up") != string::npos ) {
+		for(int i=0;i<(int)Size();++i)
+		{
+			TLorentzVector tmp_jet;
+			tmp_jet.SetPxPyPzE( jets->Px[i], jets->Py[i], jets->Pz[i], jets->Energy[i] );
+			tmp_jet *= Get_JERScale( i, "up" );
+			jets->Px[i] = tmp_jet.Px();
+			jets->Py[i] = tmp_jet.Py();
+			jets->Pz[i] = tmp_jet.Pz();
+			jets->Pt[i] = tmp_jet.Pt();
+			jets->Energy[i] = tmp_jet.Energy();
+		}
+	}
+	else if( option.find("down") != string::npos ) {
+		for(int i=0;i<(int)Size();++i)
+		{
+			TLorentzVector tmp_jet;
+			tmp_jet.SetPxPyPzE( jets->Px[i], jets->Py[i], jets->Pz[i], jets->Energy[i] );
+			tmp_jet *= Get_JERScale( i, "down" );
+			jets->Px[i] = tmp_jet.Px();
+			jets->Py[i] = tmp_jet.Py();
+			jets->Pz[i] = tmp_jet.Pz();
+			jets->Pt[i] = tmp_jet.Pt();
+			jets->Energy[i] = tmp_jet.Energy();
+		}
+	}
+	else {
+		cerr << "Wrong option in Jet::JETCor() in Jet_Seln.cc, [\"central\", \"up\", \"down\"] " << endl;
+		return;
+	}
+}
+
+double 
+Jet::Get_JECscale( const int& idx, const string& option )
+{
+	if( option == "up" )
+	{
+		return ( 1. + jets->JesUnc[idx] );
+	}
+	else if( option == "down" )
+	{
+		return ( 1. - jets->JesUnc[idx] );
+	}
+	else {
+		return 1.;
+	}
+
+}
+
+	
+void
+Jet::JESCor( const string& option )
+{
+	if( option != "up" && option != "down" && option != "central" ) {
+		cerr << "[Error] It's required to input 'up' or 'down' in fn. Jet::JESCor()! " << endl;
+		return;
+	}
+
+	if( option == "central" )
+		return;
+
 	for(int i=0;i<(int)Size();++i)
 	{
 		TLorentzVector tmp_jet;
 		tmp_jet.SetPxPyPzE( jets->Px[i], jets->Py[i], jets->Pz[i], jets->Energy[i] );
-		tmp_jet *= Get_JERScale( i );
+		
+		tmp_jet *= Get_JECscale( i, option );	
+
 		jets->Px[i] = tmp_jet.Px();
 		jets->Py[i] = tmp_jet.Py();
 		jets->Pz[i] = tmp_jet.Pz();

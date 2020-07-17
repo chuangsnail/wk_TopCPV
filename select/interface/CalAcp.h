@@ -25,13 +25,12 @@ private:
 	void ConvertToVect();
 	void BoostAll( const TVector3& );
 
-
-
 public:
 	AcpMgr() {}
 	AcpMgr( LeptonInfo*, JetInfo* ); 
 
 	void RegIn( LeptonInfo*, JetInfo* );
+	void Reset();
 	void InputSelObjs( const int& hadb, const int& lepb, const int& r, const int& s); //r==j1, s==lep
 	void InputSelObjs_p4( const TLorentzVector& hadb, const TLorentzVector& lepb, const TLorentzVector& hardjet, const int& isolep );
 	double Obs3();

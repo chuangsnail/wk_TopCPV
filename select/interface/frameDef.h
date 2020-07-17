@@ -27,8 +27,16 @@
 #include "TLegend.h"
 #include "TObject.h"
 #include "TColor.h"
-#include "TCanvas.h"
 #include "TAxis.h"
+#include "TCanvas.h"
+#include "TGraph.h"
+#include "TGraphAsymmErrors.h"
+#include "THStack.h"
+#include "TLine.h"
+#include "TMultiGraph.h"
+#include "TPad.h"
+#include "TPaveText.h"
+#include "TRandom3.h"
 
 
 //#include "TopCPViolation/select/interface/BranchInfo.h"
@@ -37,6 +45,11 @@
 #include "CondFormats/BTauObjects/interface/BTagCalibration.h"
 #include "CondFormats/BTauObjects/interface/BTagEntry.h"
 #include "CondTools/BTau/interface/BTagCalibrationReader.h"
+
+#include "CondFormats/JetMETObjects/interface/JetCorrectionUncertainty.h"
+#include "CondFormats/JetMETObjects/interface/JetCorrectorParameters.h"
+#include "JetMETCorrections/Modules/interface/JetResolution.h"
+#include "JetMETCorrections/Objects/interface/JetCorrectionsRecord.h"
 
 using namespace std;
 

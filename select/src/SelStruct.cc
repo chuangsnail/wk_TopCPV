@@ -16,6 +16,17 @@ SelMgr::SelMgr( JetInfo* j, LeptonInfo* l, EvtInfo* e, VertexInfo* v, GenInfo* g
 	reset();
 	training_name = "";
 	reco_algo_value = -10.;
+	
+	opt_btag = "central";
+	opt_lepsf = "central";
+	opt_pu = "central";
+	opt_jes = "central";
+	opt_jer = "central";
+
+    // --- initialize golden json file process --- //
+
+    //checkEvt.addJson( "/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/data/Cert_271036-284044_13TeV_ReReco_07Aug2017_Collisions16_JSON.txt" );
+    //checkEvt.makeJsonMap();
 }
 
 //just reset one event
@@ -27,6 +38,7 @@ void SelMgr::reset()
 	weight = 1.;
 	lep_weight = 1.;
 	btag_weight = 1.;
+	pu_weight = 1.;
 	other_weight = 1.;
 	channel = "";
 	Hadb = -1;			Lepb = -1;
@@ -84,11 +96,11 @@ SelMgr::SelJets_deepCSV( vector<double>& v , const string& option = "all" )
 	{
 		for(size_t i=0;i<sel_b_jets.size();++i)
 		{
-			v.push_back( jets.DeepCSV(i) );
+			v.push_back( jets.DeepCSV( sel_b_jets.at(i) ) );
 		}
 		for(int i=0;i<(int)sel_jets.size();++i)
 		{
-			v.push_back( jets.DeepCSV(i) );
+			v.push_back( jets.DeepCSV( sel_jets.at(i) ) );
 		}
 	}
 	else
@@ -114,10 +126,17 @@ void SelMgr::swap_v(int& a, int& b)
 
 double SelMgr::chi2_v( const int& idx_b, const int& idx_j1, const int& idx_j2 )
 {	
+/*
 	double pdg_t_mass = 172.5;
 	double pdg_w_mass = 82.9;
 	double pdg_t_sigma = 16.3;
 	double pdg_w_sigma = 9.5;
+*/
+	
+	double pdg_t_mass = 168.15;
+	double pdg_w_mass = 81.25;
+	double pdg_t_sigma = 20.6;
+	double pdg_w_sigma = 12.1;
 
 	TLorentzVector j1, j2, b;
 

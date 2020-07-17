@@ -230,6 +230,13 @@ GenMgr::Find_Correct_HadronicTop( int& cor_b, int& cor_j1, int& cor_j2 )
 	{	
 		return false;	
 	}
+
+	if( abs(gen->PdgID[lep_idx]) == 11 )
+		_ch = "el";
+	else if( abs(gen->PdgID[lep_idx]) == 13 )
+		_ch = "mu";
+	else if( abs(gen->PdgID[lep_idx]) == 15 )
+		_ch = "tau";
 		
 
 	double lep_charge;
@@ -255,14 +262,6 @@ GenMgr::Find_Correct_HadronicTop( int& cor_b, int& cor_j1, int& cor_j2 )
 	int w_pdg = 24;			//for hadronic branch W
 	if( lep_charge > 0 )	//leptonic branch is W-plus
 	{ w_pdg = -24; }
-
-	/*
-	for(int i=0;i<gen->Size;i++)
-	{
-		cout << "idx:" << i << " Selpdg:" << gen->PdgID[i] << " Mo1idx:" << gen->Mo1[i] << " Mo1pdg:" << gen->Mo1PdgID[ i ] << " Mo2idx:" << gen->Mo2[i] << "  Mo2pdg:" << gen->Mo2PdgID[ i ] << endl;
-	}
-	*/
-
 
 	for(int i=0;i<gen->Size;i++)
 	{
@@ -359,6 +358,97 @@ bb_matching_type GenMgr::Get_bb_Option( const int& had_b, const int& lep_b, cons
 
 }
 
+bool 
+GenMgr::IsJ1Correct( const int& jet_j1 )
+{
+	
+	int lepl_no = 0;
+	int lep_idx = -1;		//in Gen
+	
+	for(int i=0;i<gen->Size;i++)
+	{
+		if( fabs(gen->PdgID[i]) == 11 || fabs(gen->PdgID[i]) == 13 || fabs(gen->PdgID[i]) == 15 )
+		{
+			if( fabs(gen->Mo1PdgID[i]) == 24 || fabs(gen->Mo2PdgID[i]) == 24 )
+			{	
+				if( is_Gen_Lep_Seen( i ) != -1  )
+				{
+					lepl_no++;
+					lep_idx = i;
+				}
+			}
+		}
+	}
+	if( lepl_no != 1 )
+	{	
+		return false;	
+	}
+	
+	double lep_charge;
+	if( gen->PdgID[lep_idx] > 0 )		//charge < 0
+	{ lep_charge = -1.; }
+	else
+	{ lep_charge = 1.; }
+	
+	int w_pdg = 24;			//for hadronic branch W
+	if( lep_charge > 0 )	//leptonic branch is W-plus
+	{ w_pdg = -24; }
+	
+	vector<int> hadj;						//idx in GenInfo
+	for(int i=0;i<gen->Size;i++)
+	{
+		if( ( gen->Mo1PdgID[ i ] == w_pdg || gen->Mo2PdgID[ i ] == w_pdg ) )
+		{ 
+			int self_id = gen->PdgID[i];
+			if( abs(self_id) == 1 || abs(self_id) == 2 || abs(self_id) == 3 || abs(self_id) == 4 ) {
+				hadj.push_back( i ); 
+			}
+		}
+	}
+	
+	if( (int)hadj.size() != 2 )
+	{
+	   	//cerr << "Error -> hadj.size() : " << hadj.size() << endl; 
+		
+		for(int j=0;j<gen->Size;++j)
+		{
+			if( gen->PdgID[j] == w_pdg && ( gen->Da1PdgID[j] != w_pdg || gen->Da2PdgID[j] != w_pdg ) )
+			{
+				//cout << "Da1 of W : " << gen->Da1[j] << "  " << gen->Da1PdgID[j] << endl;
+				//cout << "Da2 of W : " << gen->Da2[j] << "  " << gen->Da2PdgID[j] << endl;
+				hadj.clear();
+				hadj.push_back( gen->Da1[j] );
+				hadj.push_back( gen->Da2[j] );
+			}	
+		}
+
+		//cerr << "something wrong if you use semi-leptonic ttbar sample" << endl;
+		counter++;
+		//return false; 
+	}
+	
+	if( (int)hadj.size() != 2 ) return false;
+	
+	
+	int gen_j1 = GenJetIdx( jet_j1 );
+	int gen_q1 = -1;
+
+	if( gen->Pt[ hadj.at(0) ] > gen->Pt[ hadj.at(1) ] )
+		gen_q1 = hadj.at(0);
+	else
+		gen_q1 = hadj.at(1);
+	
+	if( gen_j1 == gen_q1 )
+	{
+		return true;
+	}
+	else
+		return false;
+}
+
+	
+	
+	
 bool
 GenMgr::IsPositiveAcp( const string& obs )
 {
@@ -483,7 +573,8 @@ GenMgr::IsPositiveAcp( const string& obs )
 	}
 	else if( obs == "Obs13" )
 	{
-		res = lep_charge * ( ( _b + _bbar ).Dot( _lepton.Cross( _j1 ) ) );
+		//res = lep_charge * ( ( _b + _bbar ).Dot( _lepton.Cross( _j1 ) ) );
+		res = ( ( _b + _bbar ).Dot( _lepton.Cross( _j1 ) ) );
 	}
 	else
 	{
@@ -493,5 +584,146 @@ GenMgr::IsPositiveAcp( const string& obs )
 	if( res > 0. ) return true;
 
 	return false;
+
+}
+	
+double
+GenMgr::GenAcp( const string& obs )
+{
+	////check if there is a lepton( muon or electron ), can be seen
+	
+	int lepl_no = 0;
+	int lep_idx = -1;		//in Gen
+	
+	for(int i=0;i<gen->Size;i++)
+	{
+		if( fabs(gen->PdgID[i]) == 11 || fabs(gen->PdgID[i]) == 13 || fabs(gen->PdgID[i]) == 15 )
+		{
+			if( fabs(gen->Mo1PdgID[i]) == 24 || fabs(gen->Mo2PdgID[i]) == 24 )
+			{	
+				if( is_Gen_Lep_Seen( i ) != -1  )
+				{
+					lepl_no++;
+					lep_idx = i;
+				}
+			}
+		}
+	}
+	if( lepl_no != 1 )
+	{	
+		return false;	
+	}
+		
+
+	double lep_charge;
+	if( gen->PdgID[lep_idx] > 0 )		//charge < 0
+	{ lep_charge = -1.; }
+	else
+	{ lep_charge = 1.; }
+   	
+   	////check 2 b-quark exist in gen
+
+    int real_gen_b = Find_GenParticle( 5, 6 );            //idx in GenInfo
+    int real_gen_bbar = Find_GenParticle( -5, -6 );
+    
+    if( real_gen_b == -1 || real_gen_bbar == -1 )       //that means there are no b or bbar in this selected event
+    {   return false;   }
+	
+	////check 2 jets from W exist in gen
+
+	vector<int> hadj;	//in Geninfo
+	hadj.assign( 10, 0 );
+	hadj.clear();
+
+	int w_pdg = 24;			//for hadronic branch W
+	if( lep_charge > 0 )	//leptonic branch is W-plus
+	{ w_pdg = -24; }
+
+	for(int i=0;i<gen->Size;i++)
+	{
+		if( ( gen->Mo1PdgID[ i ] == w_pdg || gen->Mo2PdgID[ i ] == w_pdg ) )
+		{ 
+			int self_id = gen->PdgID[i];
+			//if( gen->PdgID[i] != w_pdg )
+			if( fabs(self_id) == 1 || fabs(self_id) == 2 || fabs(self_id) == 3 || fabs(self_id) == 4 )
+			{
+				hadj.push_back( i ); 
+			}
+		}
+	}
+	//cout << "hadj.size()" << (int)hadj.size() << endl;
+	if( (int)hadj.size() != 2 )
+	{ return false; }
+
+	int j1 = -1;
+	if( gen->Pt[hadj.at(0)] > gen->Pt[hadj.at(1)] )
+		j1 = hadj.at(0);
+	else
+		j1 = hadj.at(1);
+
+
+	//PrintInfo();
+	
+	int b = real_gen_b;
+	int bbar = real_gen_bbar;
+
+/*
+	cout << "********Particles in gen********" << endl;
+	cout << "b : " << b << endl;
+	cout << "bbar : " << bbar << endl;
+	cout << "j1 : " << j1 << endl;
+	cout << "lep : " << lep_idx << endl;
+*/
+
+	TVector3 _b, _bbar, _j1, _lepton;
+	_b.SetPtEtaPhi( gen->Pt[b], gen->Eta[b], gen->Phi[b] );
+	_bbar.SetPtEtaPhi( gen->Pt[bbar], gen->Eta[bbar], gen->Phi[bbar] );
+	_j1.SetPtEtaPhi( gen->Pt[j1], gen->Eta[j1], gen->Phi[j1] );
+	_lepton.SetPtEtaPhi( gen->Pt[lep_idx], gen->Eta[lep_idx], gen->Phi[lep_idx] );
+
+	TLorentzVector b_p4, bbar_p4, j1_p4, lep_p4;
+	b_p4.SetPtEtaPhiM( gen->Pt[b], gen->Eta[b], gen->Phi[b], gen->Mass[b] );
+	bbar_p4.SetPtEtaPhiM( gen->Pt[bbar], gen->Eta[bbar], gen->Phi[bbar], gen->Mass[bbar] );
+	j1_p4.SetPtEtaPhiM( gen->Pt[j1], gen->Eta[j1], gen->Phi[j1], gen->Mass[j1] );
+	lep_p4.SetPtEtaPhiM( gen->Pt[lep_idx], gen->Eta[lep_idx], gen->Phi[lep_idx], gen->Mass[lep_idx] );
+
+	//*** calculate observables ***//
+	
+	double res = 0.;
+
+	if( obs == "Obs3" )
+	{
+		TVector3 bbcm = -( b_p4 + bbar_p4 ).BoostVector();
+		b_p4.Boost( bbcm );
+		bbar_p4.Boost( bbcm );
+		j1_p4.Boost( bbcm );
+		lep_p4.Boost( bbcm );
+
+		res = lep_charge * ( ( b_p4.Vect() ).Dot( ( lep_p4.Vect() ).Cross( j1_p4.Vect() ) ) ) ;
+	}
+	else if( obs == "Obs6" )
+	{
+		res = lep_charge * ( ( _b - _bbar ).Dot( _lepton.Cross( _j1 ) ) );
+	}
+	else if( obs == "Obs12" )
+	{
+		res = ( _b - _bbar ).Pz() * ( _b.Cross( _bbar ) ).Pz() ;
+	}
+	else if( obs == "Obs13" )
+	{
+		//res = lep_charge * ( ( _b + _bbar ).Dot( _lepton.Cross( _j1 ) ) );
+		res = ( ( _b + _bbar ).Dot( _lepton.Cross( _j1 ) ) );
+	}
+	else
+	{
+		cerr << "There is no option in fn. GenMgr::IsPositiveAcp() !!!" << endl;
+	}
+
+	if( res == 0. )
+	{
+		cerr << "The GenAcp (" << obs <<  ")  is 0, that is weird" << endl;
+	}
+	
+	return res;
 
 }

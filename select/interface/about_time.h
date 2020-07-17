@@ -9,7 +9,7 @@ using namespace std;
 
 enum time_option { day , hour , minute };	//{0,1,2}
 
-string get_time_str(time_option opt)
+inline string get_time_str(time_option opt)
 {
 	time_t now = time(0);
     tm* ltm = localtime(&now);

@@ -1,11 +1,11 @@
 #ifndef TOOL_H
 #define TOOL_H
 
-#include "framedef.h"
+#include "frameDef.h"
 
 namespace CalTool
 {
-	double delR(const double& eta1, const double& eta2, const double& phi1, const double& phi2)
+	inline double delR(const double& eta1, const double& eta2, const double& phi1, const double& phi2)
 	{
 		double delta_eta = eta1 - eta2;
 		double delta_phi = TVector2::Phi_mpi_pi(phi1 - phi2);		//TLorentzVector.h
@@ -14,7 +14,7 @@ namespace CalTool
 	}
 
 	//to change the P4 of the original branch value and storethe updated version of P4
-	void ScaleP4( double& SF, const string& option = "Jet" )
+	inline void ScaleP4( double& SF, const string& option = "Jet" )
 	{
 		if( option == "Jet" )
 		{
@@ -22,6 +22,11 @@ namespace CalTool
 		else if( option == "Lep" )
 		{
 		}
+	}
+
+	inline double Integral_All( TH1* h )
+	{
+		return h->Integral( 0, h->GetNbinsX()+1 );
 	}
 
 		

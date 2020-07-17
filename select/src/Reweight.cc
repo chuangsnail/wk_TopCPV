@@ -1,6 +1,7 @@
 //#include "TopCPViolation/selected/interface/Reweight.h"
 #include "../interface/Reweight.h"
 
+#include <assert.h>
 
 double SF_2D::GetTH2FBinContent(double _x,double _y)
 {
@@ -60,35 +61,146 @@ double SF_2D::GetTH2DBinContent(double _x,double _y)
 	return result;
 }
 
-double LeptonSFMgr::GetLepSF( const string& ch, const double& pt, const double& eta )
+double SF_2D::GetTH2BinContent( const double& _x,const double& _y, const string& option )
 {
-	double sf = 1.;
-	if( ch == "mu" ) {
-		if( h_tightMuIDSF != NULL) {
-			SF_2D SF( h_tightMuIDSF );
-			sf *= SF.GetTH2FBinContent( eta , pt );
+
+	int _xLabel = 1, _yLabel = 1;
+	for(int i=1;i<=h_->GetXaxis()->GetNbins();i++)
+	{
+		double low_edge = h_->GetXaxis()->GetBinLowEdge(i);
+		double up_edge = h_->GetXaxis()->GetBinUpEdge(i);
+		if( ( _x > low_edge  ) && ( _x <= up_edge ) )
+		{
+			_xLabel = i;
+			break;
 		}
-		if( h_MuISOSF != NULL) {
-			SF_2D SF( h_MuISOSF );
-			sf *= SF.GetTH2DBinContent( eta , pt );
-		}
-		if( h_MuTrgSF != NULL) {
-			SF_2D SF( h_MuTrgSF );
-			sf *= SF.GetTH2FBinContent( eta , pt );
+	}	
+	for(int j=1;j<=h_->GetYaxis()->GetNbins();j++)
+	{
+		double low_edge = h_->GetYaxis()->GetBinLowEdge(j);
+		double up_edge = h_->GetYaxis()->GetBinUpEdge(j);
+		if( ( _y > low_edge  ) && ( _y <= up_edge ) )
+		{
+			_yLabel = j;
+			break;
 		}
 	}
-	else if( ch == "el" ) {
-		if( h_tightElIDSF != NULL) {
-			SF_2D SF( h_tightElIDSF );
-			sf *= SF.GetTH2FBinContent( eta , pt );
+	double result = 0.;
+	
+	double center = h_->GetBinContent( _xLabel , _yLabel );
+	//double error = h_->GetBinError( _xLabel , _yLabel );
+
+	if( option.find( "central" ) != string::npos  ) {
+		result = center;
+	}
+	else if( option.find( "up" ) != string::npos ) {
+		//result = center + error;
+		result = center + h_->GetBinErrorUp( _xLabel , _yLabel );
+	}
+	else if( option.find( "down" ) != string::npos ) {
+		//result = center - error;
+		result = center - h_->GetBinErrorLow( _xLabel , _yLabel );
+	}
+	else
+		result = center;
+	
+	return result;
+}
+
+double LeptonSFMgr::GetLepSF( const string& ch, const double& pt, const double& eta, const string& option )
+{
+	double sf = 1.;
+	if( option.find("central") != string::npos ) 
+	{
+		if( ch == "mu" ) {
+			if( h_tightMuIDSF != NULL ) {
+				SF_2D SF( h_tightMuIDSF );
+				sf *= SF.GetTH2FBinContent( eta , pt );
+			}
+			if( h_MuISOSF != NULL ) {
+				SF_2D SF( h_MuISOSF );
+				sf *= SF.GetTH2DBinContent( eta , pt );
+			}
+			if( h_MuTrgSF != NULL ) {
+				SF_2D SF( h_MuTrgSF );
+				sf *= SF.GetTH2FBinContent( eta , pt );
+			}
 		}
-		if( h_ElRECOSF != NULL) {
-			SF_2D SF( h_ElRECOSF );
-			sf *= SF.GetTH2FBinContent( eta , pt );
+		else if( ch == "el" ) {
+			if( h_tightElIDSF != NULL) {
+				SF_2D SF( h_tightElIDSF );
+				sf *= SF.GetTH2FBinContent( eta , pt );
+			}
+			if( h_ElRECOSF != NULL) {
+				SF_2D SF( h_ElRECOSF );
+				sf *= SF.GetTH2FBinContent( eta , pt );
+			}
+			if( h_ElTrgSF != NULL) {
+				SF_2D SF( h_ElTrgSF );
+				sf *= SF.GetTH2DBinContent( eta , pt );
+			}
 		}
-		if( h_ElTrgSF != NULL) {
-			SF_2D SF( h_ElTrgSF );
-			sf *= SF.GetTH2DBinContent( eta , pt );
+	}
+	else if( option.find("up") != string::npos )
+	{
+		if( ch == "mu" ) {
+			if( h_tightMuIDSF != NULL) {
+				SF_2D SF( h_tightMuIDSF );
+				sf *= SF.GetTH2BinContent( eta , pt, "up" );
+			}
+			if( h_MuISOSF != NULL) {
+				SF_2D SF( h_MuISOSF );
+				sf *= SF.GetTH2BinContent( eta , pt, "up" );
+			}
+			if( h_MuTrgSF != NULL) {
+				SF_2D SF( h_MuTrgSF );
+				sf *= SF.GetTH2BinContent( eta , pt, "up" );
+			}
+		}
+		else if( ch == "el" ) {
+			if( h_tightElIDSF != NULL) {
+				SF_2D SF( h_tightElIDSF );
+				sf *= SF.GetTH2BinContent( eta , pt, "up" );
+			}
+			if( h_ElRECOSF != NULL) {
+				SF_2D SF( h_ElRECOSF );
+				sf *= SF.GetTH2BinContent( eta , pt, "up" );
+			}
+			if( h_ElTrgSF != NULL) {
+				SF_2D SF( h_ElTrgSF );
+				sf *= SF.GetTH2BinContent( eta , pt, "up" );
+			}
+		}
+	}
+	else if( option.find("down") != string::npos )
+	{
+		if( ch == "mu" ) {
+			if( h_tightMuIDSF != NULL) {
+				SF_2D SF( h_tightMuIDSF );
+				sf *= SF.GetTH2BinContent( eta , pt, "down" );
+			}
+			if( h_MuISOSF != NULL) {
+				SF_2D SF( h_MuISOSF );
+				sf *= SF.GetTH2BinContent( eta , pt, "down" );
+			}
+			if( h_MuTrgSF != NULL) {
+				SF_2D SF( h_MuTrgSF );
+				sf *= SF.GetTH2BinContent( eta , pt, "down" );
+			}
+		}
+		else if( ch == "el" ) {
+			if( h_tightElIDSF != NULL) {
+				SF_2D SF( h_tightElIDSF );
+				sf *= SF.GetTH2BinContent( eta , pt, "down" );
+			}
+			if( h_ElRECOSF != NULL) {
+				SF_2D SF( h_ElRECOSF );
+				sf *= SF.GetTH2BinContent( eta , pt, "down" );
+			}
+			if( h_ElTrgSF != NULL) {
+				SF_2D SF( h_ElTrgSF );
+				sf *= SF.GetTH2BinContent( eta , pt, "down" );
+			}
 		}
 	}
 	
@@ -97,8 +209,9 @@ double LeptonSFMgr::GetLepSF( const string& ch, const double& pt, const double& 
 
 
 
-void PileUpMgr::RegInPUvec( const string& filename )
+void PileUpMgr::RegInPUvec( const string& filename, const string& option )
 {
+	vector<double>* puweights = NULL;
 	
 	ifstream fin;
 	fin.open( (char*)filename.c_str() );
@@ -107,20 +220,38 @@ void PileUpMgr::RegInPUvec( const string& filename )
 	
 	if(!fin){ 
 		cerr << "there is something wrong in opening the file \"" << filename <<  "\"" << endl;
+		return;
    	}
+
+	if( option == "central" ) {
+		puweights = &pileupweights;
+	}
+	else if( option == "up" ) {
+		puweights = &pileupweights_up;
+	}
+	else if( option == "down" ) {
+		puweights = &pileupweights_down;
+	}
+	else
+		puweights = &pileupweights;
+
+	if( puweights == NULL ) {
+		cerr << "Wrong option in PileUpMgr::RegInPUvec() in Reweight.cc !" << endl;
+		return;
+	}
+
 
 	string input_str;
 	while( getline( fin, input_str ) ) {
-		pileupweights.push_back( stod( input_str ) );
+		puweights->push_back( stod( input_str ) );
 	}
 	
 	fin.close();
 }
 
-
 bool PileUpMgr::PassPileUpWeight()
 {
-	int _nPU = -1;
+	_nPU = -1;
 	
 	for(int i=0;i<(int)evt->nBX;i++) {
 		if(evt->BXPU[i] == 0) {
@@ -130,13 +261,33 @@ bool PileUpMgr::PassPileUpWeight()
 	}
 	
 	if( _nPU <= 74 && _nPU >= 0 ) {
-		PU_weight = (double)(pileupweights.at( _nPU ));
+		return true;
 	}
 	else {
-		PU_weight = 0.;
 		return false;
 	}
-	return true;
+}
+	
+double PileUpMgr::GetPUWeight( const string& option ) 
+{
+	vector<double>* puweights = NULL;
+
+	if( option.find("central") != string::npos ) {
+		puweights = &pileupweights;
+	}
+	else if( option.find("up") != string::npos ) {
+		assert( pileupweights_up.size() != 0 );		//for check, turn off it if passing test-step
+		puweights = &pileupweights_up;
+	}
+	else if( option.find("down") != string::npos ) {
+		puweights = &pileupweights_down;
+	}
+	else {
+		cerr << "Wrong option(" << option << ") in function PassPileUpWeight() in Reweight.cc" << endl;
+		return false;
+	}
+
+	return (double)(puweights->at( _nPU )); 
 }
 
 void HLTMgr::GetHLTinfo( const string& key )

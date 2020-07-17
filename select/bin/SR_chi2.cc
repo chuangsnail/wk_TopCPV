@@ -1,6 +1,6 @@
 /**********************************
  *
- *	File Name : SR_chi2.cc
+ *	File Name : SR_mva.cc
  *	Date : 200103
  *	
  *
@@ -31,7 +31,8 @@ int main(int argc,char* argv[])
 	Weights_map[data_sets_name[0]] = &w_TT;				Weights_map[data_sets_name[1]] = &w_DY;
 	Weights_map[data_sets_name[2]] = &w_WJets;			Weights_map[data_sets_name[3]] = &w_VV;
 	Weights_map[data_sets_name[4]] = &w_ST;				Weights_map[data_sets_name[5]] = &w_QCD;
-	get_lumi_weight( Weights_map , "/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/path/full_16_SR.txt" );
+	//get_lumi_weight( Weights_map , "/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/full_sel/full_16_SR.txt" );
+	get_lumi_weight( Weights_map , "/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/full_sel/full_16_SR_nominal.txt" );
 	cout << "Finish getting lumi-weight" << endl;
 
 	//*********************About path***********************//
@@ -44,7 +45,8 @@ int main(int argc,char* argv[])
 	Data_Set_Path[data_sets_name[2]] = &WJets;			Data_Set_Path[data_sets_name[3]] = &VV;
 	Data_Set_Path[data_sets_name[4]] = &ST;				Data_Set_Path[data_sets_name[5]] = &QCD;
 	Data_Set_Path[d6] = &Data_SM;						Data_Set_Path[d7] = &Data_SE;
-	get_path( Data_Set_Path , "/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/path/full_16_SR.txt" );
+	//get_path( Data_Set_Path , "/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/full_sel/full_16_SR.txt" );
+	get_path( Data_Set_Path , "/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/full_sel/full_16_SR_nominal.txt" );
 	cout << "Finish getting Path info." << endl;
 
 	//**********initial the files and TChain and make the file map and weight map***********//
@@ -120,12 +122,12 @@ int main(int argc,char* argv[])
 				if( r >= (int)Data_Set_Path[ Set_name ]->size() )
 				{	break;	}
 			}
-			//*** Get lumi_weight ***//
+			//--- Get lumi_weight ---//
 			double lumi_weight = 1.;
 			if(!is_data)
 			{	lumi_weight = Weights_map[ Set_name ]->at(r);	}
 
-			//*** Register branches ***//
+			//--- Register branches ---//
 
 			printf("\n The file now dealing with is under the data sets %s, the %d one.",Set_name.c_str(),r+1);
 
@@ -228,7 +230,7 @@ int main(int argc,char* argv[])
 					hists.h_el.at(k)->Fill( Mjjb, sel.Weight() );
 				}
 
-				if( sel.RecoAlgoValue() > 20 ) continue;
+				if( sel.RecoAlgoValue() > 20. ) continue;
 
 				if( *channel == "mu" )
 				{

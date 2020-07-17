@@ -6,8 +6,27 @@
 
 //#include "/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/select/interface/MVA_Algo/20var/TMVAClassification_MLP.class.C"
 //#include "/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/select/interface/MVA_Algo/p05_0-2/TMVAClassification_MLP.class.C"
+
 #include "TopCPViolation/select/interface/mva_header.h"
 //*****lepton selection!*****//
+
+int SelMgr::TightLeptonNo()
+{
+	int pass = 0;
+	for(int i=0;i<(int)leps.Size();++i)
+	{
+		if( leps.SR_SelEl(i) )
+		{
+			pass++;		
+		}
+		else if( leps.SR_SelMu(i) )
+		{
+			pass++;
+		}	
+	}
+	return pass;
+}
+
 
 bool SelMgr::SR_LepVeto()
 {
@@ -71,6 +90,7 @@ bool SelMgr::CR_SelLep_invISO()
 	return false;
 }
 
+//with no Iso cut on selected 1 iso lepton and w/o veto
 bool SelMgr::PrePreSelLep()
 {
 	int pass_no = 0;
@@ -101,8 +121,65 @@ bool SelMgr::PreSelLep()
 	return true;
 }
 
+bool SelMgr::test_dbl_Lep()
+{
+	
+	int pass_no = 0;
+	for(int i=0;i<(int)leps.Size();++i)
+	{
+		if( leps.PrePreSelMu(i) )
+		{
+			++pass_no;
+			sel_lep = i;
+			channel = "mu";
+		}
+		else if( leps.PrePreSelEl(i) )
+		{
+			++pass_no;
+			sel_lep = i;
+			channel = "el";
+		}
+	}
+	if(pass_no != 1) return false;
+	return true;
+}
+
+bool SelMgr::dbl_Lep()
+{
+	
+	int pass_no = 0;
+	for(int i=0;i<(int)leps.Size();++i)
+	{
+		if( leps.PrePreSelMu(i) )
+		{
+			++pass_no;
+			sel_lep = i;
+			channel = "mu";
+		}
+		else if( leps.PrePreSelEl(i) )
+		{
+			++pass_no;
+			sel_lep = i;
+			channel = "el";
+		}
+	}
+	if(pass_no != 1) return false;
+	return true;
+}
 
 //*****jet selection!*****//
+
+//without energy-related cut  (for systematic uncertainty)
+void SelMgr::UncPreSelJets()
+{
+	for(int i=0;i<(int)jets.Size();++i){
+		if( jets.UncPreSelJet(i) ){
+			sel_jets.push_back(i);
+		}
+	}
+}
+
+
 void SelMgr::SelJets()
 {
 	for(int i=0;i<(int)jets.Size();++i){
@@ -125,6 +202,17 @@ void SelMgr::JetLepISO()
 	{	EraseByValue( sel_jets, del_candidate.at(i) );	}
 }
 
+void SelMgr::SelBJets()
+{
+	for(int i=0;i<(int)sel_jets.size();++i)
+    {
+        if( jets.MediumDeepCSV( sel_jets.at(i) ) )
+        {
+			sel_b_jets.push_back( sel_jets.at(i) );
+        }
+    }
+}
+
 bool SelMgr::SR_bjets()
 {
 	vector<int> del_candidate;
@@ -137,14 +225,17 @@ bool SelMgr::SR_bjets()
         }
     }
 
+/*
 	cout << "before b-jets selection" << endl;
 	for(int i=0;i<(int)sel_jets.size();++i)
 	{ cout << i << "-th jet is " << sel_jets.at(i) << endl; }
+*/
 
 	//delete b-jets from sel_jets list
     for(int i=0;i<(int)del_candidate.size();++i)
     {	EraseByValue( sel_jets, del_candidate.at(i) );	}
 
+/*
 	cout << "after b-jets selection" << endl;
 	for(int i=0;i<(int)sel_jets.size();++i)
 	{ cout << i << "-th jet is " << sel_jets.at(i) << endl; }
@@ -152,6 +243,7 @@ bool SelMgr::SR_bjets()
 	cout << "detected b-jets are:" << endl;
 	for(int i=0;i<(int)sel_b_jets.size();++i)
 	{ cout << i << "-th b-jet is " << sel_b_jets.at(i) << endl; }
+*/
 
     if( (int)sel_b_jets.size() == 2 ) return true;
     return false;
@@ -215,6 +307,13 @@ void SelMgr::Chi2Sort()
 			}
 		}
 	}
+
+	if( jets.Pt( J1 ) < jets.Pt( J2 ) ) {
+		int tmp = J1;
+		J1 = J2;
+		J2 = tmp;
+	}
+
 	reco_algo_value = min;
 }
 
@@ -222,11 +321,20 @@ void SelMgr::Chi2Sort()
 void SelMgr::MVASort()
 {
 	//if we want to change the algorithm , we need to change the  header file we include in SelMgr.h and change the setting in MVAvar.h
-	training_name = "p03_all_MLP";
+	//training_name = "a05_all_MLP";
+	
+	if( training_name == "" ) {
+		training_name = default_training_name;
+	}
 
 	vector<string> inputVars;
 	mvatool::AddVarName( inputVars );
+
+
+	//--- it need to be fixed when we change algorithm ---//
 	ReadMLP MyMVA( inputVars );
+	//ReadBDTG MyMVA( inputVars );
+	//ReadBDT MyMVA( inputVars );
 
 	int var_num = (int)inputVars.size();
 	double* var = new double[ var_num ];
@@ -241,13 +349,13 @@ void SelMgr::MVASort()
 				int tmp_mva_hadb = sel_b_jets.at(_B);
 				int tmp_mva_j1 = sel_jets.at(_J1);
 				int tmp_mva_j2 = sel_jets.at(_J2);
-							
+						
 				mvatool::InputVar( var, *(jets.jets), *(leps.leps), *(evt.evt), sel_jets, sel_b_jets, sel_lep, tmp_mva_hadb, tmp_mva_lepb, tmp_mva_j1, tmp_mva_j2 );
-							
+						
 				vector<double> inputValues;
 				for(int in=0;in<var_num;in++ )
 				{	inputValues.push_back( var[in] );	}
-								
+
 				double tmp_mva_value = MyMVA.GetMvaValue( inputValues );
 				if( tmp_mva_value >= reco_algo_value )
 				{
@@ -260,5 +368,12 @@ void SelMgr::MVASort()
 			}
 		}
 	}
+	
+	if( jets.Pt( J1 ) < jets.Pt( J2 ) ) {
+		int tmp = J1;
+		J1 = J2;
+		J2 = tmp;
+	}
+
 	delete [] var;
 }

@@ -34,8 +34,10 @@ double BtagMgr::Get_Btag_Scale_Factor( const int idx )
 }
 */
 
-double BtagMgr::Get_Btag_Scale_Factor( const int idx )
+double BtagMgr::Get_Btag_Scale_Factor( const int idx, const string& option )
 {
+	//option is used to applied [ "central", "up", "down" ]
+	
 	BTagEntry::JetFlavor flavor;
 
 	if( fabs( jets->GenFlavor[idx] ) == 5 )
@@ -48,7 +50,7 @@ double BtagMgr::Get_Btag_Scale_Factor( const int idx )
 	//double SF = map_.at( op ).eval_auto_bounds( "central", flavor, fabs( jets->Eta[idx] ), jets->Pt[idx] );
 	//cout << "SF: " << SF << endl;
 	//return SF ;
-	return map_.at( op ).eval_auto_bounds( "central", flavor, fabs( jets->Eta[idx] ), jets->Pt[idx] );
+	return map_.at( op ).eval_auto_bounds( option.c_str(), flavor, fabs( jets->Eta[idx] ), jets->Pt[idx] );
 }
 
 double BtagMgr::Get_Btag_Efficiency(  const int idx )
@@ -133,7 +135,7 @@ void BtagMgr::Reset_b_ntagged_jets_idx()
 	ntagged_b.clear();
 }
 
-void BtagMgr::Set_b_tagged_jets_idx( vector<int>& sel_b_jets )
+void BtagMgr::Set_b_tagged_jets_idx( const vector<int>& sel_b_jets )
 {
 	if( sel_b_jets.empty() )
 	{
@@ -150,7 +152,7 @@ void BtagMgr::Set_b_tagged_jets_idx( vector<int>& sel_b_jets )
 }
 
 
-void BtagMgr::Set_b_ntagged_jets_idx( vector<int>& sel_jets )
+void BtagMgr::Set_b_ntagged_jets_idx( const vector<int>& sel_jets )
 {
 	if( sel_jets.empty() )
 	{
@@ -166,14 +168,135 @@ void BtagMgr::Set_b_ntagged_jets_idx( vector<int>& sel_jets )
 	}
 }
 
-double BtagMgr::Get_Btag_Weight()
+
+// new (2020 07 15)
+double BtagMgr::Get_Btag_Weight( const string& option )
 {
+	//option is used to applied [ "central", "up", "down" ]
+
+	double result = 1.;
+
+	if( option != "central" )	// "up" or "down"
+	{
+		double prob_div_bc = 1.;
+		double prob_div_l = 1.;
+		
+		// b, c quark part
+
+		if( !tagged_b.empty() )
+		{
+			for(int i=0;i<(int)tagged_b.size();i++)
+			{	
+				if( jets->GenFlavor[ tagged_b.at(i) ] == 4 || jets->GenFlavor[ tagged_b.at(i) ] == 5 )
+				{
+					double SF = Get_Btag_Scale_Factor( tagged_b.at(i), option );
+					prob_div_bc *= SF;	
+				}
+				else
+				{
+					double SF = Get_Btag_Scale_Factor( tagged_b.at(i), "central" );
+					prob_div_bc *= SF;	
+				}
+			}
+		}
+		if( !ntagged_b.empty() )
+		{
+			for(int i=0;i<(int)ntagged_b.size();i++)
+			{
+				if( jets->GenFlavor[ tagged_b.at(i) ] == 4 || jets->GenFlavor[ tagged_b.at(i) ] == 5 )
+				{
+					double SF = Get_Btag_Scale_Factor( ntagged_b.at(i), option );
+					double EFF = Get_Btag_Efficiency( ntagged_b.at(i) );
+					prob_div_bc *= ( 1. -  SF * EFF )/( 1.- EFF );
+				}
+				else
+				{
+					double SF = Get_Btag_Scale_Factor( ntagged_b.at(i), "central" );
+					double EFF = Get_Btag_Efficiency( ntagged_b.at(i) );
+					prob_div_bc *= ( 1. -  SF * EFF )/( 1.- EFF );
+				}
+			}
+		}	
+
+		// light quark part
+		
+		if( !tagged_b.empty() )
+		{
+			for(int i=0;i<(int)tagged_b.size();i++)
+			{	
+				if( jets->GenFlavor[ tagged_b.at(i) ] == 4 || jets->GenFlavor[ tagged_b.at(i) ] == 5 )
+				{
+					double SF = Get_Btag_Scale_Factor( tagged_b.at(i), "central" );
+					prob_div_l *= SF;	
+				}
+				else
+				{
+					double SF = Get_Btag_Scale_Factor( tagged_b.at(i), option );
+					prob_div_l *= SF;	
+				}
+			}
+		}
+		if( !ntagged_b.empty() )
+		{
+			for(int i=0;i<(int)ntagged_b.size();i++)
+			{
+				if( jets->GenFlavor[ tagged_b.at(i) ] == 4 || jets->GenFlavor[ tagged_b.at(i) ] == 5 )
+				{
+					double SF = Get_Btag_Scale_Factor( ntagged_b.at(i), "central" );
+					double EFF = Get_Btag_Efficiency( ntagged_b.at(i) );
+					prob_div_l *= ( 1. -  SF * EFF )/( 1.- EFF );
+				}
+				else
+				{
+					double SF = Get_Btag_Scale_Factor( ntagged_b.at(i), option );
+					double EFF = Get_Btag_Efficiency( ntagged_b.at(i) );
+					prob_div_l *= ( 1. -  SF * EFF )/( 1.- EFF );
+				}
+			}
+		}	
+		//cout << "Btag Weight : " << prob_div << endl;
+		
+		result = sqrt( pow( prob_div_bc, 2 ) + pow( prob_div_l, 2 ) );
+	}
+	else	// option == "central"
+	{
+		double prob_div = 1.;
+		if( !tagged_b.empty() )
+		{
+			for(int i=0;i<(int)tagged_b.size();i++)
+			{	
+				double SF = Get_Btag_Scale_Factor( tagged_b.at(i), option );
+				prob_div *= SF;	
+			}
+		}
+		
+		if( !ntagged_b.empty() )
+		{
+			for(int i=0;i<(int)ntagged_b.size();i++)
+			{
+				double SF = Get_Btag_Scale_Factor( ntagged_b.at(i), option );
+				double EFF = Get_Btag_Efficiency( ntagged_b.at(i) );
+				prob_div *= ( 1. -  SF * EFF )/( 1.- EFF );
+			}
+		}
+		result = prob_div;	
+	}
+
+	return result;
+}
+
+// old
+/*
+double BtagMgr::Get_Btag_Weight( const string& option )
+{
+	//option is used to applied [ "central", "up", "down" ]
+	
 	double prob_div = 1.;
 	if( !tagged_b.empty() )
 	{
 		for(int i=0;i<(int)tagged_b.size();i++)
 		{	
-			double SF = Get_Btag_Scale_Factor( tagged_b.at(i) );
+			double SF = Get_Btag_Scale_Factor( tagged_b.at(i), option );
 			//cout << "The " << i << " one's tagged b 's SF is : " << SF << endl;  
 			prob_div *= SF;	
 		}
@@ -183,7 +306,7 @@ double BtagMgr::Get_Btag_Weight()
 	{
 		for(int i=0;i<(int)ntagged_b.size();i++)
 		{
-			double SF = Get_Btag_Scale_Factor( ntagged_b.at(i) );
+			double SF = Get_Btag_Scale_Factor( ntagged_b.at(i), option );
 			double EFF = Get_Btag_Efficiency( ntagged_b.at(i) );
 			//cout << "The " << i << " one's non-tagged b 's SF and Eff are : " << SF << " , " << EFF << endl;  
 			prob_div *= ( 1. -  SF * EFF )/( 1.- EFF );
@@ -194,6 +317,7 @@ double BtagMgr::Get_Btag_Weight()
 	
 	return prob_div;
 }
+*/
 
 //GetName() is in TObject class
 /*

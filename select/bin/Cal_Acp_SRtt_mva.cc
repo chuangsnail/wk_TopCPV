@@ -234,6 +234,11 @@ int main(int argc,char* argv[])
 				hists_acp.FillIn( "Obs12", *channel, acpMgr.Obs12(), sel.Weight() );
 				hists_acp.FillIn( "Obs13", *channel, acpMgr.Obs13(), sel.Weight() );
 
+				cout << "3 " << acpMgr.Obs3() << endl;
+				cout << "6 " << acpMgr.Obs6() << endl;
+				cout << "12 " << acpMgr.Obs12() << endl;
+				cout << "13 " << acpMgr.Obs13() << endl;
+
 				PASS += sel.Weight();
 
 

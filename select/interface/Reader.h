@@ -65,9 +65,9 @@ string Reader::get_1_line()
 	//if( !infile->eof() ) 
 	if( !infile.eof() ) 
 	{
-        char* c_in_str;
         int c_in_str_len = in_str.size() + 1;//Get length from a string
-        c_in_str = new char[c_in_str_len];
+        //char* c_in_str = new char[c_in_str_len];
+        char c_in_str[c_in_str_len];
         strcpy( c_in_str ,(in_str).c_str());
         /*
         for(int i=0;i<(int)c_in_str_len;i++)
@@ -75,8 +75,8 @@ string Reader::get_1_line()
             c_in_str[i] = in_str.c_str()[i];
         }
         */
-		char* c_gotten_str;
-        c_gotten_str = new char[c_in_str_len];
+		//char* c_gotten_str = new char[c_in_str_len];
+		char c_gotten_str[c_in_str_len];
 		for(int i=0;i<(int)c_in_str_len;i++)
 		{
 			if( c_in_str[i] == '#')
@@ -94,8 +94,8 @@ string Reader::get_1_line()
         {   gotten_str = "NAN";   }
 		gotten_str = string( c_gotten_str );
         
-        delete [] c_in_str;
-        delete [] c_gotten_str;
+        //delete [] c_in_str;
+        //delete [] c_gotten_str;
         
         //infile->close();
         infile.close();

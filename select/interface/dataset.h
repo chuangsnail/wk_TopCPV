@@ -49,6 +49,101 @@ void get_ori_data_path( map< string, vector<double>* >& files_map )
 
 }
 */
+void get_lumi_weight_new( map< string ,vector<double>* >& Weights_map , string file_path = "/wk_cms2/cychuang/CMSSW_9_4_2/src/TopCPViolation/selected/info./pre_sel_data.txt" )
+{
+	//char file_path[500] = "/wk_cms2/cychuang/CMSSW_9_4_2/src/TopCPViolation/selected/info./data_sets.txt";
+	
+	//Read_info r( file_path );
+	
+	Read_info r( (char*)file_path.c_str() );
+
+	vector<double> *tt, *dy, *wjets, *vv, *st, *qcd;
+
+	tt = Weights_map["TT"];			dy = Weights_map["DY"];
+	wjets = Weights_map["WJets"];	vv = Weights_map["VV"];
+	st = Weights_map["ST"];			qcd = Weights_map["QCD"];
+
+	vector< vector<double>* > its;
+	its.push_back(tt);	its.push_back(dy);	its.push_back(wjets);
+	its.push_back(vv);	its.push_back(st);	its.push_back(qcd);
+	
+	vector<string> sets_name{ "TT", "DY", "WJets", "VV", "ST", "QCD" };
+
+    vector<string> s_TT{ "001" };
+    vector<string> s_DY{ "70-100", "100-200", "200-400", "400-600", "600-800", "800-1200", "1200-2500", "2500-Inf" };
+    vector<string> s_WJets{  "100-200", "200-400", "400-600", "600-800", "800-1200", "1200-2500", "2500-Inf" };	//"70-100" have no Xsec
+    vector<string> s_VV{ "WW", "WZ", "ZZ" };
+    vector<string> s_ST{ "s", "t_antitop", "t_top", "tW_antitop", "tW_top" };
+    vector<string> s_QCD{ "100-200", "200-300", "300-500", "500-700", "700-1000", "1000-1500", "1500-2000", "2000-Inf" }; //"50-100" have no Xsec
+
+	vector< vector<string>* > sets;
+	sets.push_back(&s_TT);	sets.push_back(&s_DY);	sets.push_back(&s_WJets);
+	sets.push_back(&s_VV);	sets.push_back(&s_ST);	sets.push_back(&s_QCD);
+
+	vector<string> option;
+	option.push_back("luminosity");		option.push_back("path");
+	option.push_back("Xsec");		option.push_back("k-fac");
+	option.push_back("gen_no");
+	
+	for(int i=0;i<(int)sets.size();i++)
+	{
+		for(int j=0;j<(int)sets.at(i)->size();j++)
+		{
+			string key_lumi = sets_name[i] + "_" + sets.at(i)->at(j) + "_" + option.at(0);
+			string key_Xsec = sets_name[i] + "_" + sets.at(i)->at(j) + "_" + option.at(2);
+			string key_k_fac = sets_name[i] + "_" + sets.at(i)->at(j) + "_" + option.at(3);
+			string key_gen_no = sets_name[i] + "_" + sets.at(i)->at(j) + "_" + option.at(4);
+			
+			double weight = std::stod( r.second(key_lumi) ) * std::stod( r.second(key_Xsec) )\
+						   	* std::stod( r.second(key_k_fac) ) / std::stod( r.second(key_gen_no) ) ;
+			its.at(i)->push_back((double)weight);
+		}
+	}
+	its.clear();
+	sets.clear();
+	option.clear();
+}
+
+void get_lumi_weight_tmp( map< string ,vector<double>* >& Weights_map )
+{
+	Weights_map["TT"]->push_back(0.12288);
+	
+	Weights_map["DY"]->push_back(0.799065);
+	Weights_map["DY"]->push_back(0.787421);
+	Weights_map["DY"]->push_back(0.209322);
+	Weights_map["DY"]->push_back(0.029403);
+	Weights_map["DY"]->push_back(0.00733157);
+	Weights_map["DY"]->push_back(0.011458);
+	Weights_map["DY"]->push_back(0.0112156);
+	Weights_map["DY"]->push_back(0.00039405);
+	
+	Weights_map["WJets"]->push_back(1.51464);
+	Weights_map["WJets"]->push_back(0.784601);
+	Weights_map["WJets"]->push_back(0.366548);
+	Weights_map["WJets"]->push_back(0.0351105);
+	Weights_map["WJets"]->push_back(0.0380142);
+	Weights_map["WJets"]->push_back(0.00864491);
+	Weights_map["WJets"]->push_back(0.000585925);
+	
+	Weights_map["VV"]->push_back(0.609792);
+	Weights_map["VV"]->push_back(0.564446);
+	Weights_map["VV"]->push_back(0.594236);
+	
+	Weights_map["ST"]->push_back(0.0196526);
+	Weights_map["ST"]->push_back(0.163442);
+	Weights_map["ST"]->push_back(0.0727674);
+	Weights_map["ST"]->push_back(0.282195);
+	Weights_map["ST"]->push_back(0.282004);
+	
+	Weights_map["QCD"]->push_back(12210.5);
+	Weights_map["QCD"]->push_back(1581.68);
+	Weights_map["QCD"]->push_back(332.714);
+	Weights_map["QCD"]->push_back(26.154);
+	Weights_map["QCD"]->push_back(11.351);
+	Weights_map["QCD"]->push_back(4.21225);
+	Weights_map["QCD"]->push_back(0.547041);
+	Weights_map["QCD"]->push_back(0.22496);
+}
 
 
 void get_lumi_weight( map< string ,vector<double>* >& Weights_map , string file_path = "/wk_cms2/cychuang/CMSSW_9_4_2/src/TopCPViolation/selected/info./pre_sel_data.txt" )
@@ -100,7 +195,10 @@ void get_lumi_weight( map< string ,vector<double>* >& Weights_map , string file_
 
 			its.at(i)->second->push_back((double)weight);
 		}
-	}    	
+	}
+	its.clear();
+	sets.clear();
+	option.clear();
 }
 
 //void get_path( map< string, vector<char*>* >& Data_Set_Path)

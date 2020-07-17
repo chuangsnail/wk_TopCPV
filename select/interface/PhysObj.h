@@ -45,14 +45,21 @@ public:
 
 	//for selection
 	bool LooseJet( const int& ) const;
+	bool UncPreSelJet( const int& ) const;		//SelJet with no Pt(energy-related) cut
 	bool SelJet( const int& ) const;
 
 	//JER
 	bool Is_Well_Match( const int& idx, const double& res );
 	double Scale_Case( const int& idx, const double& ressf );
 	double Smeared_Case( const double& res, const double& ressf );
-	double Get_JERScale( const int& i );
-	void JERCor();
+	double Get_JERScale( const int& i, const string& option = "central" );
+	void JERCor( const string& option = "central" );
+
+	//JES(JEC)
+	double Get_JECscale( const int& idx, const string& option = "central" );
+	void JESCor( const string& option = "central" );	
+	//the JEC has been applied at the previous stage before making ntuple
+	//<JesUnc>
 
 };
 

@@ -1,0 +1,44 @@
+File name p03_all_MLP
+Finish time is : 200106_2024
+mis_gen_matching ratio: 0.413675
+cor_mva ratio : 0
+Error : +-0
+cor_mva_mu ratio : 0
+Error : +-0
+cor_mva_el ratio : 0
+Error : +-0
+no-match number : 3724655
+==============================================================
+File name p03_all_MLP
+Finish time is : 200106_2148
+mis_gen_matching ratio: 0.413675
+cor_mva ratio : 0.620871
+Error : +-0.000595975
+cor_mva_mu ratio : 0.62177
+Error : +-0.000752184
+cor_mva_el ratio : 0.627545
+Error : +-0.000993686
+no-match number : 373356
+==============================================================
+File name p05_0-2_MLP
+Finish time is : 200107_1710
+mis_gen_matching ratio: 0.413675
+cor_mva ratio : 0.620276
+Error : +-0.000595586
+cor_mva_mu ratio : 0.621059
+Error : +-0.000751598
+cor_mva_el ratio : 0.627149
+Error : +-0.000993254
+no-match number : 373356
+==============================================================
+File name p05_all_MLP
+Finish time is : 200121_1007
+mis_gen_matching ratio: 0.413675
+cor_mva ratio : 0.620806
+Error : +-0.000595932
+cor_mva_mu ratio : 0.621666
+Error : +-0.000752095
+cor_mva_el ratio : 0.627556
+Error : +-0.000993701
+no-match number : 373356
+==============================================================

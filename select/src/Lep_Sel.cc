@@ -30,7 +30,7 @@ TLorentzVector Lepton::P4(const int& i) const
 	return p;
 }
 
-//Muon Part
+//--- Muon Part ---//
 
 double Lepton::RelISOR04(const int& i) const	//PFISO
 {
@@ -83,7 +83,7 @@ bool Lepton::PrePreSelMu(const int& i) const
 bool Lepton::CR_SelMu_invISO(const int& i) const
 {	return TightMuID(i) && !SelMuISO(i) && SelMuKinematic(i);	}
 
-//Electron Part
+//--- Electron Part ---//
 
 double Lepton::ElISO( const int& i ) const	//PFISO
 {	return leps->PFIsoRhoCorrR03[i] / Pt(i);	}

@@ -1,0 +1,1783 @@
+btag_up_mu_O3 Mean : 9.41941170705e-06
+btag_up_mu_O3 StdDev : 1.84768295245e-05
+btag_up_mu_O6 Mean : 3.92173876114e-06
+btag_up_mu_O6 StdDev : 1.87144026562e-05
+btag_up_mu_O12 Mean : -6.90885786683e-06
+btag_up_mu_O12 StdDev : 1.8594132168e-05
+btag_up_mu_O14 Mean : -3.80624418334e-06
+btag_up_mu_O14 StdDev : 1.88925601234e-05
+btag_down_mu_O3 Mean : -1.09856961714e-05
+btag_down_mu_O3 StdDev : 2.12270613116e-05
+btag_down_mu_O6 Mean : -3.90874245198e-06
+btag_down_mu_O6 StdDev : 2.06586413746e-05
+btag_down_mu_O12 Mean : 8.36617396676e-06
+btag_down_mu_O12 StdDev : 2.09193372028e-05
+btag_down_mu_O14 Mean : 3.34596103385e-06
+btag_down_mu_O14 StdDev : 2.095903841e-05
+btag_up_el_O3 Mean : -1.82159424438e-06
+btag_up_el_O3 StdDev : 2.26995250278e-05
+btag_up_el_O6 Mean : -3.46665358667e-06
+btag_up_el_O6 StdDev : 2.26265132099e-05
+btag_up_el_O12 Mean : -1.15730573616e-05
+btag_up_el_O12 StdDev : 2.24912631405e-05
+btag_up_el_O14 Mean : 5.10784106098e-06
+btag_up_el_O14 StdDev : 2.22766655403e-05
+btag_down_el_O3 Mean : 2.46206183078e-06
+btag_down_el_O3 StdDev : 2.51716980068e-05
+btag_down_el_O6 Mean : 5.23178749989e-06
+btag_down_el_O6 StdDev : 2.4418502438e-05
+btag_down_el_O12 Mean : 1.28565540696e-05
+btag_down_el_O12 StdDev : 2.48012259161e-05
+btag_down_el_O14 Mean : -5.65035757849e-06
+btag_down_el_O14 StdDev : 2.53293353946e-05
+pu_up_mu_O3 Mean : 4.8819866752e-06
+pu_up_mu_O3 StdDev : 9.56693778054e-06
+pu_up_mu_O6 Mean : 2.04771742893e-06
+pu_up_mu_O6 StdDev : 9.70449550243e-06
+pu_up_mu_O12 Mean : -3.55910946594e-06
+pu_up_mu_O12 StdDev : 9.63679281108e-06
+pu_up_mu_O14 Mean : -1.96954319493e-06
+pu_up_mu_O14 StdDev : 9.78160842966e-06
+pu_down_mu_O3 Mean : -4.89798669897e-06
+pu_down_mu_O3 StdDev : 9.474376331e-06
+pu_down_mu_O6 Mean : -1.72050003813e-06
+pu_down_mu_O6 StdDev : 9.20305128165e-06
+pu_down_mu_O12 Mean : 3.71954387507e-06
+pu_down_mu_O12 StdDev : 9.32998576828e-06
+pu_down_mu_O14 Mean : 1.49500073094e-06
+pu_down_mu_O14 StdDev : 9.35570463816e-06
+pu_up_el_O3 Mean : -8.65858003594e-07
+pu_up_el_O3 StdDev : 1.09102979058e-05
+pu_up_el_O6 Mean : -1.67911114339e-06
+pu_up_el_O6 StdDev : 1.08735080106e-05
+pu_up_el_O12 Mean : -5.56797892712e-06
+pu_up_el_O12 StdDev : 1.08173506939e-05
+pu_up_el_O14 Mean : 2.47713139479e-06
+pu_up_el_O14 StdDev : 1.0707547823e-05
+pu_down_el_O3 Mean : 1.02451232949e-06
+pu_down_el_O3 StdDev : 1.04539665673e-05
+pu_down_el_O6 Mean : 2.17203839041e-06
+pu_down_el_O6 StdDev : 1.01659858983e-05
+pu_down_el_O12 Mean : 5.34842818029e-06
+pu_down_el_O12 StdDev : 1.03085122497e-05
+pu_down_el_O14 Mean : -2.34115508027e-06
+pu_down_el_O14 StdDev : 1.05201402005e-05
+lepsf_up_mu_O3 Mean : 5.90003237247e-07
+lepsf_up_mu_O3 StdDev : 1.27118747194e-06
+lepsf_up_mu_O6 Mean : 2.37501042101e-07
+lepsf_up_mu_O6 StdDev : 1.28202341401e-06
+lepsf_up_mu_O12 Mean : -4.2400491565e-07
+lepsf_up_mu_O12 StdDev : 1.28694445636e-06
+lepsf_up_mu_O14 Mean : -2.33501011168e-07
+lepsf_up_mu_O14 StdDev : 1.28431616366e-06
+lepsf_down_mu_O3 Mean : -6.14496518678e-07
+lepsf_down_mu_O3 StdDev : 1.32454064765e-06
+lepsf_down_mu_O6 Mean : -2.23501200711e-07
+lepsf_down_mu_O6 StdDev : 1.30001456488e-06
+lepsf_down_mu_O12 Mean : 4.43504939403e-07
+lepsf_down_mu_O12 StdDev : 1.28814196419e-06
+lepsf_down_mu_O14 Mean : 1.92999411948e-07
+lepsf_down_mu_O14 StdDev : 1.30579603553e-06
+lepsf_up_el_O3 Mean : -1.2300152588e-07
+lepsf_up_el_O3 StdDev : 1.71716386816e-06
+lepsf_up_el_O6 Mean : -2.49015929639e-07
+lepsf_up_el_O6 StdDev : 1.7041145178e-06
+lepsf_up_el_O12 Mean : -8.19407374609e-07
+lepsf_up_el_O12 StdDev : 1.71417345837e-06
+lepsf_up_el_O14 Mean : 3.45558311982e-07
+lepsf_up_el_O14 StdDev : 1.69784098187e-06
+lepsf_down_el_O3 Mean : 1.61938200874e-07
+lepsf_down_el_O3 StdDev : -1.76346343376e-06
+lepsf_down_el_O6 Mean : 3.47539062866e-07
+lepsf_down_el_O6 StdDev : 1.71088309174e-06
+lepsf_down_el_O12 Mean : 8.5388383793e-07
+lepsf_down_el_O12 StdDev : 1.74029919016e-06
+lepsf_down_el_O14 Mean : -3.72626286278e-07
+lepsf_down_el_O14 StdDev : 1.76729669723e-06
+JER_up_mu_O3 Mean : 1.6501947055e-05
+JER_up_mu_O3 StdDev : 3.2359588692e-05
+JER_up_mu_O6 Mean : 6.87416238712e-06
+JER_up_mu_O6 StdDev : 3.27666284441e-05
+JER_up_mu_O12 Mean : -1.2084643539e-05
+JER_up_mu_O12 StdDev : 3.26043130366e-05
+JER_up_mu_O14 Mean : -6.67578387003e-06
+JER_up_mu_O14 StdDev : 3.31094099447e-05
+JER_down_mu_O3 Mean : -1.63972779082e-05
+JER_down_mu_O3 StdDev : 3.16741384612e-05
+JER_down_mu_O6 Mean : -5.86010696669e-06
+JER_down_mu_O6 StdDev : 3.07925199967e-05
+JER_down_mu_O12 Mean : 1.24517043254e-05
+JER_down_mu_O12 StdDev : 3.11317836835e-05
+JER_down_mu_O14 Mean : 5.00809418952e-06
+JER_down_mu_O14 StdDev : 3.12929422838e-05
+JER_up_el_O3 Mean : -3.17696234746e-06
+JER_up_el_O3 StdDev : 3.93779233312e-05
+JER_up_el_O6 Mean : -5.9531697412e-06
+JER_up_el_O6 StdDev : 3.90790927557e-05
+JER_up_el_O12 Mean : -2.00653248733e-05
+JER_up_el_O12 StdDev : 3.89591428869e-05
+JER_up_el_O14 Mean : 8.8259570115e-06
+JER_up_el_O14 StdDev : 3.84181618936e-05
+JER_down_el_O3 Mean : 3.63564308477e-06
+JER_down_el_O3 StdDev : 3.72918475699e-05
+JER_down_el_O6 Mean : 7.77998856834e-06
+JER_down_el_O6 StdDev : 3.62011342437e-05
+JER_down_el_O12 Mean : 1.90884305859e-05
+JER_down_el_O12 StdDev : 3.67859524271e-05
+JER_down_el_O14 Mean : -8.39086625908e-06
+JER_down_el_O14 StdDev : 3.75856883995e-05
+JES_up_mu_O3 Mean : 1.93707513547e-05
+JES_up_mu_O3 StdDev : 3.79869477367e-05
+JES_up_mu_O6 Mean : 8.0944247673e-06
+JES_up_mu_O6 StdDev : 3.84315860525e-05
+JES_up_mu_O12 Mean : -1.41606296535e-05
+JES_up_mu_O12 StdDev : 3.8297992533e-05
+JES_up_mu_O14 Mean : -7.83404557474e-06
+JES_up_mu_O14 StdDev : 3.88454810144e-05
+JES_down_mu_O3 Mean : -1.98542011783e-05
+JES_down_mu_O3 StdDev : 3.83883519652e-05
+JES_down_mu_O6 Mean : -7.04663400825e-06
+JES_down_mu_O6 StdDev : 3.72503982415e-05
+JES_down_mu_O12 Mean : 1.50444024294e-05
+JES_down_mu_O12 StdDev : 3.76676190051e-05
+JES_down_mu_O14 Mean : 6.04785963951e-06
+JES_down_mu_O14 StdDev : 3.78961704195e-05
+JES_up_el_O3 Mean : -4.00974555295e-06
+JES_up_el_O3 StdDev : 4.74756128813e-05
+JES_up_el_O6 Mean : -6.99978450028e-06
+JES_up_el_O6 StdDev : 4.68147140236e-05
+JES_up_el_O12 Mean : -2.40920694631e-05
+JES_up_el_O12 StdDev : 4.69275606182e-05
+JES_up_el_O14 Mean : 1.07253117765e-05
+JES_up_el_O14 StdDev : 4.65289151262e-05
+JES_down_el_O3 Mean : 4.42858426192e-06
+JES_down_el_O3 StdDev : 4.70947449313e-05
+JES_down_el_O6 Mean : 9.86093017942e-06
+JES_down_el_O6 StdDev : 4.58268282833e-05
+JES_down_el_O12 Mean : 2.41193460194e-05
+JES_down_el_O12 StdDev : 4.65326307749e-05
+JES_down_el_O14 Mean : -1.06241164716e-05
+JES_down_el_O14 StdDev : 4.74234686431e-05
+btag_up_el_O3 Mean : -1.82159424438e-06
+btag_up_el_O3 StdDev : 2.26995250278e-05
+
+
+`
+btag_up_mu_O3 Mean : 9.41941170705e-06 , StdDev : 1.84768295245e-05
+
+btag_up_mu_O6 Mean : 3.92173876114e-06 , StdDev : 1.87144026562e-05
+
+btag_up_mu_O12 Mean : -6.90885786683e-06 , StdDev : 1.8594132168e-05
+
+btag_up_mu_O14 Mean : -3.80624418334e-06 , StdDev : 1.88925601234e-05
+
+btag_down_mu_O3 Mean : -1.09856961714e-05 , StdDev : 2.12270613116e-05
+
+btag_down_mu_O6 Mean : -3.90874245198e-06 , StdDev : 2.06586413746e-05
+
+btag_down_mu_O12 Mean : 8.36617396676e-06 , StdDev : 2.09193372028e-05
+
+btag_down_mu_O14 Mean : 3.34596103385e-06 , StdDev : 2.095903841e-05
+
+btag_up_el_O3 Mean : -1.82159424438e-06 , StdDev : 2.26995250278e-05
+
+btag_up_el_O6 Mean : -3.46665358667e-06 , StdDev : 2.26265132099e-05
+
+btag_up_el_O12 Mean : -1.15730573616e-05 , StdDev : 2.24912631405e-05
+
+btag_up_el_O14 Mean : 5.10784106098e-06 , StdDev : 2.22766655403e-05
+
+btag_down_el_O3 Mean : 2.46206183078e-06 , StdDev : 2.51716980068e-05
+
+btag_down_el_O6 Mean : 5.23178749989e-06 , StdDev : 2.4418502438e-05
+
+btag_down_el_O12 Mean : 1.28565540696e-05 , StdDev : 2.48012259161e-05
+
+btag_down_el_O14 Mean : -5.65035757849e-06 , StdDev : 2.53293353946e-05
+
+pu_up_mu_O3 Mean : 4.8819866752e-06 , StdDev : 9.56693778054e-06
+
+pu_up_mu_O6 Mean : 2.04771742893e-06 , StdDev : 9.70449550243e-06
+
+pu_up_mu_O12 Mean : -3.55910946594e-06 , StdDev : 9.63679281108e-06
+
+pu_up_mu_O14 Mean : -1.96954319493e-06 , StdDev : 9.78160842966e-06
+
+pu_down_mu_O3 Mean : -4.89798669897e-06 , StdDev : 9.474376331e-06
+
+pu_down_mu_O6 Mean : -1.72050003813e-06 , StdDev : 9.20305128165e-06
+
+pu_down_mu_O12 Mean : 3.71954387507e-06 , StdDev : 9.32998576828e-06
+
+pu_down_mu_O14 Mean : 1.49500073094e-06 , StdDev : 9.35570463816e-06
+
+pu_up_el_O3 Mean : -8.65858003594e-07 , StdDev : 1.09102979058e-05
+
+pu_up_el_O6 Mean : -1.67911114339e-06 , StdDev : 1.08735080106e-05
+
+pu_up_el_O12 Mean : -5.56797892712e-06 , StdDev : 1.08173506939e-05
+
+pu_up_el_O14 Mean : 2.47713139479e-06 , StdDev : 1.0707547823e-05
+
+pu_down_el_O3 Mean : 1.02451232949e-06 , StdDev : 1.04539665673e-05
+
+pu_down_el_O6 Mean : 2.17203839041e-06 , StdDev : 1.01659858983e-05
+
+pu_down_el_O12 Mean : 5.34842818029e-06 , StdDev : 1.03085122497e-05
+
+pu_down_el_O14 Mean : -2.34115508027e-06 , StdDev : 1.05201402005e-05
+
+lepsf_up_mu_O3 Mean : 5.90003237247e-07 , StdDev : 1.27118747194e-06
+
+lepsf_up_mu_O6 Mean : 2.37501042101e-07 , StdDev : 1.28202341401e-06
+
+lepsf_up_mu_O12 Mean : -4.2400491565e-07 , StdDev : 1.28694445636e-06
+
+lepsf_up_mu_O14 Mean : -2.33501011168e-07 , StdDev : 1.28431616366e-06
+
+lepsf_down_mu_O3 Mean : -6.14496518678e-07 , StdDev : 1.32454064765e-06
+
+lepsf_down_mu_O6 Mean : -2.23501200711e-07 , StdDev : 1.30001456488e-06
+
+lepsf_down_mu_O12 Mean : 4.43504939403e-07 , StdDev : 1.28814196419e-06
+
+lepsf_down_mu_O14 Mean : 1.92999411948e-07 , StdDev : 1.30579603553e-06
+
+lepsf_up_el_O3 Mean : -1.2300152588e-07 , StdDev : 1.71716386816e-06
+
+lepsf_up_el_O6 Mean : -2.49015929639e-07 , StdDev : 1.7041145178e-06
+
+lepsf_up_el_O12 Mean : -8.19407374609e-07 , StdDev : 1.71417345837e-06
+
+lepsf_up_el_O14 Mean : 3.45558311982e-07 , StdDev : 1.69784098187e-06
+
+lepsf_down_el_O3 Mean : 1.61938200874e-07 , StdDev : -1.76346343376e-06
+
+lepsf_down_el_O6 Mean : 3.47539062866e-07 , StdDev : 1.71088309174e-06
+
+lepsf_down_el_O12 Mean : 8.5388383793e-07 , StdDev : 1.74029919016e-06
+
+lepsf_down_el_O14 Mean : -3.72626286278e-07 , StdDev : 1.76729669723e-06
+
+JER_up_mu_O3 Mean : 1.6501947055e-05 , StdDev : 3.2359588692e-05
+
+JER_up_mu_O6 Mean : 6.87416238712e-06 , StdDev : 3.27666284441e-05
+
+JER_up_mu_O12 Mean : -1.2084643539e-05 , StdDev : 3.26043130366e-05
+
+JER_up_mu_O14 Mean : -6.67578387003e-06 , StdDev : 3.31094099447e-05
+
+JER_down_mu_O3 Mean : -1.63972779082e-05 , StdDev : 3.16741384612e-05
+
+JER_down_mu_O6 Mean : -5.86010696669e-06 , StdDev : 3.07925199967e-05
+
+JER_down_mu_O12 Mean : 1.24517043254e-05 , StdDev : 3.11317836835e-05
+
+JER_down_mu_O14 Mean : 5.00809418952e-06 , StdDev : 3.12929422838e-05
+
+JER_up_el_O3 Mean : -3.17696234746e-06 , StdDev : 3.93779233312e-05
+
+JER_up_el_O6 Mean : -5.9531697412e-06 , StdDev : 3.90790927557e-05
+
+JER_up_el_O12 Mean : -2.00653248733e-05 , StdDev : 3.89591428869e-05
+
+JER_up_el_O14 Mean : 8.8259570115e-06 , StdDev : 3.84181618936e-05
+
+JER_down_el_O3 Mean : 3.63564308477e-06 , StdDev : 3.72918475699e-05
+
+JER_down_el_O6 Mean : 7.77998856834e-06 , StdDev : 3.62011342437e-05
+
+JER_down_el_O12 Mean : 1.90884305859e-05 , StdDev : 3.67859524271e-05
+
+JER_down_el_O14 Mean : -8.39086625908e-06 , StdDev : 3.75856883995e-05
+
+JES_up_mu_O3 Mean : 1.93707513547e-05 , StdDev : 3.79869477367e-05
+
+JES_up_mu_O6 Mean : 8.0944247673e-06 , StdDev : 3.84315860525e-05
+
+JES_up_mu_O12 Mean : -1.41606296535e-05 , StdDev : 3.8297992533e-05
+
+JES_up_mu_O14 Mean : -7.83404557474e-06 , StdDev : 3.88454810144e-05
+
+JES_down_mu_O3 Mean : -1.98542011783e-05 , StdDev : 3.83883519652e-05
+
+JES_down_mu_O6 Mean : -7.04663400825e-06 , StdDev : 3.72503982415e-05
+
+JES_down_mu_O12 Mean : 1.50444024294e-05 , StdDev : 3.76676190051e-05
+
+JES_down_mu_O14 Mean : 6.04785963951e-06 , StdDev : 3.78961704195e-05
+
+JES_up_el_O3 Mean : -4.00974555295e-06 , StdDev : 4.74756128813e-05
+
+JES_up_el_O6 Mean : -6.99978450028e-06 , StdDev : 4.68147140236e-05
+
+JES_up_el_O12 Mean : -2.40920694631e-05 , StdDev : 4.69275606182e-05
+
+JES_up_el_O14 Mean : 1.07253117765e-05 , StdDev : 4.65289151262e-05
+
+JES_down_el_O3 Mean : 4.42858426192e-06 , StdDev : 4.70947449313e-05
+
+JES_down_el_O6 Mean : 9.86093017942e-06 , StdDev : 4.58268282833e-05
+
+JES_down_el_O12 Mean : 2.41193460194e-05 , StdDev : 4.65326307749e-05
+
+JES_down_el_O14 Mean : -1.06241164716e-05 , StdDev : 4.74234686431e-05
+
+--------------------------- this is 200705 -----------------------------
+
+btag_up_mu_O3 Mean : 8.85902037574e-06 , StdDev : 2.06483411178e-05
+
+btag_up_mu_O6 Mean : 2.81226977754e-06 , StdDev : 2.01744843202e-05
+
+btag_up_mu_O12 Mean : -6.8994506302e-06 , StdDev : 2.03840448149e-05
+
+btag_up_mu_O14 Mean : -2.99826608447e-06 , StdDev : 2.05508501222e-05
+
+btag_down_mu_O3 Mean : -1.07028017244e-05 , StdDev : 2.25058535793e-05
+
+btag_down_mu_O6 Mean : -3.09216355479e-06 , StdDev : 2.27364272196e-05
+
+btag_down_mu_O12 Mean : 8.35790745231e-06 , StdDev : 2.28584926645e-05
+
+btag_down_mu_O14 Mean : 3.57161595543e-06 , StdDev : 2.2601267385e-05
+
+btag_up_el_O3 Mean : -2.28659428285e-06 , StdDev : 2.38913012469e-05
+
+btag_up_el_O6 Mean : -3.48172719387e-06 , StdDev : 2.40505863566e-05
+
+btag_up_el_O12 Mean : -1.15893284012e-05 , StdDev : 2.40956802677e-05
+
+btag_up_el_O14 Mean : 5.60599560506e-06 , StdDev : 2.42389128461e-05
+
+btag_down_el_O3 Mean : 2.04731890975e-06 , StdDev : 2.66509530945e-05
+
+btag_down_el_O6 Mean : 3.96376060549e-06 , StdDev : 2.75923783181e-05
+
+btag_down_el_O12 Mean : 1.2578242558e-05 , StdDev : 2.65164196588e-05
+
+btag_down_el_O14 Mean : -5.97991978162e-06 , StdDev : 2.64452732609e-05
+
+pu_up_mu_O3 Mean : 4.68635010518e-06 , StdDev : 1.0952474458e-05
+
+pu_up_mu_O6 Mean : 1.48878265977e-06 , StdDev : 1.06939000111e-05
+
+pu_up_mu_O12 Mean : -3.65676550948e-06 , StdDev : 1.08083937349e-05
+
+pu_up_mu_O14 Mean : -1.59773709172e-06 , StdDev : 1.08881312727e-05
+
+pu_down_mu_O3 Mean : -4.88525874666e-06 , StdDev : 1.02963378878e-05
+
+pu_down_mu_O6 Mean : -1.40962079406e-06 , StdDev : 1.03919720561e-05
+
+pu_down_mu_O12 Mean : 3.833251654e-06 , StdDev : 1.04667561485e-05
+
+pu_down_mu_O14 Mean : 1.63548361724e-06 , StdDev : 1.03385436258e-05
+
+pu_up_el_O3 Mean : -1.0734952017e-06 , StdDev : 1.11734983997e-05
+
+pu_up_el_O6 Mean : -1.62595497165e-06 , StdDev : 1.12664205117e-05
+
+pu_up_el_O12 Mean : -5.41995960844e-06 , StdDev : 1.12760432124e-05
+
+pu_up_el_O14 Mean : 2.61371196846e-06 , StdDev : 1.13433892009e-05
+
+pu_down_el_O3 Mean : 8.18613955676e-07 , StdDev : 1.08194505669e-05
+
+pu_down_el_O6 Mean : 1.61175766357e-06 , StdDev : 1.11919238791e-05
+
+pu_down_el_O12 Mean : 5.09558311938e-06 , StdDev : 1.07752739223e-05
+
+pu_down_el_O14 Mean : -2.43050376564e-06 , StdDev : 1.07291486126e-05
+
+lepsf_up_mu_O3 Mean : 5.61675636141e-07 , StdDev : 1.42546891677e-06
+
+lepsf_up_mu_O6 Mean : 1.76000360415e-07 , StdDev : 1.41401035514e-06
+
+lepsf_up_mu_O12 Mean : -4.26400527389e-07 , StdDev : 1.4195135961e-06
+
+lepsf_up_mu_O14 Mean : -2.00802128598e-07 , StdDev : 1.42536761809e-06
+
+lepsf_down_mu_O3 Mean : -6.24787562457e-07 , StdDev : 1.42885069627e-06
+
+lepsf_down_mu_O6 Mean : -1.78436124866e-07 , StdDev : 1.42778245812e-06
+
+lepsf_down_mu_O12 Mean : 4.80160004413e-07 , StdDev : 1.43552103452e-06
+
+lepsf_down_mu_O14 Mean : 1.96800311338e-07 , StdDev : 1.42648621341e-06
+
+lepsf_up_el_O3 Mean : -1.57200469567e-07 , StdDev : 1.83763701456e-06
+
+lepsf_up_el_O6 Mean : -2.41201742912e-07 , StdDev : 1.85845639453e-06
+
+lepsf_up_el_O12 Mean : -8.36392663868e-07 , StdDev : 1.84728539735e-06
+
+lepsf_up_el_O14 Mean : 4.03581648397e-07 , StdDev : 1.86556126442e-06
+
+lepsf_down_el_O3 Mean : 1.55999317276e-07 , StdDev : 1.89939264829e-06
+
+lepsf_down_el_O6 Mean : 2.65995018839e-07 , StdDev : 1.9611644473e-06
+
+lepsf_down_el_O12 Mean : 8.55577950595e-07 , StdDev : 1.88698862123e-06
+
+lepsf_down_el_O14 Mean : -4.04778525538e-07 , StdDev : 1.87727387668e-06
+
+JER_up_mu_O3 Mean : 1.53012408998e-05 , StdDev : 3.56587356415e-05
+
+JER_up_mu_O6 Mean : 4.87357562433e-06 , StdDev : 3.4775333926e-05
+
+JER_up_mu_O12 Mean : -1.19136388583e-05 , StdDev : 3.51632681414e-05
+
+JER_up_mu_O14 Mean : -5.18928864724e-06 , StdDev : 3.54326279453e-05
+
+JER_down_mu_O3 Mean : -1.59406076234e-05 , StdDev : 3.35669975909e-05
+
+JER_down_mu_O6 Mean : -4.59625713983e-06 , StdDev : 3.38470089509e-05
+
+JER_down_mu_O12 Mean : 1.24341803888e-05 , StdDev : 3.40378234137e-05
+
+JER_down_mu_O14 Mean : 5.33611001877e-06 , StdDev : 3.36650311821e-05
+
+JER_up_el_O3 Mean : -4.01478161819e-06 , StdDev : 4.15741256301e-05
+
+JER_up_el_O6 Mean : -6.0178300775e-06 , StdDev : 4.19574691995e-05
+
+JER_up_el_O12 Mean : -2.01506080938e-05 , StdDev : 4.19550689881e-05
+
+JER_up_el_O14 Mean : 9.78312172567e-06 , StdDev : 4.23060437113e-05
+
+JER_down_el_O3 Mean : 3.10498893517e-06 , StdDev : 4.00016735006e-05
+
+JER_down_el_O6 Mean : 5.97467905348e-06 , StdDev : 4.14803025211e-05
+
+JER_down_el_O12 Mean : 1.89042697546e-05 , StdDev : 3.98655579175e-05
+
+JER_down_el_O14 Mean : -8.91706797879e-06 , StdDev : 3.95795916376e-05
+
+JES_up_mu_O3 Mean : 1.79847251541e-05 , StdDev : 4.19955920189e-05
+
+JES_up_mu_O6 Mean : 5.72692964917e-06 , StdDev : 4.10717391366e-05
+
+JES_up_mu_O12 Mean : -1.41028345458e-05 , StdDev : 4.14622775236e-05
+
+JES_up_mu_O14 Mean : -6.18712891118e-06 , StdDev : 4.19151878516e-05
+
+JES_down_mu_O3 Mean : -1.93657540325e-05 , StdDev : 4.07648014253e-05
+
+JES_down_mu_O6 Mean : -5.53540523971e-06 , StdDev : 4.10039260487e-05
+
+JES_down_mu_O12 Mean : 1.5026790769e-05 , StdDev : 4.12052981205e-05
+
+JES_down_mu_O14 Mean : 6.45210348199e-06 , StdDev : 4.08348990991e-05
+
+JES_up_el_O3 Mean : -4.75714840035e-06 , StdDev : 4.92134324033e-05
+
+JES_up_el_O6 Mean : -7.05190801217e-06 , StdDev : 4.94986870645e-05
+
+JES_up_el_O12 Mean : -2.38285490254e-05 , StdDev : 4.97539598433e-05
+
+JES_up_el_O14 Mean : 1.16832522856e-05 , StdDev : 4.98462775522e-05
+
+JES_down_el_O3 Mean : 3.98959255742e-06 , StdDev : 4.95199468924e-05
+
+JES_down_el_O6 Mean : 7.28972963018e-06 , StdDev : 5.11200302246e-05
+
+JES_down_el_O12 Mean : 2.36121960178e-05 , StdDev : 4.95365260434e-05
+
+JES_down_el_O14 Mean : -1.10015668653e-05 , StdDev : 4.90840874072e-05
+
+
+
+---------------------------------------- 2020 07 07 ----------------------------------------
+btag_up_mu_O3 Mean : 8.85902037574e-06 , StdDev : 2.06483411178e-05
+
+btag_up_mu_O6 Mean : 2.81226977754e-06 , StdDev : 2.01744843202e-05
+
+btag_up_mu_O12 Mean : -6.8994506302e-06 , StdDev : 2.03840448149e-05
+
+btag_up_mu_O14 Mean : -2.99826608447e-06 , StdDev : 2.05508501222e-05
+
+btag_down_mu_O3 Mean : -1.07028017244e-05 , StdDev : 2.25058535793e-05
+
+btag_down_mu_O6 Mean : -3.09216355479e-06 , StdDev : 2.27364272196e-05
+
+btag_down_mu_O12 Mean : 8.35790745231e-06 , StdDev : 2.28584926645e-05
+
+btag_down_mu_O14 Mean : 3.57161595543e-06 , StdDev : 2.2601267385e-05
+
+btag_up_el_O3 Mean : -2.28659428285e-06 , StdDev : 2.38913012469e-05
+
+btag_up_el_O6 Mean : -3.48172719387e-06 , StdDev : 2.40505863566e-05
+
+btag_up_el_O12 Mean : -1.15893284012e-05 , StdDev : 2.40956802677e-05
+
+btag_up_el_O14 Mean : 5.60599560506e-06 , StdDev : 2.42389128461e-05
+
+btag_down_el_O3 Mean : 2.04731890975e-06 , StdDev : 2.66509530945e-05
+
+btag_down_el_O6 Mean : 3.96376060549e-06 , StdDev : 2.75923783181e-05
+
+btag_down_el_O12 Mean : 1.2578242558e-05 , StdDev : 2.65164196588e-05
+
+btag_down_el_O14 Mean : -5.97991978162e-06 , StdDev : 2.64452732609e-05
+
+pu_up_mu_O3 Mean : 4.68635010518e-06 , StdDev : 1.0952474458e-05
+
+pu_up_mu_O6 Mean : 1.48878265977e-06 , StdDev : 1.06939000111e-05
+
+pu_up_mu_O12 Mean : -3.65676550948e-06 , StdDev : 1.08083937349e-05
+
+pu_up_mu_O14 Mean : -1.59773709172e-06 , StdDev : 1.08881312727e-05
+
+pu_down_mu_O3 Mean : -4.88525874666e-06 , StdDev : 1.02963378878e-05
+
+pu_down_mu_O6 Mean : -1.40962079406e-06 , StdDev : 1.03919720561e-05
+
+pu_down_mu_O12 Mean : 3.833251654e-06 , StdDev : 1.04667561485e-05
+
+pu_down_mu_O14 Mean : 1.63548361724e-06 , StdDev : 1.03385436258e-05
+
+pu_up_el_O3 Mean : -1.0734952017e-06 , StdDev : 1.11734983997e-05
+
+pu_up_el_O6 Mean : -1.62595497165e-06 , StdDev : 1.12664205117e-05
+
+pu_up_el_O12 Mean : -5.41995960844e-06 , StdDev : 1.12760432124e-05
+
+pu_up_el_O14 Mean : 2.61371196846e-06 , StdDev : 1.13433892009e-05
+
+pu_down_el_O3 Mean : 8.18613955676e-07 , StdDev : 1.08194505669e-05
+
+pu_down_el_O6 Mean : 1.61175766357e-06 , StdDev : 1.11919238791e-05
+
+pu_down_el_O12 Mean : 5.09558311938e-06 , StdDev : 1.07752739223e-05
+
+pu_down_el_O14 Mean : -2.43050376564e-06 , StdDev : 1.07291486126e-05
+
+lepsf_up_mu_O3 Mean : 5.61675636141e-07 , StdDev : 1.42546891677e-06
+
+lepsf_up_mu_O6 Mean : 1.76000360415e-07 , StdDev : 1.41401035514e-06
+
+lepsf_up_mu_O12 Mean : -4.26400527389e-07 , StdDev : 1.4195135961e-06
+
+lepsf_up_mu_O14 Mean : -2.00802128598e-07 , StdDev : 1.42536761809e-06
+
+lepsf_down_mu_O3 Mean : -6.24787562457e-07 , StdDev : 1.42885069627e-06
+
+lepsf_down_mu_O6 Mean : -1.78436124866e-07 , StdDev : 1.42778245812e-06
+
+lepsf_down_mu_O12 Mean : 4.80160004413e-07 , StdDev : 1.43552103452e-06
+
+lepsf_down_mu_O14 Mean : 1.96800311338e-07 , StdDev : 1.42648621341e-06
+
+lepsf_up_el_O3 Mean : -1.57200469567e-07 , StdDev : 1.83763701456e-06
+
+lepsf_up_el_O6 Mean : -2.41201742912e-07 , StdDev : 1.85845639453e-06
+
+lepsf_up_el_O12 Mean : -8.36392663868e-07 , StdDev : 1.84728539735e-06
+
+lepsf_up_el_O14 Mean : 4.03581648397e-07 , StdDev : 1.86556126442e-06
+
+lepsf_down_el_O3 Mean : 1.55999317276e-07 , StdDev : 1.89939264829e-06
+
+lepsf_down_el_O6 Mean : 2.65995018839e-07 , StdDev : 1.9611644473e-06
+
+lepsf_down_el_O12 Mean : 8.55577950595e-07 , StdDev : 1.88698862123e-06
+
+lepsf_down_el_O14 Mean : -4.04778525538e-07 , StdDev : 1.87727387668e-06
+
+JER_up_mu_O3 Mean : 1.53012408998e-05 , StdDev : 3.56587356415e-05
+
+JER_up_mu_O6 Mean : 4.87357562433e-06 , StdDev : 3.4775333926e-05
+
+JER_up_mu_O12 Mean : -1.19136388583e-05 , StdDev : 3.51632681414e-05
+
+JER_up_mu_O14 Mean : -5.18928864724e-06 , StdDev : 3.54326279453e-05
+
+JER_down_mu_O3 Mean : -1.59406076234e-05 , StdDev : 3.35669975909e-05
+
+JER_down_mu_O6 Mean : -4.59625713983e-06 , StdDev : 3.38470089509e-05
+
+JER_down_mu_O12 Mean : 1.24341803888e-05 , StdDev : 3.40378234137e-05
+
+JER_down_mu_O14 Mean : 5.33611001877e-06 , StdDev : 3.36650311821e-05
+
+JER_up_el_O3 Mean : -4.01478161819e-06 , StdDev : 4.15741256301e-05
+
+JER_up_el_O6 Mean : -6.0178300775e-06 , StdDev : 4.19574691995e-05
+
+JER_up_el_O12 Mean : -2.01506080938e-05 , StdDev : 4.19550689881e-05
+
+JER_up_el_O14 Mean : 9.78312172567e-06 , StdDev : 4.23060437113e-05
+
+JER_down_el_O3 Mean : 3.10498893517e-06 , StdDev : 4.00016735006e-05
+
+JER_down_el_O6 Mean : 5.97467905348e-06 , StdDev : 4.14803025211e-05
+
+JER_down_el_O12 Mean : 1.89042697546e-05 , StdDev : 3.98655579175e-05
+
+JER_down_el_O14 Mean : -8.91706797879e-06 , StdDev : 3.95795916376e-05
+
+JES_up_mu_O3 Mean : 1.79847251541e-05 , StdDev : 4.19955920189e-05
+
+JES_up_mu_O6 Mean : 5.72692964917e-06 , StdDev : 4.10717391366e-05
+
+JES_up_mu_O12 Mean : -1.41028345458e-05 , StdDev : 4.14622775236e-05
+
+JES_up_mu_O14 Mean : -6.18712891118e-06 , StdDev : 4.19151878516e-05
+
+JES_down_mu_O3 Mean : -1.93657540325e-05 , StdDev : 4.07648014253e-05
+
+JES_down_mu_O6 Mean : -5.53540523971e-06 , StdDev : 4.10039260487e-05
+
+JES_down_mu_O12 Mean : 1.5026790769e-05 , StdDev : 4.12052981205e-05
+
+JES_down_mu_O14 Mean : 6.45210348199e-06 , StdDev : 4.08348990991e-05
+
+JES_up_el_O3 Mean : -4.75714840035e-06 , StdDev : 4.92134324033e-05
+
+JES_up_el_O6 Mean : -7.05190801217e-06 , StdDev : 4.94986870645e-05
+
+JES_up_el_O12 Mean : -2.38285490254e-05 , StdDev : 4.97539598433e-05
+
+JES_up_el_O14 Mean : 1.16832522856e-05 , StdDev : 4.98462775522e-05
+
+JES_down_el_O3 Mean : 3.98959255742e-06 , StdDev : 4.95199468924e-05
+
+JES_down_el_O6 Mean : 7.28972963018e-06 , StdDev : 5.11200302246e-05
+
+JES_down_el_O12 Mean : 2.36121960178e-05 , StdDev : 4.95365260434e-05
+
+JES_down_el_O14 Mean : -1.10015668653e-05 , StdDev : 4.90840874072e-05
+
+------------------------------------------------------------------
+btag_up_mu_O3 Mean : 8.85902037574e-06 , StdDev : 2.06483411178e-05
+
+btag_up_mu_O6 Mean : 2.81226977754e-06 , StdDev : 2.01744843202e-05
+
+btag_up_mu_O12 Mean : -6.8994506302e-06 , StdDev : 2.03840448149e-05
+
+btag_up_mu_O14 Mean : -2.99826608447e-06 , StdDev : 2.05508501222e-05
+
+btag_down_mu_O3 Mean : -1.07028017244e-05 , StdDev : 2.25058535793e-05
+
+btag_down_mu_O6 Mean : -3.09216355479e-06 , StdDev : 2.27364272196e-05
+
+btag_down_mu_O12 Mean : 8.35790745231e-06 , StdDev : 2.28584926645e-05
+
+btag_down_mu_O14 Mean : 3.57161595543e-06 , StdDev : 2.2601267385e-05
+
+btag_up_el_O3 Mean : -2.28659428285e-06 , StdDev : 2.38913012469e-05
+
+btag_up_el_O6 Mean : -3.48172719387e-06 , StdDev : 2.40505863566e-05
+
+btag_up_el_O12 Mean : -1.15893284012e-05 , StdDev : 2.40956802677e-05
+
+btag_up_el_O14 Mean : 5.60599560506e-06 , StdDev : 2.42389128461e-05
+
+btag_down_el_O3 Mean : 2.04731890975e-06 , StdDev : 2.66509530945e-05
+
+btag_down_el_O6 Mean : 3.96376060549e-06 , StdDev : 2.75923783181e-05
+
+btag_down_el_O12 Mean : 1.2578242558e-05 , StdDev : 2.65164196588e-05
+
+btag_down_el_O14 Mean : -5.97991978162e-06 , StdDev : 2.64452732609e-05
+
+pu_up_mu_O3 Mean : 4.68635010518e-06 , StdDev : 1.0952474458e-05
+
+pu_up_mu_O6 Mean : 1.48878265977e-06 , StdDev : 1.06939000111e-05
+
+pu_up_mu_O12 Mean : -3.65676550948e-06 , StdDev : 1.08083937349e-05
+
+pu_up_mu_O14 Mean : -1.59773709172e-06 , StdDev : 1.08881312727e-05
+
+pu_down_mu_O3 Mean : -4.88525874666e-06 , StdDev : 1.02963378878e-05
+
+pu_down_mu_O6 Mean : -1.40962079406e-06 , StdDev : 1.03919720561e-05
+
+pu_down_mu_O12 Mean : 3.833251654e-06 , StdDev : 1.04667561485e-05
+
+pu_down_mu_O14 Mean : 1.63548361724e-06 , StdDev : 1.03385436258e-05
+
+pu_up_el_O3 Mean : -1.0734952017e-06 , StdDev : 1.11734983997e-05
+
+pu_up_el_O6 Mean : -1.62595497165e-06 , StdDev : 1.12664205117e-05
+
+pu_up_el_O12 Mean : -5.41995960844e-06 , StdDev : 1.12760432124e-05
+
+pu_up_el_O14 Mean : 2.61371196846e-06 , StdDev : 1.13433892009e-05
+
+pu_down_el_O3 Mean : 8.18613955676e-07 , StdDev : 1.08194505669e-05
+
+pu_down_el_O6 Mean : 1.61175766357e-06 , StdDev : 1.11919238791e-05
+
+pu_down_el_O12 Mean : 5.09558311938e-06 , StdDev : 1.07752739223e-05
+
+pu_down_el_O14 Mean : -2.43050376564e-06 , StdDev : 1.07291486126e-05
+
+lepsf_up_mu_O3 Mean : 5.61675636141e-07 , StdDev : 1.42546891677e-06
+
+lepsf_up_mu_O6 Mean : 1.76000360415e-07 , StdDev : 1.41401035514e-06
+
+lepsf_up_mu_O12 Mean : -4.26400527389e-07 , StdDev : 1.4195135961e-06
+
+lepsf_up_mu_O14 Mean : -2.00802128598e-07 , StdDev : 1.42536761809e-06
+
+lepsf_down_mu_O3 Mean : -6.24787562457e-07 , StdDev : 1.42885069627e-06
+
+lepsf_down_mu_O6 Mean : -1.78436124866e-07 , StdDev : 1.42778245812e-06
+
+lepsf_down_mu_O12 Mean : 4.80160004413e-07 , StdDev : 1.43552103452e-06
+
+lepsf_down_mu_O14 Mean : 1.96800311338e-07 , StdDev : 1.42648621341e-06
+
+lepsf_up_el_O3 Mean : -1.57200469567e-07 , StdDev : 1.83763701456e-06
+
+lepsf_up_el_O6 Mean : -2.41201742912e-07 , StdDev : 1.85845639453e-06
+
+lepsf_up_el_O12 Mean : -8.36392663868e-07 , StdDev : 1.84728539735e-06
+
+lepsf_up_el_O14 Mean : 4.03581648397e-07 , StdDev : 1.86556126442e-06
+
+lepsf_down_el_O3 Mean : 1.55999317276e-07 , StdDev : 1.89939264829e-06
+
+lepsf_down_el_O6 Mean : 2.65995018839e-07 , StdDev : 1.9611644473e-06
+
+lepsf_down_el_O12 Mean : 8.55577950595e-07 , StdDev : 1.88698862123e-06
+
+lepsf_down_el_O14 Mean : -4.04778525538e-07 , StdDev : 1.87727387668e-06
+
+JER_up_mu_O3 Mean : 1.53012408998e-05 , StdDev : 3.56587356415e-05
+
+JER_up_mu_O6 Mean : 4.87357562433e-06 , StdDev : 3.4775333926e-05
+
+JER_up_mu_O12 Mean : -1.19136388583e-05 , StdDev : 3.51632681414e-05
+
+JER_up_mu_O14 Mean : -5.18928864724e-06 , StdDev : 3.54326279453e-05
+
+JER_down_mu_O3 Mean : -1.59406076234e-05 , StdDev : 3.35669975909e-05
+
+JER_down_mu_O6 Mean : -4.59625713983e-06 , StdDev : 3.38470089509e-05
+
+JER_down_mu_O12 Mean : 1.24341803888e-05 , StdDev : 3.40378234137e-05
+
+JER_down_mu_O14 Mean : 5.33611001877e-06 , StdDev : 3.36650311821e-05
+
+JER_up_el_O3 Mean : -4.01478161819e-06 , StdDev : 4.15741256301e-05
+
+JER_up_el_O6 Mean : -6.0178300775e-06 , StdDev : 4.19574691995e-05
+
+JER_up_el_O12 Mean : -2.01506080938e-05 , StdDev : 4.19550689881e-05
+
+JER_up_el_O14 Mean : 9.78312172567e-06 , StdDev : 4.23060437113e-05
+
+JER_down_el_O3 Mean : 3.10498893517e-06 , StdDev : 4.00016735006e-05
+
+JER_down_el_O6 Mean : 5.97467905348e-06 , StdDev : 4.14803025211e-05
+
+JER_down_el_O12 Mean : 1.89042697546e-05 , StdDev : 3.98655579175e-05
+
+JER_down_el_O14 Mean : -8.91706797879e-06 , StdDev : 3.95795916376e-05
+
+JES_up_mu_O3 Mean : 1.79847251541e-05 , StdDev : 4.19955920189e-05
+
+JES_up_mu_O6 Mean : 5.72692964917e-06 , StdDev : 4.10717391366e-05
+
+JES_up_mu_O12 Mean : -1.41028345458e-05 , StdDev : 4.14622775236e-05
+
+JES_up_mu_O14 Mean : -6.18712891118e-06 , StdDev : 4.19151878516e-05
+
+JES_down_mu_O3 Mean : -1.93657540325e-05 , StdDev : 4.07648014253e-05
+
+JES_down_mu_O6 Mean : -5.53540523971e-06 , StdDev : 4.10039260487e-05
+
+JES_down_mu_O12 Mean : 1.5026790769e-05 , StdDev : 4.12052981205e-05
+
+JES_down_mu_O14 Mean : 6.45210348199e-06 , StdDev : 4.08348990991e-05
+
+JES_up_el_O3 Mean : -4.75714840035e-06 , StdDev : 4.92134324033e-05
+
+JES_up_el_O6 Mean : -7.05190801217e-06 , StdDev : 4.94986870645e-05
+
+JES_up_el_O12 Mean : -2.38285490254e-05 , StdDev : 4.97539598433e-05
+
+JES_up_el_O14 Mean : 1.16832522856e-05 , StdDev : 4.98462775522e-05
+
+JES_down_el_O3 Mean : 3.98959255742e-06 , StdDev : 4.95199468924e-05
+
+JES_down_el_O6 Mean : 7.28972963018e-06 , StdDev : 5.11200302246e-05
+
+JES_down_el_O12 Mean : 2.36121960178e-05 , StdDev : 4.95365260434e-05
+
+JES_down_el_O14 Mean : -1.10015668653e-05 , StdDev : 4.90840874072e-05
+
+btag_up_mu_O3 Mean : 8.85902037574e-06 , StdDev : 2.06483411178e-05
+
+btag_up_mu_O6 Mean : 2.81226977754e-06 , StdDev : 2.01744843202e-05
+
+btag_up_mu_O12 Mean : -6.8994506302e-06 , StdDev : 2.03840448149e-05
+
+btag_up_mu_O14 Mean : -2.99826608447e-06 , StdDev : 2.05508501222e-05
+
+btag_down_mu_O3 Mean : -1.07028017244e-05 , StdDev : 2.25058535793e-05
+
+btag_down_mu_O6 Mean : -3.09216355479e-06 , StdDev : 2.27364272196e-05
+
+btag_down_mu_O12 Mean : 8.35790745231e-06 , StdDev : 2.28584926645e-05
+
+btag_down_mu_O14 Mean : 3.57161595543e-06 , StdDev : 2.2601267385e-05
+
+btag_up_el_O3 Mean : -2.28659428285e-06 , StdDev : 2.38913012469e-05
+
+btag_up_el_O6 Mean : -3.48172719387e-06 , StdDev : 2.40505863566e-05
+
+btag_up_el_O12 Mean : -1.15893284012e-05 , StdDev : 2.40956802677e-05
+
+btag_up_el_O14 Mean : 5.60599560506e-06 , StdDev : 2.42389128461e-05
+
+btag_down_el_O3 Mean : 2.04731890975e-06 , StdDev : 2.66509530945e-05
+
+btag_down_el_O6 Mean : 3.96376060549e-06 , StdDev : 2.75923783181e-05
+
+btag_down_el_O12 Mean : 1.2578242558e-05 , StdDev : 2.65164196588e-05
+
+btag_down_el_O14 Mean : -5.97991978162e-06 , StdDev : 2.64452732609e-05
+
+pu_up_mu_O3 Mean : 4.68635010518e-06 , StdDev : 1.0952474458e-05
+
+pu_up_mu_O6 Mean : 1.48878265977e-06 , StdDev : 1.06939000111e-05
+
+pu_up_mu_O12 Mean : -3.65676550948e-06 , StdDev : 1.08083937349e-05
+
+pu_up_mu_O14 Mean : -1.59773709172e-06 , StdDev : 1.08881312727e-05
+
+pu_down_mu_O3 Mean : -4.88525874666e-06 , StdDev : 1.02963378878e-05
+
+pu_down_mu_O6 Mean : -1.40962079406e-06 , StdDev : 1.03919720561e-05
+
+pu_down_mu_O12 Mean : 3.833251654e-06 , StdDev : 1.04667561485e-05
+
+pu_down_mu_O14 Mean : 1.63548361724e-06 , StdDev : 1.03385436258e-05
+
+pu_up_el_O3 Mean : -1.0734952017e-06 , StdDev : 1.11734983997e-05
+
+pu_up_el_O6 Mean : -1.62595497165e-06 , StdDev : 1.12664205117e-05
+
+pu_up_el_O12 Mean : -5.41995960844e-06 , StdDev : 1.12760432124e-05
+
+pu_up_el_O14 Mean : 2.61371196846e-06 , StdDev : 1.13433892009e-05
+
+pu_down_el_O3 Mean : 8.18613955676e-07 , StdDev : 1.08194505669e-05
+
+pu_down_el_O6 Mean : 1.61175766357e-06 , StdDev : 1.11919238791e-05
+
+pu_down_el_O12 Mean : 5.09558311938e-06 , StdDev : 1.07752739223e-05
+
+pu_down_el_O14 Mean : -2.43050376564e-06 , StdDev : 1.07291486126e-05
+
+lepsf_up_mu_O3 Mean : 5.61675636141e-07 , StdDev : 1.42546891677e-06
+
+lepsf_up_mu_O6 Mean : 1.76000360415e-07 , StdDev : 1.41401035514e-06
+
+lepsf_up_mu_O12 Mean : -4.26400527389e-07 , StdDev : 1.4195135961e-06
+
+lepsf_up_mu_O14 Mean : -2.00802128598e-07 , StdDev : 1.42536761809e-06
+
+lepsf_down_mu_O3 Mean : -6.24787562457e-07 , StdDev : 1.42885069627e-06
+
+lepsf_down_mu_O6 Mean : -1.78436124866e-07 , StdDev : 1.42778245812e-06
+
+lepsf_down_mu_O12 Mean : 4.80160004413e-07 , StdDev : 1.43552103452e-06
+
+lepsf_down_mu_O14 Mean : 1.96800311338e-07 , StdDev : 1.42648621341e-06
+
+lepsf_up_el_O3 Mean : -1.57200469567e-07 , StdDev : 1.83763701456e-06
+
+lepsf_up_el_O6 Mean : -2.41201742912e-07 , StdDev : 1.85845639453e-06
+
+lepsf_up_el_O12 Mean : -8.36392663868e-07 , StdDev : 1.84728539735e-06
+
+lepsf_up_el_O14 Mean : 4.03581648397e-07 , StdDev : 1.86556126442e-06
+
+lepsf_down_el_O3 Mean : 1.55999317276e-07 , StdDev : 1.89939264829e-06
+
+lepsf_down_el_O6 Mean : 2.65995018839e-07 , StdDev : 1.9611644473e-06
+
+lepsf_down_el_O12 Mean : 8.55577950595e-07 , StdDev : 1.88698862123e-06
+
+lepsf_down_el_O14 Mean : -4.04778525538e-07 , StdDev : 1.87727387668e-06
+
+JER_up_mu_O3 Mean : 1.53012408998e-05 , StdDev : 3.56587356415e-05
+
+JER_up_mu_O6 Mean : 4.87357562433e-06 , StdDev : 3.4775333926e-05
+
+JER_up_mu_O12 Mean : -1.19136388583e-05 , StdDev : 3.51632681414e-05
+
+JER_up_mu_O14 Mean : -5.18928864724e-06 , StdDev : 3.54326279453e-05
+
+JER_down_mu_O3 Mean : -1.59406076234e-05 , StdDev : 3.35669975909e-05
+
+JER_down_mu_O6 Mean : -4.59625713983e-06 , StdDev : 3.38470089509e-05
+
+JER_down_mu_O12 Mean : 1.24341803888e-05 , StdDev : 3.40378234137e-05
+
+JER_down_mu_O14 Mean : 5.33611001877e-06 , StdDev : 3.36650311821e-05
+
+JER_up_el_O3 Mean : -4.01478161819e-06 , StdDev : 4.15741256301e-05
+
+JER_up_el_O6 Mean : -6.0178300775e-06 , StdDev : 4.19574691995e-05
+
+JER_up_el_O12 Mean : -2.01506080938e-05 , StdDev : 4.19550689881e-05
+
+JER_up_el_O14 Mean : 9.78312172567e-06 , StdDev : 4.23060437113e-05
+
+JER_down_el_O3 Mean : 3.10498893517e-06 , StdDev : 4.00016735006e-05
+
+JER_down_el_O6 Mean : 5.97467905348e-06 , StdDev : 4.14803025211e-05
+
+JER_down_el_O12 Mean : 1.89042697546e-05 , StdDev : 3.98655579175e-05
+
+JER_down_el_O14 Mean : -8.91706797879e-06 , StdDev : 3.95795916376e-05
+
+JES_up_mu_O3 Mean : 1.79847251541e-05 , StdDev : 4.19955920189e-05
+
+JES_up_mu_O6 Mean : 5.72692964917e-06 , StdDev : 4.10717391366e-05
+
+JES_up_mu_O12 Mean : -1.41028345458e-05 , StdDev : 4.14622775236e-05
+
+JES_up_mu_O14 Mean : -6.18712891118e-06 , StdDev : 4.19151878516e-05
+
+JES_down_mu_O3 Mean : -1.93657540325e-05 , StdDev : 4.07648014253e-05
+
+JES_down_mu_O6 Mean : -5.53540523971e-06 , StdDev : 4.10039260487e-05
+
+JES_down_mu_O12 Mean : 1.5026790769e-05 , StdDev : 4.12052981205e-05
+
+JES_down_mu_O14 Mean : 6.45210348199e-06 , StdDev : 4.08348990991e-05
+
+JES_up_el_O3 Mean : -4.75714840035e-06 , StdDev : 4.92134324033e-05
+
+JES_up_el_O6 Mean : -7.05190801217e-06 , StdDev : 4.94986870645e-05
+
+JES_up_el_O12 Mean : -2.38285490254e-05 , StdDev : 4.97539598433e-05
+
+JES_up_el_O14 Mean : 1.16832522856e-05 , StdDev : 4.98462775522e-05
+
+JES_down_el_O3 Mean : 3.98959255742e-06 , StdDev : 4.95199468924e-05
+
+JES_down_el_O6 Mean : 7.28972963018e-06 , StdDev : 5.11200302246e-05
+
+JES_down_el_O12 Mean : 2.36121960178e-05 , StdDev : 4.95365260434e-05
+
+JES_down_el_O14 Mean : -1.10015668653e-05 , StdDev : 4.90840874072e-05
+
+
+-----------------------
+
+btag_up_mu_O3 Mean : 8.85902037574e-06 , StdDev : 2.06483411178e-05
+
+btag_up_mu_O6 Mean : 2.81226977754e-06 , StdDev : 2.01744843202e-05
+
+btag_up_mu_O12 Mean : -6.8994506302e-06 , StdDev : 2.03840448149e-05
+
+btag_up_mu_O14 Mean : -2.99826608447e-06 , StdDev : 2.05508501222e-05
+
+btag_down_mu_O3 Mean : -1.07028017244e-05 , StdDev : 2.25058535793e-05
+
+btag_down_mu_O6 Mean : -3.09216355479e-06 , StdDev : 2.27364272196e-05
+
+btag_down_mu_O12 Mean : 8.35790745231e-06 , StdDev : 2.28584926645e-05
+
+btag_down_mu_O14 Mean : 3.57161595543e-06 , StdDev : 2.2601267385e-05
+
+btag_up_el_O3 Mean : -2.28659428285e-06 , StdDev : 2.38913012469e-05
+
+btag_up_el_O6 Mean : -3.48172719387e-06 , StdDev : 2.40505863566e-05
+
+btag_up_el_O12 Mean : -1.15893284012e-05 , StdDev : 2.40956802677e-05
+
+btag_up_el_O14 Mean : 5.60599560506e-06 , StdDev : 2.42389128461e-05
+
+btag_down_el_O3 Mean : 2.04731890975e-06 , StdDev : 2.66509530945e-05
+
+btag_down_el_O6 Mean : 3.96376060549e-06 , StdDev : 2.75923783181e-05
+
+btag_down_el_O12 Mean : 1.2578242558e-05 , StdDev : 2.65164196588e-05
+
+btag_down_el_O14 Mean : -5.97991978162e-06 , StdDev : 2.64452732609e-05
+
+pu_up_mu_O3 Mean : 4.68635010518e-06 , StdDev : 1.0952474458e-05
+
+pu_up_mu_O6 Mean : 1.48878265977e-06 , StdDev : 1.06939000111e-05
+
+pu_up_mu_O12 Mean : -3.65676550948e-06 , StdDev : 1.08083937349e-05
+
+pu_up_mu_O14 Mean : -1.59773709172e-06 , StdDev : 1.08881312727e-05
+
+pu_down_mu_O3 Mean : -4.88525874666e-06 , StdDev : 1.02963378878e-05
+
+pu_down_mu_O6 Mean : -1.40962079406e-06 , StdDev : 1.03919720561e-05
+
+pu_down_mu_O12 Mean : 3.833251654e-06 , StdDev : 1.04667561485e-05
+
+pu_down_mu_O14 Mean : 1.63548361724e-06 , StdDev : 1.03385436258e-05
+
+pu_up_el_O3 Mean : -1.0734952017e-06 , StdDev : 1.11734983997e-05
+
+pu_up_el_O6 Mean : -1.62595497165e-06 , StdDev : 1.12664205117e-05
+
+pu_up_el_O12 Mean : -5.41995960844e-06 , StdDev : 1.12760432124e-05
+
+pu_up_el_O14 Mean : 2.61371196846e-06 , StdDev : 1.13433892009e-05
+
+pu_down_el_O3 Mean : 8.18613955676e-07 , StdDev : 1.08194505669e-05
+
+pu_down_el_O6 Mean : 1.61175766357e-06 , StdDev : 1.11919238791e-05
+
+pu_down_el_O12 Mean : 5.09558311938e-06 , StdDev : 1.07752739223e-05
+
+pu_down_el_O14 Mean : -2.43050376564e-06 , StdDev : 1.07291486126e-05
+
+lepsf_up_mu_O3 Mean : 5.61675636141e-07 , StdDev : 1.42546891677e-06
+
+lepsf_up_mu_O6 Mean : 1.76000360415e-07 , StdDev : 1.41401035514e-06
+
+lepsf_up_mu_O12 Mean : -4.26400527389e-07 , StdDev : 1.4195135961e-06
+
+lepsf_up_mu_O14 Mean : -2.00802128598e-07 , StdDev : 1.42536761809e-06
+
+lepsf_down_mu_O3 Mean : -6.24787562457e-07 , StdDev : 1.42885069627e-06
+
+lepsf_down_mu_O6 Mean : -1.78436124866e-07 , StdDev : 1.42778245812e-06
+
+lepsf_down_mu_O12 Mean : 4.80160004413e-07 , StdDev : 1.43552103452e-06
+
+lepsf_down_mu_O14 Mean : 1.96800311338e-07 , StdDev : 1.42648621341e-06
+
+lepsf_up_el_O3 Mean : -1.57200469567e-07 , StdDev : 1.83763701456e-06
+
+lepsf_up_el_O6 Mean : -2.41201742912e-07 , StdDev : 1.85845639453e-06
+
+lepsf_up_el_O12 Mean : -8.36392663868e-07 , StdDev : 1.84728539735e-06
+
+lepsf_up_el_O14 Mean : 4.03581648397e-07 , StdDev : 1.86556126442e-06
+
+lepsf_down_el_O3 Mean : 1.55999317276e-07 , StdDev : 1.89939264829e-06
+
+lepsf_down_el_O6 Mean : 2.65995018839e-07 , StdDev : 1.9611644473e-06
+
+lepsf_down_el_O12 Mean : 8.55577950595e-07 , StdDev : 1.88698862123e-06
+
+lepsf_down_el_O14 Mean : -4.04778525538e-07 , StdDev : 1.87727387668e-06
+
+JER_up_mu_O3 Mean : 1.53012408998e-05 , StdDev : 3.56587356415e-05
+
+JER_up_mu_O6 Mean : 4.87357562433e-06 , StdDev : 3.4775333926e-05
+
+JER_up_mu_O12 Mean : -1.19136388583e-05 , StdDev : 3.51632681414e-05
+
+JER_up_mu_O14 Mean : -5.18928864724e-06 , StdDev : 3.54326279453e-05
+
+JER_down_mu_O3 Mean : -1.59406076234e-05 , StdDev : 3.35669975909e-05
+
+JER_down_mu_O6 Mean : -4.59625713983e-06 , StdDev : 3.38470089509e-05
+
+JER_down_mu_O12 Mean : 1.24341803888e-05 , StdDev : 3.40378234137e-05
+
+JER_down_mu_O14 Mean : 5.33611001877e-06 , StdDev : 3.36650311821e-05
+
+JER_up_el_O3 Mean : -4.01478161819e-06 , StdDev : 4.15741256301e-05
+
+JER_up_el_O6 Mean : -6.0178300775e-06 , StdDev : 4.19574691995e-05
+
+JER_up_el_O12 Mean : -2.01506080938e-05 , StdDev : 4.19550689881e-05
+
+JER_up_el_O14 Mean : 9.78312172567e-06 , StdDev : 4.23060437113e-05
+
+JER_down_el_O3 Mean : 3.10498893517e-06 , StdDev : 4.00016735006e-05
+
+JER_down_el_O6 Mean : 5.97467905348e-06 , StdDev : 4.14803025211e-05
+
+JER_down_el_O12 Mean : 1.89042697546e-05 , StdDev : 3.98655579175e-05
+
+JER_down_el_O14 Mean : -8.91706797879e-06 , StdDev : 3.95795916376e-05
+
+JES_up_mu_O3 Mean : 1.79847251541e-05 , StdDev : 4.19955920189e-05
+
+JES_up_mu_O6 Mean : 5.72692964917e-06 , StdDev : 4.10717391366e-05
+
+JES_up_mu_O12 Mean : -1.41028345458e-05 , StdDev : 4.14622775236e-05
+
+JES_up_mu_O14 Mean : -6.18712891118e-06 , StdDev : 4.19151878516e-05
+
+JES_down_mu_O3 Mean : -1.93657540325e-05 , StdDev : 4.07648014253e-05
+
+JES_down_mu_O6 Mean : -5.53540523971e-06 , StdDev : 4.10039260487e-05
+
+JES_down_mu_O12 Mean : 1.5026790769e-05 , StdDev : 4.12052981205e-05
+
+JES_down_mu_O14 Mean : 6.45210348199e-06 , StdDev : 4.08348990991e-05
+
+JES_up_el_O3 Mean : -4.75714840035e-06 , StdDev : 4.92134324033e-05
+
+JES_up_el_O6 Mean : -7.05190801217e-06 , StdDev : 4.94986870645e-05
+
+JES_up_el_O12 Mean : -2.38285490254e-05 , StdDev : 4.97539598433e-05
+
+JES_up_el_O14 Mean : 1.16832522856e-05 , StdDev : 4.98462775522e-05
+
+JES_down_el_O3 Mean : 3.98959255742e-06 , StdDev : 4.95199468924e-05
+
+JES_down_el_O6 Mean : 7.28972963018e-06 , StdDev : 5.11200302246e-05
+
+JES_down_el_O12 Mean : 2.36121960178e-05 , StdDev : 4.95365260434e-05
+
+JES_down_el_O14 Mean : -1.10015668653e-05 , StdDev : 4.90840874072e-05
+
+----------------------------
+
+btag_up_mu_O3 Mean : 8.85902037574e-06 , StdDev : 2.06483411178e-05
+
+btag_up_mu_O6 Mean : 2.81226977754e-06 , StdDev : 2.01744843202e-05
+
+btag_up_mu_O12 Mean : -6.8994506302e-06 , StdDev : 2.03840448149e-05
+
+btag_up_mu_O14 Mean : -2.99826608447e-06 , StdDev : 2.05508501222e-05
+
+btag_down_mu_O3 Mean : -1.07028017244e-05 , StdDev : 2.25058535793e-05
+
+btag_down_mu_O6 Mean : -3.09216355479e-06 , StdDev : 2.27364272196e-05
+
+btag_down_mu_O12 Mean : 8.35790745231e-06 , StdDev : 2.28584926645e-05
+
+btag_down_mu_O14 Mean : 3.57161595543e-06 , StdDev : 2.2601267385e-05
+
+btag_up_el_O3 Mean : -2.28659428285e-06 , StdDev : 2.38913012469e-05
+
+btag_up_el_O6 Mean : -3.48172719387e-06 , StdDev : 2.40505863566e-05
+
+btag_up_el_O12 Mean : -1.15893284012e-05 , StdDev : 2.40956802677e-05
+
+btag_up_el_O14 Mean : 5.60599560506e-06 , StdDev : 2.42389128461e-05
+
+btag_down_el_O3 Mean : 2.04731890975e-06 , StdDev : 2.66509530945e-05
+
+btag_down_el_O6 Mean : 3.96376060549e-06 , StdDev : 2.75923783181e-05
+
+btag_down_el_O12 Mean : 1.2578242558e-05 , StdDev : 2.65164196588e-05
+
+btag_down_el_O14 Mean : -5.97991978162e-06 , StdDev : 2.64452732609e-05
+
+pu_up_mu_O3 Mean : 4.68635010518e-06 , StdDev : 1.0952474458e-05
+
+pu_up_mu_O6 Mean : 1.48878265977e-06 , StdDev : 1.06939000111e-05
+
+pu_up_mu_O12 Mean : -3.65676550948e-06 , StdDev : 1.08083937349e-05
+
+pu_up_mu_O14 Mean : -1.59773709172e-06 , StdDev : 1.08881312727e-05
+
+pu_down_mu_O3 Mean : -4.88525874666e-06 , StdDev : 1.02963378878e-05
+
+pu_down_mu_O6 Mean : -1.40962079406e-06 , StdDev : 1.03919720561e-05
+
+pu_down_mu_O12 Mean : 3.833251654e-06 , StdDev : 1.04667561485e-05
+
+pu_down_mu_O14 Mean : 1.63548361724e-06 , StdDev : 1.03385436258e-05
+
+pu_up_el_O3 Mean : -1.0734952017e-06 , StdDev : 1.11734983997e-05
+
+pu_up_el_O6 Mean : -1.62595497165e-06 , StdDev : 1.12664205117e-05
+
+pu_up_el_O12 Mean : -5.41995960844e-06 , StdDev : 1.12760432124e-05
+
+pu_up_el_O14 Mean : 2.61371196846e-06 , StdDev : 1.13433892009e-05
+
+pu_down_el_O3 Mean : 8.18613955676e-07 , StdDev : 1.08194505669e-05
+
+pu_down_el_O6 Mean : 1.61175766357e-06 , StdDev : 1.11919238791e-05
+
+pu_down_el_O12 Mean : 5.09558311938e-06 , StdDev : 1.07752739223e-05
+
+pu_down_el_O14 Mean : -2.43050376564e-06 , StdDev : 1.07291486126e-05
+
+lepsf_up_mu_O3 Mean : 5.61675636141e-07 , StdDev : 1.42546891677e-06
+
+lepsf_up_mu_O6 Mean : 1.76000360415e-07 , StdDev : 1.41401035514e-06
+
+lepsf_up_mu_O12 Mean : -4.26400527389e-07 , StdDev : 1.4195135961e-06
+
+lepsf_up_mu_O14 Mean : -2.00802128598e-07 , StdDev : 1.42536761809e-06
+
+lepsf_down_mu_O3 Mean : -6.24787562457e-07 , StdDev : 1.42885069627e-06
+
+lepsf_down_mu_O6 Mean : -1.78436124866e-07 , StdDev : 1.42778245812e-06
+
+lepsf_down_mu_O12 Mean : 4.80160004413e-07 , StdDev : 1.43552103452e-06
+
+lepsf_down_mu_O14 Mean : 1.96800311338e-07 , StdDev : 1.42648621341e-06
+
+lepsf_up_el_O3 Mean : -1.57200469567e-07 , StdDev : 1.83763701456e-06
+
+lepsf_up_el_O6 Mean : -2.41201742912e-07 , StdDev : 1.85845639453e-06
+
+lepsf_up_el_O12 Mean : -8.36392663868e-07 , StdDev : 1.84728539735e-06
+
+lepsf_up_el_O14 Mean : 4.03581648397e-07 , StdDev : 1.86556126442e-06
+
+lepsf_down_el_O3 Mean : 1.55999317276e-07 , StdDev : 1.89939264829e-06
+
+lepsf_down_el_O6 Mean : 2.65995018839e-07 , StdDev : 1.9611644473e-06
+
+lepsf_down_el_O12 Mean : 8.55577950595e-07 , StdDev : 1.88698862123e-06
+
+lepsf_down_el_O14 Mean : -4.04778525538e-07 , StdDev : 1.87727387668e-06
+
+JER_up_mu_O3 Mean : 1.53012408998e-05 , StdDev : 3.56587356415e-05
+
+JER_up_mu_O6 Mean : 4.87357562433e-06 , StdDev : 3.4775333926e-05
+
+JER_up_mu_O12 Mean : -1.19136388583e-05 , StdDev : 3.51632681414e-05
+
+JER_up_mu_O14 Mean : -5.18928864724e-06 , StdDev : 3.54326279453e-05
+
+JER_down_mu_O3 Mean : -1.59406076234e-05 , StdDev : 3.35669975909e-05
+
+JER_down_mu_O6 Mean : -4.59625713983e-06 , StdDev : 3.38470089509e-05
+
+JER_down_mu_O12 Mean : 1.24341803888e-05 , StdDev : 3.40378234137e-05
+
+JER_down_mu_O14 Mean : 5.33611001877e-06 , StdDev : 3.36650311821e-05
+
+JER_up_el_O3 Mean : -4.01478161819e-06 , StdDev : 4.15741256301e-05
+
+JER_up_el_O6 Mean : -6.0178300775e-06 , StdDev : 4.19574691995e-05
+
+JER_up_el_O12 Mean : -2.01506080938e-05 , StdDev : 4.19550689881e-05
+
+JER_up_el_O14 Mean : 9.78312172567e-06 , StdDev : 4.23060437113e-05
+
+JER_down_el_O3 Mean : 3.10498893517e-06 , StdDev : 4.00016735006e-05
+
+JER_down_el_O6 Mean : 5.97467905348e-06 , StdDev : 4.14803025211e-05
+
+JER_down_el_O12 Mean : 1.89042697546e-05 , StdDev : 3.98655579175e-05
+
+JER_down_el_O14 Mean : -8.91706797879e-06 , StdDev : 3.95795916376e-05
+
+JES_up_mu_O3 Mean : 1.79847251541e-05 , StdDev : 4.19955920189e-05
+
+JES_up_mu_O6 Mean : 5.72692964917e-06 , StdDev : 4.10717391366e-05
+
+JES_up_mu_O12 Mean : -1.41028345458e-05 , StdDev : 4.14622775236e-05
+
+JES_up_mu_O14 Mean : -6.18712891118e-06 , StdDev : 4.19151878516e-05
+
+JES_down_mu_O3 Mean : -1.93657540325e-05 , StdDev : 4.07648014253e-05
+
+JES_down_mu_O6 Mean : -5.53540523971e-06 , StdDev : 4.10039260487e-05
+
+JES_down_mu_O12 Mean : 1.5026790769e-05 , StdDev : 4.12052981205e-05
+
+JES_down_mu_O14 Mean : 6.45210348199e-06 , StdDev : 4.08348990991e-05
+
+JES_up_el_O3 Mean : -4.75714840035e-06 , StdDev : 4.92134324033e-05
+
+JES_up_el_O6 Mean : -7.05190801217e-06 , StdDev : 4.94986870645e-05
+
+JES_up_el_O12 Mean : -2.38285490254e-05 , StdDev : 4.97539598433e-05
+
+JES_up_el_O14 Mean : 1.16832522856e-05 , StdDev : 4.98462775522e-05
+
+JES_down_el_O3 Mean : 3.98959255742e-06 , StdDev : 4.95199468924e-05
+
+JES_down_el_O6 Mean : 7.28972963018e-06 , StdDev : 5.11200302246e-05
+
+JES_down_el_O12 Mean : 2.36121960178e-05 , StdDev : 4.95365260434e-05
+
+JES_down_el_O14 Mean : -1.10015668653e-05 , StdDev : 4.90840874072e-05
+
+---------------------------------------------
+
+btag_up_mu_O3 Mean : 0.00088600199755 , StdDev : 0.00206485780873
+
+btag_up_mu_O6 Mean : 0.000281420914589 , StdDev : 0.00201738458542
+
+btag_up_mu_O12 Mean : -0.000689996817016 , StdDev : 0.00203823342652
+
+btag_up_mu_O14 Mean : -0.000299874891488 , StdDev : 0.00205509950407
+
+btag_down_mu_O3 Mean : -0.00107047776688 , StdDev : 0.00225064660376
+
+btag_down_mu_O6 Mean : -0.00030904633108 , StdDev : 0.00227364272288
+
+btag_down_mu_O12 Mean : 0.000835791746933 , StdDev : 0.00228584789403
+
+btag_down_mu_O14 Mean : 0.000357016789429 , StdDev : 0.00226009254198
+
+btag_up_el_O3 Mean : -0.000228606119863 , StdDev : 0.00238897098772
+
+btag_up_el_O6 Mean : -0.00034819714132 , StdDev : 0.00240505593423
+
+btag_up_el_O12 Mean : -0.00115901980581 , StdDev : 0.002409829655
+
+btag_up_el_O14 Mean : 0.000560531725005 , StdDev : 0.00242390710717
+
+btag_down_el_O3 Mean : 0.000204690252793 , StdDev : 0.00266491580412
+
+btag_down_el_O6 Mean : 0.000396405222811 , StdDev : 0.00275922223837
+
+btag_down_el_O12 Mean : 0.0012579473591 , StdDev : 0.00265172054628
+
+btag_down_el_O14 Mean : -0.000598025070759 , StdDev : 0.00264437642824
+
+pu_up_mu_O3 Mean : 0.000468630094312 , StdDev : 0.00109524999783
+
+pu_up_mu_O6 Mean : 0.000148840586683 , StdDev : 0.00106940963047
+
+pu_up_mu_O12 Mean : -0.000365693649457 , StdDev : 0.00108084905561
+
+pu_up_mu_O14 Mean : -0.000159759918871 , StdDev : 0.00108881147555
+
+pu_down_mu_O3 Mean : -0.000488617849889 , StdDev : 0.00102964683678
+
+pu_down_mu_O6 Mean : -0.000140961640419 , StdDev : 0.00103919695016
+
+pu_down_mu_O12 Mean : 0.000383316193446 , StdDev : 0.00104661113292
+
+pu_down_mu_O14 Mean : 0.000163515889473 , StdDev : 0.00103384999165
+
+pu_up_el_O3 Mean : -0.000107238589872 , StdDev : 0.00111729784012
+
+pu_up_el_O6 Mean : -0.00016259494672 , StdDev : 0.00112666670955
+
+pu_up_el_O12 Mean : -0.000541997067435 , StdDev : -0.00112755669309
+
+pu_up_el_O14 Mean : 0.000261264216696 , StdDev : 0.00113428450215
+
+pu_down_el_O3 Mean : 8.18398175233e-05 , StdDev : 0.00108192943123
+
+pu_down_el_O6 Mean : 0.000161076441304 , StdDev : 0.00111914482756
+
+pu_down_el_O12 Mean : 0.000509555642514 , StdDev : 0.0010775302247
+
+pu_down_el_O14 Mean : -0.000243028138715 , StdDev : 0.00107290949114
+
+lepsf_up_mu_O3 Mean : 5.61566421612e-05 , StdDev : -0.000142540642174
+
+lepsf_up_mu_O6 Mean : 1.75970733143e-05 , StdDev : -0.00014140110338
+
+lepsf_up_mu_O12 Mean : -4.26398892913e-05 , StdDev : -0.000141950087215
+
+lepsf_up_mu_O14 Mean : -2.00763920473e-05 , StdDev : -0.000142537013475
+
+lepsf_down_mu_O3 Mean : -6.24724111366e-05 , StdDev : -0.000142883785617
+
+lepsf_down_mu_O6 Mean : -1.78375001319e-05 , StdDev : -0.000142778725348
+
+lepsf_down_mu_O12 Mean : 4.79987003825e-05 , StdDev : -0.000143554382939
+
+lepsf_down_mu_O14 Mean : 1.96766914049e-05 , StdDev : -0.000142648905939
+
+lepsf_up_el_O3 Mean : -1.57199343027e-05 , StdDev : -0.000183763717981
+
+lepsf_up_el_O6 Mean : -2.41198069358e-05 , StdDev : -0.000185846520514
+
+lepsf_up_el_O12 Mean : -8.36384417239e-05 , StdDev : -0.000184728546354
+
+lepsf_up_el_O14 Mean : 4.03554147957e-05 , StdDev : -0.000186559190324
+
+lepsf_down_el_O3 Mean : 1.55997726919e-05 , StdDev : -0.000189939494274
+
+lepsf_down_el_O6 Mean : 2.65974019543e-05 , StdDev : -0.000196120366123
+
+lepsf_down_el_O12 Mean : 8.55567515194e-05 , StdDev : -0.000188701972667
+
+lepsf_down_el_O14 Mean : -4.04746751245e-05 , StdDev : -0.000187731198324
+
+JER_up_mu_O3 Mean : 0.00152962951537 , StdDev : 0.00356610328061
+
+JER_up_mu_O6 Mean : 0.00048734456423 , StdDev : 0.00347748750819
+
+JER_up_mu_O12 Mean : -0.00119135247706 , StdDev : 0.00351630098048
+
+JER_up_mu_O14 Mean : -0.000518875899188 , StdDev : 0.00354316121525
+
+JER_down_mu_O3 Mean : -0.00159409530717 , StdDev : 0.00335669151898
+
+JER_down_mu_O6 Mean : -0.000459576692056 , StdDev : 0.00338465398033
+
+JER_down_mu_O12 Mean : 0.00124340245155 , StdDev : 0.00340364991033
+
+JER_down_mu_O14 Mean : 0.0005336259644 , StdDev : 0.00336649852967
+
+JER_up_el_O3 Mean : -0.00040142905368 , StdDev : 0.00415737239853
+
+JER_up_el_O6 Mean : -0.000601949046089 , StdDev : 0.00419555295118
+
+JER_up_el_O12 Mean : -0.00201501832557 , StdDev : 0.0041955019572
+
+JER_up_el_O14 Mean : 0.000977832943854 , StdDev : 0.0042307074164
+
+JER_down_el_O3 Mean : 0.000310762715617 , StdDev : 0.00400048870574
+
+JER_down_el_O6 Mean : 0.000597463152098 , StdDev : 0.00414800320008
+
+JER_down_el_O12 Mean : 0.00189095791831 , StdDev : 0.00398674174953
+
+JER_down_el_O14 Mean : -0.00089177950974 , StdDev : 0.00395807829535
+
+JES_up_mu_O3 Mean : 0.0017984151743 , StdDev : 0.00419990592055
+
+JES_up_mu_O6 Mean : 0.00057268560402 , StdDev : 0.00410717141547
+
+JES_up_mu_O12 Mean : -0.00141024219866 , StdDev : 0.0041461924028
+
+JES_up_mu_O14 Mean : -0.000618714186196 , StdDev : 0.00419150362059
+
+JES_down_mu_O3 Mean : -0.00193646535633 , StdDev : 0.00407669594101
+
+JES_down_mu_O6 Mean : -0.000553532068453 , StdDev : 0.00410039090589
+
+JES_down_mu_O12 Mean : 0.00150241080832 , StdDev : 0.00412057769649
+
+JES_down_mu_O14 Mean : 0.000645192661657 , StdDev : 0.00408348772526
+
+JES_up_el_O3 Mean : -0.000475701212062 , StdDev : 0.00492135550499
+
+JES_up_el_O6 Mean : -0.000704980767833 , StdDev : 0.00494985434172
+
+JES_up_el_O12 Mean : -0.0023828404176 , StdDev : 0.00497546534588
+
+JES_up_el_O14 Mean : 0.00116840631597 , StdDev : 0.0049845566729
+
+JES_down_el_O3 Mean : 0.000398312900085 , StdDev : 0.00495212394371
+
+JES_down_el_O6 Mean : 0.00072894517286 , StdDev : 0.00511199145544
+
+JES_down_el_O12 Mean : 0.00236069962008 , StdDev : 0.00495367115588
+
+JES_down_el_O14 Mean : -0.00109950155386 , StdDev : 0.0049081877601
+
+
+
+
+-----------------------------------------------------
+
+btag_up_mu_O3 Mean : 0.00088600199755 , StdDev : 0.00206485780873
+
+btag_up_mu_O6 Mean : 0.000281420914589 , StdDev : 0.00201738458542
+
+btag_up_mu_O12 Mean : -0.000689996817016 , StdDev : 0.00203823342652
+
+btag_up_mu_O14 Mean : -0.000299874891488 , StdDev : 0.00205509950407
+
+btag_down_mu_O3 Mean : -0.00107047776688 , StdDev : 0.00225064660376
+
+btag_down_mu_O6 Mean : -0.00030904633108 , StdDev : 0.00227364272288
+
+btag_down_mu_O12 Mean : 0.000835791746933 , StdDev : 0.00228584789403
+
+btag_down_mu_O14 Mean : 0.000357016789429 , StdDev : 0.00226009254198
+
+btag_up_el_O3 Mean : -0.000228606119863 , StdDev : 0.00238897098772
+
+btag_up_el_O6 Mean : -0.00034819714132 , StdDev : 0.00240505593423
+
+btag_up_el_O12 Mean : -0.00115901980581 , StdDev : 0.002409829655
+
+btag_up_el_O14 Mean : 0.000560531725005 , StdDev : 0.00242390710717
+
+btag_down_el_O3 Mean : 0.000204690252793 , StdDev : 0.00266491580412
+
+btag_down_el_O6 Mean : 0.000396405222811 , StdDev : 0.00275922223837
+
+btag_down_el_O12 Mean : 0.0012579473591 , StdDev : 0.00265172054628
+
+btag_down_el_O14 Mean : -0.000598025070759 , StdDev : 0.00264437642824
+
+pu_up_mu_O3 Mean : 0.000468630094312 , StdDev : 0.00109524999783
+
+pu_up_mu_O6 Mean : 0.000148840586683 , StdDev : 0.00106940963047
+
+pu_up_mu_O12 Mean : -0.000365693649457 , StdDev : 0.00108084905561
+
+pu_up_mu_O14 Mean : -0.000159759918871 , StdDev : 0.00108881147555
+
+pu_down_mu_O3 Mean : -0.000488617849889 , StdDev : 0.00102964683678
+
+pu_down_mu_O6 Mean : -0.000140961640419 , StdDev : 0.00103919695016
+
+pu_down_mu_O12 Mean : 0.000383316193446 , StdDev : 0.00104661113292
+
+pu_down_mu_O14 Mean : 0.000163515889473 , StdDev : 0.00103384999165
+
+pu_up_el_O3 Mean : -0.000107238589872 , StdDev : 0.00111729784012
+
+pu_up_el_O6 Mean : -0.00016259494672 , StdDev : 0.00112666670955
+
+pu_up_el_O12 Mean : -0.000541997067435 , StdDev : -0.00112755669309
+
+pu_up_el_O14 Mean : 0.000261264216696 , StdDev : 0.00113428450215
+
+pu_down_el_O3 Mean : 8.18398175233e-05 , StdDev : 0.00108192943123
+
+pu_down_el_O6 Mean : 0.000161076441304 , StdDev : 0.00111914482756
+
+pu_down_el_O12 Mean : 0.000509555642514 , StdDev : 0.0010775302247
+
+pu_down_el_O14 Mean : -0.000243028138715 , StdDev : 0.00107290949114
+
+lepsf_up_mu_O3 Mean : 5.61566421612e-05 , StdDev : -0.000142540642174
+
+lepsf_up_mu_O6 Mean : 1.75970733143e-05 , StdDev : -0.00014140110338
+
+lepsf_up_mu_O12 Mean : -4.26398892913e-05 , StdDev : -0.000141950087215
+
+lepsf_up_mu_O14 Mean : -2.00763920473e-05 , StdDev : -0.000142537013475
+
+lepsf_down_mu_O3 Mean : -6.24724111366e-05 , StdDev : -0.000142883785617
+
+lepsf_down_mu_O6 Mean : -1.78375001319e-05 , StdDev : -0.000142778725348
+
+lepsf_down_mu_O12 Mean : 4.79987003825e-05 , StdDev : -0.000143554382939
+
+lepsf_down_mu_O14 Mean : 1.96766914049e-05 , StdDev : -0.000142648905939
+
+lepsf_up_el_O3 Mean : -1.57199343027e-05 , StdDev : -0.000183763717981
+
+lepsf_up_el_O6 Mean : -2.41198069358e-05 , StdDev : -0.000185846520514
+
+lepsf_up_el_O12 Mean : -8.36384417239e-05 , StdDev : -0.000184728546354
+
+lepsf_up_el_O14 Mean : 4.03554147957e-05 , StdDev : -0.000186559190324
+
+lepsf_down_el_O3 Mean : 1.55997726919e-05 , StdDev : -0.000189939494274
+
+lepsf_down_el_O6 Mean : 2.65974019543e-05 , StdDev : -0.000196120366123
+
+lepsf_down_el_O12 Mean : 8.55567515194e-05 , StdDev : -0.000188701972667
+
+lepsf_down_el_O14 Mean : -4.04746751245e-05 , StdDev : -0.000187731198324
+
+JER_up_mu_O3 Mean : 0.00152962951537 , StdDev : 0.00356610328061
+
+JER_up_mu_O6 Mean : 0.00048734456423 , StdDev : 0.00347748750819
+
+JER_up_mu_O12 Mean : -0.00119135247706 , StdDev : 0.00351630098048
+
+JER_up_mu_O14 Mean : -0.000518875899188 , StdDev : 0.00354316121525
+
+JER_down_mu_O3 Mean : -0.00159409530717 , StdDev : 0.00335669151898
+
+JER_down_mu_O6 Mean : -0.000459576692056 , StdDev : 0.00338465398033
+
+JER_down_mu_O12 Mean : 0.00124340245155 , StdDev : 0.00340364991033
+
+JER_down_mu_O14 Mean : 0.0005336259644 , StdDev : 0.00336649852967
+
+JER_up_el_O3 Mean : -0.00040142905368 , StdDev : 0.00415737239853
+
+JER_up_el_O6 Mean : -0.000601949046089 , StdDev : 0.00419555295118
+
+JER_up_el_O12 Mean : -0.00201501832557 , StdDev : 0.0041955019572
+
+JER_up_el_O14 Mean : 0.000977832943854 , StdDev : 0.0042307074164
+
+JER_down_el_O3 Mean : 0.000310762715617 , StdDev : 0.00400048870574
+
+JER_down_el_O6 Mean : 0.000597463152098 , StdDev : 0.00414800320008
+
+JER_down_el_O12 Mean : 0.00189095791831 , StdDev : 0.00398674174953
+
+JER_down_el_O14 Mean : -0.00089177950974 , StdDev : 0.00395807829535
+
+JES_up_mu_O3 Mean : 0.0017984151743 , StdDev : 0.00419990592055
+
+JES_up_mu_O6 Mean : 0.00057268560402 , StdDev : 0.00410717141547
+
+JES_up_mu_O12 Mean : -0.00141024219866 , StdDev : 0.0041461924028
+
+JES_up_mu_O14 Mean : -0.000618714186196 , StdDev : 0.00419150362059
+
+JES_down_mu_O3 Mean : -0.00193646535633 , StdDev : 0.00407669594101
+
+JES_down_mu_O6 Mean : -0.000553532068453 , StdDev : 0.00410039090589
+
+JES_down_mu_O12 Mean : 0.00150241080832 , StdDev : 0.00412057769649
+
+JES_down_mu_O14 Mean : 0.000645192661657 , StdDev : 0.00408348772526
+
+JES_up_el_O3 Mean : -0.000475701212062 , StdDev : 0.00492135550499
+
+JES_up_el_O6 Mean : -0.000704980767833 , StdDev : 0.00494985434172
+
+JES_up_el_O12 Mean : -0.0023828404176 , StdDev : 0.00497546534588
+
+JES_up_el_O14 Mean : 0.00116840631597 , StdDev : 0.0049845566729
+
+JES_down_el_O3 Mean : 0.000398312900085 , StdDev : 0.00495212394371
+
+JES_down_el_O6 Mean : 0.00072894517286 , StdDev : 0.00511199145544
+
+JES_down_el_O12 Mean : 0.00236069962008 , StdDev : 0.00495367115588
+
+JES_down_el_O14 Mean : -0.00109950155386 , StdDev : 0.0049081877601
+
+btag_up_mu_O3 Mean : 0.00088600199755 , StdDev : 0.00206485780873
+
+btag_up_mu_O6 Mean : 0.000281420914589 , StdDev : 0.00201738458542
+
+btag_up_mu_O12 Mean : -0.000689996817016 , StdDev : 0.00203823342652
+
+btag_up_mu_O14 Mean : -0.000299874891488 , StdDev : 0.00205509950407
+
+btag_down_mu_O3 Mean : -0.00107047776688 , StdDev : 0.00225064660376
+
+btag_down_mu_O6 Mean : -0.00030904633108 , StdDev : 0.00227364272288
+
+btag_down_mu_O12 Mean : 0.000835791746933 , StdDev : 0.00228584789403
+
+btag_down_mu_O14 Mean : 0.000357016789429 , StdDev : 0.00226009254198
+
+btag_up_el_O3 Mean : -0.000228606119863 , StdDev : 0.00238897098772
+
+btag_up_el_O6 Mean : -0.00034819714132 , StdDev : 0.00240505593423
+
+btag_up_el_O12 Mean : -0.00115901980581 , StdDev : 0.002409829655
+
+btag_up_el_O14 Mean : 0.000560531725005 , StdDev : 0.00242390710717
+
+btag_down_el_O3 Mean : 0.000204690252793 , StdDev : 0.00266491580412
+
+btag_down_el_O6 Mean : 0.000396405222811 , StdDev : 0.00275922223837
+
+btag_down_el_O12 Mean : 0.0012579473591 , StdDev : 0.00265172054628
+
+btag_down_el_O14 Mean : -0.000598025070759 , StdDev : 0.00264437642824
+
+pu_up_mu_O3 Mean : 0.000468630094312 , StdDev : 0.00109524999783
+
+pu_up_mu_O6 Mean : 0.000148840586683 , StdDev : 0.00106940963047
+
+pu_up_mu_O12 Mean : -0.000365693649457 , StdDev : 0.00108084905561
+
+pu_up_mu_O14 Mean : -0.000159759918871 , StdDev : 0.00108881147555
+
+pu_down_mu_O3 Mean : -0.000488617849889 , StdDev : 0.00102964683678
+
+pu_down_mu_O6 Mean : -0.000140961640419 , StdDev : 0.00103919695016
+
+pu_down_mu_O12 Mean : 0.000383316193446 , StdDev : 0.00104661113292
+
+pu_down_mu_O14 Mean : 0.000163515889473 , StdDev : 0.00103384999165
+
+pu_up_el_O3 Mean : -0.000107238589872 , StdDev : 0.00111729784012
+
+pu_up_el_O6 Mean : -0.00016259494672 , StdDev : 0.00112666670955
+
+pu_up_el_O12 Mean : -0.000541997067435 , StdDev : -0.00112755669309
+
+pu_up_el_O14 Mean : 0.000261264216696 , StdDev : 0.00113428450215
+
+pu_down_el_O3 Mean : 8.18398175233e-05 , StdDev : 0.00108192943123
+
+pu_down_el_O6 Mean : 0.000161076441304 , StdDev : 0.00111914482756
+
+pu_down_el_O12 Mean : 0.000509555642514 , StdDev : 0.0010775302247
+
+pu_down_el_O14 Mean : -0.000243028138715 , StdDev : 0.00107290949114
+
+lepsf_up_mu_O3 Mean : 5.61566421612e-05 , StdDev : -0.000142540642174
+
+lepsf_up_mu_O6 Mean : 1.75970733143e-05 , StdDev : -0.00014140110338
+
+lepsf_up_mu_O12 Mean : -4.26398892913e-05 , StdDev : -0.000141950087215
+
+lepsf_up_mu_O14 Mean : -2.00763920473e-05 , StdDev : -0.000142537013475
+
+lepsf_down_mu_O3 Mean : -6.24724111366e-05 , StdDev : -0.000142883785617
+
+lepsf_down_mu_O6 Mean : -1.78375001319e-05 , StdDev : -0.000142778725348
+
+lepsf_down_mu_O12 Mean : 4.79987003825e-05 , StdDev : -0.000143554382939
+
+lepsf_down_mu_O14 Mean : 1.96766914049e-05 , StdDev : -0.000142648905939
+
+lepsf_up_el_O3 Mean : -1.57199343027e-05 , StdDev : -0.000183763717981
+
+lepsf_up_el_O6 Mean : -2.41198069358e-05 , StdDev : -0.000185846520514
+
+lepsf_up_el_O12 Mean : -8.36384417239e-05 , StdDev : -0.000184728546354
+
+lepsf_up_el_O14 Mean : 4.03554147957e-05 , StdDev : -0.000186559190324
+
+lepsf_down_el_O3 Mean : 1.55997726919e-05 , StdDev : -0.000189939494274
+
+lepsf_down_el_O6 Mean : 2.65974019543e-05 , StdDev : -0.000196120366123
+
+lepsf_down_el_O12 Mean : 8.55567515194e-05 , StdDev : -0.000188701972667
+
+lepsf_down_el_O14 Mean : -4.04746751245e-05 , StdDev : -0.000187731198324
+
+JER_up_mu_O3 Mean : 0.00152962951537 , StdDev : 0.00356610328061
+
+JER_up_mu_O6 Mean : 0.00048734456423 , StdDev : 0.00347748750819
+
+JER_up_mu_O12 Mean : -0.00119135247706 , StdDev : 0.00351630098048
+
+JER_up_mu_O14 Mean : -0.000518875899188 , StdDev : 0.00354316121525
+
+JER_down_mu_O3 Mean : -0.00159409530717 , StdDev : 0.00335669151898
+
+JER_down_mu_O6 Mean : -0.000459576692056 , StdDev : 0.00338465398033
+
+JER_down_mu_O12 Mean : 0.00124340245155 , StdDev : 0.00340364991033
+
+JER_down_mu_O14 Mean : 0.0005336259644 , StdDev : 0.00336649852967
+
+JER_up_el_O3 Mean : -0.00040142905368 , StdDev : 0.00415737239853
+
+JER_up_el_O6 Mean : -0.000601949046089 , StdDev : 0.00419555295118
+
+JER_up_el_O12 Mean : -0.00201501832557 , StdDev : 0.0041955019572
+
+JER_up_el_O14 Mean : 0.000977832943854 , StdDev : 0.0042307074164
+
+JER_down_el_O3 Mean : 0.000310762715617 , StdDev : 0.00400048870574
+
+JER_down_el_O6 Mean : 0.000597463152098 , StdDev : 0.00414800320008
+
+JER_down_el_O12 Mean : 0.00189095791831 , StdDev : 0.00398674174953
+
+JER_down_el_O14 Mean : -0.00089177950974 , StdDev : 0.00395807829535
+
+JES_up_mu_O3 Mean : 0.0017984151743 , StdDev : 0.00419990592055
+
+JES_up_mu_O6 Mean : 0.00057268560402 , StdDev : 0.00410717141547
+
+JES_up_mu_O12 Mean : -0.00141024219866 , StdDev : 0.0041461924028
+
+JES_up_mu_O14 Mean : -0.000618714186196 , StdDev : 0.00419150362059
+
+JES_down_mu_O3 Mean : -0.00193646535633 , StdDev : 0.00407669594101
+
+JES_down_mu_O6 Mean : -0.000553532068453 , StdDev : 0.00410039090589
+
+JES_down_mu_O12 Mean : 0.00150241080832 , StdDev : 0.00412057769649
+
+JES_down_mu_O14 Mean : 0.000645192661657 , StdDev : 0.00408348772526
+
+JES_up_el_O3 Mean : -0.000475701212062 , StdDev : 0.00492135550499
+
+JES_up_el_O6 Mean : -0.000704980767833 , StdDev : 0.00494985434172
+
+JES_up_el_O12 Mean : -0.0023828404176 , StdDev : 0.00497546534588
+
+JES_up_el_O14 Mean : 0.00116840631597 , StdDev : 0.0049845566729
+
+JES_down_el_O3 Mean : 0.000398312900085 , StdDev : 0.00495212394371
+
+JES_down_el_O6 Mean : 0.00072894517286 , StdDev : 0.00511199145544
+
+JES_down_el_O12 Mean : 0.00236069962008 , StdDev : 0.00495367115588
+
+JES_down_el_O14 Mean : -0.00109950155386 , StdDev : 0.0049081877601
+

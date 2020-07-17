@@ -4,6 +4,9 @@
 
 <use name="CondFormats/BTauObjects" />
 <use name="CondTools/BTau" />
+<use name="JetMETCorrections/Algorithms"/>
+<use name="JetMETCorrections/Objects"/>
+<use name="JetMETCorrections/Modules"/>
 
 <bin name="full_sel_sr"  file="full_sel_SR.cc"/>
 <bin name="full_sel_cr"  file="full_sel_CR.cc"/>
@@ -13,6 +16,7 @@
 <bin name="Cal_Acp_SRtt_mva"  file="Cal_Acp_SRtt_mva.cc"/>
 <bin name="Cal_Acp_SRtt_chi2"  file="Cal_Acp_SRtt_chi2.cc"/>
 <bin name="SR_mva"  file="SR_mva.cc"/>
+<bin name="CR_mva"  file="CR_mva.cc"/>
 <bin name="check_deepCSV"  file="check_deepCSV.cc"/>
 <bin name="plot_Mass"  file="plot_Mass.cc"/>
 <bin name="Cal_Acp_CRData_mva"  file="Cal_Acp_CRData_mva.cc"/>
@@ -27,3 +31,19 @@
 <bin name="check_kine_CR"  file="check_kinematics_CR.cc"/>
 <bin name="check_kine_DD"  file="check_kinematics_invDD.cc"/>
 <bin name="ddQCD"  file="data_driven_QCD.cc"/>
+<bin name="correct_mass"  file="correct_mass.cc"/>
+<bin name="check_improvement"  file="check_improvement.cc"/>
+<bin name="UncPreSel"  file="UncPreSel.cc"/>
+<bin name="Cal_DF"  file="Cal_DF.cc"/>
+<bin name="full_sel_sr_unc"  file="full_sel_SR_Unc.cc"/>
+<bin name="Make_Unc_TH2"  file="Make_Unc_TH2.cc"/>
+<bin name="Unc_Fit"  file="Unc_Fit.cc"/>
+<bin name="check_SR_sf"  file="check_SR_sf.cc"/>
+<bin name="full_sel_sr_from_ori"  file="full_sel_SR_from_ori.cc"/>
+<bin name="test_pre_from_dbl"  file="test_pre_from_dbl.cc"/>
+<bin name="test_dbl"  file="test_dbl.cc"/>
+<bin name="dbl_pre_sel"  file="dbl_pre_sel.cc"/>
+<bin name="test_full"  file="test_full.cc"/>
+<bin name="SR_DatMC"  file="SR_DataMC.cc"/>
+<bin name="FakeData"  file="fake_data.cc"/>
+<bin name="check_kine_all"  file="check_kinematics_all.cc"/>

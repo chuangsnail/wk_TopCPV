@@ -13,9 +13,12 @@ float Event::Rho() const				{	return evt->Rho;		}
 double Event::MET() const {	return evt->PFMET;	}
 double Event::METPhi() const {	return evt->PFMETPhi;	}
 
+int Event::RunNo() const {  return evt->RunNo;  }
+int Event::LumiNo() const {  return evt->LumiNo;  }
+
 bool Event::IsGoodPVertex( const int& i ) const
 {
-	return ( vtx->isFake[i]			&&
+	return ( !vtx->isFake[i]			&&
 			 vtx->Ndof[i] > 4		&&
 			 fabs( vtx->z[i] ) < 24 &&
 			 vtx->Rho[i] < 2 );	

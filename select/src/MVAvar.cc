@@ -277,8 +277,8 @@
 		inputVars.push_back("hadwlepton_delR");
 		*/
 
-		//for train20.22 (20 vars)
-		
+		//for train20.22 (20 vars)  -> a05
+/*
 		inputVars.push_back("top_mass");
 		inputVars.push_back("w_mass");
 
@@ -305,12 +305,24 @@
 		inputVars.push_back("hadwmet_delPhi");
 		inputVars.push_back("hadwmet_sumPt");
 		inputVars.push_back("hadwmet_delPt");
-
-		//for 2 vars
-		/*
+*/
+		//for 2 vars  -> a04
+/*		
 		inputVars.push_back("top_mass");
 		inputVars.push_back("w_mass");
-		*/
+*/		
+		//for 8 vars -> t13
+
+		inputVars.push_back("top_mass");
+		inputVars.push_back("w_mass");
+
+		inputVars.push_back("j1j2_sumPt");
+		inputVars.push_back("j1j2_absdelEta");
+		inputVars.push_back("j1j2_delPhi");
+    
+		inputVars.push_back("lepblep_sumPt");
+		inputVars.push_back("lepblep_absdelEta");
+		inputVars.push_back("lepblep_delPhi");
 		
 	}
 
@@ -359,7 +371,7 @@
 		//for train_19
 		*/
 		
-				
+
 		TLorentzVector p_mva_j1, p_mva_j2, p_mva_hadb, p_mva_lepb, p_mva_lepton;
 							
 		p_mva_j1 = GetJetP4(jetInfo,tmp_mva_j1);	
@@ -368,7 +380,9 @@
 		p_mva_lepb = GetJetP4(jetInfo,tmp_mva_lepb);	
 							
 		TLorentzVector p_mva_hadw = ( p_mva_j1 + p_mva_j2 );
-							
+
+		// for 20 vars -> a05		
+/*		
 		var[0] = ( p_mva_j1 + p_mva_j2 + p_mva_hadb ).M();
 		var[1] = ( p_mva_j1 + p_mva_j2 ).M();
 
@@ -395,10 +409,10 @@
 		var[17] = TVector2::Phi_mpi_pi( p_mva_hadw.Phi() - evtInfo.PFMETPhi );
 		var[18] = p_mva_hadw.Pt() + evtInfo.PFMET;
 		var[19] = p_mva_hadw.Pt() - evtInfo.PFMET;
+*/
 
-
-		//for just 2 vars
-		/*
+		//for just 2 vars -> a04
+/*		
 		TLorentzVector p_mva_j1, p_mva_j2, p_mva_hadb;
 							
 		p_mva_j1 = GetJetP4(jetInfo,tmp_mva_j1);	
@@ -409,9 +423,20 @@
 							
 		var[0] = ( p_mva_j1 + p_mva_j2 + p_mva_hadb ).M();
 		var[1] = ( p_mva_j1 + p_mva_j2 ).M();
+*/
 
-		*/
-		
+		//for 8 vars -> t13
+
+		var[0] = ( p_mva_j1 + p_mva_j2 + p_mva_hadb ).M();
+		var[1] = ( p_mva_j1 + p_mva_j2 ).M();
+
+		var[2] = ( jetInfo.Pt[tmp_mva_j1] + jetInfo.Pt[tmp_mva_j2] );
+		var[3] = fabs( jetInfo.Eta[tmp_mva_j1] -  jetInfo.Eta[tmp_mva_j2] );
+		var[4] = TVector2::Phi_mpi_pi(  jetInfo.Phi[tmp_mva_j1] -  jetInfo.Phi[tmp_mva_j2] );
+
+		var[5] = ( p_mva_lepb.Pt() + leptonInfo.Pt[ idx_Selected_Lep ] );
+		var[6] = fabs( p_mva_lepb.Eta() -  leptonInfo.Eta[ idx_Selected_Lep ] );
+		var[7] = TVector2::Phi_mpi_pi( p_mva_lepb.Phi() -  leptonInfo.Phi[ idx_Selected_Lep ] );
 
 	}
 

@@ -22,15 +22,20 @@
 #include "THStack.h"
 #include "TFile.h"
 #include "TNtupleD.h"
+#include <fstream>
+
+#include "TopCPViolation/select/interface/Tool.h"
+#include "TopCPViolation/select/interface/about_time.h"
 
 using namespace std;
+using namespace CalTool;
 
 
 //Tool for Hist
 
-double t_IntegralTH1( const TH1* h ) { return h->Integral(1,h->GetXaxis()->GetNbins()+1); }
+inline double t_IntegralTH1( const TH1* h ) { return h->Integral(1,h->GetXaxis()->GetNbins()+1); }
 
-void NormalizeTH1( TH1* h ) { h->Scale( (double)1./t_IntegralTH1( h ) ); }
+inline void NormalizeTH1( TH1* h ) { h->Scale( (double)1./t_IntegralTH1( h ) ); }
 
 //maybe we can use a mother class and inheritance, and the bins_No,hist_min/max are the mother member, and  Init(),WriteIn() are virtual functions! 
 
@@ -76,7 +81,72 @@ public:
 	void WriteIn();
 };
 
+class Hists_proper
+{
+public:
+    Hists_proper()
+    {
+		proper_name = "";
+		bins_No = 100;
+		hist_max = 1.;
+		hist_min = 0.;
+		AxisInfo = "";
+    }
+	
+	Hists_proper( const string& n, const string& ai, const int& bn, const double& bmin, const double& bmax )
+	{
+		proper_name = n;
+		AxisInfo = ai;
+		bins_No = bn;
+		hist_min = bmin;
+		hist_max = bmax;
+	}
+    ~Hists_proper() {}
 
+	string proper_name;
+	int bins_No;
+	double hist_min;
+	double hist_max;
+	string AxisInfo;
+	
+	TH1F* h_TT_mu;		TH1F* h_TT_el;	
+	TH1F* h_DY_mu;		TH1F* h_DY_el;
+	TH1F* h_WJets_mu;	TH1F* h_WJets_el;
+	TH1F* h_VV_mu;		TH1F* h_VV_el;
+	TH1F* h_ST_mu;		TH1F* h_ST_el;
+	TH1F* h_QCD_mu;		TH1F* h_QCD_el;
+	TH1F* h_Data_mu;	TH1F* h_Data_el;
+
+	vector<TH1F*> h_mu, h_el;
+
+	void Init();
+
+	inline void SetBinInfo( const int& n, const double& m, const double& M  ){
+		bins_No = n;	
+		hist_min = m;	
+		hist_max = M;
+	}
+	
+	inline void SetAxisInfo( const string& input ) {
+		AxisInfo = input;
+	}
+
+	inline void SetProperName( const string& input ) {
+		proper_name = input;
+	}
+
+	inline void SetInfo( const string& n, const string& ai, const int& bn, const double& bmin, const double& bmax )
+	{
+		proper_name = n;
+		AxisInfo = ai;
+		bins_No = bn;
+		hist_min = bmin;
+		hist_max = bmax;
+	}
+	void FillHist( const string& option, const int& k, const string& ch, const double& proper_value, const double& weight );
+
+	void WriteIn();
+};
 
 class Hists
 {
@@ -167,14 +237,14 @@ public:
 	map<string, TNtupleD*> mvav_mass;
 
 	//used before init hists
-	void SetBinInfo( const int& n, const double& m, const double& M  ){
+	inline void SetBinInfo( const int& n, const double& m, const double& M  ){
 		bins_No = n;	
 		hist_min = m;	
 		hist_max = M;
 	}
 
 	//used before init hists
-	void SetAxisInfo( const string& input1, const string& input2 )
+	inline void SetAxisInfo( const string& input1, const string& input2 )
 	{
 		AxisInfo = input1;
 		AxisInfo2 = input2;
@@ -196,12 +266,14 @@ public:
 
 	void TH2ModeON( const int& algo_bins_No, const double&, const double&);
 
-	void NtupleModeON(){
+	inline void NtupleModeON(){
 		mvav_mass_mu = new TNtupleD( "mvav_mass_mu", "store event by event", "max_mva_value:hadt_mass:lept_mass:weight:dataset" );
 		mvav_mass_el = new TNtupleD( "mvav_mass_el", "store event by event", "max_mva_value:hadt_mass:lept_mass:weight:dataset" );
 		mvav_mass[ "mu" ] = mvav_mass_mu;
 		mvav_mass[ "el" ] = mvav_mass_el;
 	}
+    
+    void PrintOn( const string& fname, const string& option = "" );
 
 	void WriteIn( const string& option );
 	
@@ -210,7 +282,8 @@ public:
 
 	void FillHist( const string&, const int&, const string&, const double&, const double&, const double& );
 	//how many cut, k(which sample), channel name, hadmass, lepmass, weight
-	
+
+
 	//Use to do data-driven
 };
 void DataDriven( TH1* h_bedd, TH1* h_data );
@@ -275,7 +348,7 @@ public:
 	double hist_min2;
 	double hist_max2;
 
-	void SetAlgoBin( const int& n, const double& m, const double& M ){
+	inline void SetAlgoBin( const int& n, const double& m, const double& M ){
 		bins_No1 = n;	
 		hist_min1 = m;	
 		hist_max1 = M;
@@ -331,7 +404,7 @@ public:
 	TH1F* h_chosen_t;
 	TH1F* h_cor_t;
 	
-	void SetAlgoBin( const int& n, const double& m, const double& M ){
+	inline void SetAlgoBin( const int& n, const double& m, const double& M ){
 		bins_No1 = n;	
 		hist_min1 = m;	
 		hist_max1 = M;
@@ -340,6 +413,39 @@ public:
 	void WriteIn();
 
 };
+
+/*
+class Hists_mva
+{
+public:
+    vector<TH1F*> h_01_mu;      vector<TH1F*> h_01_el;
+    vector<TH1F*> h_02_mu;      vector<TH1F*> h_02_el;
+    vector<TH1F*> h_03_mu;      vector<TH1F*> h_03_el;
+    vector<TH1F*> h_04_mu;      vector<TH1F*> h_04_el;
+    vector<TH1F*> h_05_mu;      vector<TH1F*> h_05_el;
+    vector<TH1F*> h_06_mu;      vector<TH1F*> h_06_el;
+    vector<TH1F*> h_07_mu;      vector<TH1F*> h_07_el;
+    vector<TH1F*> h_08_mu;      vector<TH1F*> h_08_el;
+    vector<TH1F*> h_09_mu;      vector<TH1F*> h_09_el;
+    vector<TH1F*> h_10_mu;      vector<TH1F*> h_10_el;
+    vector<TH1F*> h_11_mu;      vector<TH1F*> h_11_el;
+    vector<TH1F*> h_12_mu;      vector<TH1F*> h_12_el;
+    vector<TH1F*> h_13_mu;      vector<TH1F*> h_13_el;
+    vector<TH1F*> h_14_mu;      vector<TH1F*> h_14_el;
+    vector<TH1F*> h_15_mu;      vector<TH1F*> h_15_el;
+    vector<TH1F*> h_16_mu;      vector<TH1F*> h_16_el;
+    vector<TH1F*> h_17_mu;      vector<TH1F*> h_17_el;
+    vector<TH1F*> h_18_mu;      vector<TH1F*> h_18_el;
+    vector<TH1F*> h_19_mu;      vector<TH1F*> h_19_el;
+    vector<TH1F*> h_20_mu;      vector<TH1F*> h_20_el;
+    vector<TH1F*> h_21_mu;      vector<TH1F*> h_21_el;
+    vector<TH1F*> h_22_mu;      vector<TH1F*> h_22_el;
+
+    vector< vector<TH1F*>* > h_mu, h_el;
+
+    void Initialize( const int& var_no );
+    void FillVec();
+*/
 
 /*
 //use to see the discripency 

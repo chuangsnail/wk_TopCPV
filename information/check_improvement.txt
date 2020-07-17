@@ -1,0 +1,143 @@
+
+a05 MLP(20 vars)
+Just ttbar sample
+--- Muon channel ---
+                  [ cor, cmis, mist, nomatch ]
+step 1 (No Cut)   [239107,52115.7,45695.3,28699.2]  cor rate:0.709689
+step 1 (algo Cut) [192479,31923.1,28347.1,20605.6]  cor rate:0.761541
+step 1 (Mlb Cut)  [187699,24787.5,21834.8,17404.8]  cor rate:0.801033
+--- Electron channel ---
+                  [ cor, cmis, mist ]
+step 1 (No Cut)   [139573,28266.2,26611.1,16400]  cor rate:0.717782
+step 1 (algo Cut) [111909,17265,16460.8,11723.2]  cor rate:0.768422
+step 1 (Mlb Cut)  [108623,12908.8,12206.1,9700.82]  cor rate:0.812208
+starting loop time : 200521_0453
+ending loop time : 200521_0515
+
+
+
+chi2
+Just ttbar sample
+--- Muon channel ---
+                  [ cor, cmis, mist, nomatch ]
+step 1 (No Cut)   [205866,85356.7,45695.3,28699.2]  cor rate:0.611027
+step 1 (algo Cut) [166900,55197.4,28914.6,21216.9]  cor rate:0.664909
+step 1 (Mlb Cut)  [162289,32592.9,20246.8,16531.5]  cor rate:0.75438
+--- Electron channel ---
+                  [ cor, cmis, mist ]
+step 1 (No Cut)   [118193,49645.6,26611.1,16400]  cor rate:0.607834
+step 1 (algo Cut) [96058.2,31840.9,16796.2,12095.2]  cor rate:0.663866
+step 1 (Mlb Cut)  [92848.2,16828.1,11060.6,9094.66]  cor rate:0.769013
+starting loop time : 200521_0454
+ending loop time : 200521_0516
+
+
+
+a04 MLP(2vars)
+Just ttbar sample
+--- Muon channel ---
+                  [ cor, cmis, mist, nomatch ]
+step 1 (No Cut)   [212978,78245.1,45695.3,28699.2]  cor rate:0.632135
+step 1 (algo Cut) [175763,49371.2,28712.6,20678.5]  cor rate:0.692398
+step 1 (Mlb Cut)  [170958,29360,20173.7,16278.8]  cor rate:0.775349
+--- Electron channel ---
+                  [ cor, cmis, mist ]
+step 1 (No Cut)   [122736,45102.9,26611.1,16400]  cor rate:0.631196
+step 1 (algo Cut) [101215,28372.9,16690.8,11799.4]  cor rate:0.691932
+step 1 (Mlb Cut)  [97888,15145.7,11017.7,8958.4]  cor rate:0.789092
+starting loop time : 200521_1832
+ending loop time : 200521_1855
+
+
+
+a05 BDTG(20 vars)
+Just ttbar sample
+Training Name : a05_BDTG
+--- Muon channel ---
+                  [ cor, cmis, mist, nomatch ]
+step 1 (No Cut)   [233547,57675.5,45695.3,28699.2]  cor rate:0.693187
+					events efficiency : 1
+step 1 (algo Cut) [190331,35977.1,29466,21363.6]  cor rate:0.744137
+					events efficiency : 0.759156
+step 1 (Mlb Cut)  [185658,28763.5,22925.1,18122.5]  cor rate:0.782223
+					events efficiency : 0.704464
+--- Electron channel ---
+                  [ cor, cmis, mist ]
+step 1 (No Cut)   [136263,31576.3,26611.1,16400]  cor rate:0.700759
+					events efficiency : 1
+step 1 (algo Cut) [110747,19582.3,17078.4,12163.6]  cor rate:0.751297
+					events efficiency : 0.758073
+step 1 (Mlb Cut)  [107539,15091.5,12810.5,10093.5]  cor rate:0.793992
+					events efficiency : 0.696535
+starting loop time : 200525_1741
+ending loop time : 200525_1959
+
+
+
+New chi2
+Just ttbar sample
+Training Name : chi2 with new mean and width of top and W
+--- Muon channel ---
+                  [ cor, cmis, mist, nomatch ]
+step 1 (No Cut)   [206573,84650.3,45695.3,28699.2]  cor rate:0.613124
+					events efficiency : 1
+step 1 (algo Cut) [175227,59504.5,32176.4,22765.5]  cor rate:0.656508
+					events efficiency : 0.792205
+step 1 (Mlb Cut)  [170329,34353.5,22312.4,17608.3]  cor rate:0.750366
+					events efficiency : 0.67374
+--- Electron channel ---
+                  [ cor, cmis, mist ]
+step 1 (No Cut)   [118533,49306.1,26611.1,16400]  cor rate:0.60958
+					events efficiency : 1
+step 1 (algo Cut) [100680,34424.4,18671.6,12968.1]  cor rate:0.654719
+					events efficiency : 0.790827
+step 1 (Mlb Cut)  [97268.8,17705.5,12179.1,9667.29]  cor rate:0.764973
+					events efficiency : 0.653913
+starting loop time : 200525_2041
+ending loop time : 200525_2057
+
+
+
+a05 BDT(20 vars)
+Just ttbar sample
+Training Name : a05_BDT
+--- Muon channel ---
+                  [ cor, cmis, mist, nomatch ]
+step 1 (No Cut)   [238432,52791.4,45695.3,28699.2]  cor rate:0.707684
+					events efficiency : 1
+step 1 (algo Cut) [191707,33811.1,28878.9,20973.8]  cor rate:0.753574
+					events efficiency : 0.755069
+step 1 (Mlb Cut)  [186973,26508,22366.2,17747.4]  cor rate:0.792772
+					events efficiency : 0.700014
+--- Electron channel ---
+                  [ cor, cmis, mist ]
+step 1 (No Cut)   [139230,28608.9,26611.1,16400]  cor rate:0.71602
+					events efficiency : 1
+step 1 (algo Cut) [111418,18312.1,16742.2,11913.4]  cor rate:0.760677
+					events efficiency : 0.753266
+step 1 (Mlb Cut)  [108160,13807.4,12493.7,9867.7]  cor rate:0.804397
+					events efficiency : 0.691496
+starting loop time : 200526_1443
+ending loop time : 200526_1635
+
+
+Just ttbar sample
+Training Name : a05_MLP
+--- Muon channel ---
+                  [ cor, cmis, mist, nomatch ]
+step 1 (No Cut)   [239107,52115.7,45695.3,28699.2]  cor rate:0.709689
+					events efficiency : 1
+step 1 (algo Cut) [192479,31923.1,28347.1,20605.6]  cor rate:0.761541
+					events efficiency : 0.750179
+step 1 (Mlb Cut)  [187699,24787.5,21834.8,17404.8]  cor rate:0.801033
+					events efficiency : 0.695484
+--- Electron channel ---
+                  [ cor, cmis, mist ]
+step 1 (No Cut)   [139573,28266.2,26611.1,16400]  cor rate:0.717782
+					events efficiency : 1
+step 1 (algo Cut) [111909,17265,16460.8,11723.2]  cor rate:0.768422
+					events efficiency : 0.748958
+step 1 (Mlb Cut)  [108623,12908.8,12206.1,9700.82]  cor rate:0.812208
+					events efficiency : 0.687773
+starting loop time : 200602_1311
+ending loop time : 200602_1332

@@ -31,6 +31,10 @@ public:
 	double MET() const;
 	double METPhi() const;
 
+    // for golden json file
+    int RunNo() const;
+    int LumiNo() const;
+
 	//for vertex
 	bool IsGoodPVertex( const int& i ) const;
 	bool GoodVertex() const;

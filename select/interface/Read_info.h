@@ -42,9 +42,11 @@ string Read_info::second(string& key)
     string gotten_str;
     
     int line_len = line.size() + 1;
-    char* c_in_str = new char[line_len];
+    //char* c_in_str = new char[line_len];
+    char c_in_str[line_len];
     strcpy( c_in_str, line.c_str() );
-    char* c_gotten_str = new char[line_len];
+    //char* c_gotten_str = new char[line_len];
+    char c_gotten_str[line_len];
     
     int k = 0;      bool get_it = false;
     for(int i=0;i<line_len;i++)
@@ -67,12 +69,18 @@ string Read_info::second(string& key)
     if(c_gotten_str == NULL)
     //if(*c_gotten_str == "")
     {
+		//delete [] c_in_str;
+		//delete [] c_gotten_str;
 		this->reset_line_pin();	
         return "NAN";
     }
 
     gotten_str = string( c_gotten_str );
-	this->reset_line_pin();	
+	this->reset_line_pin();
+
+	//delete [] c_in_str;
+	//delete [] c_gotten_str;
+		
     return gotten_str;
 }
 

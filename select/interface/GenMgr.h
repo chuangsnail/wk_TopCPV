@@ -30,6 +30,9 @@ public:
     GenInfo* gen;
     JetInfo* jets;
     LeptonInfo* leps;
+	string _ch;
+
+	int counter;
     
     //Constructors
 	/*
@@ -37,10 +40,17 @@ public:
     {   gen = genInfo;  }
     */
 
-	GenMgr() {}
+	GenMgr() 
+	{
+		_ch = "";
+	}
 
     GenMgr( GenInfo* g, JetInfo* j, LeptonInfo* l )
-    {	RegIn(g,j,l);	}
+    {	
+		RegIn(g,j,l);	
+		_ch = "";
+		counter = 0;
+	}
 
 	void RegIn( GenInfo* genInfo, JetInfo* jetInfo, LeptonInfo* leptonInfo )
 	{
@@ -55,6 +65,9 @@ public:
     void SetGenBranch( GenInfo* );
     void SetJetBranch( JetInfo* );
     void SetLepBranch( LeptonInfo* );
+
+	string Get_channel() {	return _ch;	}
+
     int Find_GenParticle( const int& id_pdg, const int& mo_id );
     int Match_Gen( double gen_eta, double gen_phi );
     int GenJetIdx( int idx );       //input the idx in JetInfo, get the index in GenInfo, If there is no match , return -1
@@ -72,8 +85,10 @@ public:
 	bool Find_Correct_HadronicTop( int& cor_b, int& cor_j1, int& cor_j2 );
 
 	bb_matching_type Get_bb_Option( const int&, const int&, const int& );
+	bool IsJ1Correct( const int& );
 
 	bool IsPositiveAcp( const string& );
+	double GenAcp( const string& );
 
 };
 

@@ -1,0 +1,19 @@
+
+Sample         :             TT
+Events No before selection : 1.32224e+07
+==============================
+Sample         :             DY
+Events No before selection : 1.61696e+07
+==============================
+Sample         :          WJets
+Events No before selection : 7.7027e+07
+==============================
+Sample         :             VV
+Events No before selection : 6.54636e+06
+==============================
+Sample         :             ST
+Events No before selection : 1.07935e+07
+==============================
+Sample         :            QCD
+Events No before selection : 1.08023e+12
+==============================

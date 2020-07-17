@@ -27,6 +27,12 @@ void AcpMgr::InputSelObjs( const int& hadb, const int& lepb, const int& hardjet,
 	ConvertToVect();
 }
 
+void
+AcpMgr::Reset()
+{
+		
+}
+
 //used in change info method
 void AcpMgr::InputSelObjs_p4( const TLorentzVector& hadb, const TLorentzVector& lepb, const TLorentzVector& hardjet, const int& isolep )
 {	
@@ -106,15 +112,17 @@ double AcpMgr::Obs12()
 
 double AcpMgr::Obs13()
 {
-	double res = lep_charge * ( ( _b + _bbar ).Dot( _lep.Cross( _j1 ) ) );
-	//double res = ( ( _b + _bbar ).Dot( _lep.Cross( _j1 ) ) );
+	//double res = lep_charge * ( ( _b + _bbar ).Dot( _lep.Cross( _j1 ) ) );
+	double res = ( ( _b + _bbar ).Dot( _lep.Cross( _j1 ) ) );
 	if( res == 0. ) return DBL_MAX;
 	//return (res > 0) ? 1 : -1;
 	return res;
 }
+
 TH1D* CalAcp( TH1D* p, TH1D* n )
 {
-	TH1D* num = (TH1D*)( p->Clone() );
+	TH1D* num = new TH1D();
+	num	= (TH1D*)( p->Clone() );
 	//cout << "p : " << p << endl;
 	//cout << "num : " << num << endl;
 	TH1D* den = (TH1D*)( p->Clone() );

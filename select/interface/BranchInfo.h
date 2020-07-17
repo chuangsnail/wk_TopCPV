@@ -98,8 +98,8 @@ class EvtInfo {
             root->Branch( ( name + ".RunNo" ).c_str(),                                      &RunNo,                                      ( name + "RunNo/I" ).c_str() );
             root->Branch( ( name + ".EvtNo" ).c_str(),                                      &EvtNo,                                      ( name + "EvtNo/l" ).c_str() );
             root->Branch( ( name + ".BxNo" ).c_str(),                                       &BxNo,                                       ( name + "BxNo/I" ).c_str() );
-            root->Branch( ( name + ".LumiNo" ).c_str(),                                     &LumiNo,                                     ( name + "LumiNo/I" ).c_str() );
-            root->Branch( ( name + ".Orbit" ).c_str(),                                      &Orbit,                                      ( name + "Orbit/I" ).c_str() );
+            root->Branch( ( name + ".LumiNo" ).c_str(),                                     &LumiNo,                                     ( name + "LumiNo/I" ).c_str() ); 
+			root->Branch( ( name + ".Orbit" ).c_str(),                                      &Orbit,                                      ( name + "Orbit/I" ).c_str() );
             root->Branch( ( name + ".McFlag" ).c_str(),                                     &McFlag,                                     ( name + "McFlag/I" ).c_str() );
             root->Branch( ( name + ".EventTime" ).c_str(),                                  &EventTime,                                  ( name + "EventTime/I" ).c_str() );
             root->Branch( ( name + ".Flag_METFilter" ).c_str(),                             &Flag_METFilter,                             ( name + "Flag_METFilter/O" ).c_str() );
@@ -169,22 +169,27 @@ class EvtInfo {
             root->SetBranchAddress( ( name + ".EvtNo" ).c_str(),                                      &EvtNo );
             root->SetBranchAddress( ( name + ".BxNo" ).c_str(),                                       &BxNo );
             root->SetBranchAddress( ( name + ".LumiNo" ).c_str(),                                     &LumiNo );
+/*
             root->SetBranchAddress( ( name + ".Orbit" ).c_str(),                                      &Orbit );
             root->SetBranchAddress( ( name + ".McFlag" ).c_str(),                                     &McFlag );
             root->SetBranchAddress( ( name + ".EventTime" ).c_str(),                                  &EventTime );
             root->SetBranchAddress( ( name + ".Flag_METFilter" ).c_str(),                             &Flag_METFilter );
+*/
             root->SetBranchAddress( ( name + ".Rho" ).c_str(),                                        &Rho );
+/*
             root->SetBranchAddress( ( name + ".RhoNoFastJet" ).c_str(),                               &RhoNoFastJet );
             root->SetBranchAddress( ( name + ".BeamSpotX" ).c_str(),                                  &BeamSpotX );
             root->SetBranchAddress( ( name + ".BeamSpotY" ).c_str(),                                  &BeamSpotY );
             root->SetBranchAddress( ( name + ".BeamSpotZ" ).c_str(),                                  &BeamSpotZ );
             root->SetBranchAddress( ( name + ".BSsigmaZ" ).c_str(),                                   &BSsigmaZ );
+*/
             root->SetBranchAddress( ( name + ".nBX" ).c_str(),                                        &nBX );
             root->SetBranchAddress( ( name + ".nPU" ).c_str(),                                        nPU );
             root->SetBranchAddress( ( name + ".BXPU" ).c_str(),                                       BXPU );
             root->SetBranchAddress( ( name + ".TrueIT" ).c_str(),                                     TrueIT );
             root->SetBranchAddress( ( name + ".PFMET" ).c_str(),                                      &PFMET );
             root->SetBranchAddress( ( name + ".PFMETPhi" ).c_str(),                                   &PFMETPhi );
+
             root->SetBranchAddress( ( name + ".PFMETType1CorrPtShiftJetEnUp" ).c_str(),               &PFMETType1CorrPtShiftJetEnUp );
             root->SetBranchAddress( ( name + ".PFMETType1CorrPtShiftJetEnDown" ).c_str(),             &PFMETType1CorrPtShiftJetEnDown );
             root->SetBranchAddress( ( name + ".PFMETType1CorrPtShiftJetResUp" ).c_str(),              &PFMETType1CorrPtShiftJetResUp );
@@ -203,12 +208,14 @@ class EvtInfo {
             root->SetBranchAddress( ( name + ".PFMETSig" ).c_str(),                                   &PFMETSig );
             root->SetBranchAddress( ( name + ".PFMETlongitudinal" ).c_str(),                          &PFMETlongitudinal );
             root->SetBranchAddress( ( name + ".PFMETRealSig" ).c_str(),                               &PFMETRealSig );
+
             root->SetBranchAddress( ( name + ".PFGenMET" ).c_str(),                                   &PFGenMET );
             root->SetBranchAddress( ( name + ".PFGenMETPhi" ).c_str(),                                &PFGenMETPhi );
             root->SetBranchAddress( ( name + ".PFMETx" ).c_str(),                                     &PFMETx );
             root->SetBranchAddress( ( name + ".PFMETy" ).c_str(),                                     &PFMETy );
             root->SetBranchAddress( ( name + ".PuppiMET" ).c_str(),                                   &PuppiMET );
             root->SetBranchAddress( ( name + ".PuppiMETPhi" ).c_str(),                                &PuppiMETPhi );
+/*
             root->SetBranchAddress( ( name + ".PuppiMETType1CorrPtShiftJetEnUp" ).c_str(),            &PuppiMETType1CorrPtShiftJetEnUp );
             root->SetBranchAddress( ( name + ".PuppiMETType1CorrPtShiftJetEnDown" ).c_str(),          &PuppiMETType1CorrPtShiftJetEnDown );
             root->SetBranchAddress( ( name + ".PuppiMETType1CorrPtShiftJetResUp" ).c_str(),           &PuppiMETType1CorrPtShiftJetResUp );
@@ -231,6 +238,7 @@ class EvtInfo {
             root->SetBranchAddress( ( name + ".PuppiGenMETPhi" ).c_str(),                             &PuppiGenMETPhi );
             root->SetBranchAddress( ( name + ".PuppiMETx" ).c_str(),                                  &PuppiMETx );
             root->SetBranchAddress( ( name + ".PuppiMETy" ).c_str(),                                  &PuppiMETy );
+*/
         }
 };
 
@@ -356,12 +364,14 @@ class GenInfo {
             root->SetBranchAddress( ( name + ".GrandMo2PdgID" ).c_str(),        GrandMo2PdgID );
             root->SetBranchAddress( ( name + ".GrandMo1Status" ).c_str(),       GrandMo1Status );
             root->SetBranchAddress( ( name + ".GrandMo2Status" ).c_str(),       GrandMo2Status );
+/*
             root->SetBranchAddress( ( name + ".McIsTZTZ" ).c_str(),             &McIsTZTZ );
             root->SetBranchAddress( ( name + ".McIsTHTH" ).c_str(),             &McIsTHTH );
             root->SetBranchAddress( ( name + ".McIsTZTH" ).c_str(),             &McIsTZTH );
             root->SetBranchAddress( ( name + ".McIsTZBW" ).c_str(),             &McIsTZBW );
             root->SetBranchAddress( ( name + ".McIsTHBW" ).c_str(),             &McIsTHBW );
             root->SetBranchAddress( ( name + ".McIsBWBW" ).c_str(),             &McIsBWBW );
+*/
             root->SetBranchAddress( ( name + ".Weight" ).c_str(),               &Weight );
             root->SetBranchAddress( ( name + ".ptHat" ).c_str(),                &ptHat );
             root->SetBranchAddress( ( name + ".PDFid1" ).c_str(),               &PDFid1 );
@@ -376,6 +386,7 @@ class GenInfo {
             root->SetBranchAddress( ( name + ".LHESize" ).c_str(),              &LHESize );
             root->SetBranchAddress( ( name + ".LHESystematicId" ).c_str(),      LHESystematicId );
             root->SetBranchAddress( ( name + ".LHESystematicWeights" ).c_str(), LHESystematicWeights );
+
         }
 };
 
@@ -705,6 +716,7 @@ class JetInfo {
             root->SetBranchAddress( ( name + ".GenFlavor" ).c_str(),                                 GenFlavor );
             root->SetBranchAddress( ( name + ".GenHadronFlavor" ).c_str(),                           GenHadronFlavor );
             root->SetBranchAddress( ( name + ".GenMCTag" ).c_str(),                                  GenMCTag );
+/*
             root->SetBranchAddress( ( name + ".NSubjets" ).c_str(),                                  NSubjets );
             root->SetBranchAddress( ( name + ".SubjetsIdxStart" ).c_str(),                           SubjetsIdxStart );
             root->SetBranchAddress( ( name + ".NjettinessAK8tau1" ).c_str(),                         NjettinessAK8tau1 );
@@ -719,6 +731,7 @@ class JetInfo {
             root->SetBranchAddress( ( name + ".topJetMass" ).c_str(),                                topJetMass );
             root->SetBranchAddress( ( name + ".ca8TopMass" ).c_str(),                                ca8TopMass );
             root->SetBranchAddress( ( name + ".ca8MinMass" ).c_str(),                                ca8MinMass );
+*/
             SubjetMass = 0;
             root->SetBranchAddress( ( name + ".SubjetMass" ).c_str(),                                &SubjetMass );
             SubjetPt = 0;
@@ -759,6 +772,7 @@ class JetInfo {
             root->SetBranchAddress( ( name + ".SubjetGenFlavour" ).c_str(),                          &SubjetGenFlavour );
             SubjetHadronFlavour = 0;
             root->SetBranchAddress( ( name + ".SubjetHadronFlavour" ).c_str(),                       &SubjetHadronFlavour );
+/*
             root->SetBranchAddress( ( name + ".TempPt1" ).c_str(),                                   TempPt1 );
             root->SetBranchAddress( ( name + ".TempEta1" ).c_str(),                                  TempEta1 );
             root->SetBranchAddress( ( name + ".TempPhi1" ).c_str(),                                  TempPhi1 );
@@ -771,6 +785,8 @@ class JetInfo {
             root->SetBranchAddress( ( name + ".TempFloat2" ).c_str(),                                TempFloat2 );
             root->SetBranchAddress( ( name + ".TempFloat3" ).c_str(),                                TempFloat3 );
             root->SetBranchAddress( ( name + ".TempFloat4" ).c_str(),                                TempFloat4 );
+*/
+
         }
 };
 
@@ -1264,6 +1280,7 @@ class LeptonInfo {
             root->SetBranchAddress( ( name + ".GenPhi" ).c_str(),                          GenPhi );
             root->SetBranchAddress( ( name + ".GenPdgID" ).c_str(),                        GenPdgID );
             root->SetBranchAddress( ( name + ".GenMCTag" ).c_str(),                        GenMCTag );
+/*
             root->SetBranchAddress( ( name + ".TempPt1" ).c_str(),                         TempPt1 );
             root->SetBranchAddress( ( name + ".TempEta1" ).c_str(),                        TempEta1 );
             root->SetBranchAddress( ( name + ".TempPhi1" ).c_str(),                        TempPhi1 );
@@ -1276,6 +1293,7 @@ class LeptonInfo {
             root->SetBranchAddress( ( name + ".TempFloat2" ).c_str(),                      TempFloat2 );
             root->SetBranchAddress( ( name + ".TempFloat3" ).c_str(),                      TempFloat3 );
             root->SetBranchAddress( ( name + ".TempFloat4" ).c_str(),                      TempFloat4 );
+*/
         }
 };
 
@@ -1531,7 +1549,9 @@ class TrgInfo {
             root->SetBranchAddress( ( name + ".TrgCount" ).c_str(),           &TrgCount );
             root->SetBranchAddress( ( name + ".nTrgBook" ).c_str(),           &nTrgBook );
             root->SetBranchAddress( ( name + ".TrgBook" ).c_str(),            TrgBook );
-            root->SetBranchAddress( ( name + ".nHLT" ).c_str(),               &nHLT );
+            
+			//root->SetBranchAddress( ( name + ".nHLT" ).c_str(),               &nHLT );
+/*
             root->SetBranchAddress( ( name + ".HighPurityFraction" ).c_str(), &HighPurityFraction );
             root->SetBranchAddress( ( name + ".NofTracks" ).c_str(),          &NofTracks );
             root->SetBranchAddress( ( name + ".HLTPrescaleFactor" ).c_str(),  HLTPrescaleFactor );
@@ -1539,6 +1559,7 @@ class TrgInfo {
             root->SetBranchAddress( ( name + ".HLTbits" ).c_str(),            HLTbits );
             root->SetBranchAddress( ( name + ".L1" ).c_str(),                 L1 );
             root->SetBranchAddress( ( name + ".TT" ).c_str(),                 TT );
+*/
         }
 };
 
@@ -1597,6 +1618,163 @@ class RunInfo {
             root->SetBranchAddress( ( name + ".PdfID" ).c_str(), &PdfID );
         }
 };
+
+
+inline void ClearNoUseTree( TTree* root )
+{
+            root->SetBranchStatus(  "EvtInfo.Orbit" ,                         0 ); 
+            root->SetBranchStatus(  "EvtInfo.McFlag" ,                        0 ); 
+            root->SetBranchStatus(  "EvtInfo.EventTime" ,                     0 ); 
+            root->SetBranchStatus(  "EvtInfo.Flag_METFilter" ,                0 ); 
+
+            root->SetBranchStatus(  "EvtInfo.RhoNoFastJet" ,                  0 ); 
+            root->SetBranchStatus(  "EvtInfo.BeamSpotX" ,                     0 ); 
+            root->SetBranchStatus(  "EvtInfo.BeamSpotY" ,                     0 ); 
+            root->SetBranchStatus(  "EvtInfo.BeamSpotZ" ,                     0 ); 
+            root->SetBranchStatus(  "EvtInfo.BSsigmaZ" ,                      0 ); 
+            
+			root->SetBranchStatus(  "EvtInfo.PuppiMETType1CorrPtShiftJetEnUp" ,            0 ); 
+            root->SetBranchStatus(  "EvtInfo.PuppiMETType1CorrPtShiftJetEnDown" ,          0 ); 
+            root->SetBranchStatus(  "EvtInfo.PuppiMETType1CorrPtShiftJetResUp" ,           0 ); 
+            root->SetBranchStatus(  "EvtInfo.PuppiMETType1CorrPtShiftJetResDown" ,         0 ); 
+            root->SetBranchStatus(  "EvtInfo.PuppiMETType1CorrPtShiftUnclusteredEnUp" ,    0 ); 
+            root->SetBranchStatus(  "EvtInfo.PuppiMETType1CorrPtShiftUnclusteredEnDown" ,  0 ); 
+            root->SetBranchStatus(  "EvtInfo.PuppiMETType1CorrPhiShiftJetEnUp" ,           0 ); 
+            root->SetBranchStatus(  "EvtInfo.PuppiMETType1CorrPhiShiftJetEnDown" ,         0 ); 
+            root->SetBranchStatus(  "EvtInfo.PuppiMETType1CorrPhiShiftJetResUp" ,          0 ); 
+            root->SetBranchStatus(  "EvtInfo.PuppiMETType1CorrPhiShiftJetResDown" ,        0 ); 
+            root->SetBranchStatus(  "EvtInfo.PuppiMETType1CorrPhiShiftUnclusteredEnUp" ,   0 ); 
+            root->SetBranchStatus(  "EvtInfo.PuppiMETType1CorrPhiShiftUnclusteredEnDown" , 0 ); 
+            root->SetBranchStatus(  "EvtInfo.PuppiRawMET" ,                                0 ); 
+            root->SetBranchStatus(  "EvtInfo.PuppiRawMETPhi" ,                             0 ); 
+            root->SetBranchStatus(  "EvtInfo.PuppiSumEt" ,                                 0 ); 
+            root->SetBranchStatus(  "EvtInfo.PuppiMETSig" ,                                0 ); 
+            root->SetBranchStatus(  "EvtInfo.PuppiMETlongitudinal" ,                       0 ); 
+            root->SetBranchStatus(  "EvtInfo.PuppiMETRealSig" ,                            0 ); 
+            root->SetBranchStatus(  "EvtInfo.PuppiGenMET" ,                                0 ); 
+            root->SetBranchStatus(  "EvtInfo.PuppiGenMETPhi" ,                             0 ); 
+            root->SetBranchStatus(  "EvtInfo.PuppiMETx" ,                                  0 ); 
+            root->SetBranchStatus(  "EvtInfo.PuppiMETy" ,                                  0 ); 
+            
+			root->SetBranchStatus(  "GenInfo.McIsTZTZ" ,             0 ); 
+            root->SetBranchStatus(  "GenInfo.McIsTHTH" ,             0 ); 
+            root->SetBranchStatus(  "GenInfo.McIsTZTH" ,             0 ); 
+            root->SetBranchStatus(  "GenInfo.McIsTZBW" ,             0 ); 
+            root->SetBranchStatus(  "GenInfo.McIsTHBW" ,             0 ); 
+            root->SetBranchStatus(  "GenInfo.McIsBWBW" ,             0 ); 
+
+            root->SetBranchStatus(  "JetInfo.TempPt1" ,                       0 ); 
+            root->SetBranchStatus(  "JetInfo.TempEta1" ,                      0 ); 
+            root->SetBranchStatus(  "JetInfo.TempPhi1" ,                      0 ); 
+            root->SetBranchStatus(  "JetInfo.TempEnergy1" ,                   0 ); 
+            root->SetBranchStatus(  "JetInfo.TempPt2" ,                       0 ); 
+            root->SetBranchStatus(  "JetInfo.TempEta2" ,                      0 ); 
+            root->SetBranchStatus(  "JetInfo.TempPhi2" ,                      0 ); 
+            root->SetBranchStatus(  "JetInfo.TempEnergy2" ,                   0 ); 
+            root->SetBranchStatus(  "JetInfo.TempFloat1" ,                    0 ); 
+            root->SetBranchStatus(  "JetInfo.TempFloat2" ,                    0 ); 
+            root->SetBranchStatus(  "JetInfo.TempFloat3" ,                    0 ); 
+            root->SetBranchStatus(  "JetInfo.TempFloat4" ,                    0 ); 
+            
+            root->SetBranchStatus(  "JetInfo.NSubjets" ,                      0 ); 
+            root->SetBranchStatus(  "JetInfo.SubjetsIdxStart" ,               0 ); 
+            root->SetBranchStatus(  "JetInfo.NjettinessAK8tau1" ,             0 ); 
+            root->SetBranchStatus(  "JetInfo.NjettinessAK8tau2" ,             0 ); 
+            root->SetBranchStatus(  "JetInfo.NjettinessAK8tau3" ,             0 ); 
+            root->SetBranchStatus(  "JetInfo.PuppiSoftDrop_ECFb1N2" ,         0 ); 
+            root->SetBranchStatus(  "JetInfo.PuppiSoftDrop_ECFb1N3" ,         0 ); 
+            root->SetBranchStatus(  "JetInfo.ak8PFJetsCHSSoftDropMass" ,      0 ); 
+            root->SetBranchStatus(  "JetInfo.ak8PFJetsCHSPrunedMass" ,        0 ); 
+            root->SetBranchStatus(  "JetInfo.ak8PFJetsCHSTrimmedMass" ,       0 ); 
+            root->SetBranchStatus(  "JetInfo.ak8PFJetsCHSFilteredMass" ,      0 ); 
+            root->SetBranchStatus(  "JetInfo.topJetMass" ,                    0 ); 
+            root->SetBranchStatus(  "JetInfo.ca8TopMass" ,                    0 ); 
+            root->SetBranchStatus(  "JetInfo.ca8MinMass" ,                    0 ); 
+
+			root->SetBranchStatus(  "LepInfo.TempPt1" ,                       0 ); 
+            root->SetBranchStatus(  "LepInfo.TempEta1" ,                      0 ); 
+            root->SetBranchStatus(  "LepInfo.TempPhi1" ,                      0 ); 
+            root->SetBranchStatus(  "LepInfo.TempEnergy1" ,                   0 ); 
+            root->SetBranchStatus(  "LepInfo.TempPt2" ,                       0 ); 
+            root->SetBranchStatus(  "LepInfo.TempEta2" ,                      0 ); 
+            root->SetBranchStatus(  "LepInfo.TempPhi2" ,                      0 ); 
+            root->SetBranchStatus(  "LepInfo.TempEnergy2" ,                   0 ); 
+            root->SetBranchStatus(  "LepInfo.TempFloat1" ,                    0 ); 
+            root->SetBranchStatus(  "LepInfo.TempFloat2" ,                    0 ); 
+            root->SetBranchStatus(  "LepInfo.TempFloat3" ,                    0 ); 
+            root->SetBranchStatus(  "LepInfo.TempFloat4" ,                    0 ); 
+
+            root->SetBranchStatus(  "PhotonInfo.Size" ,                       0 ); 
+            root->SetBranchStatus(  "PhotonInfo.Pt" ,                         0 ); 
+            root->SetBranchStatus(  "PhotonInfo.Eta" ,                        0 ); 
+            root->SetBranchStatus(  "PhotonInfo.Phi" ,                        0 ); 
+            root->SetBranchStatus(  "PhotonInfo.Px" ,                         0 ); 
+            root->SetBranchStatus(  "PhotonInfo.Py" ,                         0 ); 
+            root->SetBranchStatus(  "PhotonInfo.Pz" ,                         0 ); 
+            root->SetBranchStatus(  "PhotonInfo.Energy" ,                     0 ); 
+            root->SetBranchStatus(  "PhotonInfo.isPFPhoton" ,                 0 ); 
+            root->SetBranchStatus(  "PhotonInfo.PhoEnergyCorrFactor" ,        0 ); 
+            root->SetBranchStatus(  "PhotonInfo.PhoEnergyPreCorrErr" ,        0 ); 
+            root->SetBranchStatus(  "PhotonInfo.PhoEnergyPostCorrErr" ,       0 ); 
+            root->SetBranchStatus(  "PhotonInfo.PhoEnergyPostCorrScaleUp" ,   0 ); 
+            root->SetBranchStatus(  "PhotonInfo.PhoEnergyPostCorrScaleDown" , 0 ); 
+            root->SetBranchStatus(  "PhotonInfo.PhoEnergyPostCorrSmearUp" ,   0 ); 
+            root->SetBranchStatus(  "PhotonInfo.PhoEnergyPostCorrSmearDown" , 0 ); 
+            root->SetBranchStatus(  "PhotonInfo.EgammaCutBasedPhoIdLOOSE" ,   0 ); 
+            root->SetBranchStatus(  "PhotonInfo.EgammaCutBasedPhoIdMEDIUM" ,  0 ); 
+            root->SetBranchStatus(  "PhotonInfo.EgammaCutBasedPhoIdTIGHT" ,   0 ); 
+            root->SetBranchStatus(  "PhotonInfo.EgammaPhoIdMVA" ,             0 ); 
+            root->SetBranchStatus(  "PhotonInfo.ChargedHadronIsoR03" ,        0 ); 
+            root->SetBranchStatus(  "PhotonInfo.NeutralHadronIsoR03" ,        0 ); 
+            root->SetBranchStatus(  "PhotonInfo.PhotonIsoR03" ,               0 ); 
+            root->SetBranchStatus(  "PhotonInfo.WorstChargedIsolationR03" ,   0 ); 
+            root->SetBranchStatus(  "PhotonInfo.PFChIsoRhoCorr" ,             0 ); 
+            root->SetBranchStatus(  "PhotonInfo.PFNeuIsoRhoCorr" ,            0 ); 
+            root->SetBranchStatus(  "PhotonInfo.PFPhoIsoRhoCorr" ,            0 ); 
+            root->SetBranchStatus(  "PhotonInfo.passelectronveto" ,           0 ); 
+            root->SetBranchStatus(  "PhotonInfo.hasPixelSeed" ,               0 ); 
+            root->SetBranchStatus(  "PhotonInfo.EtaSC" ,                      0 ); 
+            root->SetBranchStatus(  "PhotonInfo.PhiSC" ,                      0 ); 
+            root->SetBranchStatus(  "PhotonInfo.rawEnergySC" ,                0 ); 
+            root->SetBranchStatus(  "PhotonInfo.ESEnergySC" ,                 0 ); 
+            root->SetBranchStatus(  "PhotonInfo.EnergySC" ,                   0 ); 
+            root->SetBranchStatus(  "PhotonInfo.E5x5" ,                       0 ); 
+            root->SetBranchStatus(  "PhotonInfo.R9" ,                         0 ); 
+            root->SetBranchStatus(  "PhotonInfo.SigmaIetaIeta" ,              0 ); 
+            root->SetBranchStatus(  "PhotonInfo.SigmaIetaIphi" ,              0 ); 
+            root->SetBranchStatus(  "PhotonInfo.SigmaIphiIphi" ,              0 ); 
+            root->SetBranchStatus(  "PhotonInfo.S4" ,                         0 ); 
+            root->SetBranchStatus(  "PhotonInfo.ESEffSigmaRR" ,               0 ); 
+            root->SetBranchStatus(  "PhotonInfo.EtaWidth" ,                   0 ); 
+            root->SetBranchStatus(  "PhotonInfo.PhiWidth" ,                   0 ); 
+            root->SetBranchStatus(  "PhotonInfo.HoverE" ,                     0 ); 
+            root->SetBranchStatus(  "PhotonInfo.hadTowOverEm" ,               0 ); 
+            root->SetBranchStatus(  "PhotonInfo.GenPt" ,                      0 ); 
+            root->SetBranchStatus(  "PhotonInfo.GenEta" ,                     0 ); 
+            root->SetBranchStatus(  "PhotonInfo.GenPhi" ,                     0 ); 
+            root->SetBranchStatus(  "PhotonInfo.GenPdgID" ,                   0 ); 
+            root->SetBranchStatus(  "PhotonInfo.TempPt1" ,                    0 ); 
+            root->SetBranchStatus(  "PhotonInfo.TempEta1" ,                   0 ); 
+            root->SetBranchStatus(  "PhotonInfo.TempPhi1" ,                   0 ); 
+            root->SetBranchStatus(  "PhotonInfo.TempEnergy1" ,                0 ); 
+            root->SetBranchStatus(  "PhotonInfo.TempPt2" ,                    0 ); 
+            root->SetBranchStatus(  "PhotonInfo.TempEta2" ,                   0 ); 
+            root->SetBranchStatus(  "PhotonInfo.TempPhi2" ,                   0 ); 
+            root->SetBranchStatus(  "PhotonInfo.TempEnergy2" ,                0 ); 
+            root->SetBranchStatus(  "PhotonInfo.TempFloat1" ,                 0 ); 
+            root->SetBranchStatus(  "PhotonInfo.TempFloat2" ,                 0 ); 
+            root->SetBranchStatus(  "PhotonInfo.TempFloat3" ,                 0 ); 
+            root->SetBranchStatus(  "PhotonInfo.TempFloat4" ,                 0 ); 
+	
+            root->SetBranchStatus(  "TrgInfo.HighPurityFraction" , 0 ); 
+            root->SetBranchStatus(  "TrgInfo.NofTracks" ,          0 ); 
+            root->SetBranchStatus(  "TrgInfo.HLTPrescaleFactor" ,  0 ); 
+            root->SetBranchStatus(  "TrgInfo.HLTName2enum" ,  0 ); 
+            root->SetBranchStatus(  "TrgInfo.HLTbits" ,            0 ); 
+            root->SetBranchStatus(  "TrgInfo.L1" ,                 0 ); 
+            root->SetBranchStatus(  "TrgInfo.TT" ,                 0 );
+}
+
 
 
 #endif// __BPRIMEKIT_FORMAT_H__

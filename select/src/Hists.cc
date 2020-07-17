@@ -9,6 +9,8 @@
 //#include "TopCPViolation/selected/interface/Hists.h"
 #include "../interface/Hists.h"
 
+using namespace CalTool;
+
 void
 Hists_Acp::Init( const string& option = "all" )
 {
@@ -67,19 +69,10 @@ FillIn( const string& option, const string& ch , const double& obs, const double
 {
 
 	if( obs == DBL_MAX ) return;
-	int cp = 1;
-	if( obs > 0 ) 
+	
+    if( option == "Obs3" )
 	{
-		cp = 1;
-	}
-	else
-	{	
-		cp = -1;
-	}
-
-	if( option == "Obs3" )
-	{
-		if( cp == 1 )
+		if( obs > 0. )
 		{
 			h_Obs_t_P->Fill( 1., weight );
 			h_Obs_P[ ch ]->Fill( 1., weight );
@@ -92,7 +85,7 @@ FillIn( const string& option, const string& ch , const double& obs, const double
 	}
 	else if( option == "Obs6" )
 	{
-		if( cp == 1 )
+		if( obs > 0. )
 		{
 			h_Obs_t_P->Fill( 2., weight );
 			h_Obs_P[ ch ]->Fill( 2., weight );
@@ -105,7 +98,7 @@ FillIn( const string& option, const string& ch , const double& obs, const double
 	}
 	else if( option == "Obs12" )
 	{
-		if( cp == 1 )
+		if( obs > 0. )
 		{
 			h_Obs_t_P->Fill( 3., weight );
 			h_Obs_P[ ch ]->Fill( 3., weight );
@@ -118,7 +111,7 @@ FillIn( const string& option, const string& ch , const double& obs, const double
 	}
 	else if( option == "Obs13" )
 	{
-		if( cp == 1 )
+		if( obs > 0. )
 		{
 			h_Obs_t_P->Fill( 4., weight );
 			h_Obs_P[ ch ]->Fill( 4., weight );
@@ -161,6 +154,78 @@ Hists_Acp::WriteIn()
 	h_Obs_t_P->Write();
 	h_Obs_t_N->Write();
 
+}
+
+void Hists_proper::Init()
+{
+
+	h_TT_mu = new TH1F("h_TT_mu",(char*)AxisInfo.c_str(),bins_No,hist_min,hist_max);
+	h_TT_el = new TH1F("h_TT_el",(char*)AxisInfo.c_str(),bins_No,hist_min,hist_max);
+	
+	h_DY_mu = new TH1F("h_DY_mu",(char*)AxisInfo.c_str(),bins_No,hist_min,hist_max);
+	h_DY_el = new TH1F("h_DY_el",(char*)AxisInfo.c_str(),bins_No,hist_min,hist_max);
+
+	h_WJets_mu = new TH1F("h_WJets_mu",(char*)AxisInfo.c_str(),bins_No,hist_min,hist_max);
+	h_WJets_el = new TH1F("h_WJets_el",(char*)AxisInfo.c_str(),bins_No,hist_min,hist_max);
+	
+	h_VV_mu = new TH1F("h_VV_mu",(char*)AxisInfo.c_str(),bins_No,hist_min,hist_max);
+	h_VV_el = new TH1F("h_VV_el",(char*)AxisInfo.c_str(),bins_No,hist_min,hist_max);
+
+	h_ST_mu = new TH1F("h_ST_mu",(char*)AxisInfo.c_str(),bins_No,hist_min,hist_max);
+	h_ST_el = new TH1F("h_ST_el",(char*)AxisInfo.c_str(),bins_No,hist_min,hist_max);
+	
+	h_QCD_mu = new TH1F("h_QCD_mu",(char*)AxisInfo.c_str(),bins_No,hist_min,hist_max);
+	h_QCD_el = new TH1F("h_QCD_el",(char*)AxisInfo.c_str(),bins_No,hist_min,hist_max);
+	
+	h_Data_mu = new TH1F("h_Data_mu",(char*)AxisInfo.c_str(),bins_No,hist_min,hist_max);	
+	h_Data_el = new TH1F("h_Data_el",(char*)AxisInfo.c_str(),bins_No,hist_min,hist_max);
+
+	h_mu.push_back(h_TT_mu);		h_mu.push_back(h_DY_mu);
+	h_mu.push_back(h_WJets_mu);		h_mu.push_back(h_VV_mu);
+	h_mu.push_back(h_ST_mu);		h_mu.push_back(h_QCD_mu);
+	h_mu.push_back(h_Data_mu);
+
+	h_el.push_back(h_TT_el);		h_el.push_back(h_DY_el);
+	h_el.push_back(h_WJets_el);		h_el.push_back(h_VV_el);
+	h_el.push_back(h_ST_el);		h_el.push_back(h_QCD_el);
+	h_el.push_back(h_Data_el);
+	
+}
+
+void
+Hists_proper::WriteIn()
+{
+	h_TT_mu->Write();		
+	h_TT_el->Write();	
+	h_DY_mu->Write();		
+	h_DY_el->Write();
+	h_WJets_mu->Write();	
+	h_WJets_el->Write();
+	h_VV_mu->Write();		
+	h_VV_el->Write();
+	h_ST_mu->Write();		
+	h_ST_el->Write();
+	h_QCD_mu->Write();		
+	h_QCD_el->Write();
+	h_Data_mu->Write();	
+	h_Data_el->Write();
+}
+
+void
+Hists_proper::FillHist( const string& option, const int& k, const string& ch, const double& proper_value, const double& weight )
+{
+	if( ch == "mu" )
+	{
+		h_mu.at(k)->Fill(proper_value, weight);
+	}
+	else if( ch == "el" )
+	{
+		h_el.at(k)->Fill(proper_value, weight);
+	}
+	else
+	{
+		cerr << "WRONG in channel when fill histograms!" << endl;
+	}
 }
 
 void Hists::GetObjs( string& file_name, string& option )
@@ -557,6 +622,71 @@ void Hists::TwoCutModeON()
 	InitTwoCutVector();
 }
 
+void
+Hists::PrintOn( const string& fname, const string& option )
+{
+    ofstream fout;
+    fout.open( fname.c_str(), ios::app );
+    
+	fout << "Print time : " << get_time_str( minute ) << endl;
+	
+	if( option.find( "NC" ) != string::npos )
+    {
+		double sig_y_mu = CalTool::Integral_All( h_TT_mu );
+		double bkg_y_mu = CalTool::Integral_All( h_DY_mu ) + CalTool::Integral_All( h_ST_mu ) + \
+					   CalTool::Integral_All( h_WJets_mu ) + CalTool::Integral_All( h_VV_mu ) + CalTool::Integral_All( h_QCD_mu );
+		double sig_y_el = CalTool::Integral_All( h_TT_el );
+		double bkg_y_el = CalTool::Integral_All( h_DY_el ) + CalTool::Integral_All( h_ST_el ) + \
+					   CalTool::Integral_All( h_WJets_el ) + CalTool::Integral_All( h_VV_el ) + CalTool::Integral_All( h_QCD_el );
+
+		fout << "[NC] " << endl;
+		fout << "(mu) TT's yields/ratio : " << sig_y_mu << "/ " << sig_y_mu/( sig_y_mu + bkg_y_mu ) << endl;
+		fout << "(mu) bkg's yields/ratio : " << bkg_y_mu << "/ " << bkg_y_mu/( sig_y_mu + bkg_y_mu ) << endl;
+		
+		fout << "(el) TT's yields/ratio : " << sig_y_el << "/ " << sig_y_el/( sig_y_el + bkg_y_el ) << endl;
+		fout << "(el) bkg's yields/ratio : " << bkg_y_el << "/ " << bkg_y_el/( sig_y_el + bkg_y_el ) << endl;
+    }
+    
+    if( option.find( "1C" ) != string::npos )
+    {
+		double sig_y_mu_c = CalTool::Integral_All( h_TT_mu_c );
+		double bkg_y_mu_c = CalTool::Integral_All( h_DY_mu_c ) + CalTool::Integral_All( h_ST_mu_c ) + \
+					   CalTool::Integral_All( h_WJets_mu_c ) + CalTool::Integral_All( h_VV_mu_c ) + CalTool::Integral_All( h_QCD_mu_c );
+		double sig_y_el_c = CalTool::Integral_All( h_TT_el_c );
+		double bkg_y_el_c = CalTool::Integral_All( h_DY_el_c ) + CalTool::Integral_All( h_ST_el_c ) + \
+					   CalTool::Integral_All( h_WJets_el_c ) + CalTool::Integral_All( h_VV_el_c ) + CalTool::Integral_All( h_QCD_el_c );
+
+		fout << "[1C] " << endl;
+		fout << "(mu) TT's yields/ratio : " << sig_y_mu_c << "/ " << sig_y_mu_c/( sig_y_mu_c + bkg_y_mu_c ) << endl;
+		fout << "(mu) bkg's yields/ratio : " << bkg_y_mu_c << "/ " << bkg_y_mu_c/( sig_y_mu_c + bkg_y_mu_c ) << endl;
+		
+		fout << "(el) TT's yields/ratio : " << sig_y_el_c << "/ " << sig_y_el_c/( sig_y_el_c + bkg_y_el_c ) << endl;
+		fout << "(el) bkg's yields/ratio : " << bkg_y_el_c << "/ " << bkg_y_el_c/( sig_y_el_c + bkg_y_el_c ) << endl;
+    
+    }
+    
+    if( option.find( "2C" ) != string::npos )
+    {
+		double sig_y_mu_cc = CalTool::Integral_All( h_TT_mu_cc );
+		double bkg_y_mu_cc = CalTool::Integral_All( h_DY_mu_cc ) + CalTool::Integral_All( h_ST_mu_cc ) + \
+					   CalTool::Integral_All( h_WJets_mu_cc ) + CalTool::Integral_All( h_VV_mu_cc ) + CalTool::Integral_All( h_QCD_mu_cc );
+		double sig_y_el_cc = CalTool::Integral_All( h_TT_el_cc );
+		double bkg_y_el_cc = CalTool::Integral_All( h_DY_el_cc ) + CalTool::Integral_All( h_ST_el_cc ) + \
+					   CalTool::Integral_All( h_WJets_el_cc ) + CalTool::Integral_All( h_VV_el_cc ) + CalTool::Integral_All( h_QCD_el_cc );
+
+		fout << "[2C] " << endl;
+		fout << "(mu) TT's yields/ratio : " << sig_y_mu_cc << "/ " << sig_y_mu_cc/( sig_y_mu_cc + bkg_y_mu_cc ) << endl;
+		fout << "(mu) bkg's yields/ratio : " << bkg_y_mu_cc << "/ " << bkg_y_mu_cc/( sig_y_mu_cc + bkg_y_mu_cc ) << endl;
+		
+		fout << "(el) TT's yields/ratio : " << sig_y_el_cc << "/ " << sig_y_el_cc/( sig_y_el_cc + bkg_y_el_cc ) << endl;
+		fout << "(el) bkg's yields/ratio : " << bkg_y_el_cc << "/ " << bkg_y_el_cc/( sig_y_el_cc + bkg_y_el_cc ) << endl;
+    
+    }
+
+	fout.close();
+    
+}
+
 void Hists::WriteIn( const string& option = "NC" )
 {
 	if( option.find("NT") != string::npos )
@@ -690,7 +820,7 @@ Hists::FillHist( const string& option, const int& k, const string& ch, const dou
 		else
 			return;
 	}
-	else if( option.find("1C") != string::npos )
+    else if( option.find("1C") != string::npos )
 	{
 		if( ch == "mu" )
 		{
@@ -706,7 +836,7 @@ Hists::FillHist( const string& option, const int& k, const string& ch, const dou
 		else
 			return;
 	}
-	else if( option.find("2C") != string::npos )
+    else if( option.find("2C") != string::npos )
 	{
 		if( ch == "mu" )
 		{
@@ -874,3 +1004,63 @@ void Hists_cor::WriteIn()
 	h_cor_t->Write();
 }
 
+
+/*
+void
+Hists_mva::Initialize( const int& var_no )
+{
+
+    FillVec();
+}
+
+void
+Hists_mva::FillVec()
+{
+    h_mu.push_back( h_01_mu );
+    h_mu.push_back( h_02_mu );
+    h_mu.push_back( h_03_mu );
+    h_mu.push_back( h_04_mu );
+    h_mu.push_back( h_05_mu );
+    h_mu.push_back( h_06_mu );
+    h_mu.push_back( h_07_mu );
+    h_mu.push_back( h_08_mu );
+    h_mu.push_back( h_09_mu );
+    h_mu.push_back( h_10_mu );
+    h_mu.push_back( h_11_mu );
+    h_mu.push_back( h_12_mu );
+    h_mu.push_back( h_13_mu );
+    h_mu.push_back( h_14_mu );
+    h_mu.push_back( h_15_mu );
+    h_mu.push_back( h_16_mu );
+    h_mu.push_back( h_17_mu );
+    h_mu.push_back( h_18_mu );
+    h_mu.push_back( h_19_mu );
+    h_mu.push_back( h_20_mu );
+    h_mu.push_back( h_21_mu );
+    h_mu.push_back( h_22_mu );
+    
+    h_el.push_back( h_01_el );
+    h_el.push_back( h_02_el );
+    h_el.push_back( h_03_el );
+    h_el.push_back( h_04_el );
+    h_el.push_back( h_05_el );
+    h_el.push_back( h_06_el );
+    h_el.push_back( h_07_el );
+    h_el.push_back( h_08_el );
+    h_el.push_back( h_09_el );
+    h_el.push_back( h_10_el );
+    h_el.push_back( h_11_el );
+    h_el.push_back( h_12_el );
+    h_el.push_back( h_13_el );
+    h_el.push_back( h_14_el );
+    h_el.push_back( h_15_el );
+    h_el.push_back( h_16_el );
+    h_el.push_back( h_17_el );
+    h_el.push_back( h_18_el );
+    h_el.push_back( h_19_el );
+    h_el.push_back( h_20_el );
+    h_el.push_back( h_21_el );
+    h_el.push_back( h_22_el );
+}
+
+*/

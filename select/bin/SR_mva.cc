@@ -17,7 +17,7 @@ using namespace std;
 
 int main(int argc,char* argv[])
 {
-	string training_name = "a05_all_MLP";
+	string training_name = "";
 	double mva_cut = stod( string(argv[1]) );
 
 	cout << "mva-cut is " << mva_cut << endl;
@@ -32,7 +32,8 @@ int main(int argc,char* argv[])
 	Weights_map[data_sets_name[0]] = &w_TT;				Weights_map[data_sets_name[1]] = &w_DY;
 	Weights_map[data_sets_name[2]] = &w_WJets;			Weights_map[data_sets_name[3]] = &w_VV;
 	Weights_map[data_sets_name[4]] = &w_ST;				Weights_map[data_sets_name[5]] = &w_QCD;
-	get_lumi_weight( Weights_map , "/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/full_sel/full_16_SR.txt" );
+	//get_lumi_weight( Weights_map , "/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/full_sel/full_16_SR.txt" );
+	get_lumi_weight( Weights_map , "/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/full_sel/full_16_SR_nominal.txt" );
 	cout << "Finish getting lumi-weight" << endl;
 
 	//*********************About path***********************//
@@ -45,7 +46,8 @@ int main(int argc,char* argv[])
 	Data_Set_Path[data_sets_name[2]] = &WJets;			Data_Set_Path[data_sets_name[3]] = &VV;
 	Data_Set_Path[data_sets_name[4]] = &ST;				Data_Set_Path[data_sets_name[5]] = &QCD;
 	Data_Set_Path[d6] = &Data_SM;						Data_Set_Path[d7] = &Data_SE;
-	get_path( Data_Set_Path , "/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/full_sel/full_16_SR.txt" );
+	//get_path( Data_Set_Path , "/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/full_sel/full_16_SR.txt" );
+	get_path( Data_Set_Path , "/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/full_sel/full_16_SR_nominal.txt" );
 	cout << "Finish getting Path info." << endl;
 
 	//**********initial the files and TChain and make the file map and weight map***********//
@@ -106,6 +108,10 @@ int main(int argc,char* argv[])
 	hists.TwoCutModeON();
 
 	string startingtime = get_time_str( minute );
+	ofstream f;
+	f.open( "/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/information/SR_mva.txt",fstream::app );
+   	f << "-" << endl << "Starting Time : " << startingtime << endl;
+	f.close();
 
 	for(int k=0;k<(int)files_map.size();k++)		//
 	{
@@ -185,6 +191,7 @@ int main(int argc,char* argv[])
 			//*** Initialize the selection manager ***//
 			
 			SelMgr sel( &jetInfo, &leptonInfo, &evtInfo, &vertexInfo, &genInfo );
+			sel.SetTrain( training_name );
 			if( is_data ) {	sel.SetIsData(is_data);	}
 
 			//AcpMgr acpMgr( &leptonInfo, &jetInfo );
@@ -254,12 +261,13 @@ int main(int argc,char* argv[])
 				hists.FillHist( "2C", k, *channel, Mjjb, Mlb, sel.Weight() );
 			
 			}	//end of entry for-loop	
+			training_name = sel.GetTrain();
 			//cout << endl << "The end of the file-sets " << Set_name << " " << r+1 << " " << endl;
 		}		//end of r for-loop
 
 		ofstream f;
 		f.open( "/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/information/SR_mva.txt",fstream::app );		
-		
+	
 		f << endl << setw(15) << left << "Sample" << right << ":" << setw(15) << right << Set_name << endl;
 		f <<  setw(15) << left << "No Cut(mu)" << right << ":" << setw(15) << right << NO_ncut_mu << endl;
 		f <<  setw(15) << left << "No Cut(el)" << right << ":" << setw(15) << right << NO_ncut_el << endl;
@@ -267,14 +275,18 @@ int main(int argc,char* argv[])
 		f <<  setw(15) << left << "1 Cut(el)" << right << ":" << setw(15) << right << NO_1cut_el << endl;
 		f <<  setw(15) << left << "2 Cut(mu)" << right << ":" << setw(15) << right << NO_2cut_mu << endl;
 		f <<  setw(15) << left << "2 Cut(el)" << right << ":" << setw(15) << right << NO_2cut_el << endl;
-		for(int i=0;i<30;i++) f << "=";
 
 		f.close();
 
 	}			//end of k for-loop
 
 	//*****Drawing Plotting or Outputting files*****//
-
+/* 
+	ofstream f;
+	f.open( "/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/information/SR_mva.txt",fstream::app );	
+    for(int i=0;i<30;++i) f << "=" << endl;
+    f.close();    
+*/
 	//Save these hists to be a root file
 	
 	string time_str = "";
