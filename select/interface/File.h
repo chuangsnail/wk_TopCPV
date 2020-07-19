@@ -29,13 +29,15 @@ public:
 	string tree_name;	
 	double lumi_weight;
 	
-	File( char* f_name = NULL, const string& t_name = "root" )
+	File( char* f_name = NULL )
+	//File( char* f_name = NULL, const string& t_name = "root" )
 	{
 		//files_name = new char[300];
 		
 		//files_name = f_name;
 
-		tree_name = t_name;
+		tree_name = "root";
+		//tree_name = t_name;
 
 		for(int i=0;i<400;i++)
 		{

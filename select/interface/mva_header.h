@@ -24,11 +24,16 @@
 
 //string default_training_name = "a05_MLP";
 
+
 #include "/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/select/interface/MVA_Algo/t13/TMVAClassification_MLP.class.C"
 string default_training_name = "t13_MLP";
+
+
 /*
 #include "/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/select/interface/MVA_Algo/t13/TMVAClassification_BDTG.class.C"
 string default_training_name = "t13_BDTG";
+*/
+/*
 #include "/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/select/interface/MVA_Algo/t13/TMVAClassification_BDT.class.C"
 string default_training_name = "t13_BDT";
 */

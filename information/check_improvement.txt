@@ -141,3 +141,26 @@ step 1 (Mlb Cut)  [108623,12908.8,12206.1,9700.82]  cor rate:0.812208
 					events efficiency : 0.687773
 starting loop time : 200602_1311
 ending loop time : 200602_1332
+
+Just ttbar sample
+Training Name : t13_BDTG
+--- Muon channel ---
+                  [ cor, cmis, mist, nomatch ]
+step 1 (No Cut)   [0,0,0,0]  cor rate:-nan
+					events efficiency : 1
+step 1 (algo Cut) [0,0,0,0]  cor rate:-nan
+					events efficiency : -nan
+step 1 (Mlb Cut)  [0,0,0,0]  cor rate:-nan
+					events efficiency : -nan
+--- Electron channel ---
+                  [ cor, cmis, mist ]
+step 1 (No Cut)   [0,0,0,0]  cor rate:-nan
+					events efficiency : 1
+step 1 (algo Cut) [0,0,0,0]  cor rate:-nan
+					events efficiency : -nan
+step 1 (Mlb Cut)  [0,0,0,0]  cor rate:-nan
+					events efficiency : -nan
+starting loop time : 200718_2256
+ending loop time : 200719_0108
+
+

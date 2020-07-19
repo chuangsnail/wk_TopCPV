@@ -17,3 +17,6 @@ Events No before selection : 1.07935e+07
 Sample         :            QCD
 Events No before selection : 1.08023e+12
 ==============================
+Sample         :           Data
+Events No before selection : 1.72914e+09
+==============================
