@@ -145,7 +145,7 @@ int main(int argc,char* argv[])
 		if( Set_name != "TT" ) continue;
 
         bool is_TT = false;
-        if( Set_name != "TT" ) is_TT = true;
+        if( Set_name == "TT" ){ is_TT = true; }
 
 		cout << "Processing sample " << Set_name << endl;
 		
@@ -285,14 +285,11 @@ int main(int argc,char* argv[])
                     }
                 }
 				
-				if( is_TT )
-				{
-					if( *channel == "mu" ) {
-						N_s1_mu[int_bbtype] += sel.Weight();
-					}
-					else if( *channel == "el" ) {
-						N_s1_el[int_bbtype] += sel.Weight();
-					}
+				if( *channel == "mu" ) {
+					N_s1_mu[int_bbtype] += sel.Weight();
+				}
+				else if( *channel == "el" ) {
+					N_s1_el[int_bbtype] += sel.Weight();
 				}
 
 				if( !is_mva ) {
@@ -303,26 +300,20 @@ int main(int argc,char* argv[])
 				}
 
 
-				if( is_TT )
-				{
-					if( *channel == "mu" ) {
-						N_s2_mu[int_bbtype] += sel.Weight();
-					}
-					else if( *channel == "el" ) {
-						N_s2_el[int_bbtype] += sel.Weight();
-					}
+				if( *channel == "mu" ) {
+					N_s2_mu[int_bbtype] += sel.Weight();
+				}
+				else if( *channel == "el" ) {
+					N_s2_el[int_bbtype] += sel.Weight();
 				}
 
 				if( Mlb > 150. ) continue;
 
-				if( is_TT )
-				{
-					if( *channel == "mu" ) {
-						N_s3_mu[int_bbtype] += sel.Weight();
-					}
-					else if( *channel == "el" ) {
-						N_s3_el[int_bbtype] += sel.Weight();
-					}
+				if( *channel == "mu" ) {
+					N_s3_mu[int_bbtype] += sel.Weight();
+				}
+				else if( *channel == "el" ) {
+					N_s3_el[int_bbtype] += sel.Weight();
 				}
 
 			}	//end of entry for-loop	
@@ -365,6 +356,18 @@ int main(int argc,char* argv[])
 	fout << "step 1 (Mlb Cut)  [" << N_s3_el[0] << "," << N_s3_el[1] << "," << N_s3_el[2] << "," << N_s3_el[3] << "]  cor rate:" << N_s3_el[0]/(N_s3_el[0]+N_s3_el[1]+N_s3_el[2]) << endl;
 	fout << "					events efficiency : " << (N_s3_el[0]+N_s3_el[1]+N_s3_el[2])/(N_s1_el[0]+N_s1_el[1]+N_s1_el[2]) << endl; 
  
+	fout << "--- All ---" << endl;
+	fout << "                  [ cor, cmis, mist ]" << endl;
+	
+	fout << "step 1 (No Cut)   [" << N_s1_el[0] + N_s1_mu[0] << "," << N_s1_el[1] + N_s1_mu[1] << "," << N_s1_el[2] + N_s1_mu[2] << "," << N_s1_el[3] + N_s1_mu[3] << "]  cor rate:" << ( N_s1_el[0] + N_s1_mu[0] )/( N_s1_el[0] + N_s1_el[1] + N_s1_el[2] + N_s1_mu[0] + N_s1_mu[1] + N_s1_mu[2] ) << endl;
+	fout << "					events efficiency : 1" << endl; 
+	
+	fout << "step 1 (algo Cut) [" << N_s2_el[0] + N_s2_mu[0] << "," << N_s2_el[1] + N_s2_mu[1] << "," << N_s2_el[2] + N_s2_mu[2] << "," << N_s2_el[3] + N_s2_mu[3] << "]  cor rate:" << ( N_s2_el[0] + N_s2_mu[0] )/( N_s2_el[0] + N_s2_el[1] + N_s2_el[2] + N_s2_mu[0] + N_s2_mu[1] + N_s2_mu[2] ) << endl;	
+	fout << "					events efficiency : " << (N_s2_el[0]+N_s2_el[1]+N_s2_el[2]+N_s2_mu[0]+N_s2_mu[1]+N_s2_mu[2])/( N_s1_el[0] + N_s1_el[1] + N_s1_el[2] + N_s1_mu[0] + N_s1_mu[1] + N_s1_mu[2] ) << endl; 
+	
+	fout << "step 1 (Mlb Cut)  [" << N_s3_el[0] + N_s3_mu[0] << "," << N_s3_el[1] + N_s3_mu[1] << "," << N_s3_el[2] + N_s3_mu[2] << "," << N_s3_el[3] + N_s3_mu[3] << "]  cor rate:" << ( N_s3_el[0] + N_s3_mu[0] )/( N_s3_el[0] + N_s3_el[1] + N_s3_el[2] + N_s3_mu[0] + N_s3_mu[1] + N_s3_mu[2] ) << endl;
+	fout << "					events efficiency : " << (N_s3_el[0]+N_s3_el[1]+N_s3_el[2]+N_s3_mu[0]+N_s3_mu[1]+N_s3_mu[2])/( N_s1_el[0] + N_s1_el[1] + N_s1_el[2] + N_s1_mu[0] + N_s1_mu[1] + N_s1_mu[2] ) << endl; 
+	
 	fout << "starting loop time : " << startingtime << endl;
 	fout << "ending loop time : " << time_str << endl;
 
