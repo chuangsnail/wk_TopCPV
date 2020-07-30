@@ -7,32 +7,51 @@
 //#include "/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/select/interface/MVA_Algo/p05_0-2/TMVAClassification_MLP.class.C"
 //#include "/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/select/interface/MVA_Algo/p05_all/TMVAClassification_MLP.class.C"
 
-//#include "/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/select/interface/MVA_Algo/a05_all/TMVAClassification_MLP.class.C"
-//#include "/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/select/interface/MVA_Algo/a05_all/TMVAClassification_BDTG.class.C"
-//#include "/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/select/interface/MVA_Algo/a05_all/TMVAClassification_BDT.class.C"
+//--- a05 training ---//
 
-//#include "/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/select/interface/MVA_Algo/a04_all/TMVAClassification_MLP.class.C"
+
+#include "/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/select/interface/MVA_Algo/a05_all/TMVAClassification_MLP.class.C"
+string default_training_name = "a05_MLP";
+
 
 /*
-#include "/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/select/interface/MVA_Algo/p05_all/TMVAClassification_MLP.class.C"
-#include "/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/select/interface/MVA_Algo/p04_all/TMVAClassification_MLP.class.C"
-
-
-#include "/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/select/interface/MVA_Algo/a04_all/TMVAClassification_BDT.class.C"
-#include "/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/select/interface/MVA_Algo/a04_all/TMVAClassification_BDTG.class.C"
+#include "/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/select/interface/MVA_Algo/a05_all/TMVAClassification_BDTG.class.C"
+string default_training_name = "a05_BDTG";
 */
 
-//string default_training_name = "a05_MLP";
+/*
+#include "/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/select/interface/MVA_Algo/a05_all/TMVAClassification_BDT.class.C"
+string default_training_name = "a05_BDT";
+*/
 
+//--- a04 training ---//
 
+/*
+#include "/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/select/interface/MVA_Algo/a04_all/TMVAClassification_MLP.class.C"
+string default_training_name = "a04_MLP";
+*/
+
+/*
+#include "/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/select/interface/MVA_Algo/a04_all/TMVAClassification_BDTG.class.C"
+string default_training_name = "a04_BDTG";
+*/
+
+/*
+#include "/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/select/interface/MVA_Algo/a04_all/TMVAClassification_BDT.class.C"
+string default_training_name = "a04_BDT";
+*/
+
+//--- t13 training ---//
+/*
 #include "/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/select/interface/MVA_Algo/t13/TMVAClassification_MLP.class.C"
 string default_training_name = "t13_MLP";
-
+*/
 
 /*
 #include "/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/select/interface/MVA_Algo/t13/TMVAClassification_BDTG.class.C"
 string default_training_name = "t13_BDTG";
 */
+
 /*
 #include "/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/select/interface/MVA_Algo/t13/TMVAClassification_BDT.class.C"
 string default_training_name = "t13_BDT";

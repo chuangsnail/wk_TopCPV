@@ -7,6 +7,8 @@
 SelMgr::SelMgr( JetInfo* j, LeptonInfo* l, EvtInfo* e, VertexInfo* v, GenInfo* g )
 {
 	//cout << "constructor of SelMgr.h" << endl;
+	is_SR = true;
+	
 	jets.RegIn( j );
 	leps.RegIn( l, e );
 	evt.RegIn( e, v );
@@ -88,6 +90,16 @@ void SelMgr::test_sel_print()
 	}
 	*/
 }
+
+//need to be put after the SetTrain() function.
+/*
+void SelMgr::InitMVA(  )
+{
+	IClassifierReader* reader; // we can use polymorphism
+	if( de )
+}
+*/
+
 void 
 SelMgr::SelJets_deepCSV( vector<double>& v , const string& option = "all" )
 {
@@ -144,6 +156,32 @@ double SelMgr::chi2_v( const int& idx_b, const int& idx_j1, const int& idx_j2 )
     j2.SetPxPyPzE( jets.Px(sel_jets[idx_j2]), jets.Py(sel_jets[idx_j2]), jets.Pz(sel_jets[idx_j2]), jets.Energy(sel_jets[idx_j2]) );
     b.SetPxPyPzE( jets.Px(sel_b_jets[idx_b]), jets.Py(sel_b_jets[idx_b]), jets.Pz(sel_b_jets[idx_b]), jets.Energy(sel_b_jets[idx_b]) );
 	
+
+	double t_mass = ( j1 + j2 + b ).M();
+	double w_mass = ( j1 + j2 ).M();
+
+	return pow( (t_mass - pdg_t_mass)/pdg_t_sigma , 2 ) + pow( (w_mass - pdg_w_mass)/pdg_w_sigma , 2 );
+}
+
+double SelMgr::chi2_value( const int& idx_b, const int& idx_j1, const int& idx_j2 )
+{	
+/*
+	double pdg_t_mass = 172.5;
+	double pdg_w_mass = 82.9;
+	double pdg_t_sigma = 16.3;
+	double pdg_w_sigma = 9.5;
+*/
+	
+	double pdg_t_mass = 168.15;
+	double pdg_w_mass = 81.25;
+	double pdg_t_sigma = 20.6;
+	double pdg_w_sigma = 12.1;
+
+	TLorentzVector j1, j2, b;
+
+	j1.SetPxPyPzE( jets.Px(idx_j1), jets.Py(idx_j1), jets.Pz(idx_j1), jets.Energy(idx_j1) );
+    j2.SetPxPyPzE( jets.Px(idx_j2), jets.Py(idx_j2), jets.Pz(idx_j2), jets.Energy(idx_j2) );
+    b.SetPxPyPzE( jets.Px(idx_b), jets.Py(idx_b), jets.Pz(idx_b), jets.Energy(idx_b) );
 
 	double t_mass = ( j1 + j2 + b ).M();
 	double w_mass = ( j1 + j2 ).M();

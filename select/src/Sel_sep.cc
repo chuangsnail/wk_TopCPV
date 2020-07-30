@@ -146,7 +146,6 @@ bool SelMgr::test_dbl_Lep()
 
 bool SelMgr::dbl_Lep()
 {
-	
 	int pass_no = 0;
 	for(int i=0;i<(int)leps.Size();++i)
 	{
@@ -251,6 +250,8 @@ bool SelMgr::SR_bjets()
 
 bool SelMgr::CR_bjets()
 {
+	//-- old method --//
+/*
 	map<int, double> m;
 	for(int i=0;i<(int)sel_jets.size();++i){
 		double tmp = jets.DeepCSV(i);
@@ -267,19 +268,26 @@ bool SelMgr::CR_bjets()
 			}
 		}
 	}
-/*
-	vector<double> btag_v;
-	btag_v.resize( (int)btag_v.size() );
-	for(int i=0;i<(int)sel_jets.size();++i){
-		btag_v.at(i) = jets.DeepCSV(i);
-	}
-	sort(btag_v.begin(), btag_v.end(), greater<double>());	//need <algorithm>
-*/
+
+	//vector<double> btag_v;
+	//btag_v.resize( (int)btag_v.size() );
+	//for(int i=0;i<(int)sel_jets.size();++i){
+	//	btag_v.at(i) = jets.DeepCSV(i);
+	//}
+	//sort(btag_v.begin(), btag_v.end(), greater<double>());	//need <algorithm>
+
 
 	sel_b_jets.push_back( sel_jets.at(0) );
 	sel_b_jets.push_back( sel_jets.at(1) );
 	sel_jets.erase( sel_jets.begin() );
 	sel_jets.erase( sel_jets.begin() );
+
+	return true;
+*/
+	//-- new method --//
+	for(int i=0;i<(int)sel_jets.size();++i){
+		if( jets.LooseDeepCSV( sel_jets.at(i) ) ) return false;
+	}
 
 	return true;
 }
@@ -288,33 +296,72 @@ bool SelMgr::CR_bjets()
 
 void SelMgr::Chi2Sort()
 {
-	double min = DBL_MAX;
-	int j_size = (int)sel_jets.size();
-	int b_size = (int)sel_b_jets.size();
+	if( is_SR )
+	{
+		double min = DBL_MAX;
+		int j_size = (int)sel_jets.size();
+		int b_size = (int)sel_b_jets.size();
 
-	for(int b=0;b<b_size;++b) {
-		for(int j1=0;j1<j_size;++j1) {
-			for(int j2=j1+1;j2<j_size;++j2) {
-				double tmp = chi2_v( b, j1, j2 );
-				if( tmp < min ) {
-					min = tmp;
-					Hadb = sel_b_jets.at(b);
-					J1 = sel_jets.at(j1);
-					J2 = sel_jets.at(j2);
-					int lb = 1-b;
-					Lepb = sel_b_jets.at(lb);
+		for(int b=0;b<b_size;++b) {
+			for(int j1=0;j1<j_size;++j1) {
+				for(int j2=j1+1;j2<j_size;++j2) {
+					double tmp = chi2_v( b, j1, j2 );
+					if( tmp < min ) {
+						min = tmp;
+						Hadb = sel_b_jets.at(b);
+						J1 = sel_jets.at(j1);
+						J2 = sel_jets.at(j2);
+						int lb = 1-b;
+						Lepb = sel_b_jets.at(lb);
+					}
 				}
 			}
 		}
-	}
 
-	if( jets.Pt( J1 ) < jets.Pt( J2 ) ) {
-		int tmp = J1;
-		J1 = J2;
-		J2 = tmp;
-	}
+		if( jets.Pt( J1 ) < jets.Pt( J2 ) ) {
+			int tmp = J1;
+			J1 = J2;
+			J2 = tmp;
+		}
 
-	reco_algo_value = min;
+		reco_algo_value = min;
+	}
+	else		// it's CR
+	{
+		double min = DBL_MAX;
+
+		int j_size = (int)sel_jets.size();
+		for(int tmp_hadb=0;tmp_hadb<j_size;++tmp_hadb) {
+			for(int tmp_j1=0;tmp_j1<j_size;++tmp_j1) {
+				if( tmp_j1 == tmp_hadb ) continue;
+				for(int tmp_j2=0;tmp_j2<j_size;++tmp_j2) {
+					if( tmp_j2 == tmp_hadb || tmp_j2 == tmp_j1 ) continue;
+					if( tmp_j1 > tmp_j2 || tmp_j1 == tmp_j2 ) continue; 
+					double tmp = chi2_value( sel_jets.at(tmp_hadb), sel_jets.at(tmp_j1), sel_jets.at(tmp_j2) );
+					if( tmp < min ) {
+						min = tmp;
+						Hadb = sel_jets.at( tmp_hadb );
+						J1 = sel_jets.at( tmp_j1 );
+						J2 = sel_jets.at( tmp_j2 );
+					}					
+				}
+			}
+		}
+
+		double min_dR = DBL_MAX;
+		for(int tmp_lepb=0;tmp_lepb<j_size;++tmp_lepb)
+		{
+			int tmp_Lepb = sel_jets.at( tmp_lepb );
+			if( tmp_Lepb == Hadb || tmp_Lepb == J1 || tmp_Lepb == J2 ) { continue; }
+			double tmp = delR( jets.Eta( tmp_Lepb ), leps.Eta( sel_lep ), jets.Phi( tmp_Lepb ), leps.Phi( sel_lep ) );
+			if( tmp < min_dR ) {
+				min_dR = tmp;
+				Lepb = tmp_Lepb;
+			}
+		}
+		reco_algo_value = min;
+			
+	}
 }
 
 
@@ -323,57 +370,127 @@ void SelMgr::MVASort()
 	//if we want to change the algorithm , we need to change the  header file we include in SelMgr.h and change the setting in MVAvar.h
 	//training_name = "a05_all_MLP";
 	
+
 	if( training_name == "" ) {
 		training_name = default_training_name;
 	}
 
 	vector<string> inputVars;
-	mvatool::AddVarName( inputVars );
+	mvatool::AddVarName( inputVars
+			//, mva_set 
+			);
 
 
 	//--- it need to be fixed when we change algorithm ---//
+	
+	//IClassifierReader* reader; // we can use polymorphism
+	//if( default_training_name.find( "MLP" ) != string::npos ) { ...
+	
 	ReadMLP MyMVA( inputVars );
 	//ReadBDTG MyMVA( inputVars );
 	//ReadBDT MyMVA( inputVars );
 
 	int var_num = (int)inputVars.size();
-	double* var = new double[ var_num ];
-	for(int _B=0;_B<(int)sel_b_jets.size();_B++)
-	{
-		int _lB = (_B == 0) ? 1 : 0 ;
-		for(int _J1=0;_J1<(int)sel_jets.size();_J1++)
+	
+	if( is_SR )
+	{	
+		double* var = new double[ var_num ];
+		for(int _B=0;_B<(int)sel_b_jets.size();_B++)
 		{
-			for(int _J2=_J1+1;_J2<(int)sel_jets.size();_J2++)
+			int _lB = (_B == 0) ? 1 : 0 ;
+			for(int _J1=0;_J1<(int)sel_jets.size();_J1++)
 			{
-				int tmp_mva_lepb = sel_b_jets.at(_lB);
-				int tmp_mva_hadb = sel_b_jets.at(_B);
-				int tmp_mva_j1 = sel_jets.at(_J1);
-				int tmp_mva_j2 = sel_jets.at(_J2);
-						
-				mvatool::InputVar( var, *(jets.jets), *(leps.leps), *(evt.evt), sel_jets, sel_b_jets, sel_lep, tmp_mva_hadb, tmp_mva_lepb, tmp_mva_j1, tmp_mva_j2 );
-						
-				vector<double> inputValues;
-				for(int in=0;in<var_num;in++ )
-				{	inputValues.push_back( var[in] );	}
-
-				double tmp_mva_value = MyMVA.GetMvaValue( inputValues );
-				if( tmp_mva_value >= reco_algo_value )
+				for(int _J2=_J1+1;_J2<(int)sel_jets.size();_J2++)
 				{
-					reco_algo_value = tmp_mva_value;
-					Hadb = tmp_mva_hadb;
-					J1 = tmp_mva_j1;
-					J2 = tmp_mva_j2;
-					Lepb = tmp_mva_lepb;
+					int tmp_mva_lepb = sel_b_jets.at(_lB);
+					int tmp_mva_hadb = sel_b_jets.at(_B);
+					int tmp_mva_j1 = sel_jets.at(_J1);
+					int tmp_mva_j2 = sel_jets.at(_J2);
+							
+					mvatool::InputVar( var, *(jets.jets), *(leps.leps), *(evt.evt), sel_lep, tmp_mva_hadb, tmp_mva_lepb, tmp_mva_j1, tmp_mva_j2
+							//, mva_type 
+							);
+							
+					vector<double> inputValues;
+					for(int in=0;in<var_num;in++ )
+					{	inputValues.push_back( var[in] );	}
+
+					double tmp_mva_value = MyMVA.GetMvaValue( inputValues );
+					if( tmp_mva_value >= reco_algo_value )
+					{
+						reco_algo_value = tmp_mva_value;
+						Hadb = tmp_mva_hadb;
+						J1 = tmp_mva_j1;
+						J2 = tmp_mva_j2;
+						Lepb = tmp_mva_lepb;
+					}
 				}
 			}
 		}
-	}
-	
-	if( jets.Pt( J1 ) < jets.Pt( J2 ) ) {
-		int tmp = J1;
-		J1 = J2;
-		J2 = tmp;
-	}
+		
+		if( jets.Pt( J1 ) < jets.Pt( J2 ) ) {
+			int tmp = J1;
+			J1 = J2;
+			J2 = tmp;
+		}
 
-	delete [] var;
+		delete [] var;
+	}
+	else		// it's CR
+	{
+		double* var = new double[ var_num ];
+		double max = -100;
+
+		int j_size = (int)sel_jets.size();
+		for(int tmp_hadb=0;tmp_hadb<j_size;++tmp_hadb) {
+			for(int tmp_lepb=0;tmp_lepb<j_size;++tmp_lepb) {
+				if( tmp_lepb == tmp_hadb ) continue;
+				for(int tmp_j1=0;tmp_j1<j_size;++tmp_j1) {
+					if( tmp_j1 == tmp_hadb || tmp_j1 == tmp_lepb ) continue;
+					for(int tmp_j2=0;tmp_j2<j_size;++tmp_j2) {
+						if( tmp_j2 == tmp_hadb || tmp_j2 == tmp_lepb || tmp_j2 == tmp_j1 ) continue;
+						if( tmp_j1 > tmp_j2 ) continue;
+
+						int tmp_mva_lepb = sel_jets.at(tmp_lepb);
+						int tmp_mva_hadb = sel_jets.at(tmp_hadb);
+						int tmp_mva_j1 = sel_jets.at(tmp_j1);
+						int tmp_mva_j2 = sel_jets.at(tmp_j2);
+							
+						mvatool::InputVar( var, *(jets.jets), *(leps.leps), *(evt.evt), sel_lep, tmp_mva_hadb, tmp_mva_lepb, tmp_mva_j1, tmp_mva_j2 );
+						vector<double> inputValues;
+						for(int in=0;in<var_num;in++ )
+						{	inputValues.push_back( var[in] );	}
+
+						double tmp_mva_value = MyMVA.GetMvaValue( inputValues );
+
+						if( tmp_mva_value > max ) {
+							max = tmp_mva_value;
+							Hadb = sel_jets.at( tmp_hadb );
+							J1 = sel_jets.at( tmp_j1 );
+							J2 = sel_jets.at( tmp_j2 );
+							Lepb = sel_jets.at( tmp_lepb );
+						}
+					}					
+				}
+			}
+		}
+
+		reco_algo_value = max;
+		delete [] var;
+
+		//if the Lepb has not been chose in the mva-term
+/*
+		double min_dR = DBL_MAX;
+		for(tmp_lepb=0;tmp_lepb<j_size;++tmp_lepb)
+		{
+			int tmp_Lepb = sel_jets.at( tmp_lepb );
+			if( tmp_Lepb == Hadb || tmp_Lepb == J1 || tmp_Lepb == J2 ) { continue; }
+			double tmp = delR( jets.Eta( tmp_Lepb ), leps.Eta( sel_lep ), jets.Phi( tmp_Lepb ), leps.Phi( sel_lep ) );
+			if( tmp < min_dR ) {
+				min_dR = tmp;
+				Lepb = tmp_Lepb;
+			}
+		}
+*/
+	}
 }

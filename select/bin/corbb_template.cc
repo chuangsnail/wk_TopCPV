@@ -19,7 +19,28 @@ using namespace std;
 
 int main(int argc,char* argv[])
 {
-	string training_name = "a05_all_MLP";
+	if( argc != 3 && argc != 2 )
+	{
+		cerr << "[ERROR] wrong argment numbers!" << endl;
+		return 0;
+	}
+	bool is_mva = false;
+	if( string( argv[1] ).find( "mva" ) != string::npos )
+		is_mva = true;
+
+	bool is_algo_cut = false;
+	double algo_cut = -10.;
+	if( argc == 3 ) {
+		algo_cut = stod( string( argv[2] ) );
+		is_algo_cut = true;
+	}
+
+	string training_name = "";
+
+	if( is_mva )
+		cout << "With mva sort" << endl;
+	else
+		cout << "With chi2 sort" << endl;
 
 	string data_sets_name[7] = {"TT","DY","WJets","VV","ST","QCD","Data"};
 	string d6 = data_sets_name[6] + "_SM";
@@ -183,9 +204,8 @@ int main(int argc,char* argv[])
 			//*** Initialize the selection manager ***//
 			
 			SelMgr sel( &jetInfo, &leptonInfo, &evtInfo, &vertexInfo, &genInfo );
+			sel.SetTrain( training_name );
 			if( is_data ) {	sel.SetIsData(is_data);	}
-
-			AcpMgr acpMgr( &leptonInfo, &jetInfo );
 
 			GenMgr genMgr( &genInfo, &jetInfo, &leptonInfo );
 
@@ -222,7 +242,19 @@ int main(int argc,char* argv[])
 
 				sel.Setidx_Lep( SelLep );
 
-				sel.MVASort();
+				if( is_mva )
+					sel.MVASort();
+				else
+					sel.Chi2Sort();
+				
+				if( is_algo_cut ) {
+					if( is_mva ) {
+						if( sel.RecoAlgoValue() < algo_cut ) { continue; }
+					}
+					else {
+						if( sel.RecoAlgoValue() > algo_cut ) { continue; }
+					}
+				}
 
 				TLorentzVector p_hadb = sel.JetP4( sel.Idx_Hadb() );
 				TLorentzVector p_lepb = sel.JetP4( sel.Idx_Lepb() );
@@ -305,6 +337,8 @@ int main(int argc,char* argv[])
 					}
 				}
 			}	//end of entry for-loop	
+			if( is_mva )	
+				training_name = sel.GetTrain();
 		}	//end of r for-loop
 	}		//end of k for-loop
 
@@ -314,6 +348,8 @@ int main(int argc,char* argv[])
 	
 	//Save these hists to be a root file
 	
+	if( !is_mva )
+		training_name = "chi2";
 	string time_str = "";
 	time_str = get_time_str( minute );
 	string new_file_name = string("corbb_") + training_name + "_" + time_str + string(".root");

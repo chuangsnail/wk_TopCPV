@@ -245,7 +245,9 @@
 	
 	// below : used in using this mva
 	
-	void mvatool::AddVarName( vector<string>& inputVars )
+	void mvatool::AddVarName( vector<string>& inputVars
+			//, const int& mva_set 
+			)
 	{
 		//for train19.21 (22 vars)
 		/*
@@ -277,59 +279,72 @@
 		inputVars.push_back("hadwlepton_delR");
 		*/
 
-		//for train20.22 (20 vars)  -> a05
-/*
-		inputVars.push_back("top_mass");
-		inputVars.push_back("w_mass");
 
-		inputVars.push_back("j1j2_sumPt");
-		inputVars.push_back("j1j2_absdelPt");
-		inputVars.push_back("j1j2_delR");
-    
-		inputVars.push_back("whadb_sumPt");
-		inputVars.push_back("whadb_delPt");
-		inputVars.push_back("whadb_delR");
+		//if( mva_set == 0 )
 
-		inputVars.push_back("hadblepton_sumPt");
-		inputVars.push_back("hadblepton_delPt");
-		inputVars.push_back("hadblepton_delR");
+		{
+			//for train20.22 (20 vars)  -> a05
 
-		inputVars.push_back("hadwlepton_sumPt");
-		inputVars.push_back("hadwlepton_delPt");
-		inputVars.push_back("hadwlepton_delR");
+			inputVars.push_back("top_mass");
+			inputVars.push_back("w_mass");
 
-		inputVars.push_back("hadbmet_delPhi");
-		inputVars.push_back("hadbmet_sumPt");
-		inputVars.push_back("hadbmet_delPt");
-
-		inputVars.push_back("hadwmet_delPhi");
-		inputVars.push_back("hadwmet_sumPt");
-		inputVars.push_back("hadwmet_delPt");
-*/
-		//for 2 vars  -> a04
-/*		
-		inputVars.push_back("top_mass");
-		inputVars.push_back("w_mass");
-*/		
-		//for 8 vars -> t13
-
-		inputVars.push_back("top_mass");
-		inputVars.push_back("w_mass");
-
-		inputVars.push_back("j1j2_sumPt");
-		inputVars.push_back("j1j2_absdelEta");
-		inputVars.push_back("j1j2_delPhi");
-    
-		inputVars.push_back("lepblep_sumPt");
-		inputVars.push_back("lepblep_absdelEta");
-		inputVars.push_back("lepblep_delPhi");
+			inputVars.push_back("j1j2_sumPt");
+			inputVars.push_back("j1j2_absdelPt");
+			inputVars.push_back("j1j2_delR");
 		
+			inputVars.push_back("whadb_sumPt");
+			inputVars.push_back("whadb_delPt");
+			inputVars.push_back("whadb_delR");
+
+			inputVars.push_back("hadblepton_sumPt");
+			inputVars.push_back("hadblepton_delPt");
+			inputVars.push_back("hadblepton_delR");
+
+			inputVars.push_back("hadwlepton_sumPt");
+			inputVars.push_back("hadwlepton_delPt");
+			inputVars.push_back("hadwlepton_delR");
+
+			inputVars.push_back("hadbmet_delPhi");
+			inputVars.push_back("hadbmet_sumPt");
+			inputVars.push_back("hadbmet_delPt");
+
+			inputVars.push_back("hadwmet_delPhi");
+			inputVars.push_back("hadwmet_sumPt");
+			inputVars.push_back("hadwmet_delPt");
+		}
+
+/*
+		//else if( mva_set == 1 )
+		{
+			//for 2 vars  -> a04
+		
+			inputVars.push_back("top_mass");
+			inputVars.push_back("w_mass");
+		}
+*/
+		//else if( mva_set == 2 )
+/*
+		{
+			//for 8 vars -> t13
+
+			inputVars.push_back("top_mass");
+			inputVars.push_back("w_mass");
+
+			inputVars.push_back("j1j2_sumPt");
+			inputVars.push_back("j1j2_absdelEta");
+			inputVars.push_back("j1j2_delPhi");
+    
+			inputVars.push_back("lepblep_sumPt");
+			inputVars.push_back("lepblep_absdelEta");
+			inputVars.push_back("lepblep_delPhi");
+		}
+*/		
 	}
 
-	void mvatool::InputVar( double* var, JetInfo& jetInfo, LeptonInfo& leptonInfo, \
-			EvtInfo& evtInfo, const vector<int>& sel_jets, const vector<int>& sel_b_jets, \
-		   	int& idx_Selected_Lep, int& tmp_mva_hadb, int& tmp_mva_lepb, \
-			int& tmp_mva_j1, int& tmp_mva_j2 )
+	void mvatool::InputVar( double* var, JetInfo& jetInfo, LeptonInfo& leptonInfo, EvtInfo& evtInfo, \
+		   	int& idx_Selected_Lep, int& tmp_mva_hadb, int& tmp_mva_lepb, int& tmp_mva_j1, int& tmp_mva_j2 \
+		   	//,const int& mva_set 
+			)
 	{
 		
 		/*
@@ -381,63 +396,67 @@
 							
 		TLorentzVector p_mva_hadw = ( p_mva_j1 + p_mva_j2 );
 
-		// for 20 vars -> a05		
-/*		
-		var[0] = ( p_mva_j1 + p_mva_j2 + p_mva_hadb ).M();
-		var[1] = ( p_mva_j1 + p_mva_j2 ).M();
+		//if( mva_set == 0  )
 
-		var[2] = ( jetInfo.Pt[tmp_mva_j1] + jetInfo.Pt[tmp_mva_j2] );
-		var[3] = fabs( jetInfo.Pt[ tmp_mva_j1 ] - jetInfo.Pt[ tmp_mva_j2 ] );
-		var[4] = delta_R( jetInfo.Eta[ tmp_mva_j1 ], jetInfo.Eta[ tmp_mva_j2 ], jetInfo.Phi[ tmp_mva_j1 ], jetInfo.Phi[ tmp_mva_j2 ]);
-							
-		var[5] = p_mva_hadw.Pt() + p_mva_hadb.Pt();
-		var[6] = p_mva_hadw.Pt() - p_mva_hadb.Pt();							
-		var[7] = delta_R( p_mva_hadw.Eta(), p_mva_hadb.Eta(), p_mva_hadw.Phi(), p_mva_hadb.Phi() );
+		{
+			// for 20 vars -> a05		
+			
+			var[0] = ( p_mva_j1 + p_mva_j2 + p_mva_hadb ).M();
+			var[1] = ( p_mva_j1 + p_mva_j2 ).M();
 
-		var[8] = jetInfo.Pt[ tmp_mva_hadb ] + leptonInfo.Pt[ idx_Selected_Lep ];
-		var[9] = jetInfo.Pt[ tmp_mva_hadb ] - leptonInfo.Pt[ idx_Selected_Lep ];
-		var[10] = delta_R( jetInfo.Eta[ tmp_mva_hadb ], leptonInfo.Eta[ idx_Selected_Lep ], jetInfo.Phi[ tmp_mva_hadb ], leptonInfo.Phi[ idx_Selected_Lep ]);
+			var[2] = ( jetInfo.Pt[tmp_mva_j1] + jetInfo.Pt[tmp_mva_j2] );
+			var[3] = fabs( jetInfo.Pt[ tmp_mva_j1 ] - jetInfo.Pt[ tmp_mva_j2 ] );
+			var[4] = delta_R( jetInfo.Eta[ tmp_mva_j1 ], jetInfo.Eta[ tmp_mva_j2 ], jetInfo.Phi[ tmp_mva_j1 ], jetInfo.Phi[ tmp_mva_j2 ]);
+								
+			var[5] = p_mva_hadw.Pt() + p_mva_hadb.Pt();
+			var[6] = p_mva_hadw.Pt() - p_mva_hadb.Pt();							
+			var[7] = delta_R( p_mva_hadw.Eta(), p_mva_hadb.Eta(), p_mva_hadw.Phi(), p_mva_hadb.Phi() );
 
-		var[11] = p_mva_hadw.Pt() + leptonInfo.Pt[ idx_Selected_Lep ];
-		var[12] = p_mva_hadw.Pt() - leptonInfo.Pt[ idx_Selected_Lep ];
-		var[13] = delta_R( p_mva_hadw.Eta(), leptonInfo.Eta[ idx_Selected_Lep ], p_mva_hadw.Phi(), leptonInfo.Phi[ idx_Selected_Lep ]);
-							
-		var[14] = TVector2::Phi_mpi_pi( jetInfo.Phi[ tmp_mva_hadb ] - evtInfo.PFMETPhi );
-		var[15] = jetInfo.Pt[ tmp_mva_hadb ] + evtInfo.PFMET;
-		var[16] = jetInfo.Pt[ tmp_mva_hadb ] - evtInfo.PFMET;
-							
-		var[17] = TVector2::Phi_mpi_pi( p_mva_hadw.Phi() - evtInfo.PFMETPhi );
-		var[18] = p_mva_hadw.Pt() + evtInfo.PFMET;
-		var[19] = p_mva_hadw.Pt() - evtInfo.PFMET;
+			var[8] = jetInfo.Pt[ tmp_mva_hadb ] + leptonInfo.Pt[ idx_Selected_Lep ];
+			var[9] = jetInfo.Pt[ tmp_mva_hadb ] - leptonInfo.Pt[ idx_Selected_Lep ];
+			var[10] = delta_R( jetInfo.Eta[ tmp_mva_hadb ], leptonInfo.Eta[ idx_Selected_Lep ], jetInfo.Phi[ tmp_mva_hadb ], leptonInfo.Phi[ idx_Selected_Lep ]);
+
+			var[11] = p_mva_hadw.Pt() + leptonInfo.Pt[ idx_Selected_Lep ];
+			var[12] = p_mva_hadw.Pt() - leptonInfo.Pt[ idx_Selected_Lep ];
+			var[13] = delta_R( p_mva_hadw.Eta(), leptonInfo.Eta[ idx_Selected_Lep ], p_mva_hadw.Phi(), leptonInfo.Phi[ idx_Selected_Lep ]);
+								
+			var[14] = TVector2::Phi_mpi_pi( jetInfo.Phi[ tmp_mva_hadb ] - evtInfo.PFMETPhi );
+			var[15] = jetInfo.Pt[ tmp_mva_hadb ] + evtInfo.PFMET;
+			var[16] = jetInfo.Pt[ tmp_mva_hadb ] - evtInfo.PFMET;
+								
+			var[17] = TVector2::Phi_mpi_pi( p_mva_hadw.Phi() - evtInfo.PFMETPhi );
+			var[18] = p_mva_hadw.Pt() + evtInfo.PFMET;
+			var[19] = p_mva_hadw.Pt() - evtInfo.PFMET;
+
+		}
+		
+		//else if( mva_set == 1 )
+/*
+		{
+			//for just 2 vars -> a04
+			
+			var[0] = ( p_mva_j1 + p_mva_j2 + p_mva_hadb ).M();
+			var[1] = ( p_mva_j1 + p_mva_j2 ).M();
+		}
 */
+		//else if( mva_set == 2 )
+/*
+		{
+			//for 8 vars -> t13
+			
+			var[0] = ( p_mva_j1 + p_mva_j2 + p_mva_hadb ).M();
+			var[1] = ( p_mva_j1 + p_mva_j2 ).M();
 
-		//for just 2 vars -> a04
-/*		
-		TLorentzVector p_mva_j1, p_mva_j2, p_mva_hadb;
-							
-		p_mva_j1 = GetJetP4(jetInfo,tmp_mva_j1);	
-		p_mva_j2 = GetJetP4(jetInfo,tmp_mva_j2);	
-		p_mva_hadb = GetJetP4(jetInfo,tmp_mva_hadb);	
-							
-		TLorentzVector p_mva_hadw = ( p_mva_j1 + p_mva_j2 );
-							
-		var[0] = ( p_mva_j1 + p_mva_j2 + p_mva_hadb ).M();
-		var[1] = ( p_mva_j1 + p_mva_j2 ).M();
+			var[2] = ( jetInfo.Pt[tmp_mva_j1] + jetInfo.Pt[tmp_mva_j2] );
+			var[3] = fabs( jetInfo.Eta[tmp_mva_j1] -  jetInfo.Eta[tmp_mva_j2] );
+			var[4] = TVector2::Phi_mpi_pi(  jetInfo.Phi[tmp_mva_j1] -  jetInfo.Phi[tmp_mva_j2] );
+
+			var[5] = ( p_mva_lepb.Pt() + leptonInfo.Pt[ idx_Selected_Lep ] );
+			var[6] = fabs( p_mva_lepb.Eta() -  leptonInfo.Eta[ idx_Selected_Lep ] );
+			var[7] = TVector2::Phi_mpi_pi( p_mva_lepb.Phi() -  leptonInfo.Phi[ idx_Selected_Lep ] );
+
+		}
 */
-
-		//for 8 vars -> t13
-
-		var[0] = ( p_mva_j1 + p_mva_j2 + p_mva_hadb ).M();
-		var[1] = ( p_mva_j1 + p_mva_j2 ).M();
-
-		var[2] = ( jetInfo.Pt[tmp_mva_j1] + jetInfo.Pt[tmp_mva_j2] );
-		var[3] = fabs( jetInfo.Eta[tmp_mva_j1] -  jetInfo.Eta[tmp_mva_j2] );
-		var[4] = TVector2::Phi_mpi_pi(  jetInfo.Phi[tmp_mva_j1] -  jetInfo.Phi[tmp_mva_j2] );
-
-		var[5] = ( p_mva_lepb.Pt() + leptonInfo.Pt[ idx_Selected_Lep ] );
-		var[6] = fabs( p_mva_lepb.Eta() -  leptonInfo.Eta[ idx_Selected_Lep ] );
-		var[7] = TVector2::Phi_mpi_pi( p_mva_lepb.Phi() -  leptonInfo.Phi[ idx_Selected_Lep ] );
-
 	}
 
 

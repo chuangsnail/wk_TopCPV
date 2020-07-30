@@ -33,6 +33,7 @@
 
 using namespace std;
 
+//class IClassifierReader; 
 
 class SelMgr
 {
@@ -41,10 +42,14 @@ private:
 	double delR(const double&, const double&, const double&, const double&);
 	void swap_v(int&, int&);
 	double chi2_v( const int& idx_b, const int& idx_j1, const int& idx_j2 );//idx in vector ,not in JetInfo
+	double chi2_value( const int& idx_b, const int& idx_j1, const int& idx_j2 );//idx in JetInfo
 	double factorial(int);
 	void EraseByValue( vector<int>&, int& );
 
 protected:
+
+	bool is_SR;		//if it is CR, then it's false.
+
 	Jet jets;
 	Lepton leps;
 	Event evt;		//include trigger info.
@@ -158,6 +163,10 @@ public:
 
 	double& RecoAlgoValue() { return reco_algo_value; }
 	double GetRecoAlgoValue() const { return reco_algo_value; }
+
+	//--- for SR/CR ---//
+	void SetSR() { is_SR = true; }
+	void SetCR() { is_SR = false; }
 
     //--- for Data ---//
     bool Pass_Golden_Json();

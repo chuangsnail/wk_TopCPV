@@ -39,12 +39,19 @@ int main(int argc,char* argv[])
 
 	TH1* h_data_mu;			TH1* h_data_el;
 	TH1* h_data_mu_c;		TH1* h_data_el_c;
+	TH1* h_l_data_mu;		TH1* h_l_data_el;
+	TH1* h_l_data_mu_c;		TH1* h_l_data_el_c;
 
 	TFile* dd_file = new TFile( (char*)CR2_name.c_str() );
 	dd_file->GetObject("h_Data_mu",h_data_mu);
 	dd_file->GetObject("h_Data_el",h_data_el);
 	dd_file->GetObject("h_Data_mu_c",h_data_mu_c);
 	dd_file->GetObject("h_Data_el_c",h_data_el_c);
+	
+	dd_file->GetObject("h_l_Data_mu",h_l_data_mu);
+	dd_file->GetObject("h_l_Data_el",h_l_data_el);
+	dd_file->GetObject("h_l_Data_mu_c",h_l_data_mu_c);
+	dd_file->GetObject("h_l_Data_el_c",h_l_data_el_c);
 
 
 	double ori_entry = t_IntegralTH1( hists.h_QCD_mu_c );
@@ -62,6 +69,22 @@ int main(int argc,char* argv[])
 	hists.h_QCD_el_c->SetName("h_QCD_el_c");
 
 	cout << ori_entry2 << " " << data_entry2 << endl;
+	
+	double ori_entry3 = t_IntegralTH1( hists.h_l_QCD_mu_c );
+	double data_entry3 = t_IntegralTH1( h_l_data_mu_c );
+	hists.h_l_QCD_mu_c = (TH1F*)h_l_data_mu_c->Clone();
+	hists.h_l_QCD_mu_c->Scale( ori_entry3/data_entry3 );
+	hists.h_l_QCD_mu_c->SetName("h_l_QCD_mu_c");
+
+	cout << ori_entry3 << " " << data_entry3 << endl;
+	
+	double ori_entry4 = t_IntegralTH1( hists.h_l_QCD_el_c );
+	double data_entry4 = t_IntegralTH1( h_l_data_el_c );
+	hists.h_l_QCD_el_c = (TH1F*)h_l_data_el_c->Clone();
+	hists.h_l_QCD_el_c->Scale( ori_entry4/data_entry4 );
+	hists.h_l_QCD_el_c->SetName("h_l_QCD_el_c");
+
+	cout << ori_entry4 << " " << data_entry4 << endl;
 
 	//DataDriven( hists.h_QCD_mu_c, h_data_mu_c );
 	//DataDriven( hists.h_QCD_el_c, h_data_el_c );

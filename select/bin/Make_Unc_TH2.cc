@@ -91,6 +91,7 @@ int main(int argc,char* argv[])
 	string path_string = "/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/full_sel/";
 	string path_txt_string = "";
 	
+	bool is_SR = true;
 	if( sample_chosen.find( "SR" ) != string::npos ) 
 	{
 		switch( unc_class )
@@ -114,7 +115,8 @@ int main(int argc,char* argv[])
 	}
 	else if( sample_chosen.find( "CR" ) != string::npos ) 
 	{
-		path_txt_string = path_string + "full_16_CR.txt";
+		is_SR = false;
+		path_txt_string = path_string + "full_16_CR_new.txt";
 	}
 	else
 	{
@@ -363,6 +365,7 @@ int main(int argc,char* argv[])
 			//--- Initialize the selection manager ---//
 			
 			SelMgr sel( &jetInfo, &leptonInfo, &evtInfo, &vertexInfo, &genInfo );
+			if( !is_SR ) { sel.SetCR(); }
 			if( is_data ) {	sel.SetIsData(is_data);	}
 
 			AcpMgr acpMgr( &leptonInfo, &jetInfo );
@@ -396,7 +399,9 @@ int main(int argc,char* argv[])
 				{	sel_b_jets.push_back( SelBJets[i] );	}
 
 				sel.SetSelJets( sel_jets );
-				sel.SetSelBJets( sel_b_jets );
+				if( !is_SR ) {
+					sel.SetSelBJets( sel_b_jets );
+				}
 
 				sel.Setidx_Lep( SelLep );
 

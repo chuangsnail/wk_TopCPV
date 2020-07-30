@@ -36,7 +36,7 @@ int main(int argc,char* argv[])
 	TH2D* h_ElTrgSF;			f6->GetObject("abseta_pt_ratio",h_ElTrgSF);
 	
 	TH2F* eff_b;		TH2F* eff_c;		TH2F* eff_l;
-	TFile* f7 = new TFile("/wk_cms2/cychuang/CMSSW_9_4_2/src/TopCPViolation/data/beffPlot_WJets_0pt2217.root");
+	TFile* f7 = new TFile("/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/data/beffPlot_QCD_0pt2217.root");
 	f7->GetObject( "eff_b", eff_b );	f7->GetObject( "eff_c", eff_c );	f7->GetObject( "eff_l", eff_l );
 
 	TChain* root = new TChain( "root" );
@@ -137,6 +137,7 @@ int main(int argc,char* argv[])
 
 	//*** Initialize the selection manager ***//
 	SelMgr sel( &jetInfo, &leptonInfo, &evtInfo, &vertexInfo, &genInfo );
+	sel.SetCR();
 	if( is_data ) 
 	{	
 		sel.SetIsData(is_data);	
@@ -199,6 +200,10 @@ int main(int argc,char* argv[])
 			channel = "";
 
 			sel.reset();
+			
+			//if use new dbl-pre-sel files to full-sel CR
+			//remember to apply JER
+			sel.JetCorrection();
         			
 			if( !sel.CR_select_invISO() ) continue;	//MC reweight is included in it
 

@@ -257,6 +257,7 @@ public:
 */
 
 	//for fill and use new things
+	void AllCutModeON();
 	void NoCutModeON();
 	void OneCutModeON();
 	void TwoCutModeON();
@@ -308,6 +309,7 @@ public:
 	
 	map<string,TH1F*> h_correct, h_charge_mis, h_mistag, h_lt_correct, h_lt_charge_mis, h_lt_mistag;
 	map<string, TH2D*> h_mvamax_mass;
+	map<string, TH2D*> h_algo_lt_correct, h_algo_lt_mistag, h_algo_lt_charge_mis;
 	
 	TH2D* h_mvamax_mass_mu;
 	TH2D* h_mvamax_mass_el;
@@ -337,6 +339,19 @@ public:
 	TH1F* h_lt_mistag_el;
 	TH1F* h_lt_charge_mis_el;
 
+	
+	TH2D* h_algo_lt_correct_t;
+	TH2D* h_algo_lt_mistag_t;
+	TH2D* h_algo_lt_charge_mis_t;
+
+	TH2D* h_algo_lt_correct_mu;
+	TH2D* h_algo_lt_mistag_mu;
+	TH2D* h_algo_lt_charge_mis_mu;
+
+	TH2D* h_algo_lt_correct_el;
+	TH2D* h_algo_lt_mistag_el;
+	TH2D* h_algo_lt_charge_mis_el;
+
 	int no_match_number;
 
 	//for algo value
@@ -352,6 +367,11 @@ public:
 		bins_No1 = n;	
 		hist_min1 = m;	
 		hist_max1 = M;
+	}
+	inline void SetltBin( const int& n, const double& m, const double& M ){
+		bins_No2 = n;	
+		hist_min2 = m;	
+		hist_max2 = M;
 	}
 	void Init();
 	void WriteIn();

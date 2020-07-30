@@ -313,15 +313,16 @@ bool SelMgr::CR_ReweightMC()
 
 	//btag part
 	btagMgr->Reset_idx_capacity();
-	vector<int> all_jets( sel_jets );
+	vector<int> all_jets( sel_jets );		//copy constructor
 	/*
 	for(int i=0;i<(int)seljets_No();++i) {
 		all_jets.push_back( sel_jets.at(i) );
 	}
 	*/
-	for(int i=0;i<(int)selbjets_No();++i) {
-		all_jets.push_back( sel_b_jets.at(i) );
-	}
+	// this is for old method
+	//for(int i=0;i<(int)selbjets_No();++i) {
+	//	all_jets.push_back( sel_b_jets.at(i) );
+	//}
 	btagMgr->Set_b_ntagged_jets_idx( all_jets );
 	btag_weight = btagMgr->Get_Btag_Weight( opt_btag );
 

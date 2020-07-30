@@ -1,8 +1,8 @@
 /**********************************
  *
- *	File Name : SR_mva.cc
- *	Date : 200121
- *	Description : for mva method
+ *	File Name : DataMC_Mass.cc
+ *	Date : 200719
+ *	Description : 
  *	Usage : {exe} {mva/chi2} {algo_cut} {test/mormal}	
  *
  * ********************************/
@@ -124,12 +124,10 @@ int main(int argc,char* argv[])
 	hists.TwoCutModeON();
 
 	string startingtime = get_time_str( minute );
-/*
 	ofstream f;
 	f.open( "/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/information/SR_mva.txt",fstream::app );
    	f << "-" << endl << "Starting Time : " << startingtime << endl;
 	f.close();
-*/
 
 	for(int k=0;k<(int)files_map.size();k++)		//
 	{
@@ -251,9 +249,7 @@ int main(int argc,char* argv[])
 
 				double Mjjb = ( hadb + j1 + j2 ).M();
 				double Mlb = ( lepb + lepton ).M() ;
-			
-				cout << "algo value : " << sel.RecoAlgoValue() << endl;
-					
+				
 				if( *channel == "mu" )
 					NO_ncut_mu += sel.Weight();
 				else if( *channel == "el" )
@@ -285,7 +281,7 @@ int main(int argc,char* argv[])
 				training_name = sel.GetTrain();
 			//cout << endl << "The end of the file-sets " << Set_name << " " << r+1 << " " << endl;
 		}		//end of r for-loop
-/*
+
 		ofstream f1;
 		f1.open( "/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/information/SR_mva.txt",fstream::app );		
 	
@@ -299,7 +295,6 @@ int main(int argc,char* argv[])
 		for(int j=0;j<20;++j) f1 << "-";
 		f1 << endl;
 		f1.close();
-*/
 
 	}			//end of k for-loop
 
@@ -314,10 +309,10 @@ int main(int argc,char* argv[])
 	
 	ofstream f2;
 	f2.open( "/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/information/SR_DataMC.txt",fstream::app );	
-   	f2 << "-" << endl << "Starting Time : " << startingtime << endl;
 	f2 << "End Time : " << time_str << endl;
     for(int i=0;i<30;++i) f2 << "=";
 	f2 << endl;
+    f2.close();    
 	
 	string new_file_name = training_name + string("_SRmass_") + time_str + ".root";
 
@@ -327,7 +322,6 @@ int main(int argc,char* argv[])
 
 	f_out->Close();
 	
-    f2.close(); 
 	cout << "starting loop time : " << startingtime << endl;
 	cout << "ending loop time : " << time_str << endl;
 }

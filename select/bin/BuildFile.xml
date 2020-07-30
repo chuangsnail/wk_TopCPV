@@ -44,6 +44,10 @@
 <bin name="test_dbl"  file="test_dbl.cc"/>
 <bin name="dbl_pre_sel"  file="dbl_pre_sel.cc"/>
 <bin name="test_full"  file="test_full.cc"/>
-<bin name="SR_DatMC"  file="SR_DataMC.cc"/>
+<bin name="SR_DataMC"  file="SR_DataMC.cc"/>
 <bin name="FakeData"  file="fake_data.cc"/>
-<bin name="check_kine_all"  file="check_kinematics_all.cc"/>
+<bin name="SR_DataMC_algo"  file="SR_DataMC_algo.cc"/>
+<bin name="CR_DataMC"  file="CR_DataMC.cc"/>
+<bin name="CR_inv_DataMC"  file="CR_inv_DataMC.cc"/>
+<bin name="SR_DataMC_vars"  file="SR_DataMC_vars.cc"/>
+<bin name="SR_DataMC_vars_unc"  file="SR_DataMC_vars_Unc.cc"/>

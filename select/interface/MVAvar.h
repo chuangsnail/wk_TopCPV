@@ -140,8 +140,7 @@ namespace mvatool
 	
 	void AddVarName( vector<string>& inputVars );
 
-	void InputVar( double* var, JetInfo& jetInfo, LeptonInfo& leptonInfo, \
-			EvtInfo& evtInfo, const vector<int>& sel_jets, const vector<int>& sel_b_jets, \
+	void InputVar( double* var, JetInfo& jetInfo, LeptonInfo& leptonInfo, EvtInfo& evtInfo, \
 		   	int& idx_Selected_Lep, int& tmp_mva_hadb, int& tmp_mva_lepb, \
 			int& tmp_mva_j1, int& tmp_mva_j2 );
 }

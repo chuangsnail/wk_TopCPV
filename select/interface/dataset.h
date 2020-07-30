@@ -145,6 +145,63 @@ void get_lumi_weight_tmp( map< string ,vector<double>* >& Weights_map )
 	Weights_map["QCD"]->push_back(0.22496);
 }
 
+void get_path_tmp( map< string ,vector<string>* >& Data_set_Path )
+{
+	Data_set_Path["TT"]->push_back("/wk_cms2/cychuang/16_full_SR/TTbar/full_sel_bpk_ntuple_*.root");
+	
+	Data_set_Path["DY"]->push_back("/wk_cms2/cychuang/16_full_SR/DY/DYJetsToLL_M-50_HT-70to100_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/full_sel_bpk_ntuple_*.root");
+	Data_set_Path["DY"]->push_back("/wk_cms2/cychuang/16_full_SR/DY/DYJetsToLL_M-50_HT-100to200_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/full_sel_bpk_ntuple_*.root");
+	Data_set_Path["DY"]->push_back("/wk_cms2/cychuang/16_full_SR/DY/DYJetsToLL_M-50_HT-200to400_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/full_sel_bpk_ntuple_*.root");
+	Data_set_Path["DY"]->push_back("/wk_cms2/cychuang/16_full_SR/DY/DYJetsToLL_M-50_HT-400to600_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/full_sel_bpk_ntuple_*.root");
+	Data_set_Path["DY"]->push_back("/wk_cms2/cychuang/16_full_SR/DY/DYJetsToLL_M-50_HT-600to800_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/full_sel_bpk_ntuple_*.root");
+	Data_set_Path["DY"]->push_back("/wk_cms2/cychuang/16_full_SR/DY/DYJetsToLL_M-50_HT-800to1200_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/full_sel_bpk_ntuple_*.root");
+	Data_set_Path["DY"]->push_back("/wk_cms2/cychuang/16_full_SR/DY/DYJetsToLL_M-50_HT-1200to2500_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/full_sel_bpk_ntuple_*.root");
+	Data_set_Path["DY"]->push_back("/wk_cms2/cychuang/16_full_SR/DY/DYJetsToLL_M-50_HT-2500toInf_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/full_sel_bpk_ntuple_*.root");
+	
+	Data_set_Path["WJets"]->push_back("/wk_cms2/cychuang/16_full_SR/WJets/WJetsToLNu_HT-100To200_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/full_sel_bpk_ntuple_*.root");
+	Data_set_Path["WJets"]->push_back("/wk_cms2/cychuang/16_full_SR/WJets/WJetsToLNu_HT-200To400_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/full_sel_bpk_ntuple_*.root");
+	Data_set_Path["WJets"]->push_back("/wk_cms2/cychuang/16_full_SR/WJets/WJetsToLNu_HT-400To600_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/full_sel_bpk_ntuple_*.root");
+	Data_set_Path["WJets"]->push_back("/wk_cms2/cychuang/16_full_SR/WJets/WJetsToLNu_HT-600To800_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/full_sel_bpk_ntuple_*.root");
+	Data_set_Path["WJets"]->push_back("/wk_cms2/cychuang/16_full_SR/WJets/WJetsToLNu_HT-800To1200_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/full_sel_bpk_ntuple_*.root");
+	Data_set_Path["WJets"]->push_back("/wk_cms2/cychuang/16_full_SR/WJets/WJetsToLNu_HT-1200To2500_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/full_sel_bpk_ntuple_*.root");
+	Data_set_Path["WJets"]->push_back("/wk_cms2/cychuang/16_full_SR/WJets/WJetsToLNu_HT-2500ToInf_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/full_sel_bpk_ntuple_*.root");
+	
+	Data_set_Path["VV"]->push_back("/wk_cms2/cychuang/16_full_SR/VV/WW_TuneCUETP8M1_13TeV-pythia8/full_sel_bpk_ntuple_*.root");
+	Data_set_Path["VV"]->push_back("/wk_cms2/cychuang/16_full_SR/VV/WZ_TuneCUETP8M1_13TeV-pythia8/full_sel_bpk_ntuple_*.root");
+	Data_set_Path["VV"]->push_back("/wk_cms2/cychuang/16_full_SR/VV/ZZ_TuneCUETP8M1_13TeV-pythia8/full_sel_bpk_ntuple_*.root");
+	
+	Data_set_Path["ST"]->push_back("/wk_cms2/cychuang/16_full_SR/SingleTop/ST_s-channel_4f_leptonDecays_TuneCP5_PSweights_13TeV-amcatnlo-pythia8/full_sel_bpk_ntuple_*.root");
+	Data_set_Path["ST"]->push_back("/wk_cms2/cychuang/16_full_SR/SingleTop/ST_t-channel_antitop_4f_InclusiveDecays_TuneCP5_PSweights_13TeV-powheg-pythia8/full_sel_bpk_ntuple_*.root");
+	Data_set_Path["ST"]->push_back("/wk_cms2/cychuang/16_full_SR/SingleTop/ST_t-channel_top_4f_inclusiveDecays_13TeV-powhegV2-madspin-pythia8_TuneCUETP8M1/full_sel_bpk_ntuple_*.root");
+	Data_set_Path["ST"]->push_back("/wk_cms2/cychuang/16_full_SR/SingleTop/ST_tW_antitop_5f_inclusiveDecays_TuneCP5_PSweights_13TeV-powheg-pythia8/full_sel_bpk_ntuple_*.root");
+	Data_set_Path["ST"]->push_back("/wk_cms2/cychuang/16_full_SR/SingleTop/ST_tW_top_5f_inclusiveDecays_TuneCP5_PSweights_13TeV-powheg-pythia8/full_sel_bpk_ntuple_*.root");
+	
+	Data_set_Path["QCD"]->push_back("/wk_cms2/cychuang/16_full_SR/QCD/QCD_HT100to200_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/full_sel_bpk_ntuple_*.root");
+	Data_set_Path["QCD"]->push_back("/wk_cms2/cychuang/16_full_SR/QCD/QCD_HT200to300_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/full_sel_bpk_ntuple_*.root");
+	Data_set_Path["QCD"]->push_back("/wk_cms2/cychuang/16_full_SR/QCD/QCD_HT300to500_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/full_sel_bpk_ntuple_*.root");
+	Data_set_Path["QCD"]->push_back("/wk_cms2/cychuang/16_full_SR/QCD/QCD_HT500to700_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/full_sel_bpk_ntuple_*.root");
+	Data_set_Path["QCD"]->push_back("/wk_cms2/cychuang/16_full_SR/QCD/QCD_HT700to1000_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/full_sel_bpk_ntuple_*.root");
+	Data_set_Path["QCD"]->push_back("/wk_cms2/cychuang/16_full_SR/QCD/QCD_HT1000to1500_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/full_sel_bpk_ntuple_*.root");
+	Data_set_Path["QCD"]->push_back("/wk_cms2/cychuang/16_full_SR/QCD/QCD_HT1500to2000_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/full_sel_bpk_ntuple_*.root");
+	Data_set_Path["QCD"]->push_back("/wk_cms2/cychuang/16_full_SR/QCD/QCD_HT2000toInf_TuneCUETP8M1_13TeV-madgraphMLM-pythia8/full_sel_bpk_ntuple_*.root");
+
+	Data_set_Path["Data_SM"]->push_back("/wk_cms2/cychuang/16_full_SR/SingleMuon/Run2016B/full_sel_bpk_ntuple_*.root");
+	Data_set_Path["Data_SM"]->push_back("/wk_cms2/cychuang/16_full_SR/SingleMuon/Run2016C/full_sel_bpk_ntuple_*.root");
+	Data_set_Path["Data_SM"]->push_back("/wk_cms2/cychuang/16_full_SR/SingleMuon/Run2016D/full_sel_bpk_ntuple_*.root");
+	Data_set_Path["Data_SM"]->push_back("/wk_cms2/cychuang/16_full_SR/SingleMuon/Run2016E/full_sel_bpk_ntuple_*.root");
+	Data_set_Path["Data_SM"]->push_back("/wk_cms2/cychuang/16_full_SR/SingleMuon/Run2016F/full_sel_bpk_ntuple_*.root");
+	Data_set_Path["Data_SM"]->push_back("/wk_cms2/cychuang/16_full_SR/SingleMuon/Run2016G/full_sel_bpk_ntuple_*.root");
+	Data_set_Path["Data_SM"]->push_back("/wk_cms2/cychuang/16_full_SR/SingleMuon/Run2016H/full_sel_bpk_ntuple_*.root");
+	
+	Data_set_Path["Data_SE"]->push_back("/wk_cms2/cychuang/16_full_SR/SingleElectron/Run2016B/full_sel_bpk_ntuple_*.root");
+	Data_set_Path["Data_SE"]->push_back("/wk_cms2/cychuang/16_full_SR/SingleElectron/Run2016C/full_sel_bpk_ntuple_*.root");
+	Data_set_Path["Data_SE"]->push_back("/wk_cms2/cychuang/16_full_SR/SingleElectron/Run2016D/full_sel_bpk_ntuple_*.root");
+	Data_set_Path["Data_SE"]->push_back("/wk_cms2/cychuang/16_full_SR/SingleElectron/Run2016E/full_sel_bpk_ntuple_*.root");
+	Data_set_Path["Data_SE"]->push_back("/wk_cms2/cychuang/16_full_SR/SingleElectron/Run2016F/full_sel_bpk_ntuple_*.root");
+	Data_set_Path["Data_SE"]->push_back("/wk_cms2/cychuang/16_full_SR/SingleElectron/Run2016G/full_sel_bpk_ntuple_*.root");
+	Data_set_Path["Data_SE"]->push_back("/wk_cms2/cychuang/16_full_SR/SingleElectron/Run2016H/full_sel_bpk_ntuple_*.root");
+}
+
 
 void get_lumi_weight( map< string ,vector<double>* >& Weights_map , string file_path = "/wk_cms2/cychuang/CMSSW_9_4_2/src/TopCPViolation/selected/info./pre_sel_data.txt" )
 {

@@ -9,7 +9,7 @@
 //#include "TopCPViolation/select/interface/ttt.h"
 #include "TopCPViolation/select/interface/SelMgr.h"
 #include "TopCPViolation/select/interface/CalAcp.h"
-#include "TopCPViolation/select/interface/File.h"
+//#include "TopCPViolation/select/interface/File.h"
 #include "TopCPViolation/select/interface/dataset.h"
 #include "TopCPViolation/select/interface/Hists.h"
 #include "TopCPViolation/select/interface/about_time.h"
@@ -29,9 +29,16 @@ int main(int argc,char* argv[])
 
 	double algo_cut = stod( string( argv[2] ) );
 
+	bool is_test = false;
 	string option = "normal";
 	if( argc == 4 )
 		option = string( argv[3] );
+
+	if( option.find("test") != string::npos )
+	{
+		is_test = true;
+		cout << ">> Mode test <<" << endl;
+	}
 
 	string training_name = "";
 
@@ -67,8 +74,9 @@ int main(int argc,char* argv[])
 	Data_Set_Path[data_sets_name[2]] = &WJets;			Data_Set_Path[data_sets_name[3]] = &VV;
 	Data_Set_Path[data_sets_name[4]] = &ST;				Data_Set_Path[data_sets_name[5]] = &QCD;
 	Data_Set_Path[d6] = &Data_SM;						Data_Set_Path[d7] = &Data_SE;
-	get_path( Data_Set_Path , "/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/full_sel/full_16_SR.txt" );
+	//get_path( Data_Set_Path , "/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/full_sel/full_16_SR.txt" );
 	//get_path( Data_Set_Path , "/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/full_sel/full_16_SR_nominal.txt" );
+	get_path_tmp( Data_Set_Path );
 	cout << "Finish getting Path info." << endl;
 
 	//**********initial the files and TChain and make the file map and weight map***********//
@@ -133,26 +141,24 @@ int main(int argc,char* argv[])
 	//*** make histograms ***//
 	
 	Hists hists;
-	if( string(argv[1]).find( "MLP" ) != string::npos )
-		hists.SetBinInfo( 100, 0., 1. );	//for MLP
-	else if( string(argv[1]).find( "BDT" ) != string::npos )
-		hists.SetBinInfo( 100, -1., 1. );	//for BDT(G)
+	if( string(argv[1]).find( "MLP" ) != string::npos ) {
+		hists.SetBinInfo( 40, 0., 1. );	//for MLP
+	}
+	else if( string(argv[1]).find( "BDT" ) != string::npos ) {
+		hists.SetBinInfo( 40, -1., 1. );	//for BDT(G)
+	}
 	hists.NoCutModeON();
 	hists.OneCutModeON();
 	hists.TwoCutModeON();
 
 	string startingtime = get_time_str( minute );
-	ofstream f;
-	f.open( "/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/information/SR_mva.txt",fstream::app );
-   	f << "-" << endl << "Starting Time : " << startingtime << endl;
-	f.close();
 
 	for(int k=0;k<(int)files_map.size();k++)		//
 	{
 		string Set_name = data_sets_name[k];
 		bool is_data = false;
 		if( Set_name == "Data" ) { is_data = true; }
-		//if( Set_name != "TT" ) continue;
+		//if( Set_name != "VV" ) continue;
 
 		//*** to prepare the counting objects ***//
 
@@ -212,6 +218,8 @@ int main(int argc,char* argv[])
 			( files_map[ Set_name ]->at(r) )->SetBranchAddress( "Channel", &channel );
 			
 			int t_entries = (files_map[ Set_name ]->at(r))->GetEntries();
+			if( is_test )
+			{	t_entries = 3000;	}
 			printf("\nAnd the Entries of this data files are : %d\n",t_entries);
 
 			//--- Initialize the selection manager ---//
@@ -259,22 +267,20 @@ int main(int argc,char* argv[])
 				else
 					sel.Chi2Sort();
 				
-				TLorentzVector hadb = sel.JetP4( sel.Idx_Hadb() );
 				TLorentzVector lepb = sel.JetP4( sel.Idx_Lepb() );
-				TLorentzVector j1 = sel.JetP4( sel.Idx_J1() );
-				TLorentzVector j2 = sel.JetP4( sel.Idx_J2() );
 				TLorentzVector lepton = sel.LepP4( sel.Idx_Lep() );
 
-				double Mjjb = ( hadb + j1 + j2 ).M();
 				double Mlb = ( lepb + lepton ).M() ;
-
 				double algo_value = sel.GetRecoAlgoValue();
 				
+				if( is_test && entry%500 == 0 )
+					cout << "entry : " << entry << " , algo : " <<  algo_value << endl;
+
 				if( *channel == "mu" )
 					NO_ncut_mu += sel.Weight();
 				else if( *channel == "el" )
 					NO_ncut_el += sel.Weight();
-				hists.FillHist( "NC", k, *channel, algo_value, 0, sel.Weight() );
+				hists.FillHist( "NC", k, *channel, algo_value, 0., sel.Weight() );
 		
 				if( is_mva ) {
 					if( sel.RecoAlgoValue() < algo_cut ) { continue; }
@@ -287,14 +293,14 @@ int main(int argc,char* argv[])
 					NO_1cut_mu += sel.Weight();
 				else if( *channel == "el" )
 					NO_1cut_el += sel.Weight();
-				hists.FillHist( "1C", k, *channel, algo_value, 0, sel.Weight() );
+				hists.FillHist( "1C", k, *channel, algo_value, 0., sel.Weight() );
 				
-				if( Mlb > 150 ) continue;
+				if( Mlb > 150 ){ continue; }
 				if( *channel == "mu" )
 					NO_2cut_mu += sel.Weight();
 				else if( *channel == "el" )
 					NO_2cut_el += sel.Weight();
-				hists.FillHist( "2C", k, *channel, algo_value, 0, sel.Weight() );
+				hists.FillHist( "2C", k, *channel, algo_value, 0., sel.Weight() );
 			
 			}	//end of entry for-loop
 			if( is_mva )	
@@ -302,8 +308,9 @@ int main(int argc,char* argv[])
 			//cout << endl << "The end of the file-sets " << Set_name << " " << r+1 << " " << endl;
 		}		//end of r for-loop
 
+		/*
 		ofstream f1;
-		f1.open( "/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/information/SR_DataMC_algo.txt",fstream::app );		
+		f1.open( "/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/information/SR_DataMC_algo.txt", ios::app );		
 	
 		f1 << endl << setw(15) << left << "Sample" << right << ":" << setw(15) << right << Set_name << endl;
 		f1 <<  setw(15) << left << "No Cut(mu)" << right << ":" << setw(15) << right << NO_ncut_mu << endl;
@@ -312,9 +319,10 @@ int main(int argc,char* argv[])
 		f1 <<  setw(15) << left << "1 Cut(el)" << right << ":" << setw(15) << right << NO_1cut_el << endl;
 		f1 <<  setw(15) << left << "2 Cut(mu)" << right << ":" << setw(15) << right << NO_2cut_mu << endl;
 		f1 <<  setw(15) << left << "2 Cut(el)" << right << ":" << setw(15) << right << NO_2cut_el << endl;
-		for(int j=0;j<20;++j) f1 << "-";
+		for(int j=0;j<20;++j){ f1 << "-"; }
 		f1 << endl;
 		f1.close();
+		*/
 
 	}			//end of k for-loop
 
@@ -327,16 +335,19 @@ int main(int argc,char* argv[])
 	string time_str = "";
 	time_str = get_time_str( minute );
 	
+	/*
 	ofstream f2;
-	f2.open( "/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/information/SR_DataMC_algo.txt",fstream::app );	
+	f2.open( "/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/information/SR_DataMC_algo.txt", ios::app );
+	f2 << "Starting Time " << startingtime << endl;	
 	f2 << "End Time : " << time_str << endl;
-    for(int i=0;i<30;++i) f2 << "=";
+    for(int i=0;i<30;++i){ f2 << "="; }
 	f2 << endl;
-    f2.close();    
+    f2.close();   
+   	*/	
 	
-	string new_file_name = training_name + string("_SRmass_") + time_str + ".root";
+	string new_file_name = training_name + string("_SRalgo_") + time_str + ".root";
 
-	TFile* f_out = new TFile( new_file_name.c_str() , "recreate" );
+	TFile* f_out = new TFile( (char*)new_file_name.c_str() , "recreate" );
 
 	hists.WriteIn( "NC 1C 2C" );
 

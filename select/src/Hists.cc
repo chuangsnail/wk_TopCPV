@@ -481,6 +481,14 @@ void Hists::TH2ModeON( const int& algo_bins_No, const double& m, const double& M
 	h_mvamax_lepmass[ "mu" ] = h_mvamax_lepmass_mu;			
 	h_mvamax_lepmass[ "el" ] = h_mvamax_lepmass_el;
 }
+
+void Hists::AllCutModeON()
+{
+	NoCutModeON();
+	OneCutModeON();
+	TwoCutModeON();
+}
+
 void Hists::NoCutModeON()
 {
 	h_TT_mu = new TH1F("h_TT_mu","",bins_No,hist_min,hist_max);
@@ -904,6 +912,18 @@ Hists_bb::Init()
 	h_lt_mistag_el = new TH1F("h_lt_mistag_el"," ;mass;events",bins_No2,hist_min2,hist_max2);
 	h_lt_charge_mis_el = new TH1F("h_lt_charge_mis_el"," ;mass;events",bins_No2,hist_min2,hist_max2);
 	
+	h_algo_lt_correct_t = new TH2D("h_algo_lt_correct_t","",bins_No1,hist_min1,hist_max1,bins_No2,hist_min2,hist_max2);
+	h_algo_lt_mistag_t = new TH2D("h_algo_lt_mistag_t","",bins_No1,hist_min1,hist_max1,bins_No2,hist_min2,hist_max2);
+	h_algo_lt_charge_mis_t = new TH2D("h_algo_lt_charge_mis_t","",bins_No1,hist_min1,hist_max1,bins_No2,hist_min2,hist_max2);
+
+	h_algo_lt_correct_mu = new TH2D("h_algo_lt_correct_mu","",bins_No1,hist_min1,hist_max1,bins_No2,hist_min2,hist_max2);
+	h_algo_lt_mistag_mu = new TH2D("h_algo_lt_mistag_mu","",bins_No1,hist_min1,hist_max1,bins_No2,hist_min2,hist_max2);
+	h_algo_lt_charge_mis_mu = new TH2D("h_algo_lt_charge_mis_mu","",bins_No1,hist_min1,hist_max1,bins_No2,hist_min2,hist_max2);
+
+	h_algo_lt_correct_el = new TH2D("h_algo_lt_correct_el","",bins_No1,hist_min1,hist_max1,bins_No2,hist_min2,hist_max2);
+	h_algo_lt_mistag_el = new TH2D("h_algo_lt_mistag_el","",bins_No1,hist_min1,hist_max1,bins_No2,hist_min2,hist_max2);
+	h_algo_lt_charge_mis_el = new TH2D("h_algo_lt_charge_mis_el","",bins_No1,hist_min1,hist_max1,bins_No2,hist_min2,hist_max2);
+	
 	
 	h_correct[ "mu" ] = h_correct_mu;			h_correct[ "el" ] = h_correct_el;
 	h_charge_mis[ "mu" ] = h_charge_mis_mu;		h_charge_mis[ "el" ] = h_charge_mis_el;
@@ -911,6 +931,10 @@ Hists_bb::Init()
 	h_lt_correct[ "mu" ] = h_lt_correct_mu;				h_lt_correct[ "el" ] = h_lt_correct_el;
 	h_lt_charge_mis[ "mu" ] = h_lt_charge_mis_mu;		h_lt_charge_mis[ "el" ] = h_lt_charge_mis_el;
 	h_lt_mistag[ "mu" ] = h_lt_mistag_mu;				h_lt_mistag[ "el" ] = h_lt_mistag_el;
+	
+	h_algo_lt_correct[ "mu" ] = h_algo_lt_correct_mu;				h_algo_lt_correct[ "el" ] = h_algo_lt_correct_el;
+	h_algo_lt_charge_mis[ "mu" ] = h_algo_lt_charge_mis_mu;		h_algo_lt_charge_mis[ "el" ] = h_algo_lt_charge_mis_el;
+	h_algo_lt_mistag[ "mu" ] = h_algo_lt_mistag_mu;				h_algo_lt_mistag[ "el" ] = h_algo_lt_mistag_el;
 }
 
 void
@@ -944,6 +968,19 @@ Hists_bb::WriteIn()
 	h_lt_correct_el->Write();
 	h_lt_mistag_el->Write();
 	h_lt_charge_mis_el->Write();
+	
+	
+	h_algo_lt_correct_t->Write();
+	h_algo_lt_mistag_t->Write();
+	h_algo_lt_charge_mis_t->Write();
+
+	h_algo_lt_correct_mu->Write();
+	h_algo_lt_mistag_mu->Write();
+	h_algo_lt_charge_mis_mu->Write();
+
+	h_algo_lt_correct_el->Write();
+	h_algo_lt_mistag_el->Write();
+	h_algo_lt_charge_mis_el->Write();
 }
 
 
