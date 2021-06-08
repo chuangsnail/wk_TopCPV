@@ -110,6 +110,7 @@ double AcpMgr::Obs12()
 	return res;
 }
 
+//actually it's Obs14
 double AcpMgr::Obs13()
 {
 	//double res = lep_charge * ( ( _b + _bbar ).Dot( _lep.Cross( _j1 ) ) );

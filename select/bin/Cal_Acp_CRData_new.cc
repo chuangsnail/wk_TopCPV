@@ -1,9 +1,8 @@
 /**********************************
  *
- *	File Name : SR_mva.cc
- *	Date : 200121
- *	Description : for mva method
- *	Usage : {exe} {mva/chi2} {algo_cut} {test/mormal}	
+ *	File Name : Cal_Acp_SRtt_new.cc
+ *	Date : 200928
+ *	Description : for mva method	
  *
  * ********************************/
 //#include "TopCPViolation/select/interface/ttt.h"
@@ -16,9 +15,11 @@
 
 using namespace std;
 
+//exe mva/chi2 algo-cut is_Mlb_cut normal/test
+
 int main(int argc,char* argv[])
 {
-	if( argc != 3 && argc != 4 )
+	if( argc != 4 && argc != 5 )
 	{
 		cerr << "[ERROR] wrong argment numbers!" << endl;
 		return 0;
@@ -29,35 +30,41 @@ int main(int argc,char* argv[])
 
 	double algo_cut = stod( string( argv[2] ) );
 
-	string option = "normal";
-	if( argc == 4 )
-		option = string( argv[3] );
+	bool is_Mlb_cut = false;
+	if( stoi( string( argv[3] ) ) != 0 )
+		is_Mlb_cut = true;
 
 	bool is_test = false;
+	string option = "normal";
+	if( argc == 5 )
+		option = string( argv[4] );
+
 	if( option.find("test") != string::npos )
+	{
 		is_test = true;
-
+		cout << ">> Mode test <<" << endl;
+	}
 	string training_name = "";
-
 	if( is_mva )
 		cout << "With mva sort" << endl;
 	else
 		cout << "With chi2 sort" << endl;
-
 	cout << "algo-cut is " << algo_cut << endl;
+	
+	
 	string data_sets_name[7] = {"TT","DY","WJets","VV","ST","QCD","Data"};
 	string d6 = data_sets_name[6] + "_SM";
 	string d7 = data_sets_name[6] + "_SE";
 	
-	//--- To finish something about weight ---//
+	//***********To finish something about weight***********//
 
 	vector<double> w_TT, w_DY, w_WJets, w_VV, w_ST, w_QCD;
 	map< string, vector<double>* > Weights_map;
 	Weights_map[data_sets_name[0]] = &w_TT;				Weights_map[data_sets_name[1]] = &w_DY;
 	Weights_map[data_sets_name[2]] = &w_WJets;			Weights_map[data_sets_name[3]] = &w_VV;
 	Weights_map[data_sets_name[4]] = &w_ST;				Weights_map[data_sets_name[5]] = &w_QCD;
-	get_lumi_weight( Weights_map , "/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/full_sel/full_16_CR_new.txt" );
-	//get_lumi_weight( Weights_map , "/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/full_sel/full_16_SR_nominal.txt" );
+	//get_lumi_weight( Weights_map , "/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/full_sel/full_16_SR.txt" );
+	get_lumi_weight_tmp( Weights_map );
 	cout << "Finish getting lumi-weight" << endl;
 
 	//*********************About path***********************//
@@ -70,8 +77,8 @@ int main(int argc,char* argv[])
 	Data_Set_Path[data_sets_name[2]] = &WJets;			Data_Set_Path[data_sets_name[3]] = &VV;
 	Data_Set_Path[data_sets_name[4]] = &ST;				Data_Set_Path[data_sets_name[5]] = &QCD;
 	Data_Set_Path[d6] = &Data_SM;						Data_Set_Path[d7] = &Data_SE;
-	get_path( Data_Set_Path , "/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/full_sel/full_16_CR_new.txt" );
-	//get_path( Data_Set_Path , "/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/full_sel/full_16_SR_nominal.txt" );
+	get_path( Data_Set_Path , "/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/full_sel/full_16_CR.txt" );
+	//get_new_path_tmp( Data_Set_Path );
 	cout << "Finish getting Path info." << endl;
 
 	//**********initial the files and TChain and make the file map and weight map***********//
@@ -119,13 +126,15 @@ int main(int argc,char* argv[])
 
 	//**********************Start Analysis***********************//
 
+	//**************** open the file we want to store the result **********************************//
+	
+	//initialize ntuple must be after the initialization of the TFile
+	
 	//*****************declare/make some object ( histograms or vector ......etc.)******************//
 	//*** make histograms ***//
-	
-	Hists hists;
-	hists.NoCutModeON();
-	hists.OneCutModeON();
-	hists.TwoCutModeON();
+
+	Hists_Acp hists_acp;
+	hists_acp.Init( string("all") );
 
 	string startingtime = get_time_str( minute );
 
@@ -135,19 +144,8 @@ int main(int argc,char* argv[])
 		bool is_data = false;
 		if( Set_name == "Data" ) { is_data = true; }
 		//if( Set_name != "TT" ) continue;
-
-		//*** to prepare the counting objects ***//
-
-		double NO_ncut_mu = 0.;
-		double NO_1cut_mu = 0.;
-		double NO_2cut_mu = 0.;
-
-		double NO_ncut_el = 0.;
-		double NO_1cut_el = 0.;
-		double NO_2cut_el = 0.;
-
-		printf("\n The file now dealing with is under the data sets %s.",Set_name.c_str());
-
+		if( Set_name != "Data" ) continue;
+		//if( Set_name != "TT" ) continue;
 		
 		//loop around in a kind of data set that is files_map[ data_sets_name[k] ] (r-loop)
 		for(int r=0;r<(int)files_map[ Set_name ]->size();r++)
@@ -157,13 +155,14 @@ int main(int argc,char* argv[])
 				{	break;	}
 			}
 			//*** Get lumi_weight ***//
+
 			double lumi_weight = 1.;
 			if(!is_data)
 			{	lumi_weight = Weights_map[ Set_name ]->at(r);	}
 
 			//*** Register branches ***//
 
-			//printf("\n The file now dealing with is under the data sets %s, the %d one.",Set_name.c_str(),r+1);
+			printf("\n The file now dealing with is under the data sets %s, the %d one.",Set_name.c_str(),r+1);
 
 			JetInfo jetInfo ;
 			jetInfo.Register( files_map[ Set_name ]->at(r).ch , "JetInfo" );
@@ -175,12 +174,18 @@ int main(int argc,char* argv[])
 			genInfo.Register( files_map[ Set_name ]->at(r).ch );		
 			VertexInfo vertexInfo;
 			vertexInfo.Register( files_map[ Set_name ]->at(r).ch , "VertexInfo" );
+/*			
+			TrgInfo trgInfo;
+			trgInfo.Register( files_map[ Set_name ]->at(r).ch , "TrgInfo" );
+			RunInfo runInfo;
+			runInfo.Register( files_map[ Set_name ]->at(r).ch , "RunInfo" );
+			PhotonInfo photonInfo;
+			photonInfo.Register( files_map[ Set_name ]->at(r).ch , "PhotonInfo" );
+*/
 
 			//*** Read in the known info. ***//
 
 			double t_Weight;
-			double btag_weight;
-			double lepsf_weight;
 		 	int SelLep;
 			int JetsNo;
 			int SelJets[20];
@@ -189,8 +194,6 @@ int main(int argc,char* argv[])
 			string* channel;
 
 			( files_map[ Set_name ]->at(r).ch )->SetBranchAddress( "t_Weight", &t_Weight  );
-			( files_map[ Set_name ]->at(r).ch )->SetBranchAddress( "BtagWeight", &btag_weight  );
-			( files_map[ Set_name ]->at(r).ch )->SetBranchAddress( "LepWeight", &lepsf_weight  );
 			( files_map[ Set_name ]->at(r).ch )->SetBranchAddress( "SelLep", &SelLep  );
 			( files_map[ Set_name ]->at(r).ch )->SetBranchAddress( "JetsNo", &JetsNo  );
 			( files_map[ Set_name ]->at(r).ch )->SetBranchAddress( "SelJets", SelJets  );
@@ -199,20 +202,18 @@ int main(int argc,char* argv[])
 			
 			int t_entries = (files_map[ Set_name ]->at(r).ch)->GetEntries();
 			
-			if( is_test ) {
-				t_entries = 200;
-			}
+			if( is_test )
+			{ t_entries = 1000; }
 
 			printf("\nAnd the Entries of this data files are : %d\n",t_entries);
 
-			//--- Initialize the selection manager ---//
+			//*** Initialize the selection manager ***//
 			
 			SelMgr sel( &jetInfo, &leptonInfo, &evtInfo, &vertexInfo, &genInfo );
-			sel.SetCR();
 			sel.SetTrain( training_name );
 			if( is_data ) {	sel.SetIsData(is_data);	}
 
-			//AcpMgr acpMgr( &leptonInfo, &jetInfo );
+			AcpMgr acpMgr( &leptonInfo, &jetInfo );
 
 			int u = 0;	
 			for(int entry=0;entry<(int)t_entries;++entry)
@@ -230,16 +231,21 @@ int main(int argc,char* argv[])
 				//** Set lumi_Weight first **//
 
 				sel.ScaleWeight( lumi_weight );
-				sel.ScaleWeight( t_Weight/btag_weight );
+				sel.ScaleWeight( t_Weight );
 				
 				//use mva to choose best choice of reconstruct top quark's mass 
 
 				vector<int> sel_jets;
+				vector<int> sel_b_jets;
 
 				for(int i=0;i<JetsNo;++i)
 				{	sel_jets.push_back( SelJets[i] );	}
+				for(int i=0;i<2;++i)
+				{	sel_b_jets.push_back( SelBJets[i] );	}
 
 				sel.SetSelJets( sel_jets );
+				sel.SetSelBJets( sel_b_jets );
+
 				sel.Setidx_Lep( SelLep );
 
 				if( is_mva )
@@ -255,56 +261,61 @@ int main(int argc,char* argv[])
 
 				double Mjjb = ( hadb + j1 + j2 ).M();
 				double Mlb = ( lepb + lepton ).M() ;
-			
-				if( *channel == "mu" )
-					NO_ncut_mu += sel.Weight();
-				else if( *channel == "el" )
-					NO_ncut_el += sel.Weight();
-				hists.FillHist( "NC", k, *channel, Mjjb, Mlb, sel.Weight() );
-		
+				
 				if( is_mva ) {
 					if( sel.RecoAlgoValue() < algo_cut ) { continue; }
                 }
 				else {
 					if( sel.RecoAlgoValue() > algo_cut ) { continue; }
                 }
-
-				if( *channel == "mu" )
-					NO_1cut_mu += sel.Weight();
-				else if( *channel == "el" )
-					NO_1cut_el += sel.Weight();
-				hists.FillHist( "1C", k, *channel, Mjjb, Mlb, sel.Weight() );
-				
-				if( Mlb > 150 ) continue;
-				if( *channel == "mu" )
-					NO_2cut_mu += sel.Weight();
-				else if( *channel == "el" )
-					NO_2cut_el += sel.Weight();
-				hists.FillHist( "2C", k, *channel, Mjjb, Mlb, sel.Weight() );
+				if( is_Mlb_cut ) {
+					if( Mlb > 150 ) continue;
+				}
 			
-			}	//end of entry for-loop
+				acpMgr.InputSelObjs( sel.Idx_Hadb(), sel.Idx_Lepb(), sel.Idx_J1(), sel.Idx_Lep() );
+
+				hists_acp.FillIn( "Obs3", *channel, acpMgr.Obs3(), sel.Weight() );
+				hists_acp.FillIn( "Obs6", *channel, acpMgr.Obs6(), sel.Weight() );
+				hists_acp.FillIn( "Obs12", *channel, acpMgr.Obs12(), sel.Weight() );
+				hists_acp.FillIn( "Obs13", *channel, acpMgr.Obs13(), sel.Weight() );
+
+			}	//end of entry for-loop	
+			cout << endl << "The end of the file-sets " << Set_name << " " << r+1 << " " << endl;
 			if( is_mva )	
 				training_name = sel.GetTrain();
-			//cout << endl << "The end of the file-sets " << Set_name << " " << r+1 << " " << endl;
+			
 		}		//end of r for-loop
 	}			//end of k for-loop
 
-   	//--- Draw & Store ---//
-	 
+	//*****Drawing Plotting or Outputting files*****//
+
 	//Save these hists to be a root file
-	
 	if( !is_mva )
 		training_name = "chi2";
+	
+	if( is_Mlb_cut )
+		training_name += "_Mlbcut";
+	else
+		training_name += "_noMlbcut";
+	
 	string time_str = "";
 	time_str = get_time_str( minute );
-	
-	string new_file_name = training_name + string("_CRmass_") + time_str + ".root";
+	string sample_path = "/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/";
+	string new_file_name = sample_path + training_name + string("_DetBiasAcp_SRtt_") + time_str + ".root";
 
 	TFile* f_out = new TFile( new_file_name.c_str() , "recreate" );
-
-	hists.WriteIn( "NC 1C 2C" );
-
+	hists_acp.WriteIn();
 	f_out->Close();
+
+	ofstream f;
+	f.open( "/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/information/DetBias_result.txt",fstream::app );		
+
+	f << "SRtt " << endl;
+	f << "File name " << training_name << endl;
+	f << "starting time is : " << startingtime << endl;
+	f << "Finish time is : " << time_str << endl;
+
+	f << "==============================================================" << endl; 
 	
 	cout << "starting loop time : " << startingtime << endl;
 	cout << "ending loop time : " << time_str << endl;

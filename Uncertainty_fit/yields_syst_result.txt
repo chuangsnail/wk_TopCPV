@@ -3317,3 +3317,246 @@ JES_down_el_O12 BkgY Mean : 10.8842628755 , StdDev : 0.624130694491
 JES_down_el_O14 SigY Mean : -0.336175255453 , StdDev : 0.016169520394
 JES_down_el_O14 BkgY Mean : 10.8770733754 , StdDev : 0.641551407153
 
+
+============================= new 200730 ===============================
+
+btag_up_mu_O3 SigY Mean : 0.132019316241 , StdDev : 0.00304932042519
+btag_up_mu_O3 BkgY Mean : -4.75026217666 , StdDev : 0.168681373556
+
+btag_up_mu_O6 SigY Mean : 0.13204246634 , StdDev : 0.0030062859291
+btag_up_mu_O6 BkgY Mean : -4.74985269545 , StdDev : 0.168001523091
+
+btag_up_mu_O12 SigY Mean : 0.132046403977 , StdDev : 0.00300967830481
+btag_up_mu_O12 BkgY Mean : -4.75219524674 , StdDev : 0.170122430749
+
+btag_up_mu_O14 SigY Mean : 0.131972725026 , StdDev : 0.00298651990506
+btag_up_mu_O14 BkgY Mean : -4.7516424053 , StdDev : 0.169767884709
+
+btag_down_mu_O3 SigY Mean : -0.146051898369 , StdDev : 0.00331833775491
+btag_down_mu_O3 BkgY Mean : 5.25338770729 , StdDev : 0.187176429341
+
+btag_down_mu_O6 SigY Mean : -0.146005457859 , StdDev : 0.0032973221338
+btag_down_mu_O6 BkgY Mean : 5.25482047667 , StdDev : 0.187782895867
+
+btag_down_mu_O12 SigY Mean : -0.146049986359 , StdDev : 0.00328176492177
+btag_down_mu_O12 BkgY Mean : 5.25851501476 , StdDev : 0.18884277749
+
+btag_down_mu_O14 SigY Mean : -0.146063223727 , StdDev : 0.0032969952041
+btag_down_mu_O14 BkgY Mean : 5.25343534998 , StdDev : 0.189540710983
+
+btag_up_el_O3 SigY Mean : 0.120852742164 , StdDev : 0.00364833826106
+btag_up_el_O3 BkgY Mean : -4.62175857446 , StdDev : 0.205259316283
+
+btag_up_el_O6 SigY Mean : 0.120927730867 , StdDev : 0.00356997141357
+btag_up_el_O6 BkgY Mean : -4.62270698444 , StdDev : 0.200507286774
+
+btag_up_el_O12 SigY Mean : 0.120908093528 , StdDev : 0.00356583920886
+btag_up_el_O12 BkgY Mean : -4.61728233831 , StdDev : 0.205536533574
+
+btag_up_el_O14 SigY Mean : 0.120916578389 , StdDev : 0.00361159465845
+btag_up_el_O14 BkgY Mean : -4.62080437693 , StdDev : 0.202600679348
+
+btag_down_el_O3 SigY Mean : -0.133686551622 , StdDev : 0.00374365507855
+btag_down_el_O3 BkgY Mean : 5.11910376693 , StdDev : 0.225495670763
+
+btag_down_el_O6 SigY Mean : -0.133662819057 , StdDev : 0.00383689565165
+btag_down_el_O6 BkgY Mean : 5.11840159278 , StdDev : 0.230207201098
+
+btag_down_el_O12 SigY Mean : -0.133661930112 , StdDev : 0.00378785780816
+btag_down_el_O12 BkgY Mean : 5.11930377735 , StdDev : 0.227277733894
+
+btag_down_el_O14 SigY Mean : -0.133629768671 , StdDev : 0.00390576076295
+btag_down_el_O14 BkgY Mean : 5.11160844268 , StdDev : 0.228798025392
+
+pu_up_mu_O3 SigY Mean : 0.070554383003 , StdDev : 0.00165171592106
+pu_up_mu_O3 BkgY Mean : -2.53889456244 , StdDev : 0.0905585363089
+
+pu_up_mu_O6 SigY Mean : 0.0705738910683 , StdDev : 0.00162428488595
+pu_up_mu_O6 BkgY Mean : -2.53874608149 , StdDev : 0.0899725825829
+
+pu_up_mu_O12 SigY Mean : 0.0705653979469 , StdDev : 0.001621937908
+pu_up_mu_O12 BkgY Mean : -2.53968549095 , StdDev : 0.0907730696133
+
+pu_up_mu_O14 SigY Mean : 0.0705508056183 , StdDev : 0.00161294584066
+pu_up_mu_O14 BkgY Mean : -2.5402143418 , StdDev : 0.091151121207
+
+pu_down_mu_O3 SigY Mean : -0.0670141769838 , StdDev : 0.00156721648632
+pu_down_mu_O3 BkgY Mean : 2.41054256836 , StdDev : 0.086739843518
+
+pu_down_mu_O6 SigY Mean : -0.0669877605712 , StdDev : 0.00157200726409
+pu_down_mu_O6 BkgY Mean : 2.41083991976 , StdDev : 0.0868450006467
+
+pu_down_mu_O12 SigY Mean : -0.0669952511446 , StdDev : 0.00156288241466
+pu_down_mu_O12 BkgY Mean : 2.41225743993 , StdDev : 0.0868624080511
+
+pu_down_mu_O14 SigY Mean : -0.0670192307981 , StdDev : 0.0015541193807
+pu_down_mu_O14 BkgY Mean : 2.41018527519 , StdDev : 0.0867785222641
+
+pu_up_el_O3 SigY Mean : 0.0566890932388 , StdDev : 0.00182382513607
+pu_up_el_O3 BkgY Mean : -2.16751796088 , StdDev : 0.0973289153023
+
+pu_up_el_O6 SigY Mean : 0.056739408721 , StdDev : 0.00179914102422
+pu_up_el_O6 BkgY Mean : -2.16828807152 , StdDev : 0.0950393876665
+
+pu_up_el_O12 SigY Mean : 0.0567147938063 , StdDev : 0.00179008627941
+pu_up_el_O12 BkgY Mean : -2.1650197224 , StdDev : 0.0974531705482
+
+pu_up_el_O14 SigY Mean : 0.0567187642241 , StdDev : 0.00179787543235
+pu_up_el_O14 BkgY Mean : -2.16750889736 , StdDev : 0.0969171263169
+
+pu_down_el_O3 SigY Mean : -0.0544395361466 , StdDev : 0.00171034865728
+pu_down_el_O3 BkgY Mean : 2.08177557467 , StdDev : 0.0926204604343
+
+pu_down_el_O6 SigY Mean : -0.0544102247936 , StdDev : 0.00173924284535
+pu_down_el_O6 BkgY Mean : 2.08091558133 , StdDev : 0.0943257188152
+
+pu_down_el_O12 SigY Mean : -0.0544282418109 , StdDev : 0.00173936701482
+pu_down_el_O12 BkgY Mean : 2.08211432416 , StdDev : 0.0929286643214
+
+pu_down_el_O14 SigY Mean : -0.0544038852272 , StdDev : 0.00176392074125
+pu_down_el_O14 BkgY Mean : 2.07849183021 , StdDev : 0.0948155144089
+
+lepsf_up_mu_O3 SigY Mean : 0.0100605381762 , StdDev : 0.000461381453349
+lepsf_up_mu_O3 BkgY Mean : -0.361821893346 , StdDev : 0.0169552110384
+
+lepsf_up_mu_O6 SigY Mean : 0.0100582704469 , StdDev : 0.000478942669531
+lepsf_up_mu_O6 BkgY Mean : -0.361940302284 , StdDev : 0.0170188783549
+
+lepsf_up_mu_O12 SigY Mean : 0.0100656212065 , StdDev : 0.000458388386292
+lepsf_up_mu_O12 BkgY Mean : -0.361921384407 , StdDev : 0.0172330978447
+
+lepsf_up_mu_O14 SigY Mean : 0.0100676546693 , StdDev : 0.000471213384273
+lepsf_up_mu_O14 BkgY Mean : -0.362238201444 , StdDev : 0.01714268213
+
+lepsf_down_mu_O3 SigY Mean : -0.0100869112013 , StdDev : 0.000468697147355
+lepsf_down_mu_O3 BkgY Mean : 0.36275956744 , StdDev : 0.0171827033344
+
+lepsf_down_mu_O6 SigY Mean : -0.0100980680484 , StdDev : 0.000470056068096
+lepsf_down_mu_O6 BkgY Mean : 0.36338834492 , StdDev : 0.0172514009659
+
+lepsf_down_mu_O12 SigY Mean : -0.0100986936651 , StdDev : 0.000462638499982
+lepsf_down_mu_O12 BkgY Mean : 0.363727314495 , StdDev : 0.0172436431897
+
+lepsf_down_mu_O14 SigY Mean : -0.0100871768224 , StdDev : 0.000465747544709
+lepsf_down_mu_O14 BkgY Mean : 0.362756730333 , StdDev : 0.0171280174601
+
+lepsf_up_el_O3 SigY Mean : 0.00995042169117 , StdDev : 0.000612405209694
+lepsf_up_el_O3 BkgY Mean : -0.3808157448 , StdDev : 0.0263409972767
+
+lepsf_up_el_O6 SigY Mean : 0.009952513087 , StdDev : 0.000596928975114
+lepsf_up_el_O6 BkgY Mean : -0.380670535039 , StdDev : 0.0254273712962
+
+lepsf_up_el_O12 SigY Mean : 0.00994789235538 , StdDev : 0.000601541732223
+lepsf_up_el_O12 BkgY Mean : -0.380408571346 , StdDev : 0.0261800105875
+
+lepsf_up_el_O14 SigY Mean : 0.00995149506384 , StdDev : 0.000596006061443
+lepsf_up_el_O14 BkgY Mean : -0.380826989892 , StdDev : 0.0260132507478
+
+lepsf_down_el_O3 SigY Mean : -0.0102324274486 , StdDev : 0.000625644874049
+lepsf_down_el_O3 BkgY Mean : 0.391658712688 , StdDev : 0.0265930076567
+
+lepsf_down_el_O6 SigY Mean : -0.0102370837294 , StdDev : 0.00061189302447
+lepsf_down_el_O6 BkgY Mean : 0.391753465176 , StdDev : 0.0265358851298
+
+lepsf_down_el_O12 SigY Mean : -0.0102243166621 , StdDev : 0.000617031667289
+lepsf_down_el_O12 BkgY Mean : 0.391453316808 , StdDev : 0.0260768687044
+
+lepsf_down_el_O14 SigY Mean : -0.0102396257558 , StdDev : 0.000620168854226
+lepsf_down_el_O14 BkgY Mean : 0.391465739208 , StdDev : 0.027098600071
+
+JER_up_mu_O3 SigY Mean : 0.22306053176 , StdDev : 0.00632892930388
+JER_up_mu_O3 BkgY Mean : -8.02553607877 , StdDev : 0.287282674634
+
+JER_up_mu_O6 SigY Mean : 0.223203259241 , StdDev : 0.00631129843178
+JER_up_mu_O6 BkgY Mean : -8.0274631578 , StdDev : 0.284533998937
+
+JER_up_mu_O12 SigY Mean : 0.223150197255 , StdDev : 0.00628565376056
+JER_up_mu_O12 BkgY Mean : -8.02877568472 , StdDev : 0.287374162424
+
+JER_up_mu_O14 SigY Mean : 0.223104393245 , StdDev : 0.00627696847819
+JER_up_mu_O14 BkgY Mean : -8.03115321748 , StdDev : 0.289508109488
+
+JER_down_mu_O3 SigY Mean : -0.211349953335 , StdDev : 0.00610369140578
+JER_down_mu_O3 BkgY Mean : 7.6007197228 , StdDev : 0.277015448182
+
+JER_down_mu_O6 SigY Mean : -0.211368158827 , StdDev : 0.00613274044004
+JER_down_mu_O6 BkgY Mean : 7.6058804007 , StdDev : 0.276955648158
+
+JER_down_mu_O12 SigY Mean : -0.211304757545 , StdDev : 0.0060557864301
+JER_down_mu_O12 BkgY Mean : 7.60672509103 , StdDev : 0.278898761141
+
+JER_down_mu_O14 SigY Mean : -0.211356302236 , StdDev : 0.00612486441926
+JER_down_mu_O14 BkgY Mean : 7.60128323449 , StdDev : 0.280969304508
+
+JER_up_el_O3 SigY Mean : 0.206361515791 , StdDev : 0.00770005808928
+JER_up_el_O3 BkgY Mean : -7.89185207201 , StdDev : 0.352624965725
+
+JER_up_el_O6 SigY Mean : 0.206539837196 , StdDev : 0.00751824811711
+JER_up_el_O6 BkgY Mean : -7.89497035345 , StdDev : 0.346439565602
+
+JER_up_el_O12 SigY Mean : 0.206547349751 , StdDev : 0.0075763480442
+JER_up_el_O12 BkgY Mean : -7.88665084041 , StdDev : 0.353755000588
+
+JER_up_el_O14 SigY Mean : 0.206557601222 , StdDev : 0.00752478457373
+JER_up_el_O14 BkgY Mean : -7.89471432429 , StdDev : 0.3508791436
+
+JER_down_el_O3 SigY Mean : -0.195731885696 , StdDev : 0.0070135714698
+JER_down_el_O3 BkgY Mean : 7.49712821932 , StdDev : 0.337116676745
+
+JER_down_el_O6 SigY Mean : -0.195671316542 , StdDev : 0.00707375256772
+JER_down_el_O6 BkgY Mean : 7.49522130323 , StdDev : 0.341664590448
+
+JER_down_el_O12 SigY Mean : -0.19577789565 , StdDev : 0.00713306472076
+JER_down_el_O12 BkgY Mean : 7.49856514181 , StdDev : 0.336843820168
+
+JER_down_el_O14 SigY Mean : -0.195654205431 , StdDev : 0.00715386765538
+JER_down_el_O14 BkgY Mean : 7.4863681843 , StdDev : 0.345216521393
+
+JES_up_mu_O3 SigY Mean : 0.290158636255 , StdDev : 0.00981656533241
+JES_up_mu_O3 BkgY Mean : -10.4395134695 , StdDev : 0.422623752522
+
+JES_up_mu_O6 SigY Mean : 0.290478211819 , StdDev : 0.00986716189779
+JES_up_mu_O6 BkgY Mean : -10.4469933201 , StdDev : 0.417591048078
+
+JES_up_mu_O12 SigY Mean : 0.29039503507 , StdDev : 0.00970639343494
+JES_up_mu_O12 BkgY Mean : -10.4486126293 , StdDev : 0.425051002919
+
+JES_up_mu_O14 SigY Mean : 0.290419895996 , StdDev : 0.00985842040309
+JES_up_mu_O14 BkgY Mean : -10.4552724525 , StdDev : 0.42645927143
+
+JES_down_mu_O3 SigY Mean : -0.281247587271 , StdDev : 0.010072779931
+JES_down_mu_O3 BkgY Mean : 10.1167118172 , StdDev : 0.417250936446
+
+JES_down_mu_O6 SigY Mean : -0.281552655523 , StdDev : 0.0102618931016
+JES_down_mu_O6 BkgY Mean : 10.1323342449 , StdDev : 0.423974722794
+
+JES_down_mu_O12 SigY Mean : -0.281545731082 , StdDev : 0.0100326850881
+JES_down_mu_O12 BkgY Mean : 10.1350774664 , StdDev : 0.420830781743
+
+JES_down_mu_O14 SigY Mean : -0.281292648711 , StdDev : 0.0101145888643
+JES_down_mu_O14 BkgY Mean : 10.11636731 , StdDev : 0.422767669154
+
+JES_up_el_O3 SigY Mean : 0.252757889348 , StdDev : 0.0113711315391
+JES_up_el_O3 BkgY Mean : -9.66780784298 , StdDev : 0.493787365222
+
+JES_up_el_O6 SigY Mean : 0.252976870028 , StdDev : 0.0111732437396
+JES_up_el_O6 BkgY Mean : -9.67020323569 , StdDev : 0.485613620632
+
+JES_up_el_O12 SigY Mean : 0.252999983 , StdDev : 0.0112989354576
+JES_up_el_O12 BkgY Mean : -9.66217369076 , StdDev : 0.497150956903
+
+JES_up_el_O14 SigY Mean : 0.253043869383 , StdDev : 0.0111075769282
+JES_up_el_O14 BkgY Mean : -9.67437910893 , StdDev : 0.495016964733
+
+JES_down_el_O3 SigY Mean : -0.248289735713 , StdDev : 0.0113277106799
+JES_down_el_O3 BkgY Mean : 9.51518095902 , StdDev : 0.496590572435
+
+JES_down_el_O6 SigY Mean : -0.248395951129 , StdDev : 0.0113178566186
+JES_down_el_O6 BkgY Mean : 9.5180903419 , StdDev : 0.49557230963
+
+JES_down_el_O12 SigY Mean : -0.248285664971 , StdDev : 0.0114601545597
+JES_down_el_O12 BkgY Mean : 9.51457840571 , StdDev : 0.488556764218
+
+JES_down_el_O14 SigY Mean : -0.248281066636 , StdDev : 0.0113418593556
+JES_down_el_O14 BkgY Mean : 9.50387905186 , StdDev : 0.502385286773
+

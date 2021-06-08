@@ -42,3 +42,124 @@ cor_mva_el ratio : 0.627556
 Error : +-0.000993701
 no-match number : 373356
 ==============================================================
+File name t13_BDT
+Finish time is : 200725_1605
+mis_gen_matching ratio: 0.319379
+cor_mva ratio : 0.676524
+Error : +-0.000678372
+cor_mva_mu ratio : 0.674595
+Error : +-0.00085208
+cor_mva_el ratio : 0.683843
+Error : +-0.00112931
+no-match number : 270934
+==============================================================
+File name t13_BDTG
+Finish time is : 200725_2352
+mis_gen_matching ratio: 0.316803
+cor_mva ratio : 0.660246
+Error : +-0.000668544
+cor_mva_mu ratio : 0.657868
+Error : +-0.000839105
+cor_mva_el ratio : 0.667989
+Error : +-0.00111383
+no-match number : 269144
+==============================================================
+File name t13_MLP
+Finish time is : 200726_0119
+mis_gen_matching ratio: 0.322554
+cor_mva ratio : 0.690249
+Error : +-0.000685609
+cor_mva_mu ratio : 0.68884
+Error : +-0.000861671
+cor_mva_el ratio : 0.697135
+Error : +-0.00114099
+no-match number : 269828
+==============================================================
+File name a04_MLP
+Finish time is : 200726_1445
+mis_gen_matching ratio: 0.318604
+cor_mva ratio : 0.645913
+Error : +-0.000656462
+cor_mva_mu ratio : 0.646316
+Error : +-0.000826521
+cor_mva_el ratio : 0.648996
+Error : +-0.00108828
+no-match number : 268839
+==============================================================
+File name a04_BDTG
+Finish time is : 200727_0156
+mis_gen_matching ratio: 0.318756
+cor_mva ratio : 0.641261
+Error : +-0.000653547
+cor_mva_mu ratio : 0.641512
+Error : +-0.000822682
+cor_mva_el ratio : 0.644529
+Error : +-0.00108372
+no-match number : 270669
+==============================================================
+File name a04_BDT
+Finish time is : 200727_0320
+mis_gen_matching ratio: 0.297348
+cor_mva ratio : 0.634959
+Error : +-0.000663094
+cor_mva_mu ratio : 0.635211
+Error : +-0.000834264
+cor_mva_el ratio : 0.636563
+Error : +-0.00109673
+no-match number : 249639
+==============================================================
+File name a05_MLP
+Finish time is : 200727_1242
+mis_gen_matching ratio: 0.316635
+cor_mva ratio : 0.703468
+Error : +-0.000697562
+cor_mva_mu ratio : 0.702361
+Error : +-0.000876919
+cor_mva_el ratio : 0.709611
+Error : +-0.00115965
+no-match number : 267392
+==============================================================
+File name a05_BDTG
+Finish time is : 200727_2310
+mis_gen_matching ratio: 0.32082
+cor_mva ratio : 0.674558
+Error : +-0.000675665
+cor_mva_mu ratio : 0.673137
+Error : +-0.000849076
+cor_mva_el ratio : 0.681139
+Error : +-0.00112428
+no-match number : 276120
+==============================================================
+File name a05_BDT
+Finish time is : 200728_1451
+mis_gen_matching ratio: 0.329452
+cor_mva ratio : 0.67957
+Error : +-0.00067476
+cor_mva_mu ratio : 0.678402
+Error : +-0.000848267
+cor_mva_el ratio : 0.686316
+Error : +-0.00112323
+no-match number : 282215
+==============================================================
+File name chi2
+Finish time is : 200802_0436
+mis_gen_matching ratio: 0.335455
+cor_mva ratio : 0.604272
+Error : +-0.000619402
+cor_mva_mu ratio : 0.604989
+Error : +-0.000779049
+cor_mva_el ratio : 0.607463
+Error : +-0.00103084
+no-match number : 287169
+==============================================================
+File name a05_MLP
+Finish time is : 200802_0437
+mis_gen_matching ratio: 0.315853
+cor_mva ratio : 0.707327
+Error : +-0.000701241
+cor_mva_mu ratio : 0.706191
+Error : +-0.00088002
+cor_mva_el ratio : 0.713583
+Error : +-0.00116952
+no-match number : 260309
+==============================================================

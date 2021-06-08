@@ -15,15 +15,48 @@
 
 using namespace std;
 
+
+//exe mva/chi2 algo-cut is_Mlb_cut normal/test
+
 int main(int argc,char* argv[])
 {
-	string training_name = "a05_all_MLP";
-	double mva_cut = stod( string(argv[1]) );
+	if( argc != 4 && argc != 5 )
+	{
+		cerr << "[ERROR] wrong argment numbers!" << endl;
+		return 0;
+	}
+	bool is_mva = false;
+	if( string( argv[1] ).find( "mva" ) != string::npos )
+		is_mva = true;
 
-	cout << "mva-cut is " << mva_cut << endl;
+	double algo_cut = stod( string( argv[2] ) );
+
+	bool is_Mlb_cut = false;
+	if( stoi( string( argv[3] ) ) != 0 )
+		is_Mlb_cut = true;
+	
+
+	bool is_test = false;
+	string option = "normal";
+	if( argc == 5 )
+		option = string( argv[4] );
+
+	if( option.find("test") != string::npos )
+	{
+		is_test = true;
+		cout << ">> Mode test <<" << endl;
+	}
+
+	string training_name = "";
+
+	if( is_mva )
+		cout << "With mva sort" << endl;
+	else
+		cout << "With chi2 sort" << endl;
+	cout << "algo-cut is " << algo_cut << endl;
 	
 	TChain* root = new TChain( "root" );
-	root->Add( "/wk_cms2/cychuang/16_full_SR/TTbar/full_sel_bpk_ntuple_*.root" );
+	root->Add( "/wk_cms2/cychuang/full_sel_16/Nominal/TTbar/full_sel_bpk_ntuple_*.root" );
 
 	Hists_Acp hists_acp;
 	hists_acp.Init( string("all") );
@@ -71,11 +104,13 @@ int main(int argc,char* argv[])
 			( root )->SetBranchAddress( "Channel", &channel );
 			
 			int t_entries = (root)->GetEntries();
+			if( is_test ) t_entries = 2000.;
 			printf("\nAnd the Entries of this data files are : %d\n",t_entries);
 
 			//*** Initialize the selection manager ***//
 			
 			SelMgr sel( &jetInfo, &leptonInfo, &evtInfo, &vertexInfo, &genInfo );
+			sel.SetTrain( training_name );
 			if( is_data ) {	sel.SetIsData(is_data);	}
 
 			AcpMgr acpMgr( &leptonInfo, &jetInfo );	
@@ -132,10 +167,12 @@ int main(int argc,char* argv[])
 
 				sel.SetSelJets( sel_jets );
 				sel.SetSelBJets( sel_b_jets );
-
 				sel.Setidx_Lep( SelLep );
 
-				sel.MVASort();
+				if( is_mva )
+					sel.MVASort();
+				else
+					sel.Chi2Sort();
 				
 				TLorentzVector hadb = sel.JetP4( sel.Idx_Hadb() );
 				TLorentzVector lepb = sel.JetP4( sel.Idx_Lepb() );
@@ -146,8 +183,15 @@ int main(int argc,char* argv[])
 				//double Mjjb = ( hadb + j1 + j2 ).M();
 				double Mlb = ( lepb + lepton ).M() ;
 				
-				if( sel.RecoAlgoValue() < mva_cut ) continue;
-				if( Mlb > 150 ) continue;
+				if( is_mva ) {
+					if( sel.RecoAlgoValue() < algo_cut ) { continue; }
+                }
+				else {
+					if( sel.RecoAlgoValue() > algo_cut ) { continue; }
+                }
+				if( is_Mlb_cut ) {
+					if( Mlb > 150 ) continue;
+				}
 			
 				acpMgr.InputSelObjs_p4( hadb, lepb, j1, sel.Idx_Lep() );
 
@@ -158,11 +202,22 @@ int main(int argc,char* argv[])
 
 			
 			}	//end of entry for-loop	
+			if( is_mva )	
+				training_name = sel.GetTrain();
 			
 	//*****Drawing Plotting or Outputting files*****//
 
 	//Save these hists to be a root file
 	
+	if( !is_mva )
+		training_name = "chi2";
+	
+	if( is_Mlb_cut )
+		training_name += "_Mlbcut";
+	else
+		training_name += "_noMlbcut";
+
+
 	string time_str = "";
 	time_str = get_time_str( minute );
 	string sample_path = "/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/";

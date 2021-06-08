@@ -1,0 +1,329 @@
+
+Sample         :             TT
+No Cut(mu)     :         365618
+No Cut(el)     :         210851
+1 Cut(mu)      :         277739
+1 Cut(el)      :         159881
+2 Cut(mu)      :         264201
+2 Cut(el)      :         150733
+--------------------
+
+Sample         :             DY
+No Cut(mu)     :        1320.54
+No Cut(el)     :        1448.37
+1 Cut(mu)      :        511.818
+1 Cut(el)      :        575.975
+2 Cut(mu)      :        410.861
+2 Cut(el)      :        449.998
+--------------------
+
+Sample         :          WJets
+No Cut(mu)     :        8616.14
+No Cut(el)     :        4893.35
+1 Cut(mu)      :        2754.95
+1 Cut(el)      :        1546.24
+2 Cut(mu)      :        2026.41
+2 Cut(el)      :        1078.37
+--------------------
+
+Sample         :             VV
+No Cut(mu)     :        319.081
+No Cut(el)     :        203.427
+1 Cut(mu)      :        130.696
+1 Cut(el)      :        87.6112
+2 Cut(mu)      :        97.2304
+2 Cut(el)      :        67.1212
+--------------------
+
+Sample         :             ST
+No Cut(mu)     :        19429.3
+No Cut(el)     :        11643.7
+1 Cut(mu)      :        9898.24
+1 Cut(el)      :        5905.79
+2 Cut(mu)      :        7784.96
+2 Cut(el)      :        4397.09
+--------------------
+
+Sample         :            QCD
+No Cut(mu)     :              0
+No Cut(el)     :              0
+1 Cut(mu)      :              0
+1 Cut(el)      :              0
+2 Cut(mu)      :              0
+2 Cut(el)      :              0
+--------------------
+
+Sample         :           Data
+No Cut(mu)     :         385979
+No Cut(el)     :         230254
+1 Cut(mu)      :         269857
+1 Cut(el)      :         159905
+2 Cut(mu)      :         254173
+2 Cut(el)      :         148708
+--------------------
+End Time : 200719_1656
+==============================
+
+Sample         :             TT
+No Cut(mu)     :         365618
+No Cut(el)     :         210851
+1 Cut(mu)      :         274586
+1 Cut(el)      :         158112
+2 Cut(mu)      :         260272
+2 Cut(el)      :         148689
+--------------------
+
+Sample         :             DY
+No Cut(mu)     :        1320.54
+No Cut(el)     :        1448.37
+1 Cut(mu)      :        529.868
+1 Cut(el)      :        598.345
+2 Cut(mu)      :         402.23
+2 Cut(el)      :        444.141
+--------------------
+
+Sample         :          WJets
+No Cut(mu)     :        8616.14
+No Cut(el)     :        4893.35
+1 Cut(mu)      :        2857.13
+1 Cut(el)      :        1580.01
+2 Cut(mu)      :        1984.06
+2 Cut(el)      :         1041.3
+--------------------
+
+Sample         :             VV
+No Cut(mu)     :        319.081
+No Cut(el)     :        203.427
+1 Cut(mu)      :        136.133
+1 Cut(el)      :        86.8612
+2 Cut(mu)      :        99.0899
+2 Cut(el)      :        64.3381
+--------------------
+
+Sample         :             ST
+No Cut(mu)     :        19429.3
+No Cut(el)     :        11643.7
+1 Cut(mu)      :        9888.78
+1 Cut(el)      :        5890.99
+2 Cut(mu)      :        7621.52
+2 Cut(el)      :        4325.66
+--------------------
+
+Sample         :            QCD
+No Cut(mu)     :              0
+No Cut(el)     :              0
+1 Cut(mu)      :              0
+1 Cut(el)      :              0
+2 Cut(mu)      :              0
+2 Cut(el)      :              0
+--------------------
+
+Sample         :           Data
+No Cut(mu)     :         385979
+No Cut(el)     :         230254
+1 Cut(mu)      :         267081
+1 Cut(el)      :         158444
+2 Cut(mu)      :         250063
+2 Cut(el)      :         146659
+--------------------
+Starting Time 200720_0054
+End Time : 200720_0259
+==============================
+
+Sample         :             TT
+No Cut(mu)     :         365618
+No Cut(el)     :         210851
+1 Cut(mu)      :         274586
+1 Cut(el)      :         158112
+2 Cut(mu)      :         260272
+2 Cut(el)      :         148689
+--------------------
+
+Sample         :             DY
+No Cut(mu)     :        1320.54
+No Cut(el)     :        1448.37
+1 Cut(mu)      :        529.868
+1 Cut(el)      :        598.345
+2 Cut(mu)      :         402.23
+2 Cut(el)      :        444.141
+--------------------
+
+Sample         :          WJets
+No Cut(mu)     :        8616.14
+No Cut(el)     :        4893.35
+1 Cut(mu)      :        2857.13
+1 Cut(el)      :        1580.01
+2 Cut(mu)      :        1984.06
+2 Cut(el)      :         1041.3
+--------------------
+
+Sample         :             VV
+No Cut(mu)     :        319.081
+No Cut(el)     :        203.427
+1 Cut(mu)      :        136.133
+1 Cut(el)      :        86.8612
+2 Cut(mu)      :        99.0899
+2 Cut(el)      :        64.3381
+--------------------
+
+Sample         :             ST
+No Cut(mu)     :        19429.3
+No Cut(el)     :        11643.7
+1 Cut(mu)      :        9888.78
+1 Cut(el)      :        5890.99
+2 Cut(mu)      :        7621.52
+2 Cut(el)      :        4325.66
+--------------------
+
+Sample         :            QCD
+No Cut(mu)     :              0
+No Cut(el)     :              0
+1 Cut(mu)      :              0
+1 Cut(el)      :              0
+2 Cut(mu)      :              0
+2 Cut(el)      :              0
+--------------------
+
+Sample         :           Data
+No Cut(mu)     :         385979
+No Cut(el)     :         230254
+1 Cut(mu)      :         267081
+1 Cut(el)      :         158444
+2 Cut(mu)      :         250063
+2 Cut(el)      :         146659
+--------------------
+Starting Time 200720_0357
+End Time : 200720_0611
+==============================
+
+Sample         :             TT
+No Cut(mu)     :         365618
+No Cut(el)     :         210851
+1 Cut(mu)      :         274586
+1 Cut(el)      :         158112
+2 Cut(mu)      :         260272
+2 Cut(el)      :         148689
+--------------------
+
+Sample         :             DY
+No Cut(mu)     :        1320.54
+No Cut(el)     :        1448.37
+1 Cut(mu)      :        529.868
+1 Cut(el)      :        598.345
+2 Cut(mu)      :         402.23
+2 Cut(el)      :        444.141
+--------------------
+
+Sample         :          WJets
+No Cut(mu)     :        8616.14
+No Cut(el)     :        4893.35
+1 Cut(mu)      :        2857.13
+1 Cut(el)      :        1580.01
+2 Cut(mu)      :        1984.06
+2 Cut(el)      :         1041.3
+--------------------
+
+Sample         :             VV
+No Cut(mu)     :        319.081
+No Cut(el)     :        203.427
+1 Cut(mu)      :        136.133
+1 Cut(el)      :        86.8612
+2 Cut(mu)      :        99.0899
+2 Cut(el)      :        64.3381
+--------------------
+
+Sample         :             ST
+No Cut(mu)     :        19429.3
+No Cut(el)     :        11643.7
+1 Cut(mu)      :        9888.78
+1 Cut(el)      :        5890.99
+2 Cut(mu)      :        7621.52
+2 Cut(el)      :        4325.66
+--------------------
+
+Sample         :            QCD
+No Cut(mu)     :              0
+No Cut(el)     :              0
+1 Cut(mu)      :              0
+1 Cut(el)      :              0
+2 Cut(mu)      :              0
+2 Cut(el)      :              0
+--------------------
+
+Sample         :           Data
+No Cut(mu)     :         385979
+No Cut(el)     :         230254
+1 Cut(mu)      :         267081
+1 Cut(el)      :         158444
+2 Cut(mu)      :         250063
+2 Cut(el)      :         146659
+--------------------
+Starting Time 200720_1514
+End Time : 200720_1727
+==============================
+
+Sample         :             TT
+No Cut(mu)     :        210.985
+No Cut(el)     :         122.99
+1 Cut(mu)      :        159.313
+1 Cut(el)      :        90.1256
+2 Cut(mu)      :        150.112
+2 Cut(el)      :        84.9941
+--------------------
+
+Sample         :             DY
+No Cut(mu)     :        689.467
+No Cut(el)     :        4893.62
+1 Cut(mu)      :         323.82
+1 Cut(el)      :         379.01
+2 Cut(mu)      :        265.728
+2 Cut(el)      :        300.379
+--------------------
+
+Sample         :          WJets
+No Cut(mu)     :        6015.14
+No Cut(el)     :        1690.71
+1 Cut(mu)      :        1194.99
+1 Cut(el)      :        629.365
+2 Cut(mu)      :        896.458
+2 Cut(el)      :        464.148
+--------------------
+
+Sample         :             VV
+No Cut(mu)     :        2135.52
+No Cut(el)     :        2237.45
+1 Cut(mu)      :        136.133
+1 Cut(el)      :        1830.92
+2 Cut(mu)      :        99.0899
+2 Cut(el)      :        64.3381
+--------------------
+
+Sample         :             ST
+No Cut(mu)     :        1409.46
+No Cut(el)     :        867.617
+1 Cut(mu)      :         716.83
+1 Cut(el)      :        427.065
+2 Cut(mu)      :        543.427
+2 Cut(el)      :        307.933
+--------------------
+
+Sample         :            QCD
+No Cut(mu)     :    4.43109e+07
+No Cut(el)     :              0
+1 Cut(mu)      :              0
+1 Cut(el)      :              0
+2 Cut(mu)      :              0
+2 Cut(el)      :              0
+--------------------
+
+Sample         :           Data
+No Cut(mu)     :           3064
+No Cut(el)     :           2936
+1 Cut(mu)      :           2071
+1 Cut(el)      :           2040
+2 Cut(mu)      :           1930
+2 Cut(el)      :           1863
+--------------------
+Starting Time 200721_1333
+End Time : 200721_1335
+==============================

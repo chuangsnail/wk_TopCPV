@@ -25,7 +25,9 @@ void Calculate( const string& channel = "t" )
 	//string out = "a05_all_MLP_ChangeInfo_washout";
 	//string out = "a05_all_MLP_fakeData_ChangeInfo";		// the uncertainty would be quoted as detector and reconstruction bias
 	//string out = "chi2_fakeData_ChangeInfo";
-	string out = "a05_all_MLP_MlbNo_fakeData_ChangeInfo";
+	//string out = "a05_all_MLP_MlbNo_fakeData_ChangeInfo";
+	
+	string out = "a"
 
 	ofstream f;
 
@@ -41,8 +43,8 @@ void Calculate( const string& channel = "t" )
 	//(4) chi2 20, Mlb 150 cut
 	//f.open( "/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/information/fake_data_chi2.txt", ios::app );	
 	
-	//(5) chi2 20, Mlb 150 cut
-	f.open( "/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/information/fake_data_a05_MLP_Mlb-No.txt", ios::app );	
+	//(5) mva 0.22, Mlb No cut
+	//f.open( "/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/information/fake_data_a05_MLP_Mlb-No.txt", ios::app );	
 	
 
 	int pass = 0;
@@ -53,9 +55,9 @@ void Calculate( const string& channel = "t" )
 		string NO = to_string( i );
 		//string name = "/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/1000sample/a05_all_MLP_ChangeInfo_Sample-" + NO;
 		//string name = "/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/washout/a05_all_MLP_ChangeInfo_Sample-" + NO;
-		//string name = "/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/fake_data/a05_all_MLP_ChangeInfo_Sample-" + NO;
+		string name = "/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/fake_data/a05_all_MLP_ChangeInfo_Sample-" + NO;
 		//string name = "/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/fake_data_chi2_Mlb-150/chi2_ChangeInfo_Sample-" + NO;
-		string name = "/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/fake_data_a05_MLP_Mlb-No/a05_MLP_ChangeInfo_Sample-" + NO;
+		//string name = "/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/fake_data_a05_MLP_Mlb-No/a05_MLP_ChangeInfo_Sample-" + NO;
 		
 		if( GetOne( name, mean, error, channel ) ) pass++;
 	}
@@ -146,9 +148,15 @@ void Plot( TH1D* h_acp, TH1D* h_error1, TH1D* h_error2 , const string& filename,
 		h_acp->GetXaxis()->SetBinLabel( i+1, (char*)obs_name[i].c_str() );
 	}
 	h_acp->GetYaxis()->SetTitle( (char*)y_title.c_str() );
+
+	TLatex tl;
+	tl.SetNDC(true);
+	tl.SetTextFont(43);
+	tl.SetTextSize(22);
+	tl.SetTextAlign(13);
+
 	
 	TLegend* l = new TLegend(0.6,0.7,0.85,0.85);
-	l->AddEntry( (TObject*)0,"Simulation", "" );
 	if( channel != "t" )
 		l->AddEntry( (TObject*)0, (char*)( string("ch-") + channel ).c_str() , "" );
 	l->AddEntry( h_acp, "Nominal value", "LEP");
@@ -166,7 +174,11 @@ void Plot( TH1D* h_acp, TH1D* h_error1, TH1D* h_error2 , const string& filename,
 	l->Draw("SAME");
 	l1->Draw("SAME");
 
+	tl.DrawLatex(0.13+0.04,0.9-0.04,"#bf{CMS}");
+	tl.DrawLatex(0.13+0.04,0.9-0.04-33./600.,"#it{Simulation}");
+	
 	string pdfname = description + "_" + filename + "_" + channel + ".pdf";
+	pdfname = "/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/average_Acp_plots/" + pdfname;
 	c->Print( (char*)pdfname.c_str() );
 	
 }

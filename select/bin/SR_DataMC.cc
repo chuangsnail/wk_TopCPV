@@ -52,8 +52,8 @@ int main(int argc,char* argv[])
 	Weights_map[data_sets_name[0]] = &w_TT;				Weights_map[data_sets_name[1]] = &w_DY;
 	Weights_map[data_sets_name[2]] = &w_WJets;			Weights_map[data_sets_name[3]] = &w_VV;
 	Weights_map[data_sets_name[4]] = &w_ST;				Weights_map[data_sets_name[5]] = &w_QCD;
-	get_lumi_weight( Weights_map , "/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/full_sel/full_16_SR.txt" );
-	//get_lumi_weight( Weights_map , "/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/full_sel/full_16_SR_nominal.txt" );
+	//get_lumi_weight( Weights_map , "/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/full_sel/full_16_SR.txt" );
+	get_lumi_weight( Weights_map , "/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/full_sel/full_16_SR_nominal.txt" );
 	cout << "Finish getting lumi-weight" << endl;
 
 	//*********************About path***********************//
@@ -66,8 +66,8 @@ int main(int argc,char* argv[])
 	Data_Set_Path[data_sets_name[2]] = &WJets;			Data_Set_Path[data_sets_name[3]] = &VV;
 	Data_Set_Path[data_sets_name[4]] = &ST;				Data_Set_Path[data_sets_name[5]] = &QCD;
 	Data_Set_Path[d6] = &Data_SM;						Data_Set_Path[d7] = &Data_SE;
-	get_path( Data_Set_Path , "/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/full_sel/full_16_SR.txt" );
-	//get_path( Data_Set_Path , "/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/full_sel/full_16_SR_nominal.txt" );
+	//get_path( Data_Set_Path , "/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/full_sel/full_16_SR.txt" );
+	get_path( Data_Set_Path , "/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/full_sel/full_16_SR_nominal.txt" );
 	cout << "Finish getting Path info." << endl;
 
 	//**********initial the files and TChain and make the file map and weight map***********//
@@ -312,12 +312,15 @@ int main(int argc,char* argv[])
 	string time_str = "";
 	time_str = get_time_str( minute );
 	
+/*	
 	ofstream f2;
 	f2.open( "/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/information/SR_DataMC.txt",fstream::app );	
    	f2 << "-" << endl << "Starting Time : " << startingtime << endl;
 	f2 << "End Time : " << time_str << endl;
     for(int i=0;i<30;++i) f2 << "=";
 	f2 << endl;
+    f2.close(); 
+*/
 	
 	string new_file_name = training_name + string("_SRmass_") + time_str + ".root";
 
@@ -327,7 +330,6 @@ int main(int argc,char* argv[])
 
 	f_out->Close();
 	
-    f2.close(); 
 	cout << "starting loop time : " << startingtime << endl;
 	cout << "ending loop time : " << time_str << endl;
 }

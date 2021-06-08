@@ -15,16 +15,50 @@
 
 using namespace std;
 
+//exe mva/chi2 algo-cut is_Mlb_cut normal/test changeNo dir_name
+
 int main(int argc,char* argv[])
 {
-	int change_number = stoi( string(argv[2]) );
+	if( argc != 7 )
+	{
+		cerr << "[ERROR] wrong argment numbers!" << endl;
+		return 0;
+	}
+	bool is_mva = false;
+	if( string( argv[1] ).find( "mva" ) != string::npos )
+		is_mva = true;
 
-	string training_name = "a05_all_MLP";
-	double mva_cut = stod( string(argv[1]) );
-	cout << "mva-cut is " << mva_cut << endl;
+	double algo_cut = stod( string( argv[2] ) );
+
+	bool is_Mlb_cut = false;
+	if( stoi( string( argv[3] ) ) != 0 )
+		is_Mlb_cut = true;
+	
+
+	bool is_test = false;
+	string option = "normal";
+	option = string( argv[4] );
+
+	if( option.find("test") != string::npos )
+	{
+		is_test = true;
+		cout << ">> Mode test <<" << endl;
+	}
+
+	string training_name = "";
+
+	if( is_mva )
+		cout << "With mva sort" << endl;
+	else
+		cout << "With chi2 sort" << endl;
+	cout << "algo-cut is " << algo_cut << endl;
+
+	int change_number = stoi( string(argv[5]) );
+
+	string dir_name = string( argv[6] );
 
 	TChain* root = new TChain( "root" );
-	root->Add( "/wk_cms2/cychuang/16_full_SR/TTbar/full_sel_bpk_ntuple_*.root" );
+	root->Add( "/wk_cms2/cychuang/full_sel_16/Nominal/TTbar/full_sel_bpk_ntuple_*.root" );
 	
 	//*** make histograms ***//
 
@@ -74,14 +108,15 @@ int main(int argc,char* argv[])
 			( root )->SetBranchAddress( "Channel", &channel );
 			
 			int t_entries = (root)->GetEntries();
+			if( is_test ) t_entries = 2000;
 
 			//*** Initialize the selection manager ***//
 			
 			SelMgr sel( &jetInfo, &leptonInfo, &evtInfo, &vertexInfo, &genInfo );
+			sel.SetTrain( training_name );
 			if( is_data ) {	sel.SetIsData(is_data);	}
 
 			AcpMgr acpMgr( &leptonInfo, &jetInfo );
-			
 			GenMgr genMgr( &genInfo, &jetInfo, &leptonInfo );
 
 			//*** prepare for changing info. method ***//
@@ -132,7 +167,10 @@ int main(int argc,char* argv[])
 
 				sel.Setidx_Lep( SelLep );
 
-				sel.MVASort();
+				if( is_mva )
+					sel.MVASort();
+				else
+					sel.Chi2Sort();
 
 				double w_o3 = 0.;
 				double w_o6 = 0.;
@@ -164,8 +202,15 @@ int main(int argc,char* argv[])
 				//double Mjjb = ( hadb + j1 + j2 ).M();
 				double Mlb = ( lepb + lepton ).M() ;
 				
-				if( sel.RecoAlgoValue() < mva_cut ) continue;
-				if( Mlb > 150 ) continue;
+				if( is_mva ) {
+					if( sel.RecoAlgoValue() < algo_cut ) { continue; }
+                }
+				else {
+					if( sel.RecoAlgoValue() > algo_cut ) { continue; }
+                }
+				if( is_Mlb_cut ) {
+					if( Mlb > 150 ) continue;
+				}
 			
 				int change_to = entry % change_number;
 				
@@ -180,6 +225,8 @@ int main(int argc,char* argv[])
 				change_j1[ change_to ] = j1;
 
 			}	//end of entry for-loop	
+			if( is_mva )	
+				training_name = sel.GetTrain();
 
 	//*****Drawing Plotting or Outputting files*****//
 
@@ -187,8 +234,8 @@ int main(int argc,char* argv[])
 	
 	string time_str = "";
 	time_str = get_time_str( minute );
-	string sample_path = "/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/washout/";
-	string new_file_name = sample_path + training_name + string("_ChangeInfo_Sample-") + string(argv[2]) + ".root";
+	string sample_path = "/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/washout_" + dir_name + "/";
+	string new_file_name = sample_path + training_name + string("_ChangeInfo_Sample-") + string(argv[5]) + ".root";
 
 	TFile* f_out = new TFile( new_file_name.c_str() , "recreate" );
 

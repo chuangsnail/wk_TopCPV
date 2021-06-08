@@ -3,7 +3,7 @@
  *	File Name : Unc_Fit.cc
  *	Date : 200622
  *	Description : 
- *	Usage : exe {condition} {channel} {obs} {rnd seed} {set #}	
+ *	Usage : exe {condition} {channel} {obs} {rnd seed} {set #} {mva/chi2}	
  *
  * ********************************/
 
@@ -17,7 +17,7 @@ using namespace std;
 int main(int argc,char* argv[])
 {
 
-	if( argc == 6 )
+	if( argc == 7 )
 	{
 		string condition = string( argv[1] );
 		string channel = string( argv[2] );
@@ -28,17 +28,22 @@ int main(int argc,char* argv[])
 		int seed = stoi( seed_str );
 		int set_no = stoi( set_no_str );
 
+		string strategy = string( argv[6] );
+
 		string start_time = get_time_str( minute );
 
+		string path = "/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/UncTemplate/"+ strategy + "/";
+
 		Get_fit_result( condition, \
-			"/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/UncTemplate/mva/Mlb_Obs-nominal-SR_signal-2ch-bin100_50.root",				\
-			"/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/UncTemplate/mva/Mlb_Obs-nominal-SR_bkg-2ch-bin100_50.root",					\
-			string("/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/UncTemplate/mva/Mlb_Obs-" + condition + "-SR_signal-2ch-bin100_50.root"),	\
-			"/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/UncTemplate/mva/Mlb_Obs-nominal-CR_data-2ch-bin100_50.root",					\
+			string( path + "Mlb_Obs-nominal-SR_signal-2ch-bin100_50.root" ),				\
+			string( path + "Mlb_Obs-nominal-SR_bkg-2ch-bin100_50.root" ),					\
+			string( path + "Mlb_Obs-" + condition + "-SR_signal-2ch-bin100_50.root" ),	\
+			string( path + "Mlb_Obs-nominal-CR_data-2ch-bin100_50.root" ),					\
 			channel,	\
 			obs,		\
 			seed,		\
-			set_no		\
+			set_no,		\
+			strategy	\
 			);
 
 		string end_time = get_time_str( minute );
@@ -46,7 +51,7 @@ int main(int argc,char* argv[])
 		cout << "start time : " << start_time << ", end time : " << end_time << endl;
 		cerr << endl << "[END]" << endl;
 	}
-	else if( argc == 4 )
+	else if( argc == 5 )
 	{
 		string condition = string( argv[1] );
 		string seed_str = string( argv[2] );
@@ -54,6 +59,8 @@ int main(int argc,char* argv[])
 		int seed = stoi( seed_str );
 		int set_no = stoi( set_no_str );
 
+		string strategy = string( argv[6] );
+		
 		string start_time = get_time_str( minute );
 		
         string chs[2] = { "mu", "el" };
@@ -71,7 +78,8 @@ int main(int argc,char* argv[])
                     chs[i],	\
                     obss[j],		\
                     seed,		\
-                    set_no		\
+                    set_no,		\
+					strategy	\
                     );
                 seed++; 
             }

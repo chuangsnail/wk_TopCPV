@@ -51,3 +51,6 @@
 <bin name="CR_inv_DataMC"  file="CR_inv_DataMC.cc"/>
 <bin name="SR_DataMC_vars"  file="SR_DataMC_vars.cc"/>
 <bin name="SR_DataMC_vars_unc"  file="SR_DataMC_vars_Unc.cc"/>
+<bin name="Cal_Acp_SRbkg"  file="Cal_Acp_SRbkg_new.cc"/>
+<bin name="Cal_Acp_SRtt"  file="Cal_Acp_SRtt_new.cc"/>
+<bin name="StoreTrain"  file="Make_train_data.cc"/>

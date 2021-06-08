@@ -163,8 +163,8 @@ int main(int argc,char* argv[])
 	Data_Set_Path[data_sets_name[2]] = &WJets;			Data_Set_Path[data_sets_name[3]] = &VV;
 	Data_Set_Path[data_sets_name[4]] = &ST;				Data_Set_Path[data_sets_name[5]] = &QCD;
 	Data_Set_Path[d6] = &Data_SM;						Data_Set_Path[d7] = &Data_SE;
-	//get_path( Data_Set_Path , "/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/full_sel/full_16_SR.txt" );
-	get_path( Data_Set_Path , "/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/full_sel/full_16_SR_nominal.txt" );
+	//get_path( Data_Set_Path , "/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/full_sel/full_16_SR_nominal.txt" );
+	get_path( Data_Set_Path , path_txt_string.c_str()  );
 	//get_path_tmp( Data_Set_Path );
 	cout << "Finish getting Path info." << endl;
 
@@ -453,12 +453,8 @@ int main(int argc,char* argv[])
 				double weight = 1.;
 				sel.reset();
 
-				weight = other_weight * pu_weight * btag_weight * lepsf_weight;
+				weight = other_weight * pu_weight * btag_weight * lepsf_weight * lumi_weight;
 
-				//** Set lumi_Weight first **//
-				sel.ScaleWeight( lumi_weight );
-				sel.ScaleWeight( weight );
-				
 				//use mva to choose best choice of reconstruct top quark's mass 
 
 				vector<int> sel_jets;
@@ -493,27 +489,27 @@ int main(int argc,char* argv[])
 				if( is_test && entry%500 == 0 )
 					cout << "entry : " << entry << " , algo : " <<  algo_value << endl;
 
-				h_algo.FillHist( "NC", k, *channel, algo_value, 0., sel.Weight() );
-				h_mjjb.FillHist( "NC", k, *channel, var[0], 0., sel.Weight() );
-				h_mjj.FillHist( "NC", k, *channel, var[1], 0., sel.Weight() );
-				h_j1j2_sumPt.FillHist( "NC", k, *channel, var[2], 0., sel.Weight() );
-				h_j1j2_absdelPt.FillHist( "NC", k, *channel, var[3], 0., sel.Weight() );
-				h_j1j2_delR.FillHist( "NC", k, *channel, var[4], 0., sel.Weight() );
-				h_whadb_sumPt.FillHist( "NC", k, *channel, var[5], 0., sel.Weight() );
-				h_whadb_delPt.FillHist( "NC", k, *channel, var[6], 0., sel.Weight() );
-				h_whadb_delR.FillHist( "NC", k, *channel, var[7], 0., sel.Weight() );
-				h_hadblepton_sumPt.FillHist( "NC", k, *channel, var[8], 0., sel.Weight() );
-				h_hadblepton_delPt.FillHist( "NC", k, *channel, var[9], 0., sel.Weight() );
-				h_hadblepton_delR.FillHist( "NC", k, *channel, var[10], 0., sel.Weight() );
-				h_hadwlepton_sumPt.FillHist( "NC", k, *channel, var[11], 0., sel.Weight() );
-				h_hadwlepton_delPt.FillHist( "NC", k, *channel, var[12], 0., sel.Weight() );
-				h_hadwlepton_delR.FillHist( "NC", k, *channel, var[13], 0., sel.Weight() );
-				h_hadbmet_delPhi.FillHist( "NC", k, *channel, var[14], 0., sel.Weight() );
-				h_hadbmet_sumPt.FillHist( "NC", k, *channel, var[15], 0., sel.Weight() );
-				h_hadbmet_delPt.FillHist( "NC", k, *channel, var[16], 0., sel.Weight() );
-				h_hadwmet_delPhi.FillHist( "NC", k, *channel, var[17], 0., sel.Weight() );
-				h_hadwmet_sumPt.FillHist( "NC", k, *channel, var[18], 0., sel.Weight() );
-				h_hadwmet_delPt.FillHist( "NC", k, *channel, var[19], 0., sel.Weight() );
+				h_algo.FillHist( "NC", k, *channel, algo_value, 0., weight );
+				h_mjjb.FillHist( "NC", k, *channel, var[0], 0., weight );
+				h_mjj.FillHist( "NC", k, *channel, var[1], 0., weight );
+				h_j1j2_sumPt.FillHist( "NC", k, *channel, var[2], 0., weight );
+				h_j1j2_absdelPt.FillHist( "NC", k, *channel, var[3], 0., weight );
+				h_j1j2_delR.FillHist( "NC", k, *channel, var[4], 0., weight );
+				h_whadb_sumPt.FillHist( "NC", k, *channel, var[5], 0., weight );
+				h_whadb_delPt.FillHist( "NC", k, *channel, var[6], 0., weight );
+				h_whadb_delR.FillHist( "NC", k, *channel, var[7], 0., weight );
+				h_hadblepton_sumPt.FillHist( "NC", k, *channel, var[8], 0., weight );
+				h_hadblepton_delPt.FillHist( "NC", k, *channel, var[9], 0., weight );
+				h_hadblepton_delR.FillHist( "NC", k, *channel, var[10], 0., weight );
+				h_hadwlepton_sumPt.FillHist( "NC", k, *channel, var[11], 0., weight );
+				h_hadwlepton_delPt.FillHist( "NC", k, *channel, var[12], 0., weight );
+				h_hadwlepton_delR.FillHist( "NC", k, *channel, var[13], 0., weight );
+				h_hadbmet_delPhi.FillHist( "NC", k, *channel, var[14], 0., weight );
+				h_hadbmet_sumPt.FillHist( "NC", k, *channel, var[15], 0., weight );
+				h_hadbmet_delPt.FillHist( "NC", k, *channel, var[16], 0., weight );
+				h_hadwmet_delPhi.FillHist( "NC", k, *channel, var[17], 0., weight );
+				h_hadwmet_sumPt.FillHist( "NC", k, *channel, var[18], 0., weight );
+				h_hadwmet_delPt.FillHist( "NC", k, *channel, var[19], 0., weight );
 		
 				if( is_mva ) {
 					if( sel.RecoAlgoValue() < algo_cut ) { continue; }
@@ -522,50 +518,50 @@ int main(int argc,char* argv[])
 					if( sel.RecoAlgoValue() > algo_cut ) { continue; }
                 }
 
-				h_algo.FillHist( "1C", k, *channel, algo_value, 0., sel.Weight() );
-				h_mjjb.FillHist( "1C", k, *channel, var[0], 0., sel.Weight() );
-				h_mjj.FillHist( "1C", k, *channel, var[1], 0., sel.Weight() );
-				h_j1j2_sumPt.FillHist( "1C", k, *channel, var[2], 0., sel.Weight() );
-				h_j1j2_absdelPt.FillHist( "1C", k, *channel, var[3], 0., sel.Weight() );
-				h_j1j2_delR.FillHist( "1C", k, *channel, var[4], 0., sel.Weight() );
-				h_whadb_sumPt.FillHist( "1C", k, *channel, var[5], 0., sel.Weight() );
-				h_whadb_delPt.FillHist( "1C", k, *channel, var[6], 0., sel.Weight() );
-				h_whadb_delR.FillHist( "1C", k, *channel, var[7], 0., sel.Weight() );
-				h_hadblepton_sumPt.FillHist( "1C", k, *channel, var[8], 0., sel.Weight() );
-				h_hadblepton_delPt.FillHist( "1C", k, *channel, var[9], 0., sel.Weight() );
-				h_hadblepton_delR.FillHist( "1C", k, *channel, var[10], 0., sel.Weight() );
-				h_hadwlepton_sumPt.FillHist( "1C", k, *channel, var[11], 0., sel.Weight() );
-				h_hadwlepton_delPt.FillHist( "1C", k, *channel, var[12], 0., sel.Weight() );
-				h_hadwlepton_delR.FillHist( "1C", k, *channel, var[13], 0., sel.Weight() );
-				h_hadbmet_delPhi.FillHist( "1C", k, *channel, var[14], 0., sel.Weight() );
-				h_hadbmet_sumPt.FillHist( "1C", k, *channel, var[15], 0., sel.Weight() );
-				h_hadbmet_delPt.FillHist( "1C", k, *channel, var[16], 0., sel.Weight() );
-				h_hadwmet_delPhi.FillHist( "1C", k, *channel, var[17], 0., sel.Weight() );
-				h_hadwmet_sumPt.FillHist( "1C", k, *channel, var[18], 0., sel.Weight() );
-				h_hadwmet_delPt.FillHist( "1C", k, *channel, var[19], 0., sel.Weight() );
+				h_algo.FillHist( "1C", k, *channel, algo_value, 0., weight );
+				h_mjjb.FillHist( "1C", k, *channel, var[0], 0., weight );
+				h_mjj.FillHist( "1C", k, *channel, var[1], 0., weight );
+				h_j1j2_sumPt.FillHist( "1C", k, *channel, var[2], 0., weight );
+				h_j1j2_absdelPt.FillHist( "1C", k, *channel, var[3], 0., weight );
+				h_j1j2_delR.FillHist( "1C", k, *channel, var[4], 0., weight );
+				h_whadb_sumPt.FillHist( "1C", k, *channel, var[5], 0., weight );
+				h_whadb_delPt.FillHist( "1C", k, *channel, var[6], 0., weight );
+				h_whadb_delR.FillHist( "1C", k, *channel, var[7], 0., weight );
+				h_hadblepton_sumPt.FillHist( "1C", k, *channel, var[8], 0., weight );
+				h_hadblepton_delPt.FillHist( "1C", k, *channel, var[9], 0., weight );
+				h_hadblepton_delR.FillHist( "1C", k, *channel, var[10], 0., weight );
+				h_hadwlepton_sumPt.FillHist( "1C", k, *channel, var[11], 0., weight );
+				h_hadwlepton_delPt.FillHist( "1C", k, *channel, var[12], 0., weight );
+				h_hadwlepton_delR.FillHist( "1C", k, *channel, var[13], 0., weight );
+				h_hadbmet_delPhi.FillHist( "1C", k, *channel, var[14], 0., weight );
+				h_hadbmet_sumPt.FillHist( "1C", k, *channel, var[15], 0., weight );
+				h_hadbmet_delPt.FillHist( "1C", k, *channel, var[16], 0., weight );
+				h_hadwmet_delPhi.FillHist( "1C", k, *channel, var[17], 0., weight );
+				h_hadwmet_sumPt.FillHist( "1C", k, *channel, var[18], 0., weight );
+				h_hadwmet_delPt.FillHist( "1C", k, *channel, var[19], 0., weight );
 				
 				if( Mlb > 150 ){ continue; }
-				h_algo.FillHist( "2C", k, *channel, algo_value, 0., sel.Weight() );
-				h_mjjb.FillHist( "2C", k, *channel, var[0], 0., sel.Weight() );
-				h_mjj.FillHist( "2C", k, *channel, var[1], 0., sel.Weight() );
-				h_j1j2_sumPt.FillHist( "2C", k, *channel, var[2], 0., sel.Weight() );
-				h_j1j2_absdelPt.FillHist( "2C", k, *channel, var[3], 0., sel.Weight() );
-				h_j1j2_delR.FillHist( "2C", k, *channel, var[4], 0., sel.Weight() );
-				h_whadb_sumPt.FillHist( "2C", k, *channel, var[5], 0., sel.Weight() );
-				h_whadb_delPt.FillHist( "2C", k, *channel, var[6], 0., sel.Weight() );
-				h_whadb_delR.FillHist( "2C", k, *channel, var[7], 0., sel.Weight() );
-				h_hadblepton_sumPt.FillHist( "2C", k, *channel, var[8], 0., sel.Weight() );
-				h_hadblepton_delPt.FillHist( "2C", k, *channel, var[9], 0., sel.Weight() );
-				h_hadblepton_delR.FillHist( "2C", k, *channel, var[10], 0., sel.Weight() );
-				h_hadwlepton_sumPt.FillHist( "2C", k, *channel, var[11], 0., sel.Weight() );
-				h_hadwlepton_delPt.FillHist( "2C", k, *channel, var[12], 0., sel.Weight() );
-				h_hadwlepton_delR.FillHist( "2C", k, *channel, var[13], 0., sel.Weight() );
-				h_hadbmet_delPhi.FillHist( "2C", k, *channel, var[14], 0., sel.Weight() );
-				h_hadbmet_sumPt.FillHist( "2C", k, *channel, var[15], 0., sel.Weight() );
-				h_hadbmet_delPt.FillHist( "2C", k, *channel, var[16], 0., sel.Weight() );
-				h_hadwmet_delPhi.FillHist( "2C", k, *channel, var[17], 0., sel.Weight() );
-				h_hadwmet_sumPt.FillHist( "2C", k, *channel, var[18], 0., sel.Weight() );
-				h_hadwmet_delPt.FillHist( "2C", k, *channel, var[19], 0., sel.Weight() );
+				h_algo.FillHist( "2C", k, *channel, algo_value, 0., weight );
+				h_mjjb.FillHist( "2C", k, *channel, var[0], 0., weight );
+				h_mjj.FillHist( "2C", k, *channel, var[1], 0., weight );
+				h_j1j2_sumPt.FillHist( "2C", k, *channel, var[2], 0., weight );
+				h_j1j2_absdelPt.FillHist( "2C", k, *channel, var[3], 0., weight );
+				h_j1j2_delR.FillHist( "2C", k, *channel, var[4], 0., weight );
+				h_whadb_sumPt.FillHist( "2C", k, *channel, var[5], 0., weight );
+				h_whadb_delPt.FillHist( "2C", k, *channel, var[6], 0., weight );
+				h_whadb_delR.FillHist( "2C", k, *channel, var[7], 0., weight );
+				h_hadblepton_sumPt.FillHist( "2C", k, *channel, var[8], 0., weight );
+				h_hadblepton_delPt.FillHist( "2C", k, *channel, var[9], 0., weight );
+				h_hadblepton_delR.FillHist( "2C", k, *channel, var[10], 0., weight );
+				h_hadwlepton_sumPt.FillHist( "2C", k, *channel, var[11], 0., weight );
+				h_hadwlepton_delPt.FillHist( "2C", k, *channel, var[12], 0., weight );
+				h_hadwlepton_delR.FillHist( "2C", k, *channel, var[13], 0., weight );
+				h_hadbmet_delPhi.FillHist( "2C", k, *channel, var[14], 0., weight );
+				h_hadbmet_sumPt.FillHist( "2C", k, *channel, var[15], 0., weight );
+				h_hadbmet_delPt.FillHist( "2C", k, *channel, var[16], 0., weight );
+				h_hadwmet_delPhi.FillHist( "2C", k, *channel, var[17], 0., weight );
+				h_hadwmet_sumPt.FillHist( "2C", k, *channel, var[18], 0., weight );
+				h_hadwmet_delPt.FillHist( "2C", k, *channel, var[19], 0., weight );
 			
 			}	//end of entry for-loop
 			if( is_mva )	

@@ -6,7 +6,7 @@ using namespace RooFit;
 void
 Get_fit_result( const string& condition, const string& NOMSIGroot, const string& NOMBKGroot,\
 	   	const string& SNGroot, const string& BKGroot, const string& channel,\
-	   	const string& obs_name, const int& seed, const int& set_no )
+	   	const string& obs_name, const int& seed, const int& set_no, const string& strategy )
 {
     //channel == "el" or "mu"
     //obs_name == "O3" or "O6" ...
@@ -85,7 +85,7 @@ Get_fit_result( const string& condition, const string& NOMSIGroot, const string&
 		h_B = generate_2( rnd, h2_bkg_tp, rnd.Poisson(bkg_exp_No), B_grid );
 		h_B->SetName("h_B");
 
-		string hist_f_name = "/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/Uncertainty_fit/hist/" + output_name + "_" + to_string(i) + ".root";
+		string hist_f_name = "/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/Uncertainty_fit/hist/" + strategy + "/" + output_name +  "_" + to_string(i) + ".root";
 		TFile* f_tmp = new TFile( hist_f_name.c_str() ,"recreate");
 		h_PD->Write();
 		h2_sig_tp->Write();
@@ -96,7 +96,7 @@ Get_fit_result( const string& condition, const string& NOMSIGroot, const string&
 
 		double yields[2] = {0., 0.};
 
-		string pdf_name = "/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/Uncertainty_fit/yields_pdf/" + output_name + "_" + to_string(i) + ".pdf";
+		string pdf_name = "/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/Uncertainty_fit/yields_pdf/" + strategy + "/" + output_name + "_" + to_string(i) + ".pdf";
 
 		FIT_1( h_PD->ProjectionX(), h2_sig_tp->ProjectionX(), h_B->ProjectionX(), yields, pdf_name );
 
@@ -114,7 +114,7 @@ Get_fit_result( const string& condition, const string& NOMSIGroot, const string&
 		B_yr_cut[0] = B_yr_cut[0] * yields[1];
 
 		ofstream fout;
-		fout.open(  ( string("/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/Uncertainty_fit/result/") + output_name + string(".txt") ).c_str() ,ios::app );
+		fout.open(  ( string("/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/Uncertainty_fit/result/") + strategy + "/"  + output_name + string(".txt") ).c_str() ,ios::app );
 
 		fout << yields[0] + yields[1] << "," << Ratio_Minus( h_PD->ProjectionY() ) << ",";
 		fout << yields[1] << "," << Ratio_Minus( h_B->ProjectionY() ) << ",";
@@ -193,6 +193,9 @@ void FIT_1( TH1D* h_PD, TH1D* h_signal, TH1D* h_B, double* yields, const string&
     h2_down->Scale( ( nbg.getError() - nbg.getValV() ) / nbg.getValV() );
 */
 
+	//-- Drawing --//
+/*
+
     TCanvas* c = new TCanvas();
 	TGaxis::SetMaxDigits(3);
 
@@ -252,6 +255,7 @@ void FIT_1( TH1D* h_PD, TH1D* h_signal, TH1D* h_B, double* yields, const string&
     
     c->Print( pdf_name.c_str() );
 
+*/
 }
 
 // with Monte Carlo method

@@ -37,7 +37,7 @@ double BtagMgr::Get_Btag_Scale_Factor( const int idx )
 double BtagMgr::Get_Btag_Scale_Factor( const int idx, const string& option )
 {
 	//option is used to applied [ "central", "up", "down" ]
-	
+
 	BTagEntry::JetFlavor flavor;
 
 	if( fabs( jets->GenFlavor[idx] ) == 5 )
@@ -182,7 +182,7 @@ double BtagMgr::Get_Btag_Weight( const string& option )
 		double prob_div_l = 1.;
 		
 		// b, c quark part
-
+		
 		if( !tagged_b.empty() )
 		{
 			for(int i=0;i<(int)tagged_b.size();i++)
@@ -203,7 +203,7 @@ double BtagMgr::Get_Btag_Weight( const string& option )
 		{
 			for(int i=0;i<(int)ntagged_b.size();i++)
 			{
-				if( jets->GenFlavor[ tagged_b.at(i) ] == 4 || jets->GenFlavor[ tagged_b.at(i) ] == 5 )
+				if( jets->GenFlavor[ ntagged_b.at(i) ] == 4 || jets->GenFlavor[ ntagged_b.at(i) ] == 5 )
 				{
 					double SF = Get_Btag_Scale_Factor( ntagged_b.at(i), option );
 					double EFF = Get_Btag_Efficiency( ntagged_b.at(i) );
@@ -217,7 +217,6 @@ double BtagMgr::Get_Btag_Weight( const string& option )
 				}
 			}
 		}	
-
 		// light quark part
 		
 		if( !tagged_b.empty() )
@@ -240,7 +239,7 @@ double BtagMgr::Get_Btag_Weight( const string& option )
 		{
 			for(int i=0;i<(int)ntagged_b.size();i++)
 			{
-				if( jets->GenFlavor[ tagged_b.at(i) ] == 4 || jets->GenFlavor[ tagged_b.at(i) ] == 5 )
+				if( jets->GenFlavor[ ntagged_b.at(i) ] == 4 || jets->GenFlavor[ ntagged_b.at(i) ] == 5 )
 				{
 					double SF = Get_Btag_Scale_Factor( ntagged_b.at(i), "central" );
 					double EFF = Get_Btag_Efficiency( ntagged_b.at(i) );

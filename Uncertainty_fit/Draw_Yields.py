@@ -72,6 +72,7 @@ def main(args) :
     parser.add_argument( '-c', '--channel', dest='channel',type=str, required=True )
     parser.add_argument( '-v', '--varied', dest='varied',type=str, required=True )  #'up', 'down'
     parser.add_argument( '-o', '--obs', dest='obs',type=str, required=True )
+	parser.add_argument( '-r', '--strategy', dest='strategy', type=str, default='mva' )
     try:
         opt = parser.parse_args(args[1:])
     except:
@@ -79,13 +80,13 @@ def main(args) :
         parser.print_help()
         raise
     
-    name_list = [ opt.syst, opt.varied, opt.channel, opt.obs ]
+    name_list = [ opt.syst, opt.varied, opt.channel, opt.obs, opt.strategy ]
     
     mean_sig, width_sig, mean_bkg, width_bkg = Get_Yields_Syst( name_list )
     
-    var_name = name_list[0] + "_" + name_list[1] + "_" + name_list[2] + "_" + name_list[3];
+    var_name = name_list[0] + "_" + name_list[1] + "_" + name_list[2] + "_" + name_list[3] + "_" + name_list[4];
     
-    f2 = open( "/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/Uncertainty_fit/yields_syst_result.txt", "a" )
+    f2 = open( "/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/Uncertainty_fit/yields_syst_result_" + opt.strategy + ".txt", "a" )
     f2.write( var_name + " SigY Mean : " + str( mean_sig ) + " , " )
     f2.write( "StdDev : " + str( width_sig ) + '\n' )
     f2.write( var_name + " BkgY Mean : " + str( mean_bkg ) + " , " )
@@ -95,18 +96,19 @@ def main(args) :
 
 def Get_Yields_Syst( name_list ):
     
-    var_name = name_list[0] + "_" + name_list[1] + "_" + name_list[2] + "_" + name_list[3];
-    nom_name = "nominal" + "_" + name_list[2] + "_" + name_list[3];
+    var_name = name_list[0] + "_" + name_list[1] + "_" + name_list[2] + "_" + name_list[3]
+    nom_name = "nominal" + "_" + name_list[2] + "_" + name_list[3]
 
-    filename1 = "/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/Uncertainty_fit/result/" + var_name + ".txt"
+    filename1 = "/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/Uncertainty_fit/result/" + opt.strategy + "/" + var_name + ".txt"
     f = open( filename1 , "r")
     contents_v = f.readlines()
     f.close()           # need to be close, or f1 would not store things in it
     
-    filename2 = "/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/Uncertainty_fit/result/" + nom_name + ".txt"
+    filename2 = "/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/Uncertainty_fit/result/" + opt.strategy + "/" + nom_name + ".txt"
     f = open( filename2 , "r")
     contents_n = f.readlines()
     f.close()           # need to be close, or f1 would not store things in it
+
 
     #### to decide the range of histogram ####
 

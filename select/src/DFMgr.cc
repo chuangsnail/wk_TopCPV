@@ -126,17 +126,34 @@ DFMgr::PrintIn( ofstream& f )
 	f << setw(25) << left << "DF O6:" << right << DF_O6 << "+-" << DF_err_O6 << " || " << setw(25) << left << "Cor Ratio:" << right << cor_O6 << "+-" << cor_err_O6 << endl;
 	f << setw(25) << left << "DF O12:" << right << DF_O12 << "+-" << DF_err_O12 << " || " << setw(25) << left << "Cor Ratio:" << right << cor_O12 << "+-" << cor_err_O12 << endl;
 	f << setw(25) << left << "DF O13:" << right << DF_O13 << "+-" << DF_err_O13 << " || " << setw(25) << left << "Cor Ratio:" << right << cor_O13 << "+-" << cor_err_O13 << endl;
+
+	f << " O3 x: " <<  h_O3->GetBinContent(1) << ", err of x: " << h_O3->GetBinError(1) << endl;
+	f << " O6 x: " <<  h_O6->GetBinContent(1) << ", err of x: " << h_O6->GetBinError(1) << endl;
+	f << " O12 x: " <<  h_O12->GetBinContent(1) << ", err of x: " << h_O12->GetBinError(1) << endl;
+	f << " O14 x: " <<  h_O13->GetBinContent(1) << ", err of x: " << h_O13->GetBinError(1) << endl;
+
+
 	f << "Dilution Factor ( bb condition )" << endl;
 	f << setw(25) << left << "DF O3:" << right << DF_bb_O3 << "+-" << DF_err_bb_O3 << " || " << setw(25) << left << "Cor Ratio:" << right << cor_bb_O3 << "+-" << cor_err_bb_O3 << endl;
 	f << setw(25) << left << "DF O6:" << right << DF_bb_O6 << "+-" << DF_err_bb_O6 << " || " << setw(25) << left << "Cor Ratio:" << right << cor_bb_O6 << "+-" << cor_err_bb_O6 << endl;
 	f << setw(25) << left << "DF O12:" << right << DF_bb_O12 << "+-" << DF_err_bb_O12 << " || " << setw(25) << left << "Cor Ratio:" << right << cor_bb_O12 << "+-" << cor_err_bb_O12 << endl;
 	f << setw(25) << left << "DF O13:" << right << DF_bb_O13 << "+-" << DF_err_bb_O13 << " || " << setw(25) << left << "Cor Ratio:" << right << cor_bb_O13 << "+-" << cor_err_bb_O13 << endl;
+	
+	f << " O3 x: " <<  h_bb_O3->GetBinContent(1) << ", err of x: " << h_bb_O3->GetBinError(1) << endl;
+	f << " O6 x: " <<  h_bb_O6->GetBinContent(1) << ", err of x: " << h_bb_O6->GetBinError(1) << endl;
+	f << " O12 x: " <<  h_bb_O12->GetBinContent(1) << ", err of x: " << h_bb_O12->GetBinError(1) << endl;
+	f << " O14 x: " <<  h_bb_O13->GetBinContent(1) << ", err of x: " << h_bb_O13->GetBinError(1) << endl;
+	
 	f << "Dilution Factor ( bb + j1 condition )" << endl;
 	f << setw(25) << left << "DF O3:" << right << DF_bbj1_O3 << "+-" << DF_err_bbj1_O3 << " || " << setw(25) << left << "Cor Ratio:" << right << cor_bbj1_O3 << "+-" << cor_err_bbj1_O3 << endl;
 	f << setw(25) << left << "DF O6:" << right << DF_bbj1_O6 << "+-" << DF_err_bbj1_O6 << " || " << setw(25) << left << "Cor Ratio:" << right << cor_bbj1_O6 << "+-" << cor_err_bbj1_O6 << endl;
 	f << setw(25) << left << "DF O12:" << right << DF_bbj1_O12 << "+-" << DF_err_bbj1_O12 << " || " << setw(25) << left << "Cor Ratio:" << right << cor_bbj1_O12 << "+-" << cor_err_bbj1_O12 << endl;
 	f << setw(25) << left << "DF O13:" << right << DF_bbj1_O13 << "+-" << DF_err_bbj1_O13 << " || " << setw(25) << left << "Cor Ratio:" << right << cor_bbj1_O13 << "+-" << cor_err_bbj1_O13 << endl;
 
+	f << " O3 x: " <<  h_bbj1_O3->GetBinContent(1) << ", err of x: " << h_bbj1_O3->GetBinError(1) << endl;
+	f << " O6 x: " <<  h_bbj1_O6->GetBinContent(1) << ", err of x: " << h_bbj1_O6->GetBinError(1) << endl;
+	f << " O12 x: " <<  h_bbj1_O12->GetBinContent(1) << ", err of x: " << h_bbj1_O12->GetBinError(1) << endl;
+	f << " O14 x: " <<  h_bbj1_O13->GetBinContent(1) << ", err of x: " << h_bbj1_O13->GetBinError(1) << endl;
 }
 
 double

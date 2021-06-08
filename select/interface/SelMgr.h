@@ -225,6 +225,8 @@ public:
 	bool CR_ReweightMC();
 
 	//--- for sample checking ---//
+    double Hadb_DeepCSV() { return jets.DeepCSV( Hadb );  };
+    double Lepb_DeepCSV() { return jets.DeepCSV( Lepb );  };
 	void SelJets_deepCSV( vector<double>&, const string& );
 	int TightLeptonNo();
 	void SelBJets();

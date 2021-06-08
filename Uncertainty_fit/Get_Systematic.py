@@ -22,6 +22,8 @@ def GausFit( _h, name ):
     _data = ROOT.RooDataHist( "data", "dh", ROOT.RooArgList(x), _h )
     mean = ROOT.RooRealVar( "mean" ,"Mean of Gaussian" ,-0.1 ,0.1 )
     sigma = ROOT.RooRealVar( "sigma" ,"Width of Gaussian" ,0.01 ,-0.1 ,0.1 )
+    #mean = ROOT.RooRealVar( "mean" ,"Mean of Gaussian" ,-0.01 ,0.01 )
+    #sigma = ROOT.RooRealVar( "sigma" ,"Width of Gaussian" ,0.001 ,-0.01 ,0.01 )
 
     gauss = ROOT.RooGaussian( "gauss" ,"gauss(x,mean,sigma)" ,x ,mean ,sigma )
 
@@ -51,7 +53,7 @@ def GausFit( _h, name ):
     leg.Draw( "SAME" )
     tl.DrawLatex(0.86, 0.95, "#bf{5000 datasets}")
 
-    c.Print( "/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/Uncertainty_fit/distribution/obs_syst_fit/Fitted_syst_" + name[0] + "_" + name[1] + "_" + name[2] + "_" + name[3] + ".pdf" )
+    c.Print( "/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/Uncertainty_fit/distribution/obs_syst_fit/Fitted_syst_" + name[0] + "_" + name[1] + "_" + name[2] + "_" + name[3] + "_" + name[4] + ".pdf" )
 
     return mean.getValV(), sigma.getValV();
 
@@ -61,21 +63,29 @@ def GetSyst( name_list ):
     obs_names = re.split('(\d+)',name_list[3])
     obs_name = obs_names[0] + "_{" + obs_names[1] + "}"
 
-    var_name = name_list[0] + "_" + name_list[1] + "_" + name_list[2] + "_" + name_list[3];
-    nom_name = "nominal" + "_" + name_list[2] + "_" + name_list[3];
+    var_name = name_list[0] + "_" + name_list[1] + "_" + name_list[2] + "_" + name_list[3]
+    nom_name = "nominal" + "_" + name_list[2] + "_" + name_list[3] 
 
     print "var_name : " + var_name
     print "nom_name : " + nom_name
 
-    filename = "/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/Uncertainty_fit/result/" + nom_name + ".txt"
+    strategy_source = "chi2"
+    if "mva" in name_list[4]:
+        strategy_source = "mva"
+        print "strategy_source is mva !!"
+
+    filename = "/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/Uncertainty_fit/result/" + strategy_source + "/" + nom_name + ".txt"
     f = open( filename , "r" )
     contents_n = f.readlines()
     f.close()           # need to be close, or f1 would not store things in it
 
-    filename = "/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/Uncertainty_fit/result/" + var_name + ".txt"
+    filename = "/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/Uncertainty_fit/result/" + strategy_source + "/" + var_name + ".txt"
     f = open( filename , "r" )
     contents_v = f.readlines()
     f.close()           # need to be close, or f1 would not store things in it
+
+    var_name =  var_name + "_" + name_list[4]
+    nom_name =  nom_name + "_" + name_list[4]
 
     f1 = ROOT.TFile.Open( "/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/Uncertainty_fit/distribution/obs_syst_root/h_syst_" + var_name + ".root", "RECREATE" )
 
@@ -100,10 +110,18 @@ def GetSyst( name_list ):
         line_v = contents_v[i]
 
         words_n = line_n.split(",")
+
+		# chi2, MVA-A
         sig_y_n =     float( words_n[4] )
         sig_mr_n =    float( words_n[5] )
         bkg_y_n =     float( words_n[6] )
         bkg_mr_n =    float( words_n[7] )
+        
+        # MVA-B
+        #sig_y_n =     float( words_n[0] )
+        #sig_mr_n =    float( words_n[1] )
+        #bkg_y_n =     float( words_n[2] )
+        #bkg_mr_n =    float( words_n[3] )
 
         Np_n = sig_y_n * ( 1 - sig_mr_n ) - bkg_y_n * ( 1 - bkg_mr_n )
         Nn_n = sig_y_n * sig_mr_n - bkg_y_n * bkg_mr_n
@@ -112,10 +130,17 @@ def GetSyst( name_list ):
         Acp_n = ( ( Np_n - Nn_n )/( Np_n + Nn_n ) ) * 100
 
         words_v = line_v.split(",")
+        # chi2, MVA-A
         sig_y_v =     float( words_v[4] )
         sig_mr_v =    float( words_v[5] )
         bkg_y_v =     float( words_v[6] )
         bkg_mr_v =    float( words_v[7] )
+        
+        # MVA-B
+        #sig_y_v =     float( words_v[0] )
+        #sig_mr_v =    float( words_v[1] )
+        #bkg_y_v =     float( words_v[2] )
+        #bkg_mr_v =    float( words_v[3] )
 
         Np_v = sig_y_v * ( 1 - sig_mr_v ) - bkg_y_v * ( 1 - bkg_mr_v )
         Nn_v = sig_y_v * sig_mr_v - bkg_y_v * bkg_mr_v
@@ -184,6 +209,8 @@ def main(args) :
     parser.add_argument( '-c', '--channel', dest='channel',type=str, required=True )
     parser.add_argument( '-o', '--obs', dest='obs',type=str, required=True )
     parser.add_argument( '-v', '--varied', dest='varied',type=str, required=True )  #'up', 'down'
+    parser.add_argument( '-r', '--strategy', dest='strategy', type=str, default='mvaa' )
+    #parser.add_argument( '-m', '--mlbcut', dest='mlbcut', type=bool, default=True )
     try:
         opt = parser.parse_args(args[1:])
     except:
@@ -192,7 +219,7 @@ def main(args) :
         raise
 
 
-    name_list = [ opt.syst, opt.varied, opt.channel, opt.obs ]
+    name_list = [ opt.syst, opt.varied, opt.channel, opt.obs, opt.strategy ]
 
 
     mean, width = GetSyst( name_list )
@@ -201,9 +228,9 @@ def main(args) :
     print "syst mean : " + str( mean )
     print "syst width : " + str( width )
 
-    var_name = name_list[0] + "_" + name_list[1] + "_" + name_list[2] + "_" + name_list[3];
+    var_name = name_list[0] + "_" + name_list[1] + "_" + name_list[2] + "_" + name_list[3] + "_" + name_list[4];
     
-    f2 = open( "/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/Uncertainty_fit/systematic_result.txt", "a" )
+    f2 = open( "/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/Uncertainty_fit/systematic_result_" + opt.strategy + ".txt", "a" )
     f2.write( var_name + " Mean : " + str( mean ) )
     f2.write( " , StdDev : " + str( width ) + "\n\n" )
     f2.close()

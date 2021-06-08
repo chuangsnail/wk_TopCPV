@@ -15,6 +15,8 @@
 
 using namespace std;
 
+//exe mva/chi2 algo-cut is_Mlb_cut normal/test
+
 int main(int argc,char* argv[])
 {
 //FLAG//
@@ -245,14 +247,13 @@ int main(int argc,char* argv[])
 	
 	string time_str = "";
 	time_str = get_time_str( minute );
-	string new_file_name = training_name + string("_DetBiasAcp_CR_") + time_str + ".root";
+	string new_file_name = training_name + string("_DetBiasAcp_SRbkg_") + string() + string("_") + time_str + ".root";
 
 	TFile* f_out = new TFile( new_file_name.c_str() , "recreate" );
 
 	hists_acp.WriteIn();
 
 	f_out->Close();
-/*
 	ofstream f;
 	f.open( "/wk_cms2/cychuang/CMSSW_9_4_13/src/TopCPViolation/information/cor_result.txt",fstream::app );		
 
@@ -261,7 +262,6 @@ int main(int argc,char* argv[])
 	f << "Finish time is : " << time_str << endl;
 
 	f << "==============================================================" << endl; 
-*/	
 	
 	cout << "starting loop time : " << startingtime << endl;
 	cout << "ending loop time : " << time_str << endl;

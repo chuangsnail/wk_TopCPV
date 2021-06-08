@@ -11,7 +11,8 @@ using namespace RooFit;
 
 void Get_fit_result( const string& condition, const string& NOMSIGroot, const string& NOMBKGroot,\
 	   	const string& SNGroot, const string& BKGroot, const string& channel,\
-	   	const string& obs_name, const int& seed = 1, const int& set_no = 200 );
+	   	const string& obs_name, const int& seed = 1, const int& set_no = 200,\
+	   	const string& strategy = "chi2" );
 void FIT_1( TH1D* h_PD, TH1D* h_signal, TH1D* h_B, double* yields, const string& pdf_name );
 TH2D* generate( TRandom3& rnd, TH2D* h_ori, const int& required_no );
 double* Make_cdf_Grid( TH2D* h_ori );

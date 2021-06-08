@@ -1,0 +1,70 @@
+SRbkg
+File name chi2_Mlbcut
+starting time is : 200928_2011
+Finish time is : 200928_2013
+==============================================================
+SRbkg
+File name a05_all_MLP_noMlbcut
+starting time is : 200928_2011
+Finish time is : 200928_2013
+==============================================================
+SRbkg
+File name chi2_Mlbcut
+starting time is : 200928_2106
+Finish time is : 200928_2108
+==============================================================
+SRbkg 
+File name a05_MLP_noMlbcut
+starting time is : 200928_2115
+Finish time is : 200928_2116
+==============================================================
+SRbkg 
+File name a05_MLP_Mlbcut
+starting time is : 200928_2115
+Finish time is : 200928_2117
+==============================================================
+SRtt 
+File name a05_MLP_noMlbcut
+starting time is : 200928_2125
+Finish time is : 200928_2141
+==============================================================
+SRtt 
+File name a05_MLP_Mlbcut
+starting time is : 200928_2134
+Finish time is : 200928_2151
+==============================================================
+SRtt 
+File name chi2_Mlbcut
+starting time is : 200928_2135
+Finish time is : 200928_2153
+==============================================================
+SRbkg 
+File name a05_MLP_noMlbcut
+starting time is : 200928_2205
+Finish time is : 200928_2207
+==============================================================
+SRbkg 
+File name chi2_Mlbcut
+starting time is : 200928_2206
+Finish time is : 200928_2207
+==============================================================
+SRbkg 
+File name a05_MLP_Mlbcut
+starting time is : 200928_2205
+Finish time is : 200928_2208
+==============================================================
+SRtt 
+File name chi2_Mlbcut
+starting time is : 200928_2205
+Finish time is : 200928_2217
+==============================================================
+SRtt 
+File name a05_MLP_noMlbcut
+starting time is : 200928_2203
+Finish time is : 200928_2219
+==============================================================
+SRtt 
+File name a05_MLP_Mlbcut
+starting time is : 200928_2204
+Finish time is : 200928_2222
+==============================================================

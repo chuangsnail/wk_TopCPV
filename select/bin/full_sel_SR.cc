@@ -109,6 +109,7 @@ int main(int argc,char* argv[])
 	double lep_weight;
 	double btag_weight;
 	double other_weight;
+	double pu_weight;
 	int SelLep;
 	int SelBJets[5];
 	int SelJets[20];
@@ -161,6 +162,7 @@ int main(int argc,char* argv[])
 		root_new->Branch( "t_Weight", &weight, "t_Weight/D" );
 		root_new->Branch( "LepWeight", &lep_weight, "LepWeight/D" );
 		root_new->Branch( "BtagWeight", &btag_weight, "BtagWeight/D" );
+		root_new->Branch( "PUWeight", &pu_weight, "PUWeight/D" );
 		root_new->Branch( "OtherWeight", &other_weight, "OtherWeight/D" );
 		
 		root_new->Branch( "SelLep", &SelLep, "SelLep/I" );
@@ -180,6 +182,7 @@ int main(int argc,char* argv[])
 			weight = 1.;	
 			lep_weight = 1.;
 			btag_weight = 1.;
+			pu_weight = 1.;
 			other_weight = 1.;
 			SelLep = -1;
 			for(int i=0;i<5;++i)
@@ -216,6 +219,7 @@ int main(int argc,char* argv[])
 			weight = sel.GetWeight();
 			lep_weight = sel.GetLepWeight();
 			btag_weight = sel.GetBtagWeight();
+			pu_weight = sel.GetPUWeight();
 			other_weight = sel.GetOtherWeight();
 
 			channel = sel.GetChannel();
